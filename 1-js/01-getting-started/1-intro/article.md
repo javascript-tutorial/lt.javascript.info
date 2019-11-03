@@ -76,42 +76,42 @@ Yra būdų komunikuoti su kamera/mikrofonu ir kitais įrenginiais, bet tai reika
 
 Šių ribojimų nėra, jeigu JavaScript'as vykdomas ne naršyklėje, bet, pavyzdžiui, serveryje. Šiuolaikinės naršyklės taip pat turi plugin'us/extension'us, kurie gali prašyti vartotojų leidimo.
 
-## What makes JavaScript unique?
+## Ko ypatingas JavaScript?
 
-There are at least *three* great things about JavaScript:
+JavaScript turi bent jau *tris* nuostabius dalykus:
 
 ```compare
-+ Full integration with HTML/CSS.
-+ Simple things are done simply.
-+ Support by all major browsers and enabled by default.
++ Pilna integracija su HTML/CSS
++ Paprastus dalykus padaryti yra nesudėtinga
++ Palaikoma visuose populiariausiuose naršyklėse
 ```
-JavaScript is the only browser technology that combines these three things.
+JavaScript'as yra vienintelė naršyklės technologija, kuri turi šiuos tris dalykus
 
-That's what makes JavaScript unique. That's why it's the most widespread tool for creating browser interfaces.
+Štai kuo ypatingas JavaScript'as. Dėl to tai yra viena labiausiai išplitusių technologijų, kalbant apie naršyklės interfeiso kūrimą.
 
-That said, JavaScript also allows to create servers, mobile applications, etc.
+Tačiau su JavaScript'u galima rašyti serverines, mobilias aplikacijas ir pan.
 
-## Languages "over" JavaScript
+## Alternatyvos
 
-The syntax of JavaScript does not suit everyone's needs. Different people want different features.
+JavaScript'o sintaksė, be abejo, tinka ne visiem ir ne visada. Skirtingi žmonės nori skirtingų pribumbasų.
 
-That's to be expected, because projects and requirements are different for everyone.
+Tas yra logiška, nes kiekvienas projektas yra skirtingas ir gali turėti labai skirtingų reikalavimų.
 
-So recently a plethora of new languages appeared, which are *transpiled* (converted) to JavaScript before they run in the browser.
+Dėl šių priežasčių atsirado daug kalbų, kurios yra *transpiliuojamos* (konvertuojamos) į JavaScript'ą ir tik tada vykdomos naršyklėje.
 
-Modern tools make the transpilation very fast and transparent, actually allowing developers to code in another language and auto-converting it "under the hood".
+Modernūs įrankiai atlieką transpiliavimą labai greitai, tad programuotojai gali programuoti šiomis kalbomis nesigilindami į patį transpiliavimo procesą.
 
-Examples of such languages:
+Tokių kalbų pavyzdžiai:
 
-- [CoffeeScript](http://coffeescript.org/) is a "syntactic sugar" for JavaScript. It introduces shorter syntax, allowing us to write clearer and more precise code. Usually, Ruby devs like it.
-- [TypeScript](http://www.typescriptlang.org/) is concentrated on adding "strict data typing" to simplify the development and support of complex systems. It is developed by Microsoft.
-- [Flow](http://flow.org/) also adds data typing, but in a different way. Developed by Facebook.
-- [Dart](https://www.dartlang.org/) is a standalone language that has its own engine that runs in non-browser environments (like mobile apps), but also can be transpiled to JavaScript. Developed by Google.
+- [CoffeeScript](http://coffeescript.org/) yra "syntactic sugar" JavaScript'ui. Trumpesnė sintaksė, su kuria galima rašyti aiškesnį ir konkretesnį kodą. Tas dažniausiai patinka Ruby programuotojams.
+- [TypeScript](http://www.typescriptlang.org/) pagrindinis tikslas yra įvesti statinį tipizavimą. Tas palengvina sudėtingų sistemų programavimą. Sukurtas Microsft.
+- [Flow](http://flow.org/) taip pat turi statinį tipizavimą, bet kiek kitokiu būdu. Sukurtas Facebook.
+- [Dart](https://www.dartlang.org/) yra atskira kalba, kuri turi savo paties variklį, kuris veikia ne naršyklėse (pvz. mobiliose aplikacijose), bet taip pat gali būti transpiliuotas į Javascriptą. Sukurtas Google.
 
-There are more. Of course, even if we use one of transpiled languages, we should also know JavaScript to really understand what we're doing.
+Yra ir daugiaų pavyzdžių. Tačiau, netgi jeigu mes naudojame kažkurią iš transpiliuojamų kalbų, suprasti JavaScript'ą yra ne mažiau svarbu.
 
-## Summary
+## Reziumė
 
-- JavaScript was initially created as a browser-only language, but is now used in many other environments as well.
-- Today, JavaScript has a unique position as the most widely-adopted browser language with full integration with HTML/CSS.
-- There are many languages that get "transpiled" to JavaScript and provide certain features. It is recommended to take a look at them, at least briefly, after mastering JavaScript.
+- JavaScript'as iš pat pradžių buvo sukurtas kaip kalba, veikianti naršyklėje, bet dabar turi ir daugiau aplinkų, kuriose gali būti vykdoma.
+- Šią dieną JavaScript'as yra unikalus tuo, kad tai labiausiai paplitusi kalba naršyklei, turinti pilną integraciją su HTML/CSS.
+- Yra daug kalbų, kurios gali būti "transipliuotos" į JavaScript'ą ir turi papildomų funkcijų. Rekomenduojama į jas bent jau trumpai pažvelgti po to, kaip išmoksti JavaScript'ą.
