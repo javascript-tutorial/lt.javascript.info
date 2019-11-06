@@ -1,42 +1,41 @@
 
-# Manuals and specifications
+# Manualai ir specifikacijos
 
-This book is a *tutorial*. It aims to help you gradually learn the language. But once you're familiar with the basics, you'll need other sources.
+Ši knyga yra *tutorialas*. Jo tikslas - padėti palaipsniui išmokti kalbą. Tačiau kuomet išmoksti basic'us, prireikia kitų resursų.
 
-## Specification
+## Specifikacija
 
-[The ECMA-262 specification](https://www.ecma-international.org/publications/standards/Ecma-262.htm) contains the most in-depth, detailed and formalized information about JavaScript. It defines the language.
+[The ECMA-262 specification](https://www.ecma-international.org/publications/standards/Ecma-262.htm) turi pačią nuodugniausią, detalią ir formalią informaciją apie JavaScript'ą. Iš esmės, ši specifikacija apibrėžia pačią kalbą.
 
-But being that formalized, it's difficult to understand at first. So if you need the most trustworthy source of information about the language details, the specification is the right place. But it's not for everyday use.
+Tačiau iš šios specifikacijos mokytis iš pat pradžių yra ganėtinai sunku, nes informacija yra labai formali. Taip, kad jeigu reikia pačios tiksliausios informacijos apie kalbą, specifikacija yra puikus resursas. Tačiau vargu, ar to prireiks kiekvieną dieną.
 
-A new specification version is released every year. In-between these releases, the latest specification draft is at <https://tc39.es/ecma262/>.
+Nauja specifikacijos versija yra išleidžiama kasmet. Tarp šitų releas'ų, juodraštį (draft'ą) galima rasti <https://tc39.es/ecma262/>.
 
-To read about new bleeding-edge features, including those that are "almost standard" (so-called "stage 3"), see proposals at <https://github.com/tc39/proposals>.
+Perskaityti apie naujausius features, įskaitant ir tuos, kurie yra "beveik standartas" (dar vadinama "stage 3") galima rasti <https://github.com/tc39/proposals>.
 
-Also, if you're in developing for the browser, then there are other specs covered in the [second part](info:browser-environment) of the tutorial.
+Taip pat, jeigu norima programuoti naršyklei, tam yra kita specifikacija, kurią gali rasti [antroje](info:browser-environment) tutorial'o dalyje.
 
-## Manuals
+## Manualai
+- **MDN (Mozilla) JavaScript Reference** yra manualas su pavyzdžiais ir kita informacija. Tinka, jeigu reikia detalios informacijos apie konkrečias kalbos funkcijas, metodus, ir pan.
 
-- **MDN (Mozilla) JavaScript Reference** is a manual with examples and other information. It's great to get in-depth information about individual language functions, methods etc.
+	Manualą galima rasti <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference>.
 
-    One can find it at <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference>.
-
-    Although, it's often best to use an internet search instead. Just use "MDN [term]" in the query, e.g. <https://google.com/search?q=MDN+parseInt> to search for `parseInt` function.
+	Tačiau, dažniausiai geriausia tiesiog ieškoti informacijos internete. Verta tiesiog naudoti "MDN [apibrėžimas]" užklausoje, pavyzdžiui <https://google.com/search?q=MDN+parseInt> tam, kad rasti informacijos apie `parseInt` funkciją.
 
 
-- **MSDN** – Microsoft manual with a lot of information, including JavaScript (often referred to as JScript). If one needs something specific to Internet Explorer, better go there: <http://msdn.microsoft.com/>.
+- **MSDN** - Microsoft'o manualas, turintis daug informacijos, įskaitant JavaScript'ą (dažnai vadinamas JScript). Jeigu reikia kažko konkretaus Internet Explorer'iui, geriau eiti čia: <http://msdn.microsoft.com/>.
 
-    Also, we can use an internet search with phrases such as "RegExp MSDN" or "RegExp MSDN jscript".
+	Taip pat, galima naudoti paiešką internete su frazėmis, tokiomis kaip "RegExp MSDN" arba "RegExp MSDN jscript".
 
-## Compatibility tables
+## Suderinamumo (compatibility) lentelės
 
-JavaScript is a developing language, new features get added regularly.
+JavaScript yra nuolatos tobulinama kalba, todėl nauji features atsiranda reguliariai.
 
-To see their support among browser-based and other engines, see:
+Pamatyti, ar šiuos features palaiko konkrečios naršyklės ar kiti varikliai, galima čia:
 
-- <http://caniuse.com> - per-feature tables of support, e.g. to see which engines support modern cryptography functions: <http://caniuse.com/#feat=cryptography>.
-- <https://kangax.github.io/compat-table> - a table with language features and engines that support those or don't support.
+- <http://caniuse.com> - kiekvieno feature suderinamumo lentelės. T.y. kad pamatyti kurie varikliai palaiko modernias kriptografijos funkcijas: <http://caniuse.com/#feat=cryptography>.
+- <https://kangax.github.io/compat-table> - lentelė su kalbos features ir varikliais, kurie palaiko/nepalaiko šiuos features
 
-All these resources are useful in real-life development, as they contain valuable information about language details, their support etc.
+Visi šie resursai yra naudingi realiam pasaulyje, nes jie turi svarbios informacijos apie kalbą, suderinamumą ir pan
 
-Please remember them (or this page) for the cases when you need in-depth information about a particular feature.
+Prisimink juos tiems atvejams, kai reikės detalios informacijos apie konkretų feature.
