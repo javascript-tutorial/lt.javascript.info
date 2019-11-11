@@ -38,11 +38,7 @@ Varikliai yra sudėtingi daiktai, bet basic'ai yra paprasti.
 2. Konvertuoja ("kompiliuoja") skriptą į mašininį kodą.
 3. Vykdomas mašininis kodas.
 
-<<<<<<< HEAD
 Varikliai optimizuoja kodą kiekviename žingsnyje. Jie netgi stebi sukompiliuotą skriptą, kuomet jis vykdomas, bei analizuoja duomenis, kurie jame naudojami, ir pagal tai taiko papildomas optimizacijas. Po viso šio procesio, skriptai yra vykdomi gan greitai.
-=======
-The engine applies optimizations at each step of the process. It even watches the compiled script as it runs, analyzes the data that flows through it, and further optimizes the machine code based on that knowledge.
->>>>>>> 2b5ac971c1bd8abe7b17cdcf724afd84799b6cbd
 ```
 
 ## Ką gali JavaScript'as padaryti naršyklėje?
