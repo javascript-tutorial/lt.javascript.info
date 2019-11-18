@@ -1,64 +1,64 @@
 # Developer console
 
-Code is prone to errors. You will quite likely make errors... Oh, what am I talking about? You are *absolutely* going to make errors, at least if you're a human, not a [robot](https://en.wikipedia.org/wiki/Bender_(Futurama)).
+Kode lengva palikti errorų. Ko gero, tau teks sukelti errorų... Juokauju, tau *tikrai* teks sukelti errorų, nebent esi [robotas](https://en.wikipedia.org/wiki/Bender_(Futurama)).
 
-But in the browser, users don't see errors by default. So, if something goes wrong in the script, we won't see what's broken and can't fix it.
+Tačiau naršyklėje, useriai by default nemato errorų. Todėl jeigu skripte kažkas veikia ne taip, kaip turėtų, mes to nepamatysim ir negalėsim pataisyt.
 
-To see errors and get a lot of other useful information about scripts, "developer tools" have been embedded in browsers.
+Tam, kad pamatyti errorus ir gauti daug kitos naudingos informacijos apie skriptus, "developer tools" yra integruoti pačiose naršyklėse.
 
-Most developers lean towards Chrome or Firefox for development because those browsers have the best developer tools. Other browsers also provide developer tools, sometimes with special features, but are usually playing "catch-up" to Chrome or Firefox. So most developers have a "favorite" browser and switch to others if a problem is browser-specific.
+Dauguma programuotojų naudojasi Chrome arba Firefox, nes šios naršyklės turi geriausius developer tools'us. Kitos naršklės taip pat turi developer tools'us, kartais su įdomiais feature'sais, tačiau dažniausiai bando "pasivyti" Chrome arba Firefox. Todėl dauguma programuotojų turi "mėgstamiausią" naršyklę ir įsijungią kitą naršyklę, jeigu problema yra specifinė kažkokiai konkrečiai naršyklei.
 
-Developer tools are potent; they have many features. To start, we'll learn how to open them, look at errors, and run JavaScript commands.
+Developer tools'ai turi daug feature'sų. Pradžiai, mes išmoksim kaip juos atidaryti, pažvelgti į error'us ir paleisti JavaScript komandas.
 
 ## Google Chrome
 
-Open the page [bug.html](bug.html).
+Atidaryk puslapį [bug.html](bug.html).
 
-There's an error in the JavaScript code on it. It's hidden from a regular visitor's eyes, so let's open developer tools to see it.
+Šio puslapio JavaScript kode yra error'as. Jis paslėptas nuo "parpastų" žmonių, tad atidarykime developer tools'us.
 
-Press `key:F12` or, if you're on Mac, then `key:Cmd+Opt+J`.
+Spausk `key:F12` arba, jeigu naudoji Mac, `key:Cmd+Opt+J`.
 
-The developer tools will open on the Console tab by default.
+Developer tools'ai standartiškai atidarys Console tab'ą.
 
-It looks somewhat like this:
+Turėtų atrodyt kažkas panašaus į tai:
 
 ![chrome](chrome.png)
 
-The exact look of developer tools depends on your version of Chrome. It changes from time to time but should be similar.
+Konkretus vaizdas priklauso nuo Chrome versijos, kurią naudoji. Kartais atsiranda pakeitimų, bet visgi vaizdas turėtų būti panašus.
 
-- Here we can see the red-colored error message. In this case, the script contains an unknown "lalala" command.
-- On the right, there is a clickable link to the source `bug.html:12` with the line number where the error has occurred.
+- Čia mes galim pamatyt raudoną error message. Šiuo atveju skriptas turi nežinomą "lalala" komandą.
+- Dešinėje yra clickable link'as į `bug.html:12` su skaičiumi eilutės, kurioje yra error'as.
 
-Below the error message, there is a blue `>` symbol. It marks a "command line" where we can type JavaScript commands. Press `key:Enter` to run them (`key:Shift+Enter` to input multi-line commands).
+Žemiau error message'o yra mėlynas `>` simbolis. Jis parodo "command line", kuriame mes galime rašyti JavaScript komandas. Spausk `key:Enter` kad jas paleisti (`key:Shift+Enter` kad rašyti komandas per daugiau nei vieną eilutę).
 
-Now we can see errors, and that's enough for a start. We'll come back to developer tools later and cover debugging more in-depth in the chapter <info:debugging-chrome>.
+Dabar mes galime matyti error'us. Kaip pradžiai, to pakanka. Vėliau mes grįšim į developer tools'us ir kalbėsim apie debugginimą chapteryje <info:debugging-chrome>.
 
 
-## Firefox, Edge, and others
+## Firefox, Edge ir kiti
 
-Most other browsers use `key:F12` to open developer tools.
+Dauguma kitų naršyklių naudoja `key:F12` developer tools'ų atidarymui.
 
-The look & feel of them is quite similar. Once you know how to use one of these tools (you can start with Chrome), you can easily switch to another.
+Jų išvaizda gan panaši. Kai išmoksti vieną (gali pradėti nuo Chrome), gali greitai pradėti naudotis kita.
 
 ## Safari
 
-Safari (Mac browser, not supported by Windows/Linux) is a little bit special here. We need to enable the "Develop menu" first.
+Safari (Mac naršyklė, neveikia Windows/Linux) yra šiek tiek unikali. Iš pradžių mums reikia enablinti "Developer menu".
 
-Open Preferences and go to the "Advanced" pane. There's a checkbox at the bottom:
+Atidaryk Preferences ir eik į "Advanced". Apačioj bus checkbox'as:
 
 ![safari](safari.png)
 
-Now `key:Cmd+Opt+C` can toggle the console. Also, note that the new top menu item named "Develop" has appeared. It has many commands and options.
+Dabar `key:Cmd+Opt+C` įjungs konsolę. Taip pat turėk omeny, kad naujas item'as "Develop" atsirado viršutiniam meniu. Jame yra daug komandų ir nustatymų.
 
-```smart header="Multi-line input"
-Usually, when we put a line of code into the console, and then press `key:Enter`, it executes.
+```smart header="Kelių eilučių komandos"
+Dažniausiai, jeigu konsolėje parašome vieną eilutę kodo ir paspaudžiame `key:Enter`, ji suveikia.
 
-To insert multiple lines, press `key:Shift+Enter`. This way one can enter long fragments of JavaScript code.
+Tam, kad parašyti kelias eilutes, spausk `key:Shift+Enter`. Tokiu būdu mes galime parašyti ilgesnius fragmentus JavaScript kodo.
 ```
 
-## Summary
+## Reziumė
 
-- Developer tools allow us to see errors, run commands, examine variables, and much more.
-- They can be opened with `key:F12` for most browsers on Windows. Chrome for Mac needs `key:Cmd+Opt+J`, Safari: `key:Cmd+Opt+C` (need to enable first).
+- Developer tools'ai leidžia mum pamatyti errorus, paleisti komandas, analizuoti kintamuosiuos ir daugiau.
+- Juos paleisti galime su `key:F12` dauguma naršklių Windows'uose. Chrome, jeigu naudojame Mac, reikaluaja `key:Cmd+Opt+J`, Safari: `key:Cmd+Opt+C` (iš pradžių reikia aktyvuoti).
 
-Now we have the environment ready. In the next section, we'll get down to JavaScript.
+Dabar mes turime paruoštą aplinką. Kitoj pamokoj paragausim JavaScript'o.
