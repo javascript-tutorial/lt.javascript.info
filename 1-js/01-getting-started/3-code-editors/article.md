@@ -14,7 +14,7 @@ Jeigu dar nepasirinkai IDE, pamąstyk apie šiuos:
 - [Visual Studio Code](https://code.visualstudio.com/) (cross-platform, free).
 - [WebStorm](http://www.jetbrains.com/webstorm/) (cross-platform, paid).
 
-Windows'am taip pat yra "Visual Studio", tačiau nereiktų maišyt jo su "Visual Studio Code". "Visual Studio" yra mokamas ir tik Windows'am skirtas editorius, kuris puikiai derinasi su .NET platforma. Jis taip pat tinka ir JavaScript'ui. yra ir nemokama versija [Visual Studio Community](https://www.visualstudio.com/vs/community/).
+Windows'am taip pat yra "Visual Studio", tačiau nereiktų jo maišyt su "Visual Studio Code". "Visual Studio" yra mokamas ir tik Windows'am skirtas editorius, kuris puikiai derinasi su .NET platforma. Jis taip pat tinka ir JavaScript'ui. yra ir nemokama versija [Visual Studio Community](https://www.visualstudio.com/vs/community/).
 
 Dauguma IDE yra mokami, tačiau turi trial periodą. Jų kaina dažniausiai pakenčiama, atsižvelgus į programuotojų atlyginimus, tad tiesiog išsirink tokį, kuris atrodo palankiausiai.
 
