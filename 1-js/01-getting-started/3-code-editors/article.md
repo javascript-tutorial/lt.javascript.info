@@ -1,46 +1,45 @@
-# Code editors
+# Kodo editoriai
 
-A code editor is the place where programmers spend most of their time.
+Kodo editorius yra vieta, kur programuotojai praleidžia didžiają dalį laiko.
 
-There are two main types of code editors: IDEs and lightweight editors. Many people use one tool of each type.
+Yra dviejų tipų editoriai: IDE ir lightweight editoriai. Dauguma žmonių naudoja po viena abiejų tipų editorių.
 
 ## IDE
+Terminas [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) nusako galingą editorių su daug galimybių, kurios dažnai operuoja "visam projektui". Kaip ir nusako pavadinimas - tai ne tik editorius, bet ir visa "developinimo aplinka".
 
-The term [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) (Integrated Development Environment) refers to a powerful editor with many features that usually operates on a "whole project." As the name suggests, it's not just an editor, but a full-scale "development environment."
+IDE pakrauną visą projektą (kuris gali turėti daug failų), leidžia naviguoti tarp failų, duoda autocompletion, kuris galioja visam projektui (ne tik vienam failui) ir integruoja versijavimo sistemą (pvz. [git](https://git-scm.com/)), testavimo aplinką ir kitus "projekto lygio" dalykėlius.
 
-An IDE loads the project (which can be many files), allows navigation between files, provides autocompletion based on the whole project (not just the open file), and integrates with a version management system (like [git](https://git-scm.com/)), a testing environment, and other "project-level" stuff.
-
-If you haven't selected an IDE yet, consider the following options:
+Jeigu dar nepasirinkai IDE, pamąstyk apie šiuos:
 
 - [Visual Studio Code](https://code.visualstudio.com/) (cross-platform, free).
 - [WebStorm](http://www.jetbrains.com/webstorm/) (cross-platform, paid).
 
-For Windows, there's also "Visual Studio", not to be confused with "Visual Studio Code". "Visual Studio" is a paid and mighty Windows-only editor, well-suited for the .NET platform. It's also good at JavaScript. There's also a free version [Visual Studio Community](https://www.visualstudio.com/vs/community/).
+Windows'am taip pat yra "Visual Studio", tačiau nereiktų maišyt jo su "Visual Studio Code". "Visual Studio" yra mokamas ir tik Windows'am skirtas editorius, kuris puikiai derinasi su .NET platforma. Jis taip pat tinka ir JavaScript'ui. yra ir nemokama versija [Visual Studio Community](https://www.visualstudio.com/vs/community/).
 
-Many IDEs are paid, but have a trial period. Their cost is usually negligible compared to a qualified developer's salary, so just choose the best one for you.
+Dauguma IDE yra mokami, tačiau turi trial periodą. Jų kaina dažniausiai pakenčiama, atsižvelgus į programuotojų atlyginimus, tad tiesiog išsirink tokį, kuris atrodo palankiausiai.
 
-## Lightweight editors
+## Lightweight editoriai
 
-"Lightweight editors" are not as powerful as IDEs, but they're fast, elegant and simple.
+"Lightweight editoriai" yra ne tokie galingi kaip IDE, bet jie yra greiti, elegantiški ir paprasti.
 
-They are mainly used to open and edit a file instantly.
+Jie pagrinde naudojami greitai atidaryti ir pakoreguoti failą.
 
-The main difference between a "lightweight editor" and an "IDE" is that an IDE works on a project-level, so it loads much more data on start, analyzes the project structure if needed and so on. A lightweight editor is much faster if we need only one file.
+Pagrindinis skirtumas tarp "ligthweight editoriaus" ir "IDE" yra tas, kad IDE veikia projekto lygmeny, todėl pačioj pradžioj jis pakrauna daug daugiau informacijos, analizuoja projekto struktūrą, jei to reikia, ir pan. Lightweight editorius yra daug greitesnis, jeigu mums tereikia pakeisti vieną failą.
 
-In practice, lightweight editors may have a lot of plugins including directory-level syntax analyzers and autocompleters, so there's no strict border between a lightweight editor and an IDE.
+Praktikoj, lightweight editoriai turi daug pluginų, įskaitant direktorijos lygmenys sintaksės analyzerius, autocompleterius, tad šitoj vietoj nėra griežtų ribų tarp ligthweight editoriaus ir IDE.
 
-The following options deserve your attention:
+Šios opcijos vertos dėmesio:
 
 - [Atom](https://atom.io/) (cross-platform, free).
 - [Visual Studio Code](https://code.visualstudio.com/) (cross-platform, free).
 - [Sublime Text](http://www.sublimetext.com) (cross-platform, shareware).
 - [Notepad++](https://notepad-plus-plus.org/) (Windows, free).
-- [Vim](http://www.vim.org/) and [Emacs](https://www.gnu.org/software/emacs/) are also cool if you know how to use them.
+- [Vim](http://www.vim.org/) and [Emacs](https://www.gnu.org/software/emacs/) yra labai cool, jeigu moki jais naudotis.
 
-## Let's not argue
+## Nesiginčykime
 
-The editors in the lists above are those that either I or my friends whom I consider good developers have been using for a long time and are happy with.
+Editoriai, kurie buvo paminėti šioj pamokoj yra tie, kuriuos aš ir mano draugai, kuriuos laikau kietais programuotojais, naudojame ilgą laiką ir kurie tenkina mūsų poreikius.
 
-There are other great editors in our big world. Please choose the one you like the most.
+Mūsų dideliam pasaulyje yra kitų puikių editorių. Tiesiog pasirink tokį, kuris tau labiausiai patinka.
 
-The choice of an editor, like any other tool, is individual and depends on your projects, habits, and personal preferences.
+Editoriaus pasirinkimas, kaip ir bet kokio kito įrankio, yra individualus ir priklauso nuo projektų bei kitų, dažnai subjektyvių kriterijų.
