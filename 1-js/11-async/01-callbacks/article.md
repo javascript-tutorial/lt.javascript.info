@@ -1,20 +1,20 @@
 
 
-# Introduction: callbacks
+# Įvadas: *callbacks*
 
 ```warn header="We use browser methods here"
-To demonstrate the use of callbacks, promises and other abstract concepts, we'll be using some browser methods; specifically, loading scripts and performing simple document manipulations.
+*Callbackų*, *promise'ų* ir kitų abstrakčių koncepcijų veikimo demonstacijai, bus naudojami naršyklės metodai. Pagrinde bus atliekamos paprastos dokumentų manipuliacijos pasitelkiant skriptus.
 
-If you're not familiar with these methods, and their usage in the examples is confusing, or if you would just like to understand them better, you may want to read a few chapters from the [next part](/document) of the tutorial.
+Jeigu šie metodai Jums dar nepažįstami, jų naudojimas pavyzdžiuose trikdo ar tiesiog norėtumėte juos suprasti geriau, pamėginkite paskaityti kelis skyrius iš kitos šių pratybų [dalies](/document).
 ```
 
-Many actions in JavaScript are *asynchronous*. In other words, we initiate them now, but they finish later.
+Daugelis veiksmų JavaScripte yra *asinchroniški* (*asynchronous*). Kitaip tariant, mes juos inicijuojame dabar, bet jie įvykdomi vėliau.
 
-For instance, we can schedule such actions using `setTimeout`.
+Tokį veiksmą ateičiai mes galime suplanuoti naudodami `setTimeout` metodą.
 
-There are other real-world examples of asynchronous actions, e.g. loading scripts and modules (we'll cover them in later chapters).
+Egzistuoja ir kiti asinchroninių veiksmų pavyzdžiai, tarkime, skriptų ir modulių (*modules*) užkrovimas (juos aptarsime vėlesniuose skyriuose).
 
-Take a look at the function `loadScript(src)`, that loads a script with the given `src`:
+Pažvelkite į `loadScript(src)` funkciją, kurį užkrauna skriptą su pateiktu `src`.
 
 ```js
 function loadScript(src) {
@@ -24,41 +24,41 @@ function loadScript(src) {
 }
 ```
 
-It appends to the document the new, dynamically created, tag `<script src="…">`. The browser loads and executes it.
+Ši funkcija prideda (*appends*) naują, dinamiškai sukurtą žymą (*tag*) `<script src="…">`. Naršyklės ją užkrauna ir įvykdo.
 
-We can use this function like this:
+Šią funkciją mes galime panaudoti šitaip:
 
 ```js
-// load and execute the script at the given path
+// užkrauti ir vykdyti nurodytoje vietoje esantį skriptą
 loadScript('/my/script.js');
 ```
 
-The script is executed "asynchronously", as it starts loading now, but runs later, when the function has already finished.
+Skriptas yra vykdomas „asinchroniškai“. Jis pradeda krautis dabar, bet įvykdomas vėliau, kai funkcijos vykdymas jau būna pasibaigęs.
 
-If there's any code below `loadScript(…)`, it doesn't wait until the script loading finishes.
+Jeigu po `loadScript(…)` yra papildomas kodas, jis nelauks kol pasibaigs skripto krovimasis.
 
 ```js
 loadScript('/my/script.js');
-// the code below loadScript
-// doesn't wait for the script loading to finish
+// kodas žemiau loadScript
+// nelauks kol šio skripto krovimasis baigsis
 // ...
 ```
 
-Let's say we need to use the new script as soon as it loads. It declares new functions, and we want to run them.
+Sakykime, mes norime panaudoti skriptą, kai tik jis užsikraus – galbūt jis deklaruoja naujas funkcijas ir mes norime jas naudoti.
 
-But if we do that immediately after the `loadScript(…)` call, that wouldn't work:
+Bet šitai nesuveiks, jei to imsimės tuoj po `loadScript(…)` iškvietimo:
 
 ```js
-loadScript('/my/script.js'); // the script has "function newFunction() {…}"
+loadScript('/my/script.js'); // skriptas savyje turi funkciją "function newFunction() {…}"
 
 *!*
-newFunction(); // no such function!
+newFunction(); // toksios funkcijos nėra!
 */!*
 ```
 
-Naturally, the browser probably didn't have time to load the script. As of now, the `loadScript` function doesn't provide a way to track the load completion. The script loads and eventually runs, that's all. But we'd like to know when it happens, to use new functions and variables from that script.
+Suprantama, naršyklė, greičiausiai, neturėjo laiko užkrauti skriptui. Nuo šio momento funkcija `loadScript` nesuteikia galimybės sekti užsikrovimo baigties. Skriptas užsikrauna ir tiesiog yra įvykdomas. Bet mūsų tikslas yra žinoti, kada tai įvyksta, kad galėtume naudoti minėto skripto sukurtas naujas funkcijas ir kintamuosius.
 
-Let's add a `callback` function as a second argument to `loadScript` that should execute when the script loads:
+Pridėkime `callback` funkciją kaip antrą `loadScript` funkcijos argumentą, kuri turėtų būti vykdoma, kai skriptas užsikraus:
 
 ```js
 function loadScript(src, *!*callback*/!*) {
@@ -73,19 +73,19 @@ function loadScript(src, *!*callback*/!*) {
 }
 ```
 
-Now if we want to call new functions from the script, we should write that in the callback:
+Jeigu mes norime iškviesti naujas funkcijas iš skripto, mes turėtume tai aprašyti *callback'e*:
 
 ```js
 loadScript('/my/script.js', function() {
-  // the callback runs after the script is loaded
-  newFunction(); // so now it works
+  // callback'as vykdomas po skripto užsikrovimo
+  newFunction(); // dabar fukncija veikia
   ...
 });
 ```
 
-That's the idea: the second argument is a function (usually anonymous) that runs when the action is completed.
+Idėja tokia: antrasis argumentas yra funkcija (dažniausia anoniminė), kuri paleidžiama, kai veiksmas yra užbaigtas.
 
-Here's a runnable example with a real script:
+Štai veikiantis pavyzdys su realiu skriptu:
 
 ```js run
 function loadScript(src, callback) {
@@ -98,20 +98,20 @@ function loadScript(src, callback) {
 *!*
 loadScript('https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js', script => {
   alert(`Cool, the script ${script.src} is loaded`);
-  alert( _ ); // function declared in the loaded script
+  alert( _ ); // funkcija deklaruota užkrautame skripte
 });
 */!*
 ```
 
-That's called a "callback-based" style of asynchronous programming. A function that does something asynchronously should provide a `callback` argument where we put the function to run after it's complete.
+Tai vadinama *callback'ais* grįstu (*callback-based*) asinchroniniu programavimu – kažką asinchroniškai vykdanti funkcija, turėtų savyje turėti *callback* argumentą, į kurią galima įdėti kitą funkciją, įvykdomą pirmajai pasibaigus.
 
-Here we did it in `loadScript`, but of course, it's a general approach.
+Mes panašiai paderėme pavyzdynėje `loadScript` funkcijoje.
 
-## Callback in callback
+## *Callback* funkcija *callback* funkcijoje
 
-How can we load two scripts sequentially: the first one, and then the second one after it?
+O kaip paleisti du skriptus paeiliui? Pirmą, o po jo – antrą.
 
-The natural solution would be to put the second `loadScript` call inside the callback, like this:
+Naturalus sprendimas būtų įdėti antrąjį `loadScript` išvietimą *callbacke*, štai taip:
 
 ```js
 loadScript('/my/script.js', function(script) {
@@ -127,9 +127,9 @@ loadScript('/my/script.js', function(script) {
 });
 ```
 
-After the outer `loadScript` is complete, the callback initiates the inner one.
+Kai išorinė `loadScript` funkcija įvykdoma, *callbackas* inicijuoja vidinę.
 
-What if we want one more script...?
+O kas, jeigu mums reikalingas dar vienas skriptas?
 
 ```js
 loadScript('/my/script.js', function(script) {
@@ -138,7 +138,7 @@ loadScript('/my/script.js', function(script) {
 
 *!*
     loadScript('/my/script3.js', function(script) {
-      // ...continue after all scripts are loaded
+      // ...tęsti tik visiems skriptams užsikrovus
     });
 */!*
 
@@ -147,13 +147,13 @@ loadScript('/my/script.js', function(script) {
 });
 ```
 
-So, every new action is inside a callback. That's fine for few actions, but not good for many, so we'll see other variants soon.
+Taigi, kekviena nauja operacija yra *callbacko* viduje. Tai priimtina nedideliam kiekiui operacijų. Kitus šios problemos spredimo būdus aptarsime netrukus.
 
-## Handling errors
+## Tikdžių valdymas
 
-In the above examples we didn't consider errors. What if the script loading fails? Our callback should be able to react on that.
+Ankstesniuose pavyzdžiuose mes visiškai nekalbėjome apie tikdžius (*errors*). Kas, jei skripto krovimasis nepavyksta? Tokiu atveju mūsų *callbackas* turėtų sugebėti į tai reaguoti.
 
-Here's an improved version of `loadScript` that tracks loading errors:
+Štai patobulinta `loadScript` versija, kuri suseka krovimosi trikdžius.
 
 ```js
 function loadScript(src, callback) {
@@ -169,32 +169,32 @@ function loadScript(src, callback) {
 }
 ```
 
-It calls `callback(null, script)` for successful load and `callback(error)` otherwise.
+Ji iškviečia `callback(null, script)` sėkmingam krovimui ir `callback(error)` – nesėkmingam.
 
-The usage:
+Panaudojimas:
 ```js
 loadScript('/my/script.js', function(error, script) {
   if (error) {
-    // handle error
+    // suvaldomas trikdis
   } else {
-    // script loaded successfully
+    // skriptas užkrautas sėkmingai
   }
 });
 ```
 
-Once again, the recipe that we used for `loadScript` is actually quite common. It's called the "error-first callback" style.
+Būdas, kuriuo mes pasinaudojome paleisti `loadScript`, yra gan dažnas. Jis pirmenybę teikia trikdžių valdymui *callbackais* ("error-first callback style").
 
-The convention is:
-1. The first argument of the `callback` is reserved for an error if it occurs. Then `callback(err)` is called.
-2. The second argument (and the next ones if needed) are for the successful result. Then `callback(null, result1, result2…)` is called.
+Šio stiliaus konvencija teigia:
+1. Pirmasis *callbacko* argumentas yra rezervuotas trikdžiui, jei jis pasitaikys. Čia kviečiama `callback(err)` funkcija.
+2. Antrasis argumentas (ir tolimesni, jei jie reikalingi) yra skirtas sėkmingam rezultatui. Tuomet kviečiama `callback(null, result1, result2…)` funkcija.
 
-So the single `callback` function is used both for reporting errors and passing back results.
+Taigi, viena `callback` funkcija yra tinkama ir informavimui apie trikdžius ir rezultatų grąžinimui.
 
-## Pyramid of Doom
+## „Pražūties piraminė“ (Pyramid of Doom)
 
-From the first look, it's a viable way of asynchronous coding. And indeed it is. For one or maybe two nested calls it looks fine.
+Iš pirmo žvilgstio – tai geras būdas asinchroniniam kodavimui. Vienam ar dviem sugrupuotiems funkcijų išvietimams jis tikrai tinka.
 
-But for multiple asynchronous actions that follow one after another we'll have code like this:
+Bet didesniam kiekiui viena kitą sekančių asinchroninių operacijų mes turėsime štai tokį kodą:
 
 ```js
 loadScript('1.js', function(error, script) {
@@ -213,7 +213,7 @@ loadScript('1.js', function(error, script) {
             handleError(error);
           } else {
   *!*
-            // ...continue after all scripts are loaded (*)
+            // ...tęsti užsikrovus visiems skriptams (*)
   */!*
           }
         });
@@ -224,14 +224,14 @@ loadScript('1.js', function(error, script) {
 });
 ```
 
-In the code above:
-1. We load `1.js`, then if there's no error.
-2. We load `2.js`, then if there's no error.
-3. We load `3.js`, then if there's no error -- do something else `(*)`.
+Šiame kode:
+1. Mes krauname `1.js`, tuomet, jei nėra trikdžių.
+2. Mes krauname `2.js`, tuomet, jei nėra trikdžių.
+3. Mes krauname `3.js`, tuomet, jei nėra trikdžių – darome kažką kito `(*)`.
 
-As calls become more nested, the code becomes deeper and increasingly more difficult to manage, especially if we have real code instead of `...` that may include more loops, conditional statements and so on.
+Visi funkcijų išvietimai tampa vis labiau sugrupuoti, kodas gilėja ir tampa sunkiai suvaldomu. Ypač, jei vietoj daugtaškių `...` turime tikrą kodą, su ciklais (*loops*), sąlyginėmis išraiškomis (*conditional statements*) ir t.t.
 
-That's sometimes called "callback hell" or "pyramid of doom."
+Tai kartais vadinama „*callbackų* pragaru“ arba „pražūties piramide“.
 
 <!--
 loadScript('1.js', function(error, script) {
@@ -259,11 +259,11 @@ loadScript('1.js', function(error, script) {
 
 ![](callback-hell.svg)
 
-The "pyramid" of nested calls grows to the right with every asynchronous action. Soon it spirals out of control.
+Sugrupuotų funkcijų išvietimų piramidė auga su kiekviena asinchronine operacija ir greitai tampa nekontroliuojama.
 
-So this way of coding isn't very good.
+Todėl toks kodo rašymo būdas nėra labai geras.
 
-We can try to alleviate the problem by making every action a standalone function, like this:
+Galime sušvelninti padėtį paversdami kiekvieną veiksmą savarankiška funkcija štai taip:
 
 ```js
 loadScript('1.js', step1);
@@ -295,12 +295,12 @@ function step3(error, script) {
 };
 ```
 
-See? It does the same, and there's no deep nesting now because we made every action a separate top-level function.
+Matote? Ji daro tą patį, bet šiuo atveju nebeligo komplikuoto operacijų grupavimo, nes kiekvieną veiksmą mes pavertėme atskira *top-level* funkcija.
 
-It works, but the code looks like a torn apart spreadsheet. It's difficult to read, and you probably noticed that one needs to eye-jump between pieces while reading it. That's inconvenient, especially if the reader is not familiar with the code and doesn't know where to eye-jump.
+Viskas veikia, tačiau kodas atrodo prastai. Jis sunkiai skaitomas, o skaitytojas turi šokinėti nuo vienos kodo dalies prie kitos. Tai nepatogu, ypač jei skaitantysis nėra susipažinęs su šiuo kodu ir tiksliai nežino, kur ieškoti reikiamos kodo dalies.
 
-Also, the functions named `step*` are all of single use, they are created only to avoid the "pyramid of doom." No one is going to reuse them outside of the action chain. So there's a bit of namespace cluttering here.
+Taipogi, funkcijos pavadinimu `step*` yra vienkartinės ir sukurtus tik „pražūties piramidei“ išvengti. Jos nebebus panaudoto šios kodo grandinės išorėje, tad susiduriame su vardų srities (*namespace*) teršimu.
 
-We'd like to have something better.
+Mums reikėtų kažko geresnio.
 
-Luckily, there are other ways to avoid such pyramids. One of the best ways is to use "promises," described in the next chapter.
+Laimei, yra kitų būtų išvengti minėtų „piramidžių“. Geriausias būdas yra naudoti „pažadus“, aptariamus kitame skyriuje.
