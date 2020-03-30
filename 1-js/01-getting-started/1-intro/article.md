@@ -64,7 +64,11 @@ JavaScript'o galimybės naryklėje yra ribojamos dėl vartotojų saugumo. Tiksla
 Ribojimų pavyzdžiai:
 - JavaScript'as tinklalapyje negali skaityti/rašyti failus kietajame diske, juos kopijuoti arba vykdyti programas. JavaScript'as neturi tiesioginios prieigos prie operacinės sistemos funkcijų. 
 
+<<<<<<< HEAD
 	Modernios naršklės leidžia dirbti su failais, bet prieiga ribojama ir tai leidžiama tik jeigu vartotojas įvykdo kažką konkretaus. Pavyzdžiui, dragg'ina failą į naršklę arba pažymi failą per `<input>` tagą.
+=======
+- JavaScript on a webpage may not read/write arbitrary files on the hard disk, copy them or execute programs. It has no direct access to OS functions.
+>>>>>>> 62299ed853674c4fd1427cd310516d5535bce648
 
 Yra būdų komunikuoti su kamera/mikrofonu ir kitais įrenginiais, bet tai reikalauja išreikštinio vartotojo leidimo. Taigi, JavaScript'inis tinklalapis negali suktai įjungti web kamerą, stebėti aplinką ir siųsti informaciją į [NSA](https://en.wikipedia.org/wiki/National_Security_Agency).
 - Skirtingi tabai dažniausiai nežino vienas apie kitą. Tačiau kartais vienas tab'as naudoja JavaScript'ą tam, kad atidarytų kitą tab'ą, bet netgi tokiu atveju, JavaScript'as viename tab'e negali pasiekti kito tab'o, jeigu jie ateina iš skirtingų tinklalapių (skirtingas domenas, protokolas arba portas).
