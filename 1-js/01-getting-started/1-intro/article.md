@@ -4,7 +4,11 @@ Pažvelkime kuo įpatinga JavaScript kalba, ką mes galime su ja padaryti ir kok
 
 ## Kas yra JavaScript?
 
+<<<<<<< HEAD
 Iš pat pradžių *JavaScript* buvo sukurtas tam, kad *"padaryti tinklalapius gyvus"*.
+=======
+*JavaScript* was initially created to "make web pages alive".
+>>>>>>> f830bc5d9454d85829e011d914f215eb5896579a
 
 Programos, parašytos šia kalba yra vadinamos *skriptais*. Jos gali būti parašytos tinklalapio HTML ir veikti automatiškai, kuomet tinklalapis kraunamas.
 
@@ -64,7 +68,11 @@ JavaScript'o galimybės naryklėje yra ribojamos dėl vartotojų saugumo. Tiksla
 Ribojimų pavyzdžiai:
 - JavaScript'as tinklalapyje negali skaityti/rašyti failus kietajame diske, juos kopijuoti arba vykdyti programas. JavaScript'as neturi tiesioginios prieigos prie operacinės sistemos funkcijų. 
 
+<<<<<<< HEAD
 	Modernios naršklės leidžia dirbti su failais, bet prieiga ribojama ir tai leidžiama tik jeigu vartotojas įvykdo kažką konkretaus. Pavyzdžiui, dragg'ina failą į naršklę arba pažymi failą per `<input>` tagą.
+=======
+- JavaScript on a webpage may not read/write arbitrary files on the hard disk, copy them or execute programs. It has no direct access to OS functions.
+>>>>>>> f830bc5d9454d85829e011d914f215eb5896579a
 
 Yra būdų komunikuoti su kamera/mikrofonu ir kitais įrenginiais, bet tai reikalauja išreikštinio vartotojo leidimo. Taigi, JavaScript'inis tinklalapis negali suktai įjungti web kamerą, stebėti aplinką ir siųsti informaciją į [NSA](https://en.wikipedia.org/wiki/National_Security_Agency).
 - Skirtingi tabai dažniausiai nežino vienas apie kitą. Tačiau kartais vienas tab'as naudoja JavaScript'ą tam, kad atidarytų kitą tab'ą, bet netgi tokiu atveju, JavaScript'as viename tab'e negali pasiekti kito tab'o, jeigu jie ateina iš skirtingų tinklalapių (skirtingas domenas, protokolas arba portas).
@@ -103,10 +111,18 @@ Modernūs įrankiai atlieką transpiliavimą labai greitai, tad programuotojai g
 
 Tokių kalbų pavyzdžiai:
 
+<<<<<<< HEAD
 - [CoffeeScript](http://coffeescript.org/) yra "syntactic sugar" JavaScript'ui. Trumpesnė sintaksė, su kuria galima rašyti aiškesnį ir konkretesnį kodą. Tas dažniausiai patinka Ruby programuotojams.
 - [TypeScript](http://www.typescriptlang.org/) pagrindinis tikslas yra įvesti statinį tipizavimą. Tas palengvina sudėtingų sistemų programavimą. Sukurtas Microsft.
 - [Flow](http://flow.org/) taip pat turi statinį tipizavimą, bet kiek kitokiu būdu. Sukurtas Facebook.
 - [Dart](https://www.dartlang.org/) yra atskira kalba, kuri turi savo paties variklį, kuris veikia ne naršyklėse (pvz. mobiliose aplikacijose), bet taip pat gali būti transpiliuotas į Javascriptą. Sukurtas Google.
+=======
+- [CoffeeScript](http://coffeescript.org/) is a "syntactic sugar" for JavaScript. It introduces shorter syntax, allowing us to write clearer and more precise code. Usually, Ruby devs like it.
+- [TypeScript](http://www.typescriptlang.org/) is concentrated on adding "strict data typing" to simplify the development and support of complex systems. It is developed by Microsoft.
+- [Flow](http://flow.org/) also adds data typing, but in a different way. Developed by Facebook.
+- [Dart](https://www.dartlang.org/) is a standalone language that has its own engine that runs in non-browser environments (like mobile apps), but also can be transpiled to JavaScript. Developed by Google.
+- [Brython](https://brython.info/) is a Python transpiler to JavaScript that allow to write application in pure Python without JavaScript.
+>>>>>>> f830bc5d9454d85829e011d914f215eb5896579a
 
 Yra ir daugiaų pavyzdžių. Tačiau, netgi jeigu mes naudojame kažkurią iš transpiliuojamų kalbų, suprasti JavaScript'ą yra ne mažiau svarbu.
 
