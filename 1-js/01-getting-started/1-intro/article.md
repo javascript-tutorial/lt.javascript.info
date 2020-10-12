@@ -1,10 +1,18 @@
 # Įvadas į JavaScript  
 
+<<<<<<< HEAD
 Pažvelkime kuo įpatinga JavaScript kalba, ką mes galime su ja padaryti ir kokios kitos technologijos gali būti naudojamos kartu su ja
+=======
+Let's see what's so special about JavaScript, what we can achieve with it, and what other technologies play well with it.
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
 
 ## Kas yra JavaScript?
 
+<<<<<<< HEAD
 Iš pat pradžių *JavaScript* buvo sukurtas tam, kad *"padaryti tinklalapius gyvus"*.
+=======
+*JavaScript* was initially created to "make web pages alive".
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
 
 Programos, parašytos šia kalba yra vadinamos *skriptais*. Jos gali būti parašytos tinklalapio HTML ir veikti automatiškai, kuomet tinklalapis kraunamas.
 
@@ -24,9 +32,15 @@ Naršyklės turi savo vidinį variklį, kuris kartais vadinamas "JavaScript virt
 
 Skirtingi varikliai turi skirtingus "nickus". Pavyzdžiui:
 
+<<<<<<< HEAD
 - [V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine)) -- Chrome ir Opera.
 - [SpiderMonkey](https://en.wikipedia.org/wiki/SpiderMonkey) -- Firefox.
 - Egzistuoja kitų nickų, tokių kaip "Trident", "Chakra" skirtingom IE versijom, "ChakraCore" Microsoft Edge naršklėje, "Nitro" ir "SquirellFish" Safari ir t.t.
+=======
+- [V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine)) -- in Chrome and Opera.
+- [SpiderMonkey](https://en.wikipedia.org/wiki/SpiderMonkey) -- in Firefox.
+- ...There are other codenames like "Chakra" for IE, "ChakraCore" for Microsoft Edge, "Nitro" and "SquirrelFish" for Safari, etc.
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
 
 Šias sąvokas verta atsiminti, nes jos naudojamos straipsniuose, skirtuose programuotojams. Mes taip pat jas naudosime. Pavyzdžiui, jeigu "feature X yra palaikoma V8", reiškias jinai ko gero veikia Chrome ir Opera naršklėse.
 
@@ -64,6 +78,7 @@ JavaScript'o galimybės naryklėje yra ribojamos dėl vartotojų saugumo. Tiksla
 Ribojimų pavyzdžiai:
 - JavaScript'as tinklalapyje negali skaityti/rašyti failus kietajame diske, juos kopijuoti arba vykdyti programas. JavaScript'as neturi tiesioginios prieigos prie operacinės sistemos funkcijų. 
 
+<<<<<<< HEAD
 	Modernios naršklės leidžia dirbti su failais, bet prieiga ribojama ir tai leidžiama tik jeigu vartotojas įvykdo kažką konkretaus. Pavyzdžiui, dragg'ina failą į naršklę arba pažymi failą per `<input>` tagą.
 
 Yra būdų komunikuoti su kamera/mikrofonu ir kitais įrenginiais, bet tai reikalauja išreikštinio vartotojo leidimo. Taigi, JavaScript'inis tinklalapis negali suktai įjungti web kamerą, stebėti aplinką ir siųsti informaciją į [NSA](https://en.wikipedia.org/wiki/National_Security_Agency).
@@ -71,6 +86,19 @@ Yra būdų komunikuoti su kamera/mikrofonu ir kitais įrenginiais, bet tai reika
 	Tai vadinama "Same Origin Policy". Tam, kad tai apeiti, *abudu tinklalapiai* turi sutikti apsikeisti duomenimis ir turėti specialų JavaScript kodą, kuris tai handlintų. Mes apie tai kalbėsime viename iš tutorialų.
 	Šis ribojimas yra, vėlgi, dėl vartotojų saugmo. Tinklapis `http://anysite.com`, kurį vartotojas atidarė, neturėtų pasiekti kito naršklės tabo su URL `http://gmail.com` ir vogti informaciją.
 - JavaScript'as gali lengvai komunikuoti internetu su serveriu, iš kurio atėjo tinklalapis. Bet tinklalapio galimybės gauti duomenis iš kitų tinklapių/duomenų yra kiek sudėtingesnės. Nors ir įmanoma, tai reikalauja išreikštinio susitarimo (per HTTP header'ius) iš remote serverio pusės. Vėlgi, dėl saugumo priežasčių.
+=======
+- JavaScript on a webpage may not read/write arbitrary files on the hard disk, copy them or execute programs. It has no direct access to OS functions.
+
+    Modern browsers allow it to work with files, but the access is limited and only provided if the user does certain actions, like "dropping" a file into a browser window or selecting it via an `<input>` tag.
+
+    There are ways to interact with camera/microphone and other devices, but they require a user's explicit permission. So a JavaScript-enabled page may not sneakily enable a web-camera, observe the surroundings and send the information to the [NSA](https://en.wikipedia.org/wiki/National_Security_Agency).
+- Different tabs/windows generally do not know about each other. Sometimes they do; for example when one window uses JavaScript to open the other one. But even in this case, JavaScript from one page may not access the other if they come from different sites (from a different domain, protocol or port).
+
+    This is called the "Same Origin Policy". To work around that, *both pages* must agree for data exchange and contain a special JavaScript code that handles it. We'll cover that in the tutorial.
+
+    This limitation is, again, for the user's safety. A page from `http://anysite.com` which a user has opened must not be able to access another browser tab with the URL `http://gmail.com` and steal information from there.
+- JavaScript can easily communicate over the net to the server where the current page came from. But its ability to receive data from other sites/domains is crippled. Though possible, it requires explicit agreement (expressed in HTTP headers) from the remote side. Once again, that's a safety limitation.
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
 
 ![](limitations.svg)
 
@@ -103,15 +131,29 @@ Modernūs įrankiai atlieką transpiliavimą labai greitai, tad programuotojai g
 
 Tokių kalbų pavyzdžiai:
 
+<<<<<<< HEAD
 - [CoffeeScript](http://coffeescript.org/) yra "syntactic sugar" JavaScript'ui. Trumpesnė sintaksė, su kuria galima rašyti aiškesnį ir konkretesnį kodą. Tas dažniausiai patinka Ruby programuotojams.
 - [TypeScript](http://www.typescriptlang.org/) pagrindinis tikslas yra įvesti statinį tipizavimą. Tas palengvina sudėtingų sistemų programavimą. Sukurtas Microsft.
 - [Flow](http://flow.org/) taip pat turi statinį tipizavimą, bet kiek kitokiu būdu. Sukurtas Facebook.
 - [Dart](https://www.dartlang.org/) yra atskira kalba, kuri turi savo paties variklį, kuris veikia ne naršyklėse (pvz. mobiliose aplikacijose), bet taip pat gali būti transpiliuotas į Javascriptą. Sukurtas Google.
+=======
+- [CoffeeScript](http://coffeescript.org/) is a "syntactic sugar" for JavaScript. It introduces shorter syntax, allowing us to write clearer and more precise code. Usually, Ruby devs like it.
+- [TypeScript](http://www.typescriptlang.org/) is concentrated on adding "strict data typing" to simplify the development and support of complex systems. It is developed by Microsoft.
+- [Flow](http://flow.org/) also adds data typing, but in a different way. Developed by Facebook.
+- [Dart](https://www.dartlang.org/) is a standalone language that has its own engine that runs in non-browser environments (like mobile apps), but also can be transpiled to JavaScript. Developed by Google.
+- [Brython](https://brython.info/) is a Python transpiler to JavaScript that allow to write application in pure Python without JavaScript.
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
 
 Yra ir daugiaų pavyzdžių. Tačiau, netgi jeigu mes naudojame kažkurią iš transpiliuojamų kalbų, suprasti JavaScript'ą yra ne mažiau svarbu.
 
 ## Reziumė
 
+<<<<<<< HEAD
 - JavaScript'as iš pat pradžių buvo sukurtas kaip kalba, veikianti naršyklėje, bet dabar turi ir daugiau aplinkų, kuriose gali būti vykdoma.
 - Šią dieną JavaScript'as yra unikalus tuo, kad tai labiausiai paplitusi kalba naršyklei, turinti pilną integraciją su HTML/CSS.
 - Yra daug kalbų, kurios gali būti "transipliuotos" į JavaScript'ą ir turi papildomų funkcijų. Rekomenduojama į jas bent jau trumpai pažvelgti po to, kaip išmoksti JavaScript'ą.
+=======
+- JavaScript was initially created as a browser-only language, but it is now used in many other environments as well.
+- Today, JavaScript has a unique position as the most widely-adopted browser language with full integration in HTML/CSS.
+- There are many languages that get "transpiled" to JavaScript and provide certain features. It is recommended to take a look at them, at least briefly, after mastering JavaScript.
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
