@@ -20,7 +20,7 @@ User.staticMethod(); // true
 That actually does the same as assigning it as a property directly:
 
 ```js run
-class User() { }
+class User { }
 
 User.staticMethod = function() {
   alert(this === User);
@@ -125,7 +125,7 @@ That is the same as a direct assignment to `Article`:
 Article.publisher = "Ilya Kantor";
 ```
 
-## Inheritance of static properties and methods
+## Inheritance of static properties and methods [#statics-and-inheritance]
 
 Static properties and methods are inherited.
 

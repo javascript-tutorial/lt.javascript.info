@@ -7,7 +7,7 @@ Let's look at the key distinctions between primitives and objects.
 A primitive
 
 - Is a value of a primitive type.
-- There are 6 primitive types: `string`, `number`, `boolean`, `symbol`, `null` and `undefined`.
+- There are 7 primitive types: `string`, `number`, `bigint`, `boolean`, `symbol`, `null` and `undefined`.
 
 An object
 
@@ -39,7 +39,7 @@ Objects are "heavier" than primitives. They require additional resources to supp
 
 Here's the paradox faced by the creator of JavaScript:
 
-- There are many things one would want to do with a primitive like a string or a number. It would be great to access them as methods.
+- There are many things one would want to do with a primitive like a string or a number. It would be great to access them using methods.
 - Primitives must be as fast and lightweight as possible.
 
 The solution looks a little bit awkward, but here it is:

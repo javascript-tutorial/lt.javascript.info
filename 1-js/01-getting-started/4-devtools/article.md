@@ -29,10 +29,19 @@ Konkretus vaizdas priklauso nuo Chrome versijos, kurią naudoji. Kartais atsiran
 - Čia mes galim pamatyt raudoną error message. Šiuo atveju skriptas turi nežinomą "lalala" komandą.
 - Dešinėje yra clickable link'as į `bug.html:12` su skaičiumi eilutės, kurioje yra error'as.
 
+<<<<<<< HEAD
 Žemiau error message'o yra mėlynas `>` simbolis. Jis parodo "command line", kuriame mes galime rašyti JavaScript komandas. Spausk `key:Enter` kad jas paleisti (`key:Shift+Enter` kad rašyti komandas per daugiau nei vieną eilutę).
+=======
+Below the error message, there is a blue `>` symbol. It marks a "command line" where we can type JavaScript commands. Press `key:Enter` to run them.
+>>>>>>> fb4fc33a2234445808100ddc9f5e4dcec8b3d24c
 
 Dabar mes galime matyti error'us. Kaip pradžiai, to pakanka. Vėliau mes grįšim į developer tools'us ir kalbėsim apie debugginimą chapteryje <info:debugging-chrome>.
 
+```smart header="Multi-line input"
+Usually, when we put a line of code into the console, and then press `key:Enter`, it executes.
+
+To insert multiple lines, press `key:Shift+Enter`. This way one can enter long fragments of JavaScript code.
+```
 
 ## Firefox, Edge ir kiti
 
@@ -50,6 +59,7 @@ Atidaryk Preferences ir eik į "Advanced". Apačioj bus checkbox'as:
 
 Dabar `key:Cmd+Opt+C` įjungs konsolę. Taip pat turėk omeny, kad naujas item'as "Develop" atsirado viršutiniam meniu. Jame yra daug komandų ir nustatymų.
 
+<<<<<<< HEAD
 ```smart header="Kelių eilučių komandos"
 Dažniausiai, jeigu konsolėje parašome vieną eilutę kodo ir paspaudžiame `key:Enter`, ji suveikia.
 
@@ -57,6 +67,9 @@ Tam, kad parašyti kelias eilutes, spausk `key:Shift+Enter`. Tokiu būdu mes gal
 ```
 
 ## Reziumė
+=======
+## Summary
+>>>>>>> fb4fc33a2234445808100ddc9f5e4dcec8b3d24c
 
 - Developer tools'ai leidžia mum pamatyti errorus, paleisti komandas, analizuoti kintamuosiuos ir daugiau.
 - Juos paleisti galime su `key:F12` dauguma naršklių Windows'uose. Chrome, jeigu naudojame Mac, reikaluaja `key:Cmd+Opt+J`, Safari: `key:Cmd+Opt+C` (iš pradžių reikia aktyvuoti).

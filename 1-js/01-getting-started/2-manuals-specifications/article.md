@@ -13,21 +13,33 @@ Nauja specifikacijos versija yra išleidžiama kasmet. Tarp šitų releas'ų, ju
 
 Perskaityti apie naujausius features, įskaitant ir tuos, kurie yra "beveik standartas" (dar vadinama "stage 3") galima rasti <https://github.com/tc39/proposals>.
 
+<<<<<<< HEAD
 Taip pat, jeigu norima programuoti naršyklei, tam yra kita specifikacija, kurią gali rasti [antroje](info:browser-environment) tutorial'o dalyje.
+=======
+Also, if you're developing for the browser, then there are other specifications covered in the [second part](info:browser-environment) of the tutorial.
+>>>>>>> fb4fc33a2234445808100ddc9f5e4dcec8b3d24c
 
 ## Manualai
 - **MDN (Mozilla) JavaScript Reference** yra manualas su pavyzdžiais ir kita informacija. Tinka, jeigu reikia detalios informacijos apie konkrečias kalbos funkcijas, metodus, ir pan.
 
+<<<<<<< HEAD
 	Manualą galima rasti <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference>.
+=======
+- **MDN (Mozilla) JavaScript Reference** is the main manual with examples and other information. It's great to get in-depth information about individual language functions, methods etc.
+>>>>>>> fb4fc33a2234445808100ddc9f5e4dcec8b3d24c
 
 	Tačiau, dažniausiai geriausia tiesiog ieškoti informacijos internete. Verta tiesiog naudoti "MDN [apibrėžimas]" užklausoje, pavyzdžiui <https://google.com/search?q=MDN+parseInt> tam, kad rasti informacijos apie `parseInt` funkciją.
 
+<<<<<<< HEAD
 
 - **MSDN** - Microsoft'o manualas, turintis daug informacijos, įskaitant JavaScript'ą (dažnai vadinamas JScript). Jeigu reikia kažko konkretaus Internet Explorer'iui, geriau eiti čia: <http://msdn.microsoft.com/>.
 
 	Taip pat, galima naudoti paiešką internete su frazėmis, tokiomis kaip "RegExp MSDN" arba "RegExp MSDN jscript".
 
 ## Suderinamumo (compatibility) lentelės
+=======
+Although, it's often best to use an internet search instead. Just use "MDN [term]" in the query, e.g. <https://google.com/search?q=MDN+parseInt> to search for `parseInt` function.
+>>>>>>> fb4fc33a2234445808100ddc9f5e4dcec8b3d24c
 
 JavaScript yra nuolatos tobulinama kalba, todėl nauji features atsiranda reguliariai.
 
