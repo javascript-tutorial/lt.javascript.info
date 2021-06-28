@@ -1,13 +1,13 @@
-# Hello, world!
+# Labas, pasauli!
 
-This part of the tutorial is about core JavaScript, the language itself.
+Šioje pamokoje perskaitysite apie pačią JavaScript'o esmę ir apie pačią kalbą.
 
-But we need a working environment to run our scripts and, since this book is online, the browser is a good choice. We'll keep the amount of browser-specific commands (like `alert`) to a minimum so that you don't spend time on them if you plan to concentrate on another environment (like Node.js). We'll focus on JavaScript in the browser in the [next part](/ui) of the tutorial.
+Tam reikia darbinės aplinkos, kad galėtume paleisti skriptus (nurodymus kompiuteriui teksto pavidalu), kadangi ši knyga yra interaktyvi, naršyklė puikiai atitiks mūsų poreikius. Pasistengsime naršyklės komandas (tokias kaip `alert`) naudoti kaip galima rečiau, kad jums nereikėtų su jomis praleisti per daug laiko, ypač jeigu planuojate susikaupti ties kitokia darbine aplinka (pavyzdžiui Node.js). Susikaupsime į JavaScript'ą naršyklėje [kitoje dalyje](/ui) šių pamokų.
 
-So first, let's see how we attach a script to a webpage. For server-side environments (like Node.js), you can execute the script with a command like `"node my.js"`.
+Tad visų pirma pabandykime pradėti skriptą prie internetinio puslapio. Aplinkoms serveryje (kaip pavyzdžiui Node.js) galite vykdyti skriptą su komanda `"node my.js"`.
 
 
-## The "script" tag
+## "script" žyma
 
 JavaScript programs can be inserted into any part of an HTML document with the help of the `<script>` tag.
 
