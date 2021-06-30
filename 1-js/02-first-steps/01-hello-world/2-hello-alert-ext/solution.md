@@ -1,8 +1,8 @@
-The HTML code:
+HTML kodas:
 
 [html src="index.html"]
 
-For the file `alert.js` in the same folder:
+Kodas failui `alert.js` tame pačiame aplanke:
 
 [js src="alert.js"]
 
