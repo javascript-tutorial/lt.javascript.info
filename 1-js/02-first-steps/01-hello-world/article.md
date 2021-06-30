@@ -1,17 +1,17 @@
-# Hello, world!
+# Labas, pasauli!
 
-This part of the tutorial is about core JavaScript, the language itself.
+Šioje pamokoje perskaitysite apie JavaScript esmę ir apie pačią kalbą.
 
-But we need a working environment to run our scripts and, since this book is online, the browser is a good choice. We'll keep the amount of browser-specific commands (like `alert`) to a minimum so that you don't spend time on them if you plan to concentrate on another environment (like Node.js). We'll focus on JavaScript in the browser in the [next part](/ui) of the tutorial.
+Tam reikia darbinės aplinkos, kad galėtume paleisti skriptus (script - nurodymai kompiuteriui teksto pavidalu), kadangi ši knyga yra interaktyvi, naršyklė puikiai atitiks mūsų poreikius. Pasistengsime naršyklės komandas (tokias kaip `alert`) naudoti kaip galima rečiau, kad jums nereikėtų su jomis praleisti per daug laiko, ypač jeigu planuojate susikaupti ties kitokia darbine aplinka (pavyzdžiui Node.js). Skirsime daugiau dėmesio JavaScript naršyklėje [kitoje dalyje](/ui) šių pamokų.
 
-So first, let's see how we attach a script to a webpage. For server-side environments (like Node.js), you can execute the script with a command like `"node my.js"`.
+Tad visų pirma pabandykime pridėti skriptą prie internetinio puslapio. Aplinkos serveryje (kaip pavyzdžiui Node.js) galite vykdyti skriptą su komanda `"node my.js"`.
 
 
-## The "script" tag
+## Žyma "script"
 
-JavaScript programs can be inserted into any part of an HTML document with the help of the `<script>` tag.
+JavaScript programa gali būti pridėta prie bet kurios HTML dokumento dalies su `<script>` žymos pagalba.
 
-For instance:
+Pavyzdžiui:
 
 ```html run height=100
 <!DOCTYPE HTML>
@@ -19,15 +19,15 @@ For instance:
 
 <body>
 
-  <p>Before the script...</p>
+  <p>Prieš skriptą...</p>
 
 *!*
   <script>
-    alert( 'Hello, world!' );
+    alert( 'Labas, pasauli!' );
   </script>
 */!*
 
-  <p>...After the script.</p>
+  <p>...Po skripto.</p>
 
 </body>
 
@@ -35,24 +35,24 @@ For instance:
 ```
 
 ```online
-You can run the example by clicking the "Play" button in the right-top corner of the box above.
+Galite paleisti pavyzdį paspausdami mygtuką "Paleisti" dešiniame virštutiniame pavyzdžio lango kampe.
 ```
 
-The `<script>` tag contains JavaScript code which is automatically executed when the browser processes the tag.
+Žymoje `<script>` yra JavaScript kodas, kuris automatiškai įvykdomas kai naršyklė apdoroja žymą.
 
 
-## Modern markup
+## Modernus žymėjimas
 
-The `<script>` tag has a few attributes that are rarely used nowadays but can still be found in old code:
+Žyma `<script>` turi kelis atributus, kurie šiais laikais jau retai naudojami, bet juos dar galite rasti senuose koduose:
 
-The `type` attribute: <code>&lt;script <u>type</u>=...&gt;</code>
-: The old HTML standard, HTML4, required a script to have a `type`. Usually it was `type="text/javascript"`. It's not required anymore. Also, the modern HTML standard totally changed the meaning of this attribute. Now, it can be used for JavaScript modules. But that's an advanced topic; we'll talk about modules in another part of the tutorial.
+Atributas `type`: <code>&lt;script <u>type</u>=...&gt;</code>
+: Senas HTML standartas, HTML4, reikalavo, kad skriptas turėtų `type`(tipą). Dažniausiai tau būdavo `type="text/javascript"`. Dabar tai nėra reikalaujama. Dar daugiau, modernus HTML standartas visiškai pakeitė šio atributo reikšmę. Dabar jis gali būti naudojamas JavaScript moduliuose. Bet tai jau pažengusio lygio tema; apie modulius kalbėsime kitoje šių pamokų dalyje.
 
-The `language` attribute: <code>&lt;script <u>language</u>=...&gt;</code>
-: This attribute was meant to show the language of the script. This attribute no longer makes sense because JavaScript is the default language. There is no need to use it.
+Atributas `language`: <code>&lt;script <u>language</u>=...&gt;</code>
+: Šis atributas turėjo nurodyti skripto kalbą, bet daugiau nebeturi prasmės, nes JavaScript ir yra numatytoji kalba. Nėra reikalo šio atributo naudoti.
 
-Comments before and after scripts.
-: In really ancient books and guides, you may find comments inside `<script>` tags, like this:
+Komentarai prieš ir po skriptų.
+: Labai senose knygose ir vadovėliuose galime rasti komentarus `<script>` žymose, kaip pavyzdžiui:
 
     ```html no-beautify
     <script type="text/javascript"><!--
@@ -60,28 +60,28 @@ Comments before and after scripts.
     //--></script>
     ```
 
-    This trick isn't used in modern JavaScript. These comments hide JavaScript code from old browsers that didn't know how to process the `<script>` tag. Since browsers released in the last 15 years don't have this issue, this kind of comment can help you identify really old code.
+    Ši ypatybė nebenaudojama modernioje JavaScript. Tokie komentarai paslepia JavaScript kodą nuo senų naršyklių, kurios nežinojo kaip įvykdyti `<script>` žymą. Per paskutinius 15 metų išleistos naršyklės nebeturi šios problemos, bet toks komentaras gali jums padėti atpažinti labai senus kodus.
 
 
-## External scripts
+## Išorinis skriptas
 
-If we have a lot of JavaScript code, we can put it into a separate file.
+Jeigu mūsų JavaScript kodas labai ilgas, galime jį perkelti į atskirą failą.
 
-Script files are attached to HTML with the `src` attribute:
+Skriptų failai yra sujungiami su HTML `src` (šaltinio) atributo pagalba:
 
 ```html
 <script src="/path/to/script.js"></script>
 ```
 
-Here, `/path/to/script.js` is an absolute path to the script from the site root. One can also provide a relative path from the current page. For instance, `src="script.js"` would mean a file `"script.js"` in the current folder.
+Šiuo atveju `/path/to/script.js` yra tikslus kelias į skriptus iš pagrindinės svetainės. Dažnai naudojamas ir kitoks kelias iš esamo puslapio. Kaip pavyzdžiui, `src="script.js"` reiškia, kad `"script.js"` failas yra tame pačiame aplanke (folder) kaip ir HTML failas.
 
-We can give a full URL as well. For instance:
+Taip pat galime pateikti pilną adresą (URL). Pavyzdžiui:
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js"></script>
 ```
 
-To attach several scripts, use multiple tags:
+Kad pridėtume kelis skriptus, naudojame kiekvienam atskiras žymas:
 
 ```html
 <script src="/js/script1.js"></script>
@@ -90,29 +90,29 @@ To attach several scripts, use multiple tags:
 ```
 
 ```smart
-As a rule, only the simplest scripts are put into HTML. More complex ones reside in separate files.
+Kaip taisyklė, tik paprasčiausi skriptai yra rašomi į patį HTML failą. Sudėtingesni, daugiau vietos užimantys skriptai būna atskiruose failuose.
 
-The benefit of a separate file is that the browser will download it and store it in its [cache](https://en.wikipedia.org/wiki/Web_cache).
+Tokio atskiro failo nauda yra tokia, kad naršyklė failą parsisiųs ir laikys savo tam skirtoje talpykloje [cache](https://en.wikipedia.org/wiki/Web_cache).
 
-Other pages that reference the same script will take it from the cache instead of downloading it, so the file is actually downloaded only once.
+Kiti puslapiai, kurie bus nukreipti į tą patį skriptą, paims informaciją iš talpyklos (cache) vietoje to, kad dar kartą jį parsisiųstų, tokiu būdu failas parsiunčiąmas tik vieną kartą.
 
-That reduces traffic and makes pages faster.
+Taip sumažinamas duomenų apsikeitimas (traffic) ir paspartinamas puslapių paleidimo greitis.
 ```
 
-````warn header="If `src` is set, the script content is ignored."
-A single `<script>` tag can't have both the `src` attribute and code inside.
+````warn header="Jeigu šaltinis `src` yra nustatytas, skripto turinys yra ignoruojamas."
+Ta pati `<script>` žyma negali turėti ir `src` atributo ir kodo viduje.
 
-This won't work:
+Tai nesuveiktų:
 
 ```html
 <script *!*src*/!*="file.js">
-  alert(1); // the content is ignored, because src is set
+  alert(1); // šis turinys ignoruojamas, nes nustatytas src (išorinis šaltinis)
 </script>
 ```
 
-We must choose either an external `<script src="…">` or a regular `<script>` with code.
+Turime pasirinkti arba išorinį `<script src="…">` arba vidinį skriptą `<script>` su kodu tarp žymų.
 
-The example above can be split into two scripts to work:
+Pavyzdys viršuje gali būti atskirtas į du skriptus, kad suveiktų:
 
 ```html
 <script src="file.js"></script>
@@ -122,11 +122,11 @@ The example above can be split into two scripts to work:
 ```
 ````
 
-## Summary
+## Santrauka
 
-- We can use a `<script>` tag to add JavaScript code to a page.
-- The `type` and `language` attributes are not required.
-- A script in an external file can be inserted with `<script src="path/to/script.js"></script>`.
+- Naudojame žymą `<script>`, kad pridėtume JavaScript kodą prie puslapio.
+- Atributai `type` ir `language` nėra privalomi.
+- Skriptas išoriniame faile gali būti pidėtas su `<script src="path/to/script.js"></script>` pagalba.
 
 
-There is much more to learn about browser scripts and their interaction with the webpage. But let's keep in mind that this part of the tutorial is devoted to the JavaScript language, so we shouldn't distract ourselves with browser-specific implementations of it. We'll be using the browser as a way to run JavaScript, which is very convenient for online reading, but only one of many.
+Tai tik pradžia ir yra dar daug informacijos, kurią reikia išmokti apie naršyklės skriptus ir jų bendravimą su tinklapiu. Šios pamokos dalis yra skirta JavaScript kalbai, tad neturėtume blaškyti savęs su naršyklei būdingu šios kalbos atlikimu. Naršyklę naudosime kaip būdą paleisti JavaScript, o tai yra labai patogu skaitant internetinę knygą, bet tai tik vienas būdas iš daugelio.

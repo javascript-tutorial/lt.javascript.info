@@ -2,8 +2,8 @@ importance: 5
 
 ---
 
-# Show an alert with an external script
+# Parodyti įspėjimą (alert) naudojant išorinį skriptą
 
-Take the solution of the previous task <info:task/hello-alert>. Modify it by extracting the script content into an external file `alert.js`, residing in the same folder.
+Panaudokite praėjusios užduoties sprendimą <info:task/hello-alert>. Pataisykite jį perkeldami skripto turinį į išorinį failą `alert.js` tame pačiame aplanke.
 
-Open the page, ensure that the alert works.
+Atidarykite puslapį ir įsitikinkite ar įspėjimas veikia.
