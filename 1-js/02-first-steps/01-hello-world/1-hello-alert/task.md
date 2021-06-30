@@ -2,11 +2,11 @@ importance: 5
 
 ---
 
-# Show an alert
+# Parodykite įspėjimą
 
-Create a page that shows a message "I'm JavaScript!".
+Sukurkite puslapį, kuris parodo įspėjimą "Aš esu JavaScript!".
 
-Do it in a sandbox, or on your hard drive, doesn't matter, just ensure that it works.
+Padarykite tai sandbox puslapyje arba savo kompiuteryje, tai nesvarbu, tik įsitikinkite ar veikia.
 
 [demo src="solution"]
 
