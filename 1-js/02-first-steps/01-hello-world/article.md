@@ -1,13 +1,13 @@
 # Labas, pasauli!
 
-Šioje pamokoje perskaitysite apie pačią JavaScript esmę ir apie pačią kalbą.
+Šioje pamokoje perskaitysite apie JavaScript esmę ir apie pačią kalbą.
 
-Tam reikia darbinės aplinkos, kad galėtume paleisti skriptus (nurodymus kompiuteriui teksto pavidalu), kadangi ši knyga yra interaktyvi, naršyklė puikiai atitiks mūsų poreikius. Pasistengsime naršyklės komandas (tokias kaip `alert`) naudoti kaip galima rečiau, kad jums nereikėtų su jomis praleisti per daug laiko, ypač jeigu planuojate susikaupti ties kitokia darbine aplinka (pavyzdžiui Node.js). Skirsime daugiau dėmesio JavaScript naršyklėje [kitoje dalyje](/ui) šių pamokų.
+Tam reikia darbinės aplinkos, kad galėtume paleisti skriptus (script - nurodymai kompiuteriui teksto pavidalu), kadangi ši knyga yra interaktyvi, naršyklė puikiai atitiks mūsų poreikius. Pasistengsime naršyklės komandas (tokias kaip `alert`) naudoti kaip galima rečiau, kad jums nereikėtų su jomis praleisti per daug laiko, ypač jeigu planuojate susikaupti ties kitokia darbine aplinka (pavyzdžiui Node.js). Skirsime daugiau dėmesio JavaScript naršyklėje [kitoje dalyje](/ui) šių pamokų.
 
-Tad visų pirma pabandykime pridėti skriptą (script) prie internetinio puslapio. Aplinkos serveryje (kaip pavyzdžiui Node.js) galite vykdyti skriptą su komanda `"node my.js"`.
+Tad visų pirma pabandykime pridėti skriptą prie internetinio puslapio. Aplinkos serveryje (kaip pavyzdžiui Node.js) galite vykdyti skriptą su komanda `"node my.js"`.
 
 
-## "script" žyma
+## Žyma "script"
 
 JavaScript programa gali būti pridėta prie bet kurios HTML dokumento dalies su `<script>` žymos pagalba.
 
@@ -73,7 +73,7 @@ Skriptų failai yra sujungiami su HTML `src` (šaltinio) atributo pagalba:
 <script src="/path/to/script.js"></script>
 ```
 
-Šiuo atveju `/path/to/script.js` yra tikslus kelias į skriptus iš pagrindinės svetainės. Dažnai naudojmas ir kitoks kelias iš esamo puslapio. Kaip pavyzdžiui, `src="script.js"` reiškia, kad `"script.js"` failas yra tame pačiame aplanke (folder) kaip ir HTML failas.
+Šiuo atveju `/path/to/script.js` yra tikslus kelias į skriptus iš pagrindinės svetainės. Dažnai naudojamas ir kitoks kelias iš esamo puslapio. Kaip pavyzdžiui, `src="script.js"` reiškia, kad `"script.js"` failas yra tame pačiame aplanke (folder) kaip ir HTML failas.
 
 Taip pat galime pateikti pilną adresą (URL). Pavyzdžiui:
 
@@ -81,7 +81,7 @@ Taip pat galime pateikti pilną adresą (URL). Pavyzdžiui:
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js"></script>
 ```
 
-Kad pridėtume kelis skriptus, naudojame atskiras žymas:
+Kad pridėtume kelis skriptus, naudojame kiekvienam atskiras žymas:
 
 ```html
 <script src="/js/script1.js"></script>
@@ -124,7 +124,7 @@ Pavyzdys viršuje gali būti atskirtas į du skriptus, kad suveiktų:
 
 ## Santrauka
 
-- Galime naudoti žymą `<script>`, kad pridėtume JavaScript kodą prie puslapio.
+- Naudojame žymą `<script>`, kad pridėtume JavaScript kodą prie puslapio.
 - Atributai `type` ir `language` nėra privalomi.
 - Skriptas išoriniame faile gali būti pidėtas su `<script src="path/to/script.js"></script>` pagalba.
 
