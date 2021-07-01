@@ -1,10 +1,10 @@
-# Debugging in Chrome
+# Klaidų taisymas naršyklėje Chrome
 
-Before writing more complex code, let's talk about debugging.
+Prieš rašydami apie sudėtingesnius kodus, pakalbėkime apie klaidų ieškojimą ir taisymą (ang. debugging).
 
-[Debugging](https://en.wikipedia.org/wiki/Debugging) is the process of finding and fixing errors within a script. All modern browsers and most other environments support debugging tools -- a special UI in developer tools that makes debugging much easier. It also allows to trace the code step by step to see what exactly is going on.
+[Debugging](https://en.wikipedia.org/wiki/Debugging) yra toks procesas kai ieškome ir taisome klaidas skriptuose. Visos modernios naršyklės ir didžioji dalis kitų aplinkų palaiko klaidų taisymo įrankius -- tam tikra programuotojo įrankių vartotojo sąsaja (UI), kuri palengvina klaidų taisymą. Ji taip pat leidžia atsekti kodą žingsnis po žingsnio, kad pamatytume kas iš tikrųjų vyksta.
 
-We'll be using Chrome here, because it has enough features, most other browsers have a similar process`.
+Mes tam naudosime Chrome, nes jis turi užtektinai funkcijų, bet didžioji dalis naršyklių turi panašius procesus`.
 
 ## The "Sources" panel
 
