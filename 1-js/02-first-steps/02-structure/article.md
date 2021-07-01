@@ -1,44 +1,44 @@
-# Code structure
+# Kodo struktūra
 
-The first thing we'll study is the building blocks of code.
+Pirmas dalykas, kurį studijuosime yra kodo sudėties blokai.
 
-## Statements
+## Pareiškimai
 
-Statements are syntax constructs and commands that perform actions.
+Pareiškimai (ang. Statement) yra sintaksės konstruktai ir komandos, kurios atlieka veiksmus. 
 
-We've already seen a statement, `alert('Hello, world!')`, which shows the message "Hello, world!".
+Mes jau matėme šį pareiškimą, `alert('Labas, pasauli!')`, which shows the message "Labas, pasauli!".
 
-We can have as many statements in our code as we want. Statements can be separated with a semicolon.
+Mūsų kode gali būti tiek pareiškimų kiek mes norime. Pareiškimai gali būti atskirti kabliataškiu. 
 
-For example, here we split "Hello World" into two alerts:
-
-```js run no-beautify
-alert('Hello'); alert('World');
-```
-
-Usually, statements are written on separate lines to make the code more readable:
+Pavyzdžiui, čia mes atskirsime "Labas Pasauli" į du perspėjimus:
 
 ```js run no-beautify
-alert('Hello');
-alert('World');
+alert('Labas'); alert('Pasauli');
 ```
 
-## Semicolons [#semicolon]
+Dažniausiai, pareiškimai yra rašomi atskirose eilutėse tam kad kodas būtų lengviau įskaitomas:
 
-A semicolon may be omitted in most cases when a line break exists.
+```js run no-beautify
+alert('Labas');
+alert('Pasauli');
+```
 
-This would also work:
+## Kabliataškiai [#semicolon]
+
+Kabliataškis dažnais atvejais gali būti, pavyzdžiui kai egzistuoja pertrauka eilutėse.
+
+Vadinas, tai irgi suveiktų:
 
 ```js run no-beautify
 alert('Hello')
 alert('World')
 ```
 
-Here, JavaScript interprets the line break as an "implicit" semicolon. This is called an [automatic semicolon insertion](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion).
+Čia JavaScript interpretuoja pertrauką eilutėse kaip "numanomą" kabliataški. Tai vadinama [automatišku kabliataškio pridėjimu](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion).
 
-**In most cases, a newline implies a semicolon. But "in most cases" does not mean "always"!**
+**Dažnais atvejais nauja eilutė numanoma kaip kabliataškio pakaitalas. Bet "dažnais atvejais" nereiškia "visada"!**
 
-There are cases when a newline does not mean a semicolon. For example:
+Yra tokių atvejų kai nauja eilutė nereiškia kabliataškio. Pavyzdiui:
 
 ```js run no-beautify
 alert(3 +
@@ -46,7 +46,7 @@ alert(3 +
 + 2);
 ```
 
-The code outputs `6` because JavaScript does not insert semicolons here. It is intuitively obvious that if the line ends with a plus `"+"`, then it is an "incomplete expression", so the semicolon is not required. And in this case that works as intended.
+Kodas mums atiduoda `6`, nes JavaScript šiuo atveju neįterpia kabliataškio tarp eilučių. It is intuitively obvious that if the line ends with a plus `"+"`, then it is an "incomplete expression", so the semicolon is not required. And in this case that works as intended.
 
 **But there are situations where JavaScript "fails" to assume a semicolon where it is really needed.**
 
