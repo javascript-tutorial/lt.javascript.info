@@ -1,44 +1,44 @@
-# Code structure
+# Kodo struktūra
 
-The first thing we'll study is the building blocks of code.
+Pirmas dalykas, kurį studijuosime yra kodo sudėties blokai.
 
-## Statements
+## Pareiškimai
 
-Statements are syntax constructs and commands that perform actions.
+Pareiškimai (ang. Statements) yra sintaksės konstruktai ir komandos, kurios atlieka veiksmus. 
 
-We've already seen a statement, `alert('Hello, world!')`, which shows the message "Hello, world!".
+Mes jau matėme šį pareiškimą, `alert('Labas, pasauli!')`, kuris parodo žinutę "Labas, pasauli!".
 
-We can have as many statements in our code as we want. Statements can be separated with a semicolon.
+Mūsų kode gali būti tiek pareiškimų kiek mes norime. Pareiškimai gali būti atskirti kabliataškiu. 
 
-For example, here we split "Hello World" into two alerts:
-
-```js run no-beautify
-alert('Hello'); alert('World');
-```
-
-Usually, statements are written on separate lines to make the code more readable:
+Pavyzdžiui, čia mes atskirsime "Labas Pasauli" į du perspėjimus:
 
 ```js run no-beautify
-alert('Hello');
-alert('World');
+alert('Labas'); alert('Pasauli');
 ```
 
-## Semicolons [#semicolon]
+Dažniausiai, pareiškimai yra rašomi atskirose eilutėse tam kad kodas būtų lengviau įskaitomas:
 
-A semicolon may be omitted in most cases when a line break exists.
+```js run no-beautify
+alert('Labas');
+alert('Pasauli');
+```
 
-This would also work:
+## Kabliataškiai [#semicolon]
+
+Kabliataškis dažnais atvejais gali būti praleidžiamas, kai pavyzdžiui yra pertrauka tarp eilučių.
+
+Tai irgi suveiktų:
 
 ```js run no-beautify
 alert('Hello')
 alert('World')
 ```
 
-Here, JavaScript interprets the line break as an "implicit" semicolon. This is called an [automatic semicolon insertion](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion).
+Čia JavaScript interpretuoja pertrauką eilutėse kaip "numanomą" kabliataški. Tai vadinama [automatišku kabliataškio pridėjimu](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion).
 
-**In most cases, a newline implies a semicolon. But "in most cases" does not mean "always"!**
+**Dažnais atvejais nauja eilutė numanoma kaip kabliataškio pakaitalas. Bet "dažnais atvejais" nereiškia "visada"!**
 
-There are cases when a newline does not mean a semicolon. For example:
+Yra tokių atvejų kai nauja eilutė nereiškia kabliataškio. Pavyzdiui:
 
 ```js run no-beautify
 alert(3 +
@@ -46,114 +46,114 @@ alert(3 +
 + 2);
 ```
 
-The code outputs `6` because JavaScript does not insert semicolons here. It is intuitively obvious that if the line ends with a plus `"+"`, then it is an "incomplete expression", so the semicolon is not required. And in this case that works as intended.
+Kodas mums atiduoda `6`, nes JavaScript šiuo atveju neįterpia kabliataškio tarp eilučių. Intuityviai akivaizdu, kad jeigu eilutė pasibaigia pliusu `"+"`, tai yra nepabaigta išraiška (ang. "incomplete expression"), tokiu atveju kabliataškis nereikalingas. O kodas suveikia taip kaip buvo tikėtasi.
 
-**But there are situations where JavaScript "fails" to assume a semicolon where it is really needed.**
+**Bet yra situacijų kada JavaScript "nepavyksta" numanyti kabliataškio, kai jo iš tikrųjų reikia.**
 
-Errors which occur in such cases are quite hard to find and fix.
+Klaidas tokiais atvejais dažnai sunku surasti ir pataisyti.
 
-````smart header="An example of an error"
-If you're curious to see a concrete example of such an error, check this code out:
+````smart header="Klaidos pavyzdys"
+Jeigu jums smalsu pamatyti tokios klaidos konkretų pavyzdį, patikrinkite sekantį kodą:
 
 ```js run
 [1, 2].forEach(alert)
 ```
 
-No need to think about the meaning of the brackets `[]` and `forEach` yet. We'll study them later. For now, just remember the result of the code: it shows `1` then `2`.
+Kol kas negalvokite apie šiuos skliaustelius `[]` ir `forEach`. Juos studijuosime vėliau. Jums reikia tik prisiminti kodo rezultatą: jis rodo `1` tada `2`.
 
-Now, let's add an `alert` before the code and *not* finish it with a semicolon:
+O dabar pridėkime `alert` prieš kodą ir *neužbaikime* jo su kabliataškiu:
 
 ```js run no-beautify
-alert("There will be an error")
+alert("Tai bus klaida")
 
 [1, 2].forEach(alert)
 ```
 
-Now if we run the code, only the first `alert` is shown and then we have an error!
+Dabar jeigu paleisime šį kodą, tik pirmasis `alert` pasirodo, o tada gauname klaidą!
 
-But everything is fine again if we add a semicolon after `alert`:
+Bet jeigu pridedame kabliataškį po `alert` vėl viskas gerai:
 ```js run
-alert("All fine now");
+alert("Dabar viskas gerai");
 
 [1, 2].forEach(alert)  
 ```
 
-Now we have the "All fine now" message followed by `1` and `2`.
+Gauname "Dabar viskas gerai" žinutę, kurią seka `1` ir `2`.
 
 
-The error in the no-semicolon variant occurs because JavaScript does not assume a semicolon before square brackets `[...]`.
+Klaida variante be kabliataškio atsiranda dėl to, kad JavaScript nenumato galimo kabliataškio prieš laužtinius skliaustelius `[...]`.
 
-So, because the semicolon is not auto-inserted, the code in the first example is treated as a single statement. Here's how the engine sees it:
+Kadangi kabliataškis nėra automatiškai įtraukiamas, pirmojo pavyzdžio kodas laikomas vienu pilnu pareiškimu. Štai kaip jį mato sistema:
 
 ```js run no-beautify
-alert("There will be an error")[1, 2].forEach(alert)
+alert("Tai bus klaida")[1, 2].forEach(alert)
 ```
 
-But it should be two separate statements, not one. Such a merging in this case is just wrong, hence the error. This can happen in other situations.
+Bet tai turėtų būti du atskiri pareiškimai, ne vienas. Toks sujungimas šiuo atveju yra neteisingas, dėl to ir gauname klaidą. Taip gali nutikti ir kitose situacijose.
 ````
 
-We recommend putting semicolons between statements even if they are separated by newlines. This rule is widely adopted by the community. Let's note once again -- *it is possible* to leave out semicolons most of the time. But it's safer -- especially for a beginner -- to use them.
+Mes rekomenduojame dėti kabliataškius pareiškimų pabaigoje net jeigu jie yra atskirose eilutėse. Tokia taisyklė yra plačiai naudojama. Dar kartą prisiminkime -- *įmanoma* daugeliu atvejų kabliataškių nedėti. Bet daug saugiau -- ypač naujokams -- juos naudoti.
 
-## Comments
+## Komentarai
 
-As time goes on, programs become more and more complex. It becomes necessary to add *comments* which describe what the code does and why.
+Laikui bėgant programos tampa vis sudėtingesnės, dėl to svarbu pridėti komentarus (ang. *comments*), kurie paaiškintų ką kodas daro ir kodėl.
 
-Comments can be put into any place of a script. They don't affect its execution because the engine simply ignores them.
+Komentarus galima dėti bet kurioje skriptų vietoje. Jie nedaro įtakos kodo atlikimui, nes sistema juos paprasčiausiai ignoruoja.
 
-**One-line comments start with two forward slash characters `//`.**
+**Vienos eilutės komentarai prasideda su dviem į priekį pasvirusiais brūkšniais (ang. forward slashes) `//`.**
 
-The rest of the line is a comment. It may occupy a full line of its own or follow a statement.
+Likusi eilutės dalis yra komentaras. Jis gali užimti pilną eilutę arba užbaigti pareiškimą.
 
-Like here:
+Kaip šiuo atveju:
 ```js run
-// This comment occupies a line of its own
-alert('Hello');
+// Šis komentaras turi savo eilutę
+alert('Labas');
 
-alert('World'); // This comment follows the statement
+alert('Pasauli'); // Šis komentaras seka paskui pareiškimą
 ```
 
-**Multiline comments start with a forward slash and an asterisk <code>/&#42;</code> and end with an asterisk and a forward slash <code>&#42;/</code>.**
+**Kelių eilučių komentarai prasideda su pasvirusiu brūkšniu ir žvaigždute <code>/&#42;</code> ir pasibaigia žvaigždute ir pasvirusiu brūkšniu <code>&#42;/</code>.**
 
-Like this:
+Kaip čia:
 
 ```js run
-/* An example with two messages.
-This is a multiline comment.
+/* Pavyzdys su dviem žinutėmis.
+Šis komentaras gali būti kelių eilučių.
 */
-alert('Hello');
-alert('World');
+alert('Labas');
+alert('Pasauli');
 ```
 
-The content of comments is ignored, so if we put code inside <code>/&#42; ... &#42;/</code>, it won't execute.
+Komentarų turinys yra ignoruojamas, tad jeigu rašysime kodą tarp <code>/&#42; ... &#42;/</code> jis nebus įvykdytas.
 
-Sometimes it can be handy to temporarily disable a part of code:
+Kartais būna naudinga trumpai paslėpti dalį kodo:
 
 ```js run
-/* Commenting out the code
-alert('Hello');
+/* Komentaro pagalba paslepiamas kodas
+alert('Labas');
 */
-alert('World');
+alert('Pasauli');
 ```
 
 ```smart header="Use hotkeys!"
-In most editors, a line of code can be commented out by pressing the `key:Ctrl+/` hotkey for a single-line comment and something like `key:Ctrl+Shift+/` -- for multiline comments (select a piece of code and press the hotkey). For Mac, try `key:Cmd` instead of `key:Ctrl`.
+Didžiojoje dalyje redaktorių vieno kodo eilutė gali būti paversta komentaru spaudžiant klaviatūroje vienu metu `key:Ctrl+/`, o kelių eilučių komentaras gaunamas spaudžiant `key:Ctrl+Shift+/` -- (išbandykite tai patys su savo kodu). Mac kompiuteriuose, naudokite `key:Cmd` vietoje `key:Ctrl`.
 ```
 
-````warn header="Nested comments are not supported!"
-There may not be `/*...*/` inside another `/*...*/`.
+````warn header="Sudedamieji (ang. nested) komentarai nėra galimi!"
+Negali būti dar vieno `/*...*/` kitame `/*...*/`.
 
-Such code will die with an error:
+Toks kodas pasibaigs klaida:
 
 ```js run no-beautify
 /*
-  /* nested comment ?!? */
+  /* sudedamasis komentaras ?!? */
 */
-alert( 'World' );
+alert( 'Pasauli' );
 ```
 ````
 
-Please, don't hesitate to comment your code.
+Prašau komentuokite savo kodą kaip galima dažniau.
 
-Comments increase the overall code footprint, but that's not a problem at all. There are many tools which minify code before publishing to a production server. They remove comments, so they don't appear in the working scripts. Therefore, comments do not have negative effects on production at all.
+Komentarai išplečia kodo užimamą vietą, tačiau tai nėra problema. Yra pakankamai įrankių, kurie sumažina kodą prieš jį paleisdami į serverius. Jie panaikina komentarus, kad jie nesimatytų dirbančiame kode, tad komentarai neturi neigiamo efekto produkcijai.
 
-Later in the tutorial there will be a chapter <info:code-quality> that also explains how to write better comments.
+Vėliau pamokose bus skyrius apie kodo kokybę <info:code-quality>, kur taip pat paaiškinama kaip rašyti geresnius komentarus.
