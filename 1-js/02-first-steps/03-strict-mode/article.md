@@ -1,85 +1,85 @@
-# The modern mode, "use strict"
+# Šiuolaikinis režimas, "use strict"
 
-For a long time, JavaScript evolved without compatibility issues. New features were added to the language while old functionality didn't change.
+Ilgą laiką, JavaScript tobulėjo be jokių problemų dėl suderinamumo. Naujos funkcijos buvo pridedamos nekeičiant senojo funkcionalumo.
 
-That had the benefit of never breaking existing code. But the downside was that any mistake or an imperfect decision made by JavaScript's creators got stuck in the language forever.
+Tai buvo naudinga, nes senas jau egzistuojantis kodas galėjo likti nepaveiktas. Tačiau neigiama to pusė yra tai, kad bet kokia klaida ar netobulas sprendimas padarytas JavaScript kūrėjų, užstrigdavo kalboje amžiams.
 
-This was the case until 2009 when ECMAScript 5 (ES5) appeared. It added new features to the language and modified some of the existing ones. To keep the old code working, most such modifications are off by default. You need to explicitly enable them with a special directive: `"use strict"`.
+Taip buvo iki kol 2009 metais atsirado ECMAScript 5 (ES5). Ji pridėjo naujų funkcijų ir patobulino jau egzistuojančias. Kad senasis kodas toliau galėtų veikti, didžioji dalis tokių patobulinimų yra išjunti pagal nutylėjimą. Juos turite aiškiai įgalinti su specialia direktyva: `"use strict"`(vert. naudoti griežtą).
 
 ## "use strict"
 
-The directive looks like a string: `"use strict"` or `'use strict'`. When it is located at the top of a script, the whole script works the "modern" way.
+Direktyva atrodo kaip vėrinys (ang. "string"): `"use strict"` arba `'use strict'`. Kai jis rašomas skripto viršuje, visas skriptas leidžiamas "moderniu" būdu.
 
-For example:
+Pavyzdžiui:
 
 ```js
 "use strict";
 
-// this code works the modern way
+// šis kodas suveiks moderniu būdu
 ...
 ```
 
-We will learn functions (a way to group commands) soon. Looking ahead, let's note that `"use strict"` can be put at the beginning of the function body instead of the whole script. Doing that enables strict mode in that function only. But usually, people use it for the whole script.
+Mes greitai mokinsimės funkcijas (tam tikras būdas grupuoti komandas), bet žiūrint į priekį, galime pažymėti, kad `"use strict"` gali būti dedamas funkcijos pradžioje. Tokiu būdų tik funkcijos korpusas (ang. "body") turi griežtą režimą, o ne visas skriptas. Bet dažniausiai žmonės naudoja šį režimą visame skripte.
 
 
-````warn header="Ensure that \"use strict\" is at the top"
-Please make sure that `"use strict"` is at the top of your scripts, otherwise strict mode may not be enabled.
+````warn header="Įsitikinkite, kad \"use strict\" yra viršuje"
+Prašau, įsitikinkite, kad `"use strict"` yra jūsų skriptų viršuje, kitu atveju griežtasis režimas gali nesuveikti. 
 
-Strict mode isn't enabled here:
+Šiuo atveju griežtasis režimas nėra įgalintas:
 
 ```js no-strict
-alert("some code");
-// "use strict" below is ignored--it must be at the top
+alert("kažkoks kodas");
+// "use strict" esantis apačioje ignoruojamas--jis privalo būti viršuje
 
 "use strict";
 
-// strict mode is not activated
+// griežtas režimas neaktyvuotas
 ```
 
-Only comments may appear above `"use strict"`.
+Anksčiau už `"use strict"` gali būti tik komentarai.
 ````
 
-```warn header="There's no way to cancel `use strict`"
-There is no directive like `"no use strict"` that reverts the engine to old behavior.
+```warn header="Nėra būdo kaip atšaukti `use strict`"
+Nėra tokios direktyvos kaip `"no use strict"`, kuris sugrąžintų sistemą į senąjį funkcionavimą.
 
-Once we enter strict mode, there's no return.
+Kai jau įžengiame į griežtą režimą, kelio atgal nebėra.
 ```
 
-## Browser console
+## Naršyklės konsolė
 
-For the future, when you use a browser console to test features, please note that it doesn't `use strict` by default.
+Ateičiai, kai naudosite naršyklės konsolės testavimo funkcijas, žinokite, kad ji nenaudoja `use strict` pagal numatytus nustatymus.
 
-Sometimes, when `use strict` makes a difference, you'll get incorrect results.
+Kartais, kai `use strict` įtaka yra svarbi, galite gauti neteisingus rezultatus.
 
-You can try to press `key:Shift+Enter` to input multiple lines, and put `use strict` on top, like this:
+Norėdami konsolėje suvesti daugiau nei vieną eilutę paspauskite `key:Shift+Enter`, tokiu būdu galite užrašyti `use strict` viršuje, štai taip:
 
 ```js
-'use strict'; <Shift+Enter for a newline>
-//  ...your code
-<Enter to run>
+'use strict'; <Shift+Enter perkels jus į naują eilutę>
+//  ...
+<Paspauskite enter, kad paleistumėte kodą>
 ```
 
-It works in most browsers, namely Firefox and Chrome.
+Tai suveikia didžiojoje dalyje naršyklių, tarp jų Firefox ir Chrome.
 
-If it doesn't, the most reliable way to ensure `use strict` would be to input the code into console like this:
+Jeigu nesuveikia, geriausias būdas įsitikinti, kad `use strict` veiks, kai kodas konsolėje paleidžiamas tokiu būdu:
 
 ```js
 (function() {
   'use strict';
 
-  // ...your code...
+  // ...jūsų kodas...
 })()
 ```
 
-## Always "use strict"
+## Visada naudokite "use strict"
 
-We have yet to cover the differences between strict mode and the "default" mode.
+Dar aptarsime skirtumus tarp griežto režimo ir numatytojo (ang. "default") režimo.
 
-In the next chapters, as we learn language features, we'll note the differences between the strict and default modes. Luckily, there aren't many and they actually make our lives better.
+Sekančiuose skyriuose, kai mokinsimės kalbos savybes, pastebėsime skirtumus tarp griežto ir numatyto režimo. Laimei, jų nėra labai daug ir jie iš tikrųjų palengvina mūsų gyvenimus. 
 
-For now, it's enough to know about it in general:
+Kol kas užtenka žinoti apie tai pagrindinius dalykus:
 
-1. The `"use strict"` directive switches the engine to the "modern" mode, changing the behavior of some built-in features. We'll see the details later in the tutorial.
-2. Strict mode is enabled by placing `"use strict"` at the top of a script or function. Several language features, like "classes" and "modules", enable strict mode automatically.
-3. Strict mode is supported by all modern browsers.
-4. We recommended always starting scripts with `"use strict"`. All examples in this tutorial assume strict mode unless (very rarely) specified otherwise.
+1. Naudojant direktyvą `"use strict"` sistema persijungia į "modernų" režimą, pakeisdama kai kurių įmontuotų savybių elgseną. Detaliau apie tai pamatysite vėlesnėse pamokose.
+2. Griežtas režimas paleidžiamas užrašant `"use strict"` skripto arba funkcijos viršuje. Kai kurios kalbos savybės, kaip klasės (ang. "classes") ir modulia (ang. "modules") griežtą režimą paleidžia automatiškai.
+3. Griežtą režimą palaiko visos modernios naršyklės.
+4. Rekomenduojame visus skriptus pradėti su `"use strict"`. Visi šių pamokų pavyzdžiai numano, kad griežtas režimas yra naudojamas, nebent (labai retais atvejais) yra nurodoma kitaip. 
