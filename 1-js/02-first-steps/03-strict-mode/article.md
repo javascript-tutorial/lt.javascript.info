@@ -19,7 +19,7 @@ Pavyzdžiui:
 ...
 ```
 
-Mes greitai mokinsimės funkcijas (tam tikras būdas grupuoti komandas), bet žiūrint į priekį, galime pažymėti, kad `"use strict"` gali būti dedamas funkcijos pradžioje. Tokiu būdų tik funkcijos korpusas (ang. "body") turi griežtą režimą, o ne visas skriptas. Bet dažniausiai žmonės naudoja šį režimą visame skripte.
+Mes greitai mokinsimės funkcijas (tam tikras būdas grupuoti komandas), bet užbėgant už akių, galime pažymėti, kad `"use strict"` gali būti dedamas funkcijos pradžioje. Tokiu būdų tik funkcijos korpusas (ang. "body") turi griežtą režimą, o ne visas skriptas. Bet dažniausiai žmonės naudoja šį režimą visame skripte.
 
 
 ````warn header="Įsitikinkite, kad \"use strict\" yra viršuje"
@@ -80,6 +80,6 @@ Sekančiuose skyriuose, kai mokinsimės kalbos savybes, pastebėsime skirtumus t
 Kol kas užtenka žinoti apie tai pagrindinius dalykus:
 
 1. Naudojant direktyvą `"use strict"` sistema persijungia į "modernų" režimą, pakeisdama kai kurių įmontuotų savybių elgseną. Detaliau apie tai pamatysite vėlesnėse pamokose.
-2. Griežtas režimas paleidžiamas užrašant `"use strict"` skripto arba funkcijos viršuje. Kai kurios kalbos savybės, kaip klasės (ang. "classes") ir modulia (ang. "modules") griežtą režimą paleidžia automatiškai.
+2. Griežtas režimas paleidžiamas užrašant `"use strict"` skripto arba funkcijos viršuje. Kai kurios kalbos savybės, kaip klasės (ang. "classes") ir moduliai (ang. "modules") griežtą režimą paleidžia automatiškai.
 3. Griežtą režimą palaiko visos modernios naršyklės.
 4. Rekomenduojame visus skriptus pradėti su `"use strict"`. Visi šių pamokų pavyzdžiai numano, kad griežtas režimas yra naudojamas, nebent (labai retais atvejais) yra nurodoma kitaip. 
