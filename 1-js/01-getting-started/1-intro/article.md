@@ -1,4 +1,4 @@
-# Įvadas į JavaScript  
+# JavaScript įvadas
 
 Pažvelkime kuo ypatinga JavaScript kalba, ką mes galime su ja padaryti ir kokios kitos technologijos gali būti naudojamos kartu.
 
