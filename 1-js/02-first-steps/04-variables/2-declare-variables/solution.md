@@ -1,21 +1,21 @@
-## The variable for our planet
+## Kintamasis mūsų planetai
 
-That's simple:
+Tai labai paprasta:
 
 ```js
-let ourPlanetName = "Earth";
+let ourPlanetName = "Žemė";
 ```
 
-Note, we could use a shorter name `planet`, but it might be not obvious what planet it refers to. It's nice to be more verbose. At least until the variable isNotTooLong.
+Atkreipkite dėmesį, kad galėjome naudoti trumpesnį pavadinimą `planet`, bet tada nebūtų aišku apie kurią planetą eina kalba. Šiuo atveju nieko tokio daugiažoždiauti. Bent jau kol kintamasis nėraPerIlgas. 
 
-## The name of the current visitor
+## Esamo lankytojo vardas
 
 ```js
 let currentUserName = "John";
 ```
 
-Again, we could shorten that to `userName` if we know for sure that the user is current.
+Vėlgi, galėjome sutrumpinti iki `userName`, jeigu konkrečiai žinome, kad tas lankytojas yra esamas.
 
-Modern editors and autocomplete make long variable names easy to write. Don't save on them. A name with 3 words in it is fine.
+Modernūs redaktoriai ir automatinis užbaigimas padeda rašyti ilgus kintamųjų pavadinimus. Netaupykite dėl jų. Pavadinimas su trimis žodžiais yra visiškai tinkamas variantas.
 
-And if your editor does not have proper autocompletion, get [a new one](/code-editors).
+O jeigu jūsų redaktorius neturi tinkamo automatinio užbaigimo funkcijos, įsigykite [naują](/code-editors).
