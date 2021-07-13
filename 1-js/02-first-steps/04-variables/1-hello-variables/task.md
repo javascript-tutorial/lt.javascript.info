@@ -2,9 +2,9 @@ importance: 2
 
 ---
 
-# Working with variables
+# Darbas su kintamaisiais
 
-1. Declare two variables: `admin` and `name`.
-2. Assign the value `"John"` to `name`.
-3. Copy the value from `name` to `admin`.
-4. Show the value of `admin` using `alert` (must output "John").
+1. Deklaruokite du kintamuosius: `admin` ir `name`.
+2. Priskirkite vertę `"John"` kintamajam `name`.
+3. Nukopijuokite vertę iš `name` į `admin`.
+4. Parodykite `admin` vertę, naudodami `alert` (turi grąžinti "John").
