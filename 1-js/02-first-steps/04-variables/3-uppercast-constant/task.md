@@ -2,9 +2,9 @@ importance: 4
 
 ---
 
-# Uppercase const?
+# const didžiosiomis raidėmis?
 
-Examine the following code:
+Peržiūrėkite sekantį kodą:
 
 ```js
 const birthday = '18.04.1982';
@@ -12,13 +12,13 @@ const birthday = '18.04.1982';
 const age = someCode(birthday);
 ```
 
-Here we have a constant `birthday` date and the `age` is calculated from `birthday` with the help of some code (it is not provided for shortness, and because details don't matter here).
+Mes turime konstantą `birthday` data ir amžius `age` yra paskaičiuojame pagal `birthday` tam tikro kodo pagalba (jis čia nepateiktas dėl glaustumo ir dėl to, kad tai nėra svarbu užduočiai).
 
-Would it be right to use upper case for `birthday`? For `age`? Or even for both?
+Ar būtų gerai naudoti didžiąsias raided `birthday`? O kaip dėl `age`? O galbūt netgi abiems?
 
 ```js
-const BIRTHDAY = '18.04.1982'; // make uppercase?
+const BIRTHDAY = '18.04.1982'; // perrašyti didžiosiomis raidėmis?
 
-const AGE = someCode(BIRTHDAY); // make uppercase?
+const AGE = someCode(BIRTHDAY); // perrašyti didžiosiomis raidėmis?
 ```
 
