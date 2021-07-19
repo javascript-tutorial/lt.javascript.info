@@ -1,6 +1,6 @@
 # Kintamieji
 
-Dažniausiai JavaScript paraiška turi dirbti su informacija. Štai du pavyzdžiai:
+Dažniausiai JavaScript paraiška dirba su informacija. Štai du pavyzdžiai:
 1. Internetinė parduotuvė -- informacija gali apimti parduodamas prekes ir pirkimo krepšelį.
 2. Pokalbių programėlė -- informacija gali apimti vartotojus, žinutes ir daug daugiau.
 
@@ -8,11 +8,11 @@ Kintamieji (ang. variables) yra naudojami tam, kad kauptų šią informaciją.
 
 ## Kintamasis
 
-[Kintamasis](https://en.wikipedia.org/wiki/Variable_(computer_science)) yra "įvardinta saugykla" duomenims. Mes galime naudoti kintamuosius, kad kauptume gėrybes, lankytojus ir kitus duomenis.
+[Kintamasis](https://en.wikipedia.org/wiki/Variable_(computer_science)) yra "įvardinta saugykla" duomenims. Mes galime naudoti kintamuosius, kad kauptume informacines gėrybes, lankytojus ir kitus duomenis.
 
 Norėdami sukurti kintamąjį su JavaScript, naudokite `let` raktinį žodį (ang. "keyword").
 
-Žemiau esantis pareiškimas sukuria (kitais žodžiais: *deklaruoja* ang.*declares*) kintamąjį su pavadinimu "message":
+Žemiau esantis pareiškimas sukuria (kitais žodžiais: *deklaruoja*, ang.*declares*) kintamąjį su pavadinimu "message":
 
 ```js
 let message;
@@ -53,7 +53,7 @@ Mes taip pat galime deklaruoti kelis kintamuosius vienoje eilėje:
 let user = 'John', age = 25, message = 'Labas';
 ```
 
-Taip atrodo trumpiau, bet iš tikrųjų nerekomenduojame taip daryti. Tam, kad būtų lengviau perskaityti kodą, rekomenduojame naudoti atskirą eilę kiekvienam kintamajam.
+Taip atrodo trumpiau, bet iš tikrųjų nerekomenduojame šito daryti. Tam, kad būtų lengviau perskaityti kodą, rekomenduojame naudoti atskirą eilę kiekvienam kintamajam.
 
 Kelių eilių variantas ilgesnis, bet jį lengviau perskaityti:
 
@@ -178,12 +178,12 @@ let 1a; // negali prasidėti skaičiumi
 let my-name; // brūkšniai '-' pavadinime neleidžiami
 ```
 
-```smart header="Case matters"
+```smart header="Svarbu didžiosios ar mažosios raidės"
 Kintamieji su pavadinimais `obuolys` ir `obuoLYS` yra du skirtingi kintamieji.
 ```
 
-````smart header="Non-Latin letters are allowed, but not recommended"
-Yra galima naudoti bet kokią kalbą, net kirilicos raides ar hieroglifus kaip pavyzdyje:
+````smart header="Nelotyniškos raidės leidžiamos, bet nerekomenduojamos"
+Galima naudoti bet kokią kalbą, net kirilicos raides ar hieroglifus kaip pavyzdyje:
 
 ```js
 let имя = '...';
@@ -198,7 +198,7 @@ Yra [rezervuotų žodžių sąrašas](https://developer.mozilla.org/en-US/docs/W
 
 Pavyzdžiui: `let`, `class`, `return` ir `function` yra rezervuoti.
 
-Kodas apačioje atiduoda sintaksės klaidą:
+Kodas apačioje grąžina sintaksės klaidą:
 
 ```js run no-beautify
 let let = 5; // negalima kintamojo pavadinti "let", klaida!
@@ -208,7 +208,7 @@ let return = 5; // taip pat negalima pavadinti "return", klaida!
 
 ````warn header="Paskyrimas be `use strict`"
 
-Dažniausiai, mums reikia apibrėžti kintamąjį prieš jį naudojant. Bet seniau techniškai buvo galima sukurti kintamąjį tiesiog priskiriant jam vertę ir nenaudojant `let`. Tai vis dar suveikia jeigu mūsų skirptuose nenurodome `use strict` tam kad palaikytume suderinamumų su senaisiais skirptais.
+Dažniausiai, mums reikia apibrėžti kintamąjį prieš jį naudojant. Bet seniau techniškai buvo galima sukurti kintamąjį tiesiog priskiriant jam vertę ir nenaudojant `let`. Tai vis dar suveikia jeigu mūsų skirptuose nenurodome `use strict` skirtą palaikyti suderinamumą su senaisiais skirptais.
 
 ```js run no-strict
 // atkreipkite dėmesį: "use strict" nenaudojamas šiame pavyzdyje
@@ -218,7 +218,7 @@ num = 5; // sukuriamas kintamasis "num", jeigu neegzistavo prieš tai
 alert(num); // 5
 ```
 
-Tai yra bloga praktika ir sukeltų klaidą griežtame režime (ang. strict mode):
+Tai yra bloga praktika ir grąžina klaidą griežtame režime (ang. strict mode):
 
 ```js
 "use strict";
@@ -237,15 +237,15 @@ Tam kad deklaruotume konstantą (ang. constant) (pastovų) kintamąjį, naudojam
 const myBirthday = '18.04.1982';
 ```
 
-Kintamieji deklaruoti naudojant `const` yra vadinami "konstantomis". Jie negali būti paskirti iš naujo. Bandymas tai padaryti sukeltų klaidą:
+Kintamieji deklaruoti naudojant `const` yra vadinami "konstantomis". Jie negali būti paskirti iš naujo. Bandymas tai padaryti grąžintų klaidą:
 
 ```js run
 const myBirthday = '18.04.1982';
 
-myBirthday = '01.01.2001'; // klaida, negalima priskirti iš naujo konstantos!
+myBirthday = '01.01.2001'; // klaida, negalima priskirti konstantos iš naujo!
 ```
 
-Kai programuotojas yra užtikrintas, kad kintamasis niekada nesikeis, jie gali deklaruoti jį su `const`, kad garantuotų ir aiškiai praneštų šį faktą ir kitiems.
+Kai programuotojas yra užtikrintas, kad kintamasis niekada nesikeis, gali deklaruoti jį su `const`, kad garantuotų ir aiškiai praneštų šį faktą ir kitiems.
 
 
 ### Konstantos didžiosiomis raidėmis
@@ -292,7 +292,7 @@ Kalbant apie kintamuosius yra dar vienas labai svarbus punktas.
 
 Kintamojo pavadinimas turi turėti švarią, aiškią reikšmę, apibūdinančią duomenis, kuriuos jis saugo.
 
-Kintamųjų įvardinimas yra viena iš svarbiausių ir sudėtingiausių sugebėjimų programuojant. Žvilgtelėjus į kintamojų pavadinimus galima nustatyti kurį kodą parašė naujokas, o kurį jau patyręs programuotojas.
+Kintamųjų įvardinimas yra viena iš svarbiausių ir sudėtingiausių sugebėjimų programuojant. Žvilgtelėjus į kintamųjų pavadinimus galima nustatyti kurį kodą parašė naujokas, o kurį jau patyręs programuotojas.
 
 Tikrame projekte, daugiausiai laiko yra skiriama modifikuoti ir išplėsti jau esamą kodą negu rašant kažką visiškai naujo nuo pat pradžių. Kai grįžtame prie kodo po to kai kurį laiką darėme kažką kito, daug lengviau kai randi informaciją su aiškiomis etiketėmis. Arba kitaip tariant, kai kintamieji turi gerus pavadinimus.
 
@@ -302,7 +302,7 @@ Kelios sektinos taisyklės:
 
 - Naudokite žmogui lengvai perskaitomus pavadinimus, kaip `userName` arba `shoppingCart`.
 - Laikykitės atokiau nuo sutrumpinimų arba trumpų pavadinimų kaip `a`, `b`, `c`, nebent tikrai žinote ką darote.
-- Pavadinimus kurkite kaip galima labiau apibūdinančius, bet glaustus. Pavyzdžiai blogų pavadinimų yra tokie kaip `data` ir `value`. Tokie pavadinimai nieko nesako. Tinka tik tokiu atveju jeigu kodo turinys yaptingai aiškiai parodo, į kuriuos "data" arba "value" kintamasis nurodo.
+- Pavadinimus kurkite kaip galima labiau apibūdinančius, bet glaustus. Pavyzdžiui blogi pavadinimai yra tokie kaip `data` ir `value`. Tokie pavadinimai nieko nesako. Tinka tik tokiu atveju jeigu kodo turinys yaptingai aiškiai parodo, į kuriuos "data" arba "value" kintamasis nurodo.
 - Susitarkite dėl terminų su komanda ir savo mintyse. Jeigu lankytojas puslapyje yra vadinamas "user" tai ir susiję kintamieji turi būti pavadinti `currentUser` arba `newUser` vietoje `currentVisitor` arba `newManInTown`.
 
 Skamba paprastai? Iš tikrųjų taip ir yra, bet praktikoje sukurti apibūdinančius ir tuo pačiu glaustus kintamųjų pavadinimus nėra lengva. Pabandykite.
@@ -316,7 +316,7 @@ Tokie programuotojai šiek tiek sutaupo kintamųjų deklaracijoms, bet praranda 
 
 Papildomas kintamasis yra gėris, ne blogis.
 
-Modernios JavaScript minifikatoriai (kitaip - kodo sutrumpintojai, ang. minifiers) ir naršyklės pakankamai gerai optimizuoja kodą, kad nekiltų veiklos problemų. Naudojant skirtingus kintamuosius, skirtingoms vertėms netgi gali padėti sistemai optimizuoti jūsų kodą.
+Modernios JavaScript minifikatoriai (kitaip - kodo sutrumpintojai, ang. minifiers) ir naršyklės pakankamai gerai optimizuoja kodą, kad nekiltų veiklos problemų. Naudodami skirtingus kintamuosius, skirtingoms vertėms netgi galite padėti sistemai optimizuoti jūsų kodą.
 ```
 
 ## Santrauka
