@@ -305,26 +305,26 @@ Kelios sektinos taisyklės:
 - Pavadinimus kurkite kaip galima labiau apibūdinančius, bet glaustus. Pavyzdžiai blogų pavadinimų yra tokie kaip `data` ir `value`. Tokie pavadinimai nieko nesako. Tinka tik tokiu atveju jeigu kodo turinys yaptingai aiškiai parodo, į kuriuos "data" arba "value" kintamasis nurodo.
 - Susitarkite dėl terminų su komanda ir savo mintyse. Jeigu lankytojas puslapyje yra vadinamas "user" tai ir susiję kintamieji turi būti pavadinti `currentUser` arba `newUser` vietoje `currentVisitor` arba `newManInTown`.
 
-Skamba paprastai? Iš tikrųjų taip ir yra, bet praktikoje sukurti apibūdinančius ir tuo pačiu glaustus kintamuosųjų pavadinimus nėra lengva. Pabandykite.
+Skamba paprastai? Iš tikrųjų taip ir yra, bet praktikoje sukurti apibūdinančius ir tuo pačiu glaustus kintamųjų pavadinimus nėra lengva. Pabandykite.
 
 ```smart header="Panaudoti vėl ar sukurti naują?"
 Ir paskutinė pastaba. Yra tingių programuotojų, kurie vietoje to, kad deklaruotų naujus kintamuosius, mėgsta dar kartą panaudoti jau egzistuojančius.
 
-As a result, their variables are like boxes into which people throw different things without changing their stickers. What's inside the box now? Who knows? We need to come closer and check.
+Dėl to jų kintamieji yra kaip tos dėžės į kurias kiti meta kas papuola nesivargindami pakeisti etikečių. Kas šiuo metu dėžėje? Kas žino. Tam reikia eiti arčiau ir tikrinti. 
 
-Such programmers save a little bit on variable declaration but lose ten times more on debugging.
+Tokie programuotojai šiek tiek sutaupo kintamųjų deklaracijoms, bet praranda dešimt kartų daugiau laiko ieškodami ir taisydami klaidas.
 
-An extra variable is good, not evil.
+Papildomas kintamasis yra gėris, ne blogis.
 
-Modern JavaScript minifiers and browsers optimize code well enough, so it won't create performance issues. Using different variables for different values can even help the engine optimize your code.
+Modernios JavaScript minifikatoriai (kitaip - kodo sutrumpintojai, ang. minifiers) ir naršyklės pakankamai gerai optimizuoja kodą, kad nekiltų veiklos problemų. Naudojant skirtingus kintamuosius, skirtingoms vertėms netgi gali padėti sistemai optimizuoti jūsų kodą.
 ```
 
-## Summary
+## Santrauka
 
-We can declare variables to store data by using the `var`, `let`, or `const` keywords.
+Mes galime deklaruoti kintamuosius, kad talpintume duomenis naudodami `var`, `let` arba `const` raktažodžius.
 
-- `let` -- is a modern variable declaration.
-- `var` -- is an old-school variable declaration. Normally we don't use it at all, but we'll cover subtle differences from `let` in the chapter <info:var>, just in case you need them.
-- `const` -- is like `let`, but the value of the variable can't be changed.
+- `let` -- yra moderni kintamojo deklaracija.
+- `var` -- yra senoviška kintamojo deklaracija. Dažniausiai jo net nenaudojame, bet dar kalbėsime apie subtilius jo skirtumus nuo `let` skyriuje <info:var>, jeigu kartais jums jų reikėtų.
+- `const` -- yra panašus į `let`, bet šio kintamojo vertė nebegali būti pakeista.
 
-Variables should be named in a way that allows us to easily understand what's inside them.
+Kintamieji turi būti pavadinti taip, kad mums būtų lengva suprasti kas yra jų viduje.
