@@ -2,7 +2,7 @@ importance: 3
 
 ---
 
-# Giving the right name
+# Tinkamo vardo davimas
 
-1. Create a variable with the name of our planet. How would you name such a variable?
-2. Create a variable to store the name of a current visitor to a website. How would you name that variable?
+1. Sukurkite kintamąjį su mūsų planetos vardu. Kaip pavadintumėte patį kintamąjį?
+2. Sukurkite kintamąjį skirtą išsaugoti vardą lankytojo, kuris šiuo metu lankosi puslapyje. Kaip pavadintumėte patį kintamąjį?

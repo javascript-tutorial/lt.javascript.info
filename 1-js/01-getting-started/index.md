@@ -1,3 +1,3 @@
-# An introduction
+# Įžanga
 
-About the JavaScript language and the environment to develop with it.
+Apie JavaScript kalbą ir aplinką programavimui su ja.

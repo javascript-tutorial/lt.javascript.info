@@ -1,45 +1,45 @@
-# Kodo editoriai
+# Kodo redaktoriai
 
-Kodo editorius yra vieta, kur programuotojai praleidžia didžiają dalį laiko.
+Kodo redaktorius (ang. "code editor") yra vieta, kur programuotojai praleidžia didžiają dalį laiko.
 
-Yra dviejų tipų editoriai: IDE ir lightweight editoriai. Dauguma žmonių naudoja po viena abiejų tipų editorių.
+Yra dviejų tipų redaktoriai: integruotos kūrimo aplinkos (ang. IDE) ir lengvasvoriai (ang. "lightweight") redaktoriai. Dauguma žmonių naudoja po viena abiejų tipų redaktorių.
 
-## IDE
-Terminas [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) nusako galingą editorių su daug galimybių, kurios dažnai operuoja "visam projektui". Kaip ir nusako pavadinimas - tai ne tik editorius, bet ir visa "developinimo aplinka".
+## Integruota Kūrimo Aplinka (IDE)
+Terminas [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) reiškia galingą redaktorių su daug galimybių, kurios dažnai veikia "visam projektui". Kaip ir sufleruoja pavadinimas - tai ne tik eredaktorius, bet tuo pačiu ir visa "programavimo aplinka".
 
-IDE pakrauną visą projektą (kuris gali turėti daug failų), leidžia naviguoti tarp failų, duoda autocompletion, kuris galioja visam projektui (ne tik vienam failui) ir integruoja versijavimo sistemą (pvz. [git](https://git-scm.com/)), testavimo aplinką ir kitus "projekto lygio" dalykėlius.
+IDE įkelia visą projektą (kuris gali turėti daug failų), leidžia naviguoti tarp failų, suteikia automatinį užbaigimą (ang. "autocompletion"), kuris galioja visam projektui (ne tik vienam failui) ir integruoja versijos valdymo (ang "version control") sistemą (pvz. [git](https://git-scm.com/)), testavimo aplinką ir kitus "projekto lygio" dalykus.
 
-Jeigu dar nepasirinkai IDE, pamąstyk apie šiuos:
+Jeigu dar neišsirinkote IDE, pamąstykite apie šiuos:
 
-- [Visual Studio Code](https://code.visualstudio.com/) (cross-platform, free).
-- [WebStorm](http://www.jetbrains.com/webstorm/) (cross-platform, paid).
+- [Visual Studio Code](https://code.visualstudio.com/) (daugiaplatformis, nemokamas).
+- [WebStorm](http://www.jetbrains.com/webstorm/) (daugiaplatformis, mokamas).
 
-Windows'am taip pat yra "Visual Studio", tačiau nereiktų jo maišyt su "Visual Studio Code". "Visual Studio" yra mokamas ir tik Windows'am skirtas editorius, kuris puikiai derinasi su .NET platforma. Jis taip pat tinka ir JavaScript'ui. yra ir nemokama versija [Visual Studio Community](https://www.visualstudio.com/vs/community/).
+Windows taip pat yra "Visual Studio", tačiau nereiktų jo maišyt su "Visual Studio Code". "Visual Studio" yra mokamas ir tik Windows skirtas redaktorius, kuris puikiai derinasi su .NET platforma. Jis taip pat tinka ir JavaScript. yra ir nemokama versija [Visual Studio Community](https://www.visualstudio.com/vs/community/).
 
-Dauguma IDE yra mokami, tačiau turi trial periodą. Jų kaina dažniausiai pakenčiama, atsižvelgus į programuotojų atlyginimus, tad tiesiog išsirink tokį, kuris atrodo palankiausiai.
+Dauguma IDE yra mokami, tačiau turi bandomąjį periodą. Jų kaina dažniausiai pakenčiama, atsižvelgiant į programuotojų atlyginimus, tad tiesiog išsirink tokį, kuris atrodo patogiausiai.
 
-## Lightweight editoriai
+## Lengvasvoriai redaktoriai
 
-"Lightweight editoriai" yra ne tokie galingi kaip IDE, bet jie yra greiti, elegantiški ir paprasti.
+"Lightweight editors" yra ne tokie galingi kaip IDE, bet jie yra greiti, elegantiški ir paprasti.
 
-Jie pagrinde naudojami greitai atidaryti ir pakoreguoti failą.
+Jie dažniausiai naudojami greitai atidaryti ir pakoreguoti failą.
 
-Pagrindinis skirtumas tarp "ligthweight editoriaus" ir "IDE" yra tas, kad IDE veikia projekto lygmeny, todėl pačioj pradžioj jis pakrauna daug daugiau informacijos, analizuoja projekto struktūrą, jei to reikia, ir pan. Lightweight editorius yra daug greitesnis, jeigu mums tereikia pakeisti vieną failą.
+Pagrindinis skirtumas tarp "ligthweight editor" ir "IDE" yra tas, kad IDE veikia projekto lygmeniu, todėl pačioj pradžioj jis pakrauna daug daugiau informacijos, analizuoja projekto struktūrą, nei to reikia, ir pan. Lengvascoris redaktorius yra daug greitesnis, jeigu mums tereikia pakeisti vieną failą.
 
-Praktikoj, lightweight editoriai turi daug pluginų, įskaitant direktorijos lygmenys sintaksės analyzerius, autocompleterius, tad šitoj vietoj nėra griežtų ribų tarp ligthweight editoriaus ir IDE.
+Praktikoj, lengvasvoriai redaktoriai turi daug papildymų (ang. "plugin"), įskaitant direktorijos lygmeny sintaksės analizatorius, automatinio užbaigimo papildymus, tad šitoj vietoj nėra griežtų ribų tarp lengvasvorio redaktoriaus ir IDE.
 
-Šios opcijos vertos dėmesio:
+Šie pasirinkimai verti dėmesio:
 
-- [Atom](https://atom.io/) (cross-platform, free).
-- [Visual Studio Code](https://code.visualstudio.com/) (cross-platform, free).
-- [Sublime Text](http://www.sublimetext.com) (cross-platform, shareware).
-- [Notepad++](https://notepad-plus-plus.org/) (Windows, free).
-- [Vim](http://www.vim.org/) and [Emacs](https://www.gnu.org/software/emacs/) yra labai cool, jeigu moki jais naudotis.
+- [Atom](https://atom.io/) (daugiaplatformis, nemokamas).
+- [Visual Studio Code](https://code.visualstudio.com/) (daugiaplatformis, nemokamas).
+- [Sublime Text](http://www.sublimetext.com) (daugiaplatformis, laikinai nemokamas, ang. "shareware").
+- [Notepad++](https://notepad-plus-plus.org/) (Windows, nemokamas).
+- [Vim](http://www.vim.org/) ir [Emacs](https://www.gnu.org/software/emacs/) yra labai puikūs, jeigu moki jais naudotis.
 
 ## Nesiginčykime
 
-Editoriai, kurie buvo paminėti šioj pamokoj yra tie, kuriuos aš ir mano draugai, kuriuos laikau kietais programuotojais, naudojame ilgą laiką ir kurie tenkina mūsų poreikius.
+Redaktoriai, kurie buvo paminėti šioje pamokoje yra tie, kuriuos aš ir mano draugai, kuriuos laikau kietais programuotojais, naudojame ilgą laiką ir kurie tenkina mūsų poreikius.
 
-Mūsų dideliam pasaulyje yra kitų puikių editorių. Tiesiog pasirink tokį, kuris tau labiausiai patinka.
+Mūsų dideliame pasaulyje yra kitų puikių redaktorių. Tiesiog pasirink tokį, kuris tau labiausiai patinka.
 
-Editoriaus pasirinkimas, kaip ir bet kokio kito įrankio, yra individualus ir priklauso nuo projektų bei kitų, dažnai subjektyvių kriterijų.
+Redaktoriaus pasirinkimas, kaip ir bet kokio kito įrankio, yra individualus ir priklauso nuo projektų bei kitų, dažnai subjektyvių kriterijų.

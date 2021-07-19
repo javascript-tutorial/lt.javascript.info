@@ -1,54 +1,54 @@
-# Developer console
+# Programuotojo konsolė
 
-Kode lengva palikti errorų. Ko gero, tau teks sukelti errorų... Juokauju, tau *tikrai* teks sukelti errorų, nebent esi [robotas](https://en.wikipedia.org/wiki/Bender_(Futurama)).
+Kodėl lengva palikti klaidų. Ko gero, tau teks sukelti klaidų... Juokauju, tau *tikrai* teks sukelti klaidų, nebent esi [robotas](https://en.wikipedia.org/wiki/Bender_(Futurama)).
 
-Tačiau naršyklėje, useriai by default nemato errorų. Todėl jeigu skripte kažkas veikia ne taip, kaip turėtų, mes to nepamatysim ir negalėsim pataisyt.
+Tačiau naršyklėje, vartotojai nemato klaidų. Todėl jeigu skripte kažkas veikia ne taip, kaip turėtų, mes to nepamatysime ir negalėsime pataisyt.
 
-Tam, kad pamatyti errorus ir gauti daug kitos naudingos informacijos apie skriptus, "developer tools" yra integruoti pačiose naršyklėse.
+Tam, kad rastume klaidas ir gautume daug kitos naudingos informacijos apie skriptus, naudojame programuotojų įrankius (ang. "developer tools") integruotus pačiose naršyklėse.
 
-Dauguma programuotojų naudojasi Chrome arba Firefox, nes šios naršyklės turi geriausius developer tools'us. Kitos naršklės taip pat turi developer tools'us, kartais su įdomiais feature'sais, tačiau dažniausiai bando "pasivyti" Chrome arba Firefox. Todėl dauguma programuotojų turi "mėgstamiausią" naršyklę ir įsijungią kitą naršyklę, jeigu problema yra specifinė kažkokiai konkrečiai naršyklei.
+Dauguma programuotojų naudojasi Chrome arba Firefox, nes šios naršyklės turi geriausius įrankius. Kitos naršklės taip pat turi programuotojų įrankius, kartais su įdomiomis savybėmis, tačiau jie dažniausiai tik bando "pasivyti" Chrome arba Firefox. Todėl dauguma programuotojų turi "mėgstamiausią" naršyklę ir naudoja kitą, tik tada kai problema yra specifinė kažkokiai konkrečiai naršyklei.
 
-Developer tools'ai turi daug feature'sų. Pradžiai, mes išmoksim kaip juos atidaryti, pažvelgti į error'us ir paleisti JavaScript komandas.
+Programuotojų įrankiai turi daug savybių. Pradžiai, mes išmoksime juos atidaryti, pažvelgti į klaidas ir paleisti JavaScript komandas.
 
 ## Google Chrome
 
 Atidaryk puslapį [bug.html](bug.html).
 
-Šio puslapio JavaScript kode yra error'as. Jis paslėptas nuo "parpastų" žmonių, tad atidarykime developer tools'us.
+Šio puslapio JavaScript kode yra klaida. Ji paslėpta nuo paprastų lankytojų. Atidarykime programuotojų įrankius.
 
-Spausk `key:F12` arba, jeigu naudoji Mac, `key:Cmd+Opt+J`.
+Spausk `key:F12` arba, jeigu naudoji Mac, `key:Cmd+Opt+I`.
 
-Developer tools'ai standartiškai atidarys Console tab'ą.
+Programuotojų įrankiai standartiškai atidarys konsolės langą.
 
-Turėtų atrodyt kažkas panašaus į tai:
+Turėtų atrodyt panašiai į tai:
 
 ![chrome](chrome.png)
 
 Konkretus vaizdas priklauso nuo Chrome versijos, kurią naudoji. Kartais atsiranda pakeitimų, bet visgi vaizdas turėtų būti panašus.
 
-- Čia mes galim pamatyt raudoną error message. Šiuo atveju skriptas turi nežinomą "lalala" komandą.
-- Dešinėje yra clickable link'as į `bug.html:12` su skaičiumi eilutės, kurioje yra error'as.
+- Čia mes galim pamatyti raudoną klaidos žinutę. Šiuo atveju skriptas turi nežinomą "lalala" komandą.
+- Dešinėje yra aktyvi nuoroda į `bug.html:12` su skaičiumi eilutės, kurioje yra klaida.
 
-Žemiau error message'o yra mėlynas `>` simbolis. Jis parodo "command line", kuriame mes galime rašyti JavaScript komandas. Spausk `key:Enter` kad jas paleisti (`key:Shift+Enter` kad rašyti komandas per daugiau nei vieną eilutę).
+Žemiau klaidos žinutės yra mėlynas `>` simbolis. Jis parodo komandų eilutę (ang. "command line"), kurioje mes galime rašyti JavaScript komandas. Spausk `key:Enter` kad jas paleisti (`key:Shift+Enter` kad rašyti komandas per daugiau nei vieną eilutę).
 
-Dabar mes galime matyti error'us. Kaip pradžiai, to pakanka. Vėliau mes grįšim į developer tools'us ir kalbėsim apie debugginimą chapteryje <info:debugging-chrome>.
+Dabar mes galime matyti klaidas. Pradžiai, to pakanka. Vėliau mes grįšime į programuotojų įrankius ir kalbėsime apie klaidų taisymą skyriuje <info:debugging-chrome>.
 
 
 ## Firefox, Edge ir kiti
 
-Dauguma kitų naršyklių naudoja `key:F12` developer tools'ų atidarymui.
+Dauguma kitų naršyklių naudoja `key:F12` programuotojo įrankių atidarymui.
 
-Jų išvaizda gan panaši. Kai išmoksti vieną (gali pradėti nuo Chrome), gali greitai pradėti naudotis kita.
+Jų išvaizda gana panaši. Kai išmoksti vieną (gali pradėti nuo Chrome), gali greitai pradėti naudotis kitais.
 
 ## Safari
 
-Safari (Mac naršyklė, neveikia Windows/Linux) yra šiek tiek unikali. Iš pradžių mums reikia enablinti "Developer menu".
+Safari (Mac naršyklė, neveikia Windows/Linux) yra šiek tiek unikali. Iš pradžių mums reikia įgalinti "Programuotojo Meniu" (ang. "Developer menu").
 
-Atidaryk Preferences ir eik į "Advanced". Apačioj bus checkbox'as:
+Atidaryk Nuostatas (ang. "Preferences") ir eik į "Pažangi" (ang. "Advanced"). Apačioj bus langelis (ang. "checkbox"):
 
 ![safari](safari.png)
 
-Dabar `key:Cmd+Opt+C` įjungs konsolę. Taip pat turėk omeny, kad naujas item'as "Develop" atsirado viršutiniam meniu. Jame yra daug komandų ir nustatymų.
+Dabar `key:Cmd+Opt+C` įjungs konsolę. Taip pat turėk omeny, kad naujas pasirinkimas "Programuoti" (ang. "Develop") atsirado viršutiniame meniu. Jame yra daug komandų ir nustatymų.
 
 ```smart header="Kelių eilučių komandos"
 Dažniausiai, jeigu konsolėje parašome vieną eilutę kodo ir paspaudžiame `key:Enter`, ji suveikia.
@@ -58,7 +58,7 @@ Tam, kad parašyti kelias eilutes, spausk `key:Shift+Enter`. Tokiu būdu mes gal
 
 ## Reziumė
 
-- Developer tools'ai leidžia mum pamatyti errorus, paleisti komandas, analizuoti kintamuosiuos ir daugiau.
-- Juos paleisti galime su `key:F12` dauguma naršklių Windows'uose. Chrome, jeigu naudojame Mac, reikaluaja `key:Cmd+Opt+J`, Safari: `key:Cmd+Opt+C` (iš pradžių reikia aktyvuoti).
+- Programuotojo įrankiai leidžia mums pamatyti klaidas, paleisti komandas, analizuoti kintamuosiuos ir daugiau.
+- Juos paleisti galime su `key:F12` dauguma naršklių per Windows. Chrome, jeigu naudojame Mac, reikalauja `key:Cmd+Opt+J`, Safari: `key:Cmd+Opt+C` (iš pradžių reikia aktyvuoti).
 
-Dabar mes turime paruoštą aplinką. Kitoj pamokoj paragausim JavaScript'o.
+Dabar jau turime paruoštą aplinką. Kitoj pamokoj paragausime JavaScript.
