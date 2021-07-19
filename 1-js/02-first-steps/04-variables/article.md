@@ -1,10 +1,10 @@
-# Kintamieji (ang. variables)
+# Kintamieji
 
 Dažniausiai JavaScript paraiška turi dirbti su informacija. Štai du pavyzdžiai:
 1. Internetinė parduotuvė -- informacija gali apimti parduodamas prekes ir pirkimo krepšelį.
 2. Pokalbių programėlė -- informacija gali apimti vartotojus, žinutes ir daug daugiau.
 
-Kintamieji yra naudojami tam, kad kauptų šią informaciją. 
+Kintamieji (ang. variables) yra naudojami tam, kad kauptų šią informaciją. 
 
 ## Kintamasis
 
@@ -12,7 +12,7 @@ Kintamieji yra naudojami tam, kad kauptų šią informaciją.
 
 Norėdami sukurti kintamąjį su JavaScript, naudokite `let` raktinį žodį (ang. "keyword").
 
-Žemiau esantis pareiškimas sukuria (kitais žodžiais: *declaruoja* ang.*declares*) kintamąjį su pavadinimu "message":
+Žemiau esantis pareiškimas sukuria (kitais žodžiais: *deklaruoja* ang.*declares*) kintamąjį su pavadinimu "message":
 
 ```js
 let message;
@@ -53,9 +53,9 @@ Mes taip pat galime deklaruoti kelis kintamuosius vienoje eilėje:
 let user = 'John', age = 25, message = 'Labas';
 ```
 
-Tai atrodo trumpiau, bet iš tikrųjų mes nerekomenduojame taip daryti. Tam, kad būtų lengviau perskaityti kodą, prašau, naudokite vieną eilę kiekvienam kintamajam.
+Taip atrodo trumpiau, bet iš tikrųjų nerekomenduojame taip daryti. Tam, kad būtų lengviau perskaityti kodą, rekomenduojame naudoti atskirą eilę kiekvienam kintamajam.
 
-Kelių eilučių variantas ilgesnis, bet jį lengviau perskaityti:
+Kelių eilių variantas ilgesnis, bet jį lengviau perskaityti:
 
 ```js
 let user = 'John';
@@ -88,14 +88,14 @@ Senesniuose skriptuose galite rasti raktažodį: `var` vietoje `let`:
 *!*var*/!* message = 'Labas';
 ```
 
-Raktažodis `var` yra *beveik* tas pats kaip `let`. Jis taip pat deklaruoja kintamąjį, bet šiekt eik kitokiu, "senoviniu" būdu.
+Raktažodis `var` yra *beveik* tas pats kaip `let`. Jis taip pat deklaruoja kintamąjį, bet šiek tiek kitokiu, "senoviniu" būdu.
 
 Yra subtilūs skirtumai tarp `let` ir `var`, bet kol kas jie mums nėra svarbūs. Mes apie juos kalbėsime detaliau skyriuje <info:var>.
 ````
 
 ## Tikro gyvenimo analogija
 
-Mes galime lengviau suprasti "kintamojo" sąvoką jeigu įsivaizduotume jį kaip "dėžę" skirtą duomenims ant kurios priklijuotas unikaliai pavadintas lipdukas.
+Tam kad būtų lengviau suprasti "kintamojo" sąvoką, įsivaizduokime jį kaip "dėžę" skirtą sudėti duomenims, ant kurios priklijuotas unikaliai pavadintas lipdukas.
 
 Pavyzdžiui kintamąjį `message` galime įsivaizduoti kaip dėžę su etikete `"message"`, kurios viduje yra patalpinta vertė `"Labas!"`:
 
@@ -161,100 +161,100 @@ Kai pavadinimas susideda iš kelių žodžių, dažniausiai naudojamas [camelCas
 
 Įdomu -- dolerio `'$'` ir pabrėžimo `'_'` ženklai gali būti naudojami pavadinimuose. Jie yra normalūs simboliai, taip pat kaip raidės, be jokios ypatingos reikšmės.
 
-These names are valid:
+Šie pavadinimai yra tinkami:
 
 ```js run untrusted
-let $ = 1; // declared a variable with the name "$"
-let _ = 2; // and now a variable with the name "_"
+let $ = 1; // deklaruotas kintamasis su pavadinimu "$"
+let _ = 2; // o dabar kintamasis su pavadinimu "_"
 
 alert($ + _); // 3
 ```
 
-Examples of incorrect variable names:
+Pavyzdžiai neteisingų pavadinimų kintamiesiems:
 
 ```js no-beautify
-let 1a; // cannot start with a digit
+let 1a; // negali prasidėti skaičiumi
 
-let my-name; // hyphens '-' aren't allowed in the name
+let my-name; // brūkšniai '-' pavadinime neleidžiami
 ```
 
 ```smart header="Case matters"
-Variables named `apple` and `AppLE` are two different variables.
+Kintamieji su pavadinimais `obuolys` ir `obuoLYS` yra du skirtingi kintamieji.
 ```
 
 ````smart header="Non-Latin letters are allowed, but not recommended"
-It is possible to use any language, including cyrillic letters or even hieroglyphs, like this:
+Yra galima naudoti bet kokią kalbą, net kirilicos raides ar hieroglifus kaip pavyzdyje:
 
 ```js
 let имя = '...';
 let 我 = '...';
 ```
 
-Technically, there is no error here, such names are allowed, but there is an international tradition to use English in variable names. Even if we're writing a small script, it may have a long life ahead. People from other countries may need to read it some time.
+Techniškai jokios klaidos tame nėra ir tokie pavadinimai yra leistini, tačiau tarptautinė tradicija yra naudoti angliškus kintamųjų pavadinimus. Net jeigu rašome trumpą skriptą, jo gyvenimas gali būti labai ilgas. Kada nors žmonėms iš kitų šalių gali tekti jį perskaityti.
 ````
 
-````warn header="Reserved names"
-There is a [list of reserved words](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords), which cannot be used as variable names because they are used by the language itself.
+````warn header="Rezervuoti pavadinimai"
+Yra [rezervuotų žodžių sąrašas](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords), kurių negalima naudoti kaip kintamųjų, nes šie žodžiai yra naudojami pačioje kalboje.
 
-For example: `let`, `class`, `return`, and `function` are reserved.
+Pavyzdžiui: `let`, `class`, `return` ir `function` yra rezervuoti.
 
-The code below gives a syntax error:
+Kodas apačioje atiduoda sintaksės klaidą:
 
 ```js run no-beautify
-let let = 5; // can't name a variable "let", error!
-let return = 5; // also can't name it "return", error!
+let let = 5; // negalima kintamojo pavadinti "let", klaida!
+let return = 5; // taip pat negalima pavadinti "return", klaida!
 ```
 ````
 
-````warn header="An assignment without `use strict`"
+````warn header="Paskyrimas be `use strict`"
 
-Normally, we need to define a variable before using it. But in the old times, it was technically possible to create a variable by a mere assignment of the value without using `let`. This still works now if we don't put `use strict` in our scripts to maintain compatibility with old scripts.
+Dažniausiai, mums reikia apibrėžti kintamąjį prieš jį naudojant. Bet seniau techniškai buvo galima sukurti kintamąjį tiesiog priskiriant jam vertę ir nenaudojant `let`. Tai vis dar suveikia jeigu mūsų skirptuose nenurodome `use strict` tam kad palaikytume suderinamumų su senaisiais skirptais.
 
 ```js run no-strict
-// note: no "use strict" in this example
+// atkreipkite dėmesį: "use strict" nenaudojamas šiame pavyzdyje
 
-num = 5; // the variable "num" is created if it didn't exist
+num = 5; // sukuriamas kintamasis "num", jeigu neegzistavo prieš tai
 
 alert(num); // 5
 ```
 
-This is a bad practice and would cause an error in strict mode:
+Tai yra bloga praktika ir sukeltų klaidą griežtame režime (ang. strict mode):
 
 ```js
 "use strict";
 
 *!*
-num = 5; // error: num is not defined
+num = 5; // klaida: num nėra apibrėžtas
 */!*
 ```
 ````
 
-## Constants
+## Konstantos
 
-To declare a constant (unchanging) variable, use `const` instead of `let`:
+Tam kad deklaruotume konstantą (ang. constant) (pastovų) kintamąjį, naudojame `const` vietoje `let`:
 
 ```js
 const myBirthday = '18.04.1982';
 ```
 
-Variables declared using `const` are called "constants". They cannot be reassigned. An attempt to do so would cause an error:
+Kintamieji deklaruoti naudojant `const` yra vadinami "konstantomis". Jie negali būti paskirti iš naujo. Bandymas tai padaryti sukeltų klaidą:
 
 ```js run
 const myBirthday = '18.04.1982';
 
-myBirthday = '01.01.2001'; // error, can't reassign the constant!
+myBirthday = '01.01.2001'; // klaida, negalima priskirti iš naujo konstantos!
 ```
 
-When a programmer is sure that a variable will never change, they can declare it with `const` to guarantee and clearly communicate that fact to everyone.
+Kai programuotojas yra užtikrintas, kad kintamasis niekada nesikeis, jie gali deklaruoti jį su `const`, kad garantuotų ir aiškiai praneštų šį faktą ir kitiems.
 
 
-### Uppercase constants
+### Konstantos didžiosiomis raidėmis
 
-There is a widespread practice to use constants as aliases for difficult-to-remember values that are known prior to execution.
+Plačiai paplitusi praktika naudoti konstantas kaip kodinius pavadinimus sunkiai įsimenamoms vertėms, kurios yra jau žinomos prieš atlikimą. 
 
-Such constants are named using capital letters and underscores.
+Tokios konstantos pavadinamos naudojant didžiąsias raides ir pabrėžimo ženklą.
 
-For instance, let's make constants for colors in so-called "web" (hexadecimal) format:
+Pavyzdžiui, sukurkime konstantas spalvoms su taip vadinamu internetiniu (šešioliktainiu, ang. hexadecimal) formatu:
 
 ```js run
 const COLOR_RED = "#F00";
@@ -262,53 +262,53 @@ const COLOR_GREEN = "#0F0";
 const COLOR_BLUE = "#00F";
 const COLOR_ORANGE = "#FF7F00";
 
-// ...when we need to pick a color
+// ...kai mums reikia išsirinkti spalvą
 let color = COLOR_ORANGE;
 alert(color); // #FF7F00
 ```
 
-Benefits:
+Nauda:
 
-- `COLOR_ORANGE` is much easier to remember than `"#FF7F00"`.
-- It is much easier to mistype `"#FF7F00"` than `COLOR_ORANGE`.
-- When reading the code, `COLOR_ORANGE` is much more meaningful than `#FF7F00`.
+- `COLOR_ORANGE` daug lengviau prisiminti nei `"#FF7F00"`.
+- Daug lengviau būtų įvelti klaidų spausdinant klaviatūra `"#FF7F00"` negu `COLOR_ORANGE`.
+- Skaitant kodą, `COLOR_ORANGE` turės daugiau prasmės nei `#FF7F00`.
 
-When should we use capitals for a constant and when should we name it normally? Let's make that clear.
+Kada turėtume naudoti didžiąsias raides konstantoms ir kada turėtume jas pavadinti normaliu būdu? Išsiaiškinkime.
 
-Being a "constant" just means that a variable's value never changes. But there are constants that are known prior to execution (like a hexadecimal value for red) and there are constants that are *calculated* in run-time, during the execution, but do not change after their initial assignment.
+Būti "konstanta" tereiškia, kad to kintamojo vertė niekada nesikeičia. Bet yra tokių konstantų, kurių vertė yra žinoma prieš kodo atlikimą (kaip pavyzdžiui šešioliktainė raudonos spalvos vertė) ir taip pat yra konstantos, kurios yra *išmatuojamos* (ang *calculated*) veikimo metu kol vykdomas kodas, bet nesikeičia po jų pradinio paskyrimo. 
 
-For instance:
+Pavyzdžiui:
 ```js
-const pageLoadTime = /* time taken by a webpage to load */;
+const pageLoadTime = /* kiek laiko užtruko paliesti puslapį */;
 ```
 
-The value of `pageLoadTime` is not known prior to the page load, so it's named normally. But it's still a constant because it doesn't change after assignment.
+Vertė `pageLoadTime` nebuvo žinoma prieš paleidžiant puslapį, tad pavadinimas užrašytas įprastiniu būdu, bet tai vis dar konstanta, nes ji nesikeičia po paskyrimo.
 
-In other words, capital-named constants are only used as aliases for "hard-coded" values.  
+Kitais žodžiais, didžiosiomis raidėmis pavadintos konstantos yra naudojamos kaip kodiniai žodžiai išanksto sukoduotoms (ang "hard-coded") vertėms.  
 
-## Name things right
+## Pavadinkite daiktus teisingai
 
-Talking about variables, there's one more extremely important thing.
+Kalbant apie kintamuosius yra dar vienas labai svarbus punktas.
 
-A variable name should have a clean, obvious meaning, describing the data that it stores.
+Kintamojo pavadinimas turi turėti švarią, aiškią reikšmę, apibūdinančią duomenis, kuriuos jis saugo.
 
-Variable naming is one of the most important and complex skills in programming. A quick glance at variable names can reveal which code was written by a beginner versus an experienced developer.
+Kintamųjų įvardinimas yra viena iš svarbiausių ir sudėtingiausių sugebėjimų programuojant. Žvilgtelėjus į kintamojų pavadinimus galima nustatyti kurį kodą parašė naujokas, o kurį jau patyręs programuotojas.
 
-In a real project, most of the time is spent modifying and extending an existing code base rather than writing something completely separate from scratch. When we return to some code after doing something else for a while, it's much easier to find information that is well-labeled. Or, in other words, when the variables have good names.
+Tikrame projekte, daugiausiai laiko yra skiriama modifikuoti ir išplėsti jau esamą kodą negu rašant kažką visiškai naujo nuo pat pradžių. Kai grįžtame prie kodo po to kai kurį laiką darėme kažką kito, daug lengviau kai randi informaciją su aiškiomis etiketėmis. Arba kitaip tariant, kai kintamieji turi gerus pavadinimus.
 
-Please spend time thinking about the right name for a variable before declaring it. Doing so will repay you handsomely.
+Prašau, skirkite laiko sugalvodami kintamajam tinkamą pavadinimą prieš jį deklaruodami. Toks įprotis jums tikrai vėliau atsipirks.
 
-Some good-to-follow rules are:
+Kelios sektinos taisyklės:
 
-- Use human-readable names like `userName` or `shoppingCart`.
-- Stay away from abbreviations or short names like `a`, `b`, `c`, unless you really know what you're doing.
-- Make names maximally descriptive and concise. Examples of bad names are `data` and `value`. Such names say nothing. It's only okay to use them if the context of the code makes it exceptionally obvious which data or value the variable is referencing.
-- Agree on terms within your team and in your own mind. If a site visitor is called a "user" then we should name related variables `currentUser` or `newUser` instead of `currentVisitor` or `newManInTown`.
+- Naudokite žmogui lengvai perskaitomus pavadinimus, kaip `userName` arba `shoppingCart`.
+- Laikykitės atokiau nuo sutrumpinimų arba trumpų pavadinimų kaip `a`, `b`, `c`, nebent tikrai žinote ką darote.
+- Pavadinimus kurkite kaip galima labiau apibūdinančius, bet glaustus. Pavyzdžiai blogų pavadinimų yra tokie kaip `data` ir `value`. Tokie pavadinimai nieko nesako. Tinka tik tokiu atveju jeigu kodo turinys yaptingai aiškiai parodo, į kuriuos "data" arba "value" kintamasis nurodo.
+- Susitarkite dėl terminų su komanda ir savo mintyse. Jeigu lankytojas puslapyje yra vadinamas "user" tai ir susiję kintamieji turi būti pavadinti `currentUser` arba `newUser` vietoje `currentVisitor` arba `newManInTown`.
 
-Sounds simple? Indeed it is, but creating descriptive and concise variable names in practice is not. Go for it.
+Skamba paprastai? Iš tikrųjų taip ir yra, bet praktikoje sukurti apibūdinančius ir tuo pačiu glaustus kintamuosųjų pavadinimus nėra lengva. Pabandykite.
 
-```smart header="Reuse or create?"
-And the last note. There are some lazy programmers who, instead of declaring new variables, tend to reuse existing ones.
+```smart header="Panaudoti vėl ar sukurti naują?"
+Ir paskutinė pastaba. Yra tingių programuotojų, kurie vietoje to, kad deklaruotų naujus kintamuosius, mėgsta dar kartą panaudoti jau egzistuojančius.
 
 As a result, their variables are like boxes into which people throw different things without changing their stickers. What's inside the box now? Who knows? We need to come closer and check.
 
