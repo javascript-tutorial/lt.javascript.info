@@ -1,166 +1,166 @@
-# Data types
+# Duomenų tipai
 
-A variable in JavaScript can contain any data. A variable can at one moment be a string and at another be a number:
+Kintamasis JavaScript gali savyje laikyti bet kokius duomenis. Kintamasis gali vienu momentu būti eilutė, o kitu numeris:
 
 ```js
 // no error
-let message = "hello";
+let message = "labas";
 message = 123456;
 ```
 
-Programming languages that allow such things are called "dynamically typed", meaning that there are data types, but variables are not bound to any of them.
+Programinės kalbos, kurios tai leidžia yra vadinamos "dinamiškai tipizuotomis" (ang. "dynamically typed"), tai reiškia, kad duomenų tipai yra, tačiau kintamieji nėra prie jų pririšti.
 
-There are seven basic data types in JavaScript. Here, we'll cover them in general and in the next chapters we'll talk about each of them in detail.
+JavaScript turi septynis pagrindinius duomenų tipus. Čia mes juos peržvelgsime bendrai, o tolesniuose skyriuose apie kiekvieną pakalbėsime detaliau.
 
-## A number
+## Skaičius
 
 ```js
 let n = 123;
 n = 12.345;
 ```
 
-The *number* type represents both integer and floating point numbers.
+*Skaičiaus* tipas atstovauja sveikus skaičius (ang. integer) ir slankiojo kablelio skaičius (ang. floating point numbers).
 
-There are many operations for numbers, e.g. multiplication `*`, division `/`, addition `+`, subtraction `-`, and so on.
+Netrūksta veiksmų skaičiams, kaip pavyzdžiui daugyba `*`, dalyba `/`, sudėtis `+`, atimtis `-`, ir taip toliau.
 
-Besides regular numbers, there are so-called "special numeric values" which also belong to this data type: `Infinity`, `-Infinity` and `NaN`.
+Kartu su įprastiniais skaičiais, yra taip vadinamos "specialios skaitinės reikšmės", kurios taip pat priklauso šiam duomenų tipui: `Infinity`, `-Infinity` ir `NaN`.
 
-- `Infinity` represents the mathematical [Infinity](https://en.wikipedia.org/wiki/Infinity) ∞. It is a special value that's greater than any number.
+- `Infinity` atstovauja matematinę [begalybę](https://en.wikipedia.org/wiki/Infinity) ∞. Tai speciali reikšmė, kuri yra didesnė nei bet koks skaičius. 
 
-    We can get it as a result of division by zero:
+    Ją gauname kaip rezultatą kai daliname iš nulio:
 
     ```js run
     alert( 1 / 0 ); // Infinity
     ```
 
-    Or just reference it directly:
+    Arba kai tiesiogiai nurodome:
 
     ```js run
     alert( Infinity ); // Infinity
     ```
-- `NaN` represents a computational error. It is a result of an incorrect or an undefined mathematical operation, for instance:
+- `NaN` atstovauja skaičiavimo klaidą. Tai yra neteisingo ar neapibrėžto (ang. undefined) matematinio veiksmo rezultatas, pavyzdžiui:
 
     ```js run
-    alert( "not a number" / 2 ); // NaN, such division is erroneous
+    alert( "ne skaičius" / 2 ); // NaN, tokia dalyba yra klaidinga
     ```
 
-    `NaN` is sticky. Any further operation on `NaN` returns `NaN`:
+    `NaN` yra kabus. Bet kokie tolesni veiksmai su `NaN` grąžins `NaN`:
 
     ```js run
-    alert( "not a number" / 2 + 5 ); // NaN
+    alert( "ne skaičius" / 2 + 5 ); // NaN
     ```
 
-    So, if there's a `NaN` somewhere in a mathematical expression, it propagates to the whole result.
+    Taigi, jeigu kažkur matematinėje formulėje yra `NaN` jis persiduoda į visus tolesnius rezultatus.
 
-```smart header="Mathematical operations are safe"
-Doing maths is "safe" in JavaScript. We can do anything: divide by zero, treat non-numeric strings as numbers, etc.
+```smart header="Matematiniai veiksmai yra saugūs"
+Užsiimti matematika JavaScript yra "saugu". Galime daryti viską: dalinti iš nulio, elgtis su neskaitinėmis eilutėmis kaip su skaičiais ir t.t.
 
-The script will never stop with a fatal error ("die"). At worst, we'll get `NaN` as the result.
+Skriptas niekada nesustos dėl lemtingos klaidos ("mirs"). Blogiausia kas gali būti, mes gausime `NaN` kaip rezultatą.
 ```
 
-Special numeric values formally belong to the "number" type. Of course they are not numbers in the common sense of this word.
+Specialios skaitinės reikšmės priklauso "skaičių" tipui. Žinoma, jie nėra skaičiai įprastine šio žodžio reikšme.
 
-We'll see more about working with numbers in the chapter <info:number>.
+Daugiau apie darbą su skaičiais bus skyriuje <info:number>.
 
-## A string
+## Eilutė
 
-A string in JavaScript must be surrounded by quotes.
+Eilutė JavaScript turi būti apsupta kabutėmis.
 
 ```js
-let str = "Hello";
-let str2 = 'Single quotes are ok too';
-let phrase = `can embed ${str}`;
+let str = "Labas";
+let str2 = 'Viengubos kabutės taip pat tinka';
+let phrase = `galima įterpti ${str}`;
 ```
 
-In JavaScript, there are 3 types of quotes.
+JavaScript turi 3-ų tipų kabutes.
 
-1. Double quotes: `"Hello"`.
-2. Single quotes: `'Hello'`.
-3. Backticks: <code>&#96;Hello&#96;</code>.
+1. Dvigubos kabutės: `"Hello"`.
+2. Viengubos kabutės: `'Hello'`.
+3. Atvirkštinės kabutės: <code>&#96;Labas&#96;</code>.
 
-Double and single quotes are "simple" quotes. There's no difference between them in JavaScript.
+Dvigubos ir viengubos kabutės yra "paprastosios" kabutės. Tarp jų nėra jokio skirtumo JavaScript.
 
-Backticks are "extended functionality" quotes. They allow us to embed variables and expressions into a string by wrapping them in `${…}`, for example:
+Atvirkštinės kabutės yra kabutės su "išplėstu funkcionalumu". Jos leidžia mums įterpti kintamuosius ir išraiškas į pačią eilutę kai apsupame juos tokiais ženklais `${…}`, pavyzdžiui:
 
 ```js run
 let name = "John";
 
-// embed a variable
-alert( `Hello, *!*${name}*/!*!` ); // Hello, John!
+// įterpti kintamąjį
+alert( `Labas, *!*${name}*/!*!` ); // Labas, John!
 
-// embed an expression
-alert( `the result is *!*${1 + 2}*/!*` ); // the result is 3
+// įterpti išraišką
+alert( `rezultas yra *!*${1 + 2}*/!*` ); // rezultatas yra 3
 ```
 
-The expression inside `${…}` is evaluated and the result becomes a part of the string. We can put anything in there: a variable like `name` or an arithmetical expression like `1 + 2` or something more complex.
+Išraiška viduje `${…}` yra įvertinama ir rezultatas tampa eilutės dalimi. Mes galime įterpti bet ką: tokį kintamąjį kaip `name` arba aritmetinę išraišką kaip `1 + 2` arba ką nors dar sudėtingesnio.
 
-Please note that this can only be done in backticks. Other quotes don't have this embedding functionality!
+Atkreipkite dėmesį, kad tai galima padaryti tik su atvirkštinėmis kabutėmis. Kitos kabutės neturi tokio įterpimo funkcionalumo!
 ```js run
-alert( "the result is ${1 + 2}" ); // the result is ${1 + 2} (double quotes do nothing)
+alert( "rezultatas yra ${1 + 2}" ); // rezultatas yra ${1 + 2} (dvigubos kabutės nieko nepadaro)
 ```
 
-We'll cover strings more thoroughly in the chapter <info:string>.
+Mes kalbėsime daugiau apie eilutes skyriuje <info:string>.
 
-```smart header="There is no *character* type."
-In some languages, there is a special "character" type for a single character. For example, in the C language and in Java it is `char`.
+```smart header="Nėra tokio tipo kaip *ženklas*."
+Kai kuriose kalbose yra specialus "ženklo" (ang. character) tipas skirtas vienetiniam ženklui. Pavyzdžiui tokiose kalbose kaip C arba Java toks ženklas yra vadinamas `char`.
 
-In JavaScript, there is no such type. There's only one type: `string`. A string may consist of only one character or many of them.
+JavaScript tokio tipo nėra. Yra tik vienas tipas: `string`(eilutė). Eilutė gali būti sudaryta iš vieno ženklo arba iš daug ženklų.
 ```
 
-## A boolean (logical type)
+## Loginis tipas
 
-The boolean type has only two values: `true` and `false`.
+Loginis tipas (ang. boolean) turi tik dvi reikšmes: `true` (tiesa) ir `false`(netiesa).
 
-This type is commonly used to store yes/no values: `true` means "yes, correct", and `false` means "no, incorrect".
+Šis tipas dažniausiai naudojamas, kad išsaugotų taip/ne vertes: `true` reiškia "taip, teisingai", o `false` reiškia "ne, netesingai".
 
-For instance:
+Pavyzdžiui:
 
 ```js
-let nameFieldChecked = true; // yes, name field is checked
-let ageFieldChecked = false; // no, age field is not checked
+let nameFieldChecked = true; // taip, vardo laukelis pažymėtas
+let ageFieldChecked = false; // ne, amžiaus laukelis nepažymėtas
 ```
 
-Boolean values also come as a result of comparisons:
+Loginės vertės taip pat yra palyginimų rezultatas:
 
 ```js run
 let isGreater = 4 > 1;
 
-alert( isGreater ); // true (the comparison result is "yes")
+alert( isGreater ); // tiesa (palyginimo rezultatas yra "taip")
 ```
 
-We'll cover booleans more deeply in the chapter <info:logical-operators>.
+Mes daugiau kalbėsime apie loginį tipą skyriuje <info:logical-operators>.
 
-## The "null" value
+## "null" vertė
 
-The special `null` value does not belong to any of the types described above.
+Ypatingoji `null` (negaliojanti) vertė nepriklauso jokiam anksčiau minėtam tipui.
 
-It forms a separate type of its own which contains only the `null` value:
+Jis formuoja atskirą savo tipą, kuriame yra tik `null` vertė:
 
 ```js
 let age = null;
 ```
 
-In JavaScript, `null` is not a "reference to a non-existing object" or a "null pointer" like in some other languages.
+JavaScript `null` nėra "nuoroda į neegzistuojantį objektą" arba į "nulinę užuomeną" (ang. "null pointer") kaip kai kuriose kitose kalbose.
 
-It's just a special value which represents "nothing", "empty" or "value unknown".
+Tai tik speciali vertė, kuri atstovauja "nieką", "tuštumą" arba "vertė nežinoma".
 
-The code above states that `age` is unknown or empty for some reason.
+Kodas viršuje reiškia, kad `age` nėra žinomas arba tuščias dėl neaiškios priežasties.
 
-## The "undefined" value
+## Vertė "undefined"
 
-The special value `undefined` also stands apart. It makes a type of its own, just like `null`.
+Ypatingoji vertė `undefined` (neapibrėžtas) taip pat yra išskirtinė, nes turi savo pačios tipą kaip ir `null`.
 
-The meaning of `undefined` is "value is not assigned".
+`undefined` reškia, kad "vertė nėra priskirta".
 
-If a variable is declared, but not assigned, then its value is `undefined`:
+Jeigu kintamasis deklaruotas, bet nepriskirtas, tada jo vertė yra `undefined`:
 
 ```js run
 let x;
 
-alert(x); // shows "undefined"
+alert(x); // parodo "undefined"
 ```
 
-Technically, it is possible to assign `undefined` to any variable:
+Techniškai yra įmanoma priskirti `undefined` vertę bet kuriam kintamajam:
 
 ```js run
 let x = 123;
@@ -170,28 +170,28 @@ x = undefined;
 alert(x); // "undefined"
 ```
 
-...But we don't recommend doing that. Normally, we use `null` to assign an "empty" or "unknown" value to a variable, and we use `undefined` for checks like seeing if a variable has been assigned.
+...Bet mes nerekomenduojame to daryti. Dažniausiai tam, kad priskirtume "tuščią" ar "nežinomą" vertę kintamajam, mes naudojame `null`, o `undefined` naudojame patikrinimams ar kintamajam buvo priskirta vertė.
 
-## Objects and Symbols
+## Objektai ir Simboliai
 
-The `object` type is special.
+Objekto `object` tipas yra ypatingas.
 
-All other types are called "primitive" because their values can contain only a single thing (be it a string or a number or whatever). In contrast, objects are used to store collections of data and more complex entities. We'll deal with them later in the chapter <info:object> after we learn more about primitives.
+Visi kiti tipai vadinami "primityviais", nes jų vertė gali turėti tik vieną dalyką (nesvarbu ar tai eilutė, numeris ar kita). Tuo tarpu objektai naudojami saugoti duomenų kolekcijas ir daug sudėtingesnius darinius. Apie juos kalbėsime vėliau skyriuje <info:object> kai sužinosime daugiau apie primityvius tipus. 
 
-The `symbol` type is used to create unique identifiers for objects. We mention it here for completeness, but we'll study it after objects.
+Simbolio `symbol` tipas yra skirtas sukurti unikalius identifikatorius skirtus objektams. Paminėjome juos tik dėl užbaigtumo, bet labiau juos studijuosime po objektų. 
 
-## The typeof operator [#type-typeof]
+## Operatorius typeof [#type-typeof]
 
-The `typeof` operator returns the type of the argument. It's useful when we want to process values of different types differently or just want to do a quick check.
+Operatorius `typeof` grąžina argumento tipą. Jis naudingas kai mes norime išskirtinai apdoroti skirtingų tipų vertes arba norime greitai patikrinti tipą. 
 
-It supports two forms of syntax:
+Jis palaiko dviejų formų sintaksę:
 
-1. As an operator: `typeof x`.
-2. As a function: `typeof(x)`.
+1. Kaip operatorius: `typeof x`.
+2. Kaip funkcija: `typeof(x)`.
 
-In other words, it works with parentheses or without them. The result is the same.
+Kitais žodžiais, jis veikia su skliausteliais ar be jų. Rezultatas toks pats.
 
-The call to `typeof x` returns a string with the type name:
+Šaukimas `typeof x` grąžina eilutę su tipo pavadinimu:
 
 ```js
 typeof undefined // "undefined"
@@ -217,29 +217,29 @@ typeof alert // "function"  (3)
 */!*
 ```
 
-The last three lines may need additional explanation:
+Paskutinės trys eilės gali reikalauti papildomo paaiškinimo:
 
-1. `Math` is a built-in object that provides mathematical operations. We will learn it in the chapter <info:number>. Here, it serves just as an example of an object.
-2. The result of `typeof null` is `"object"`. That's wrong. It is an officially recognized error in `typeof`, kept for compatibility. Of course, `null` is not an object. It is a special value with a separate type of its own. So, again, this is an error in the language.
-3. The result of `typeof alert` is `"function"`, because `alert` is a function. We'll study functions in the next chapters where we'll also see that there's no special "function" type in JavaScript. Functions belong to the object type. But `typeof` treats them differently, returning `"function"`. That's not quite correct, but very convenient in practice.
+1. `Math` yra įrašyta (ang. built-in) matematinė operacija. Apie ją sužinosime skyriuje <info:number>. Čia ji yra tik kaip objekto pavyzdys.
+2. Rezultatas iš `typeof null` yra `"object"`. Tai nėra tiesa. Tai yra oficialiai pripažinta `typeof` klaida, palikta dėl suderinamumo. Žinoma, kad `null` nėra objektas. Tai yra ypatinga vertė su atskiru tipu. Tad dar kartą, tai yra kalbos klaida.
+3. Rezultatas iš `typeof alert` yra `"function"`, nes `alert` ir yra funkcija. Funkcijas studijuosime sekančiuose skyriuose kur sužinosime, kad JavaScript neturi atskiro ypatingo "funkcijos" tipo. Funkcijos priklauso prie objekto tipo. Bet `typeof` jas vertina kitaip, grąžindamas `"function"`. Tai nėra visiškai teisinga, bet praktiškai labai patogu.
 
 
-## Summary
+## Santrauka
 
-There are 7 basic data types in JavaScript.
+JavaScript turi 7 pagrindinius duomenų tipus.
 
-- `number` for numbers of any kind: integer or floating-point.
-- `string` for strings. A string may have one or more characters, there's no separate single-character type.
-- `boolean` for `true`/`false`.
-- `null` for unknown values -- a standalone type that has a single value `null`.
-- `undefined` for unassigned values -- a standalone type that has a single value `undefined`.
-- `object` for more complex data structures.
-- `symbol` for unique identifiers.
+- `number` skirta bet kokio tipo skaičiams: sveikiems ir slankiojančio kablelio skaičiams.
+- `string` skirta eilutėms. Eilutė gali turėti vieną ar daugiau ženklų, nėra atskiro vieno-ženklo tipo.
+- `boolean` skirta `true`/`false`.
+- `null` skirta nežinomoms vertėms -- atskiras tipas turintis tik vieną vertę `null`.
+- `undefined` nepriskirtoms vertėms -- atskiras tipas turintis vieną vertę `undefined`.
+- `object` skirta sudėtingesnėms duomenų struktūroms.
+- `symbol` skirta unikaliems identifikatoriams.
 
-The `typeof` operator allows us to see which type is stored in a variable.
+Operatorius `typeof` leidžia matyti, kuris tipas yra saugomas kintamajame. 
 
-- Two forms: `typeof x` or `typeof(x)`.
-- Returns a string with the name of the type, like `"string"`.
-- For `null` returns `"object"` -- this is an error in the language, it's not actually an object.
+- Dvi formos: `typeof x` arba `typeof(x)`.
+- Grąžina eilutę su tipo pavadinimu, kaip pavyzdžiui `"string"`.
+- Kai yra `null` grąžina `"object"` -- klaida kalboje, nes tai iš tikrųjų nėra objektas.
 
-In the next chapters, we'll concentrate on primitive values and once we're familiar with them, we'll move on to objects.
+Kituose skyriuose susikoncentruosime prie primityvių verčių, o kai su jomis būsime pažįstami, pereisime prie objektų.
