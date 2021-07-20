@@ -219,9 +219,9 @@ typeof alert // "function"  (3)
 
 Paskutinės trys eilės gali reikalauti papildomo paaiškinimo:
 
-1. `Math` yra įrašyta (ang. "built-in") matematinė operacija. Apie ją sužinosime skyriuje <info:number>. Čia ji yra tik kaip objekto pavyzdys.
+1. `Math` yra įrašyta (ang. built-in) matematinė operacija. Apie ją sužinosime skyriuje <info:number>. Čia ji yra tik kaip objekto pavyzdys.
 2. Rezultatas iš `typeof null` yra `"object"`. Tai nėra tiesa. Tai yra oficialiai pripažinta `typeof` klaida, palikta dėl suderinamumo. Žinoma, kad `null` nėra objektas. Tai yra ypatinga vertė su atskiru tipu. Tad dar kartą, tai yra kalbos klaida.
-3. Rezultatas iš `typeof alert` yra `"function"`, nes `alert` ir yra funkcija. Funkcijas studijuosime sekančiuose skyriuose kur sužinosime, kad JavaScript neturi atskiro ypatingo "funkcijos" tipo. Funkcijos priklauso prie objekto tipo. Bet `typeof` jas vertina kitaip, grąžindamas `"function"`. Tai nėra visiška teisinga, bet praktiškai labai patogu.
+3. Rezultatas iš `typeof alert` yra `"function"`, nes `alert` ir yra funkcija. Funkcijas studijuosime sekančiuose skyriuose kur sužinosime, kad JavaScript neturi atskiro ypatingo "funkcijos" tipo. Funkcijos priklauso prie objekto tipo. Bet `typeof` jas vertina kitaip, grąžindamas `"function"`. Tai nėra visiškai teisinga, bet praktiškai labai patogu.
 
 
 ## Santrauka
@@ -229,17 +229,17 @@ Paskutinės trys eilės gali reikalauti papildomo paaiškinimo:
 JavaScript turi 7 pagrindinius duomenų tipus.
 
 - `number` skirta bet kokio tipo skaičiams: sveikiems ir slankiojančio kablelio skaičiams.
-- `string` skirta eilutėms. Eilutė gali turi vieną ar daugiau ženklų, nėra atskiro vieno-ženklo tipo.
+- `string` skirta eilutėms. Eilutė gali turėti vieną ar daugiau ženklų, nėra atskiro vieno-ženklo tipo.
 - `boolean` skirta `true`/`false`.
-- `null` skirta nežinomoms vertėms -- atskiras tipas turinti tik vieną vertę `null`.
-- `undefined` nepriskirtoms vertėms -- atskiras tipas turinti vieną vertę `undefined`.
+- `null` skirta nežinomoms vertėms -- atskiras tipas turintis tik vieną vertę `null`.
+- `undefined` nepriskirtoms vertėms -- atskiras tipas turintis vieną vertę `undefined`.
 - `object` skirta sudėtingesnėms duomenų struktūroms.
 - `symbol` skirta unikaliems identifikatoriams.
 
 Operatorius `typeof` leidžia matyti, kuris tipas yra saugomas kintamajame. 
 
 - Dvi formos: `typeof x` arba `typeof(x)`.
-- Grąžina eilutę su tipo pavadinimu kaip pavyzdžiui `"string"`.
+- Grąžina eilutę su tipo pavadinimu, kaip pavyzdžiui `"string"`.
 - Kai yra `null` grąžina `"object"` -- klaida kalboje, nes tai iš tikrųjų nėra objektas.
 
 Kituose skyriuose susikoncentruosime prie primityvių verčių, o kai su jomis būsime pažįstami, pereisime prie objektų.
