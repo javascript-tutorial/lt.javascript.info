@@ -1,15 +1,15 @@
 
-Backticks embed the expression inside `${...}` into the string.
+Atvirkštinės kabutės įterpia išraišką esančią viduje `${...}` į pačią eilutę.
 
 ```js run
 let name = "Ilya";
 
-// the expression is a number 1
-alert( `hello ${1}` ); // hello 1
+// išraiška yra skaičius 1
+alert( `labas ${1}` ); // labas 1
 
-// the expression is a string "name"
-alert( `hello ${"name"}` ); // hello name
+// išraiška yra eilutė "name"
+alert( `labas ${"name"}` ); // labas name
 
-// the expression is a variable, embed it
-alert( `hello ${name}` ); // hello Ilya
+// išraiška yra kintamasis, jo vertė įterpiama
+alert( `labas ${name}` ); // labas Ilya
 ```
