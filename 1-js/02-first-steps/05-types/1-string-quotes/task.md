@@ -2,16 +2,16 @@ importance: 5
 
 ---
 
-# String quotes
+# Eilučių kabutės
 
-What is the output of the script?
+Kokį gausime skripto rezultatą?
 
 ```js
 let name = "Ilya";
 
-alert( `hello ${1}` ); // ?
+alert( `labas ${1}` ); // ?
 
-alert( `hello ${"name"}` ); // ?
+alert( `labas ${"name"}` ); // ?
 
-alert( `hello ${name}` ); // ?
+alert( `labas ${name}` ); // ?
 ```
