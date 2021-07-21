@@ -2,9 +2,9 @@ importance: 5
 
 ---
 
-# Type conversions
+# Tipų konversijos
 
-What are results of these expressions?
+Kokie yra šių išraiškų rezultatai?
 
 ```js no-beautify
 "" + 1 + 0
@@ -24,4 +24,4 @@ undefined + 1
 " \t \n" - 2
 ```
 
-Think well, write down and then compare with the answer.
+Gerai pagalvokite, užsirašykite ir palyginkite su atsakymais. 
