@@ -24,4 +24,4 @@ undefined + 1
 " \t \n" - 2
 ```
 
-Gerai pagalvokite, užsirašykite ir palyginkite su atsakymais. 
+Gerai pagalvokite, užsirašykite ir palyginkite su atsakymais.  
