@@ -1,15 +1,15 @@
-# Operators
+# Operatoriai
 
-We know many operators from school. They are things like addition `+`, multiplication `*`, subtraction `-`, and so on.
+Mes žinome daug operatorių iš mokyklos. Tokie kaip sudėtis `+`, daugyba `*`, atimtis `-` ir taip toliau.
 
-In this chapter, we'll concentrate on aspects of operators that are not covered by school arithmetic.
+Šiame skyriuje, susikoncentruosime prie tokio operatorių aspekto, kuris nėra aptariamas mokykloje.
 
-## Terms: "unary", "binary", "operand"
+## Terminai: "unary", "binary", "operand"
 
-Before we move on, let's grasp some common terminology.
+Prieš tęsiant, išsiaiškinkime įprastinę terminologiją.
 
-- *An operand* -- is what operators are applied to. For instance, in the multiplication of `5 * 2` there are two operands: the left operand is `5` and the right operand is `2`. Sometimes, people call these "arguments" instead of "operands".
-- An operator is *unary* if it has a single operand. For example, the unary negation `-` reverses the sign of a number:
+- *An operand* -- operandas yra tai kam operatoriai yra naudojami. Pavyzdžiui šioje daugyboje `5 * 2` yra du operandai: kairysis operandas yra `5`, o dešinysis yra `2`. Kartais žmonės juos vadina argumentais, o ne operandais.
+- Operatorius yra *unarinis* (ang. *unary*), jeigu turi vieną operandą. Pavyzdžiui unarinis neiginys (ang. negation) `-` paverčia skaičių neigiamu:
 
     ```js run
     let x = 1;
@@ -17,18 +17,18 @@ Before we move on, let's grasp some common terminology.
     *!*
     x = -x;
     */!*
-    alert( x ); // -1, unary negation was applied
+    alert( x ); // -1, pritaikytas unarinis neiginys
     ```
-- An operator is *binary* if it has two operands. The same minus exists in binary form as well:
+- Operatorius yra *binarinis* (ang. *binary*) kai turi du operandus. Tas pats minusas egzistuoja ir binarinėse formose:
 
     ```js run no-beautify
     let x = 1, y = 3;
-    alert( y - x ); // 2, binary minus subtracts values
+    alert( y - x ); // 2, binarinis minusas atima vertes
     ```
 
-    Formally, in the examples above we have two different operators that share the same symbol: the negation operator, a unary operator that reverses the sign, and the subtraction operator, a binary operator that subtracts one number from another.
+    Formaliai aukščiau esančiame pavyzdyje mes turime du skirtingus operatorius, kurie dalinasi tuo pačiu simboliu: neigimo operatorių, t.y. unarinį operatorių, kuris pakeičia simbolį, ir atimties operatorių, t.y. binarinį operatorių, kuris atima vieną skaičių iš kito. 
 
-## String concatenation, binary +
+## Eilutės sujungimas, binarinis +
 
 Now, let's see special features of JavaScript operators that are beyond school arithmetics.
 
