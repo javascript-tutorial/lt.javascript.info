@@ -1,111 +1,111 @@
-# Type Conversions
+# Tipų konversijos 
 
-Most of the time, operators and functions automatically convert the values given to them to the right type. 
+Dažniausiai operatoriai ir funkcijos automatiškai pakeičia jiems duotas vertes į teisingą tipą. 
 
-For example, `alert` automatically converts any value to a string to show it. Mathematical operations convert values to numbers.
+Pavyzdžiui `alert` automatiškai paverčia bet kokią jiems duotą vertę į eilutės tipą, kad galėtų jį parodytų. Matematinės operacijos pakeičia vertes į skaičius.
 
-There are also cases when we need to explicitly convert a value to the expected type.
+Yra tokių konkrečių atvejų kai mums reikia vertę pakeisti į atitinkamą tipą.
 
-```smart header="Not talking about objects yet"
-In this chapter, we won't cover objects. Instead, we'll study primitives first. Later, after we learn about objects, we'll see how object conversion works in the chapter <info:object-toprimitive>.
+```smart header="Dar nekalbame apie objektus"
+Šiame skyriuje kol kas dar nekalbėsime apie objektus. Vietoje to studijuosime primityvius tipus. Vėliau kai sužinosime daugiau apie objektus, pamatysime kaip objektų keitimai veikia skyriuje <info:object-toprimitive>.
 ```
 
-## String Conversion
+## Eilutės konversijos
 
-String conversion happens when we need the string form of a value.
+Eilutės keitimas įvyksta tada kai mums reikia eilutės formos vertės.
 
-For example, `alert(value)` does it to show the value.
+Pavyzdžiui, `alert(value)` tai padaro, kad parodytų vertę.
 
-We can also call the `String(value)` function to convert a value to a string:
+Mes taip pat galime iššaukti `String(value)` funkciją, kad konvertuotume vertę į eilutę:
 
 ```js run
 let value = true;
-alert(typeof value); // boolean
+alert(typeof value); // boolean (loginis)
 
 *!*
-value = String(value); // now value is a string "true"
+value = String(value); // dabar vertė yra eilutė "true"
 alert(typeof value); // string
 */!*
 ```
 
-String conversion is mostly obvious. A `false` becomes `"false"`, `null` becomes `"null"`, etc.
+Eilutės konversijos dažniausiai yra labai akivaizdžios. `false` tampa `"false"`, `null` tampa `"null"` ir t.t.
 
-## Numeric Conversion
+## Skaičių konversijos
 
-Numeric conversion happens in mathematical functions and expressions automatically.
+Skaičių konversijos įvyksta automatiškai matematinėse funkcijose ir formulėse. 
 
-For example, when division `/` is applied to non-numbers:
+Pavyzdžiui, kai dalyba `/` taikoma ne skaičiams:
 
 ```js run
-alert( "6" / "2" ); // 3, strings are converted to numbers
+alert( "6" / "2" ); // 3, eilutės paverčiamos skaičiais
 ```
 
-We can use the `Number(value)` function to explicitly convert a `value` to a number:
+Mes taip pat galime naudoti `Number(value)` funkciją konkrečiai tam, kad paverstume `value` į skaičių:
 
 ```js run
 let str = "123";
 alert(typeof str); // string
 
-let num = Number(str); // becomes a number 123
+let num = Number(str); // tampa numeriu 123
 
 alert(typeof num); // number
 ```
 
-Explicit conversion is usually required when we read a value from a string-based source like a text form but expect a number to be entered.
+Akivaizdžios konversijos dažniausiai reikalingos kai gauname vertę eilutės tipo formatu iš tekstinių šaltinių, bet mums iš tikrųjų reikalingas skaičius. 
 
-If the string is not a valid number, the result of such a conversion is `NaN`. For instance:
+Jeigu eilutė nėra tinkamas skaičius, tada tokios konversijos rezultatas bus is `NaN`. Pavyzdžiui:
 
 ```js run
-let age = Number("an arbitrary string instead of a number");
+let age = Number("arbitriška eilutė vietoje skaičiaus");
 
-alert(age); // NaN, conversion failed
+alert(age); // NaN, konversija nepavyko
 ```
 
-Numeric conversion rules:
+Skaičių konversijos taisyklės:
 
-| Value |  Becomes... |
+| Vertė |  Tampa... |
 |-------|-------------|
 |`undefined`|`NaN`|
 |`null`|`0`|
-|<code>true&nbsp;and&nbsp;false</code> | `1` and `0` |
-| `string` | Whitespaces from the start and end are removed. If the remaining string is empty, the result is `0`. Otherwise, the number is "read" from the string. An error gives `NaN`. |
+|<code>true&nbsp;ir&nbsp;false</code> | `1` ir `0` |
+| `string` | Tarpai pradžioje ir pabaigoje panaikinami. Jeigu likusi eilutė yra tuščia, rezultatas yra `0`. Kitu atveju, skaičius "perskaitomas" iš eilutės. Klaida grąžina `NaN`. |
 
-Examples:
+Pavyzdžiai:
 
 ```js run
 alert( Number("   123   ") ); // 123
-alert( Number("123z") );      // NaN (error reading a number at "z")
+alert( Number("123z") );      // NaN (klaida perskaitė skaičiuje "z")
 alert( Number(true) );        // 1
 alert( Number(false) );       // 0
 ```
 
-Please note that `null` and `undefined` behave differently here: `null` becomes zero while `undefined` becomes `NaN`.
+Atkreipkite dėmesį, kad `null` ir `undefined` elgiasi kitaip šiuo atveju: `null` tampa nuliu kai `undefined` tampa `NaN`.
 
-````smart header="Addition '+' concatenates strings"
-Almost all mathematical operations convert values to numbers. A notable exception is addition `+`. If one of the added values is a string, the other one is also converted to a string.
+````smart header="Sudėtis '+' sujungia eilutes"
+Beveik visos matematinės operacijos paverčia vertes numeriais. Svarbi išimtis yra sudėtis `+`. Jeigu viena iš verčių yra eilutės, kita taip pat paverčiama eilute.
 
-Then, it concatenates (joins) them:
+Tada ji sujungia (ang. concatenates) vertes:
 
 ```js run
-alert( 1 + '2' ); // '12' (string to the right)
-alert( '1' + 2 ); // '12' (string to the left)
+alert( 1 + '2' ); // '12' (eilutė iš dešinės)
+alert( '1' + 2 ); // '12' (eilutė iš kairės)
 ```
 
-This only happens when at least one of the arguments is a string. Otherwise, values are converted to numbers.
+Taip įvyksta tik tokiu atveju kai vienas iš argumentų yra eilutė. Kitu atveju vertės konvertuojamos į skaičius.
 ````
 
-## Boolean Conversion
+## Loginės konversijos
 
-Boolean conversion is the simplest one.
+Loginės konversijos yra pačios paprasčiausios. 
 
-It happens in logical operations (later we'll meet condition tests and other similar things) but can also be performed explicitly with a call to `Boolean(value)`.
+Jos nutinka loginėse operacijose (vėliau dar matysime padėties testus, ang. condition tests, ir panašius atvejus), bet taip pat gali būti atliekamos akivaizdžiam `Boolean(value)` iškvietimui.
 
-The conversion rule:
+Konversijos taisyklės:
 
-- Values that are intuitively "empty", like `0`, an empty string, `null`, `undefined`, and `NaN`, become `false`.
-- Other values become `true`.
+- Vertės kurios intuityviai yra tuščios, kaip `0`, tuščia eilutė, `null`, `undefined` ir `NaN`, tampa `false`.
+- Kitos vertės tampa `true`.
 
-For instance:
+Pavyzdžiui:
 
 ```js run
 alert( Boolean(1) ); // true
@@ -115,45 +115,45 @@ alert( Boolean("hello") ); // true
 alert( Boolean("") ); // false
 ```
 
-````warn header="Please note: the string with zero `\"0\"` is `true`"
-Some languages (namely PHP) treat `"0"` as `false`. But in JavaScript, a non-empty string is always `true`.
+````warn header="Atkreipkite dėmesė: eilutė su nuliu `\"0\"` yra `true`"
+Kai kurios kalbos (pavyzdžiui PHP) `"0"` laiko `false`. Bet JavaScript netuščia eilutė visada bus `true`.
 
 ```js run
 alert( Boolean("0") ); // true
-alert( Boolean(" ") ); // spaces, also true (any non-empty string is true)
+alert( Boolean(" ") ); // tarpai, taip pat tinka (bet kokia netuščia eilutė yra tinkama - true)
 ```
 ````
 
-## Summary
+## Santrauka
 
-The three most widely used type conversions are to string, to number, and to boolean.
+Trys labiausiai naudojamos tipų konversijos yra į eilutę, skaičių ir loginiai.
 
-**`String Conversion`** -- Occurs when we output something. Can be performed with `String(value)`. The conversion to string is usually obvious for primitive values.
+**`Eilutės Konversija`** -- Nutinka kai mes kažką gauname. Gali būti atliekama su `String(value)`. Konversija į eilutę su primityviais tipais dažniausiai yra akivaizdi. 
 
-**`Numeric Conversion`** -- Occurs in math operations. Can be performed with `Number(value)`.
+**`Skaičių Konversija`** -- Nutinka matematinėse operacijos. Gali būti atliekama su `Number(value)`.
 
-The conversion follows the rules:
+Konversija laikosi taisyklių:
 
-| Value |  Becomes... |
+| Vertė |  Tampa... |
 |-------|-------------|
 |`undefined`|`NaN`|
 |`null`|`0`|
 |<code>true&nbsp;/&nbsp;false</code> | `1 / 0` |
-| `string` | The string is read "as is", whitespaces from both sides are ignored. An empty string becomes `0`. An error gives `NaN`. |
+| `string` | Eilutė skaitoma taip kaip yra, tarpai iš abiejų pusių ignoruojami. Tuščia eilutė tampa `0`. Klaida grąžina `NaN`. |
 
-**`Boolean Conversion`** -- Occurs in logical operations. Can be performed with `Boolean(value)`.
+**`Loginės Konversijos`** -- Nutinka loginėse operacijose. Gali būti atliekama su `Boolean(value)`.
 
-Follows the rules:
+Laikosi taisyklių:
 
-| Value |  Becomes... |
+| Vertė |  Tampa... |
 |-------|-------------|
 |`0`, `null`, `undefined`, `NaN`, `""` |`false`|
-|any other value| `true` |
+|bet kokia kita vertė| `true` |
 
 
-Most of these rules are easy to understand and memorize. The notable exceptions where people usually make mistakes are:
+Didžiąją dalį šių taisyklių lengva suprasti ir prisiminti. Svarbios išimtys kur žmonės daro klaidas yra:
 
-- `undefined` is `NaN` as a number, not `0`.
-- `"0"` and space-only strings like `"   "` are true as a boolean.
+- `undefined` kaip skaičius yra `NaN` kaip skaičius, ne `0`.
+- `"0"` ir eilutė tik su tarpu kaip `"   "` yra tiesa loginėse vertėse.
 
-Objects aren't covered here. We'll return to them later in the chapter <info:object-toprimitive> that is devoted exclusively to objects after we learn more basic things about JavaScript.
+Objektai čia neaptariami. Prie jų sugrįšime vėliau skyriuje <info:object-toprimitive>, kuris yra skirtas išskirtinai objektams kai tik sužinosime daugiau apie JavaScript.
