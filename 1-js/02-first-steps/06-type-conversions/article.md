@@ -82,30 +82,30 @@ alert( Number(false) );       // 0
 Atkreipkite dėmesį, kad `null` ir `undefined` elgiasi kitaip šiuo atveju: `null` tampa nuliu kai `undefined` tampa `NaN`.
 
 ````smart header="Sudėtis '+' sujungia eilutes"
-Beveik visos matematinės operacijos paverčia vertes numeriais. A notable exception is addition `+`. If one of the added values is a string, the other one is also converted to a string.
+Beveik visos matematinės operacijos paverčia vertes numeriais. Svarbi išimtis yra sudėtis `+`. Jeigu viena iš verčių yra eilutės, kita taip pat paverčiama eilute.
 
-Then, it concatenates (joins) them:
+Tada ji sujungia (ang. concatenates) vertes:
 
 ```js run
-alert( 1 + '2' ); // '12' (string to the right)
-alert( '1' + 2 ); // '12' (string to the left)
+alert( 1 + '2' ); // '12' (eilutė iš dešinės)
+alert( '1' + 2 ); // '12' (eilutė iš kairės)
 ```
 
-This only happens when at least one of the arguments is a string. Otherwise, values are converted to numbers.
+Taip įvyksta tik tokiu atveju kai vienas iš argumentų yra eilutė. Kitu atveju vertės konvertuojamos į skaičius.
 ````
 
-## Boolean Conversion
+## Loginės konversijos
 
-Boolean conversion is the simplest one.
+Loginės konversijos yra pačios paprasčiausios. 
 
-It happens in logical operations (later we'll meet condition tests and other similar things) but can also be performed explicitly with a call to `Boolean(value)`.
+Jos nutinka loginėse operacijose (vėliau dar matysime padėties testus, ang. condition tests, ir panašius atvejus), bet taip pat gali būti atliekamos akivaizdžiam `Boolean(value)` iškvietimui.
 
-The conversion rule:
+Konversijos taisyklės:
 
-- Values that are intuitively "empty", like `0`, an empty string, `null`, `undefined`, and `NaN`, become `false`.
-- Other values become `true`.
+- Vertės kurios intuityviai yra tuščios, kaip `0`, tuščia eilutė, `null`, `undefined` ir `NaN`, tampa `false`.
+- Kitos vertės tampa `true`.
 
-For instance:
+Pavyzdžiui:
 
 ```js run
 alert( Boolean(1) ); // true
@@ -115,45 +115,45 @@ alert( Boolean("hello") ); // true
 alert( Boolean("") ); // false
 ```
 
-````warn header="Please note: the string with zero `\"0\"` is `true`"
-Some languages (namely PHP) treat `"0"` as `false`. But in JavaScript, a non-empty string is always `true`.
+````warn header="Atkreipkite dėmesė: eilutė su nuliu `\"0\"` yra `true`"
+Kai kurios kalbos (pavyzdžiui PHP) `"0"` laiko `false`. Bet JavaScript netuščia eilutė visada bus `true`.
 
 ```js run
 alert( Boolean("0") ); // true
-alert( Boolean(" ") ); // spaces, also true (any non-empty string is true)
+alert( Boolean(" ") ); // tarpai, taip pat tinka (bet kokia netuščia eilutė yra tinkama - true)
 ```
 ````
 
-## Summary
+## Santrauka
 
-The three most widely used type conversions are to string, to number, and to boolean.
+Trys labiausiai naudojamos tipų konversijos yra į eilutę, skaičių ir loginiai.
 
-**`String Conversion`** -- Occurs when we output something. Can be performed with `String(value)`. The conversion to string is usually obvious for primitive values.
+**`Eilutės Konversija`** -- Nutinka kai mes kažką gauname. Gali būti atliekama su `String(value)`. Konversija į eilutę su primityviais tipais dažniausiai yra akivaizdi. 
 
-**`Numeric Conversion`** -- Occurs in math operations. Can be performed with `Number(value)`.
+**`Skaičių Konversija`** -- Nutinka matematinėse operacijos. Gali būti atliekama su `Number(value)`.
 
-The conversion follows the rules:
+Konversija laikosi taisyklių:
 
-| Value |  Becomes... |
+| Vertė |  Tampa... |
 |-------|-------------|
 |`undefined`|`NaN`|
 |`null`|`0`|
 |<code>true&nbsp;/&nbsp;false</code> | `1 / 0` |
-| `string` | The string is read "as is", whitespaces from both sides are ignored. An empty string becomes `0`. An error gives `NaN`. |
+| `string` | Eilutė skaitoma taip kaip yra, tarpai iš abiejų pusių ignoruojami. Tuščia eilutė tampa `0`. Klaida grąžina `NaN`. |
 
-**`Boolean Conversion`** -- Occurs in logical operations. Can be performed with `Boolean(value)`.
+**`Loginės Konversijos`** -- Nutinka loginėse operacijose. Gali būti atliekama su `Boolean(value)`.
 
-Follows the rules:
+Laikosi taisyklių:
 
-| Value |  Becomes... |
+| Vertė |  Tampa... |
 |-------|-------------|
 |`0`, `null`, `undefined`, `NaN`, `""` |`false`|
-|any other value| `true` |
+|bet kokia kita vertė| `true` |
 
 
-Most of these rules are easy to understand and memorize. The notable exceptions where people usually make mistakes are:
+Didžiąją dalį šių taisyklių lengva suprasti ir prisiminti. Svarbios išimtys kur žmonės daro klaidas yra:
 
-- `undefined` is `NaN` as a number, not `0`.
-- `"0"` and space-only strings like `"   "` are true as a boolean.
+- `undefined` kaip skaičius yra `NaN` kaip skaičius, ne `0`.
+- `"0"` ir eilutė tik su tarpu kaip `"   "` yra tiesa loginėse vertėse.
 
-Objects aren't covered here. We'll return to them later in the chapter <info:object-toprimitive> that is devoted exclusively to objects after we learn more basic things about JavaScript.
+Objektai čia neaptariami. Prie jų sugrįšime vėliau skyriuje <info:object-toprimitive>, kuris yra skirtas išskirtinai objektams kai tik sužinosime daugiau apie JavaScript.
