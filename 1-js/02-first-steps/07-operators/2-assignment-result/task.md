@@ -2,9 +2,9 @@ importance: 3
 
 ---
 
-# Assignment result
+# Užduoties rezultatas
 
-What are the values of `a` and `x` after the code below?
+Kokios yra `a` ir `x` vertės po kodo apačioje?
 
 ```js
 let a = 2;

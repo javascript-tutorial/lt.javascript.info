@@ -1,15 +1,15 @@
-# Operators
+# Operatoriai
 
-We know many operators from school. They are things like addition `+`, multiplication `*`, subtraction `-`, and so on.
+Mes žinome daug operatorių iš mokyklos. Tokie kaip sudėtis `+`, daugyba `*`, atimtis `-` ir taip toliau.
 
-In this chapter, we'll concentrate on aspects of operators that are not covered by school arithmetic.
+Šiame skyriuje, susikoncentruosime prie tokio operatorių aspekto, kuris nėra aptariamas mokykloje.
 
-## Terms: "unary", "binary", "operand"
+## Terminai: "unary", "binary", "operand"
 
-Before we move on, let's grasp some common terminology.
+Prieš tęsiant, išsiaiškinkime įprastinę terminologiją.
 
-- *An operand* -- is what operators are applied to. For instance, in the multiplication of `5 * 2` there are two operands: the left operand is `5` and the right operand is `2`. Sometimes, people call these "arguments" instead of "operands".
-- An operator is *unary* if it has a single operand. For example, the unary negation `-` reverses the sign of a number:
+- *An operand* -- operandas yra tai kam operatoriai yra naudojami. Pavyzdžiui šioje daugyboje `5 * 2` yra du operandai: kairysis operandas yra `5`, o dešinysis yra `2`. Kartais žmonės juos vadina argumentais, o ne operandais.
+- Operatorius yra *unarinis* (ang. *unary*), jeigu turi vieną operandą. Pavyzdžiui unarinis neiginys (ang. negation) `-` paverčia skaičių neigiamu:
 
     ```js run
     let x = 1;
@@ -17,67 +17,67 @@ Before we move on, let's grasp some common terminology.
     *!*
     x = -x;
     */!*
-    alert( x ); // -1, unary negation was applied
+    alert( x ); // -1, pritaikytas unarinis neiginys
     ```
-- An operator is *binary* if it has two operands. The same minus exists in binary form as well:
+- Operatorius yra *binarinis* (ang. *binary*) kai turi du operandus. Tas pats minusas egzistuoja ir binarinėse formose:
 
     ```js run no-beautify
     let x = 1, y = 3;
-    alert( y - x ); // 2, binary minus subtracts values
+    alert( y - x ); // 2, binarinis minusas atima vertes
     ```
 
-    Formally, in the examples above we have two different operators that share the same symbol: the negation operator, a unary operator that reverses the sign, and the subtraction operator, a binary operator that subtracts one number from another.
+    Formaliai aukščiau esančiame pavyzdyje mes turime du skirtingus operatorius, kurie dalinasi tuo pačiu simboliu: neigimo operatoriumi, t.y. unariniu operatoriumi, kuris pakeičia simbolį, ir atimties operatoriumi, t.y. binarinu operatoriumi, kuris atima vieną skaičių iš kito. 
 
-## String concatenation, binary +
+## Eilutės sujungimas, binarinis +
 
-Now, let's see special features of JavaScript operators that are beyond school arithmetics.
+Dabar susipažinkime su ypatingomis JavaScript savybėmis, kurios pranoksta mokyklos aritmetiką.
 
-Usually, the plus operator `+` sums numbers.
+Dažniausiai operatorius pliusas `+` sumuoja skaičius.
 
-But, if the binary `+` is applied to strings, it merges (concatenates) them:
+Bet jeigu binarinis `+` pritaikomas eilutėms, pliusas jas sulieja (sujungia):
 
 ```js
 let s = "my" + "string";
 alert(s); // mystring
 ```
 
-Note that if one of the operands is a string, the other one is converted to a string too.
+Atkreipkite dėmesį, jeigu vienas iš operandų yra eilutė, tai kitas taip pat paverčiamas eilute.
 
-For example:
+Pavyzdžiui:
 
 ```js run
 alert( '1' + 2 ); // "12"
 alert( 2 + '1' ); // "21"
 ```
 
-See, it doesn't matter whether the first operand is a string or the second one. The rule is simple: if either operand is a string, the other one is converted into a string as well.
+Kaip matote nėra svarbu ar pirmasis operandas ar antrasis yra eilutė. Taisyklė paprasta: jeigu bent vienas operandas yra eilutė, kitas taip pat paverčiamas eilute.
 
-However, note that operations run from left to right. If there are two numbers followed by a string, the numbers will be added before being converted to a string:
+Tačiau pastebėkite, kad operacijos vyksta iš kairės į dešinę. Jeigu pirmiau yra du numeriai, kuriuos seka eilutė, numeriai bus susumuoti ir tik tada paversti į eilutę:
 
 
 ```js run
-alert(2 + 2 + '1' ); // "41" and not "221"
+alert(2 + 2 + '1' ); // "41" bet ne "221"
 ```
 
-String concatenation and conversion is a special feature of the binary plus `+`. Other arithmetic operators work only with numbers and always convert their operands to numbers.
+Eilutės sujungimas ir konversija yra ypatinga binarinio pliuso savybė `+`. Kiti aritmetiniai operatoriai veikia tik su skaičiais ir visada konvertuoja savo operandus į skaičius.
 
-For instance, subtraction and division:
+Pavyzdžiui, atimtis ir dalyba:
 
 ```js run
 alert( 2 - '1' ); // 1
 alert( '6' / '2' ); // 3
 ```
 
-## Numeric conversion, unary +
+## Skaitinė konversija, unarinis +
 
-The plus `+` exists in two forms: the binary form that we used above and the unary form.
+Pliusas `+` egzistuoja dviejose formose: binarinėje formoje, kurią matėme aukščiau ir unarinėje formoje.
 
-The unary plus or, in other words, the plus operator `+` applied to a single value, doesn't do anything to numbers. But if the operand is not a number, the unary plus converts it into a number.
+Unarinis pliusas arba kitaip sumos operatorius `+`, pritaikytas vienetinei vertei, nieko nedaro skaičiams. Bet jeigu operandas nėra skaičius, unarinis pliusas paverčia jį skaičiumi. 
 
-For example:
+Pavyzdžiui:
 
 ```js run
-// No effect on numbers
+// Jokio efekto skaičiams
 let x = 1;
 alert( +x ); // 1
 
@@ -85,76 +85,76 @@ let y = -2;
 alert( +y ); // -2
 
 *!*
-// Converts non-numbers
+// Paverčia ne skaičius į skaičius
 alert( +true ); // 1
 alert( +"" );   // 0
 */!*
 ```
 
-It actually does the same thing as `Number(...)`, but is shorter.
+Tiesą sakant jis daro tą patį kaip `Number(...)`, bet daug trumpesne versija.
 
-The need to convert strings to numbers arises very often. For example, if we are getting values from HTML form fields, they are usually strings. What if we want to sum them?
+Poreikis eilutes pakeisti skaičiais pasitaiko labai dažnai. Pavyzdžiui kai gauname vertes iš HTML formų laukelių, jie dažniausiai yra eilutės. Kas jeigu mums reikia jas susumuoti? 
 
-The binary plus would add them as strings:
+Binarinis pliusas juos sujungtų į eilutę:
 
 ```js run
 let apples = "2";
 let oranges = "3";
 
-alert( apples + oranges ); // "23", the binary plus concatenates strings
+alert( apples + oranges ); // "23", binarinis pliusas eilutes sujungia
 ```
 
-If we want to treat them as numbers, we need to convert and then sum them:
+Jeigu mes norime skaičių, pirma turime juos konvertuoti ir tik tada galime susumuoti:
 
 ```js run
 let apples = "2";
 let oranges = "3";
 
 *!*
-// both values converted to numbers before the binary plus
+// abi vertės iš anksto konvertuojamos į skaičius prieš binarinį pliusą
 alert( +apples + +oranges ); // 5
 */!*
 
-// the longer variant
+// ilgesnis variantas
 // alert( Number(apples) + Number(oranges) ); // 5
 ```
 
-From a mathematician's standpoint, the abundance of pluses may seem strange. But from a programmer's standpoint, there's nothing special: unary pluses are applied first, they convert strings to numbers, and then the binary plus sums them up.
+Iš matematiko perspektyvos gausybė pliusų gali atrodyti keistai. Bet iš programuotojo pozicijos, tai nėra nieko ypatingo: unariniai pliusai pritaikomi pirmi, jie pakeičia eilutes į skaičius, o tada binarinis pliusas juos susumuoja.
 
-Why are unary pluses applied to values before the binary ones? As we're going to see, that's because of their *higher precedence*.
+Kodėl unariniai pliusai pritaikomi vertėms pirmiau nei binarinis? Kaip pamatysime vėliau, taip nutinka dėl jų *aukštesnio prioriteto* (ang. *higher precedence*).
 
-## Operator precedence
+## Operatorių pirmenybė
 
-If an expression has more than one operator, the execution order is defined by their *precedence*, or, in other words, the default priority order of operators.
+Jeigu išraiška turi daugiau operatorių nei vieną, jų vykdymo tvarka yra nustatoma pagal jų *pirmenybę*, arba kitaip sakant, iš ankto numatytąjį operatorių prioritetą. 
 
-From school, we all know that the multiplication in the expression `1 + 2 * 2` should be calculated before the addition. That's exactly the precedence thing. The multiplication is said to have *a higher precedence* than the addition.
+Dar mokykloje sužinojome, kad daugyba tokioje išraiškoje `1 + 2 * 2` turėtų būti suskaičiuojama prieš sudėtį. Tai ir yra pirmenybė. Yra tariama, kad daugyba turi *aukštesnį prioritetą* negu sudėtis.
 
-Parentheses override any precedence, so if we're not satisfied with the default order, we can use them to change it. For example, write `(1 + 2) * 2`.
+Skliausteliai perrašo bet kokią pirmenybę, tad jeigu mums netinka numatyta tvarka, mes galime juos panaudoti, kad tai pakeistume. Pavyzdžiui rašydami `(1 + 2) * 2`.
 
-There are many operators in JavaScript. Every operator has a corresponding precedence number. The one with the larger number executes first. If the precedence is the same, the execution order is from left to right.
+JavaScript turi daug operatorių. Kiekvienas operatorius turi atitinkamą pirmenybės numerį. Tas kas turi aukštenį numerį įvykdomas pirmiau. Jeigu prioritetas vienodas, įvykdymo eilė yra iš kairės į dešinę. 
 
-Here's an extract from the [precedence table](https://developer.mozilla.org/en/JavaScript/Reference/operators/operator_precedence) (you don't need to remember this, but note that unary operators are higher than corresponding binary ones):
+Štai ištrauka iš [pirmenybės lentelės](https://developer.mozilla.org/en/JavaScript/Reference/operators/operator_precedence) (jums nereikia šito prisiminti, bet žinokite, kad unariniai operatoriai yra aukščiau už atitinkamus binarinius operatorius):
 
-| Precedence | Name | Sign |
+| Pirmenybė | Pavadinimas | Ženklas |
 |------------|------|------|
 | ... | ... | ... |
-| 16 | unary plus | `+` |
-| 16 | unary negation | `-` |
-| 14 | multiplication | `*` |
-| 14 | division | `/` |
-| 13 | addition | `+` |
-| 13 | subtraction | `-` |
+| 16 | unarinis pliusas | `+` |
+| 16 | unarinis minusas | `-` |
+| 14 | daugyba | `*` |
+| 14 | dalyba | `/` |
+| 13 | sudėtis | `+` |
+| 13 | atimtis | `-` |
 | ... | ... | ... |
-| 3 | assignment | `=` |
+| 3 | asignavimas | `=` |
 | ... | ... | ... |
 
-As we can see, the "unary plus" has a priority of `16` which is higher than the `13` of "addition" (binary plus). That's why, in the expression `"+apples + +oranges"`, unary pluses work before the addition.
+Kaip matome, "unarinis pliusas" turi pirmenybę `16`, kuri yra didesnė nei "sudėties" `13` (binarinis pliusas). Dėl tos priežasties, išraiškoje `"+apples + +oranges"`, unariniai pliusai suveikia pirmiau už sudėtį.
 
-## Assignment
+## Asignavimas
 
-Let's note that an assignment `=` is also an operator. It is listed in the precedence table with the very low priority of `3`.
+Atkreipkite dėmesį, kad asignavimas (kitaip užduoties operatorius) `=` taip pat yra operatorius. Lentelėje jis įrašytas kaip turintis labai žemą pirmenybę `3`.
 
-That's why, when we assign a variable, like `x = 2 * 2 + 1`, the calculations are done first and then the `=` is evaluated, storing the result in `x`.
+Dėl tos priežasties kai mes priskiriame kintamąjį, kaip `x = 2 * 2 + 1`, visų pirma suskaičiuojama vertė ir tik tada `=` yra įvertinamas bei rezultatas patalpinamas į `x`.
 
 ```js
 let x = 2 * 2 + 1;
@@ -162,7 +162,7 @@ let x = 2 * 2 + 1;
 alert( x ); // 5
 ```
 
-It is possible to chain assignments:
+Asignavimus įmanoma sujungti į grandinę:
 
 ```js run
 let a, b, c;
@@ -176,14 +176,14 @@ alert( b ); // 4
 alert( c ); // 4
 ```
 
-Chained assignments evaluate from right to left. First, the rightmost expression `2 + 2` is evaluated and then assigned to the variables on the left: `c`, `b` and `a`. At the end, all the variables share a single value.
+Sujungti į grandinę asignavimai įvertinami iš dešinės į kairę. Visų pirmą įvykdoma dešiniausiai esanti išraiška `2 + 2` ir priskiriama kintamiesiems esantiems dešinėje: `c`, `b` ir `a`. Galų gale visi kintamieji dalinasi viena verte.
 
-````smart header="The assignment operator `\"=\"` returns a value"
-An operator always returns a value. That's obvious for most of them like addition `+` or multiplication `*`. But the assignment operator follows this rule too.
+````smart header="Užduoties operatorius `\"=\"` grąžina vertę"
+Operatorius visada grąžina vertę. Tai yra akivaizdu tokiems atvejams kaip sudėtis `+` arba daugyba `*`. Bet asignavimas taip pat seka šita taisykle.
 
-The call `x = value` writes the `value` into `x` *and then returns it*.
+Šaukimas `x = value` įrašo `value` į `x` *ir tada ją grąžina*.
 
-Here's a demo that uses an assignment as part of a more complex expression:
+Štai pavyzdys su asignavimu sudėtingesnėje išraiškoje:
 
 ```js run
 let a = 1;
@@ -197,32 +197,32 @@ alert( a ); // 3
 alert( c ); // 0
 ```
 
-In the example above, the result of expression `(a = b + 1)` is the value which was assigned to `a` (that is `3`). It is then used for further evaluations.
+Pavyzdyje aukščiau, išraiškos `(a = b + 1)` rezultatas yra vertė, kuri buvo priskirta `a` (tai yra `3`). Vėliau ji naudojama tolesniuose vertinimuose.
 
-Funny code, isn't it? We should understand how it works, because sometimes we see it in JavaScript libraries, but shouldn't write anything like that ourselves. Such tricks definitely don't make code clearer or readable.
+Koks juokingas kodas, juk taip? Turėtume suprasti kaip jis veikia, nes kartais tokius dalykus randame JavaScript bibliotekose, bet patys tokių geriau nerašykite. Tokie triukai tikrai nepaverčia kodo aiškesniu ir įskaitomesniu.
 ````
 
-## Remainder %
+## Liekana %
 
-The remainder operator `%`, despite its appearance, is not related to percents.
+Liekanos operatorius `%`, nepaisant jo išvaizdos, nėra susijęs su procentais.
 
-The result of `a % b` is the remainder of the integer division of `a` by `b`.
+Šios išraiškos `a % b` rezultatas yra liekana po sveikų skaičių dalybos `a` iš `b`.
 
-For instance:
+Pavyzdžiui:
 
 ```js run
-alert( 5 % 2 ); // 1 is a remainder of 5 divided by 2
-alert( 8 % 3 ); // 2 is a remainder of 8 divided by 3
-alert( 6 % 3 ); // 0 is a remainder of 6 divided by 3
+alert( 5 % 2 ); // 1 yra liekana kai 5 padalinami iš 2
+alert( 8 % 3 ); // 2 yra liekana kai 8 padalinami iš 3
+alert( 6 % 3 ); // 0 yra liekana kai 6 padalinami iš 3
 ```
 
-## Exponentiation **
+## Kėlimas laipsniu **
 
-The exponentiation operator `**` is a recent addition to the language.
+Kėlimo laipsniu (ang. exponentiation) operatorius `**` yra naujas kalbos priedas.
 
-For a natural number `b`, the result of `a ** b` is `a` multiplied by itself `b` times.
+Natūraliajam skaičiui `b`, kai `a ** b` rezultatas yra `a` padaugintas iš savęs `b` kartus.
 
-For instance:
+Pavyzdžiui:
 
 ```js run
 alert( 2 ** 2 ); // 4  (2 * 2)
@@ -230,54 +230,54 @@ alert( 2 ** 3 ); // 8  (2 * 2 * 2)
 alert( 2 ** 4 ); // 16 (2 * 2 * 2 * 2)
 ```
 
-The operator works for non-integer numbers as well.
+Operatorius veikia ir su trupmenomis.
 
-For instance:
+Pavyzdžiui:
 
 ```js run
-alert( 4 ** (1/2) ); // 2 (power of 1/2 is the same as a square root, that's maths)
-alert( 8 ** (1/3) ); // 2 (power of 1/3 is the same as a cubic root)
+alert( 4 ** (1/2) ); // 2 (laipsnis 1/2 yra taip pat kaip traukti iš šaknies, tai paprasta matematika)
+alert( 8 ** (1/3) ); // 2 (laipsnis 1/3 taip pats kaip kubinė šaknis)
 ```
 
-## Increment/decrement
+## Padidėjimas/sumažėjimas
 
 <!-- Can't use -- in title, because built-in parse turns it into – -->
 
-Increasing or decreasing a number by one is among the most common numerical operations.
+Skaičiaus padidinimas arba sumažinimas vienetu yra viena dažniausiai naudojamų įprastinių skaičių operacijų. 
 
-So, there are special operators for it:
+Tad tam netgi yra specialūs operatoriai:
 
-- **Increment** `++` increases a variable by 1:
+- **Padidinimas** `++` (ang. increment) kintamąjį padidina 1-u:
 
     ```js run no-beautify
     let counter = 2;
-    counter++;        // works the same as counter = counter + 1, but is shorter
+    counter++;        // veikia taip pat kaip counter = counter + 1, bet yra trumpesnis
     alert( counter ); // 3
     ```
-- **Decrement** `--` decreases a variable by 1:
+- **Sumažinimas** `--` (ang. decrement) sumažina kintamajį 1-u:
 
     ```js run no-beautify
     let counter = 2;
-    counter--;        // works the same as counter = counter - 1, but is shorter
+    counter--;        // veikia taip kaip counter = counter - 1, bet yra trumpesnis
     alert( counter ); // 1
     ```
 
 ```warn
-Increment/decrement can only be applied to variables. Trying to use it on a value like `5++` will give an error.
+Padidinimas/sumažinimas gali būti taikomas tik kintamiesiems. Bandymas jį naudoti vertei kaip pavyzdžiui `5++` sukels klaidą.
 ```
 
-The operators `++` and `--` can be placed either before or after a variable.
+Operatoriai `++` ir `--` gali būti dedami tiek prieš, tiek ir po kintamojo.
 
-- When the operator goes after the variable, it is in "postfix form": `counter++`.
-- The "prefix form" is when the operator goes before the variable: `++counter`.
+- Kai operatorius eina po kintamojo, jis yra "priedėlio formoje" (ang. "postfix form"): `counter++`.
+- "Priešdėlio forma" (ang. "prefix form") yra tada kai operatorius eina prieš kintamąjį: `++counter`.
 
-Both of these statements do the same thing: increase `counter` by `1`.
+Abu šie teiginiai daro tą patį: padidina `counter` vienu `1`.
 
-Is there any difference? Yes, but we can only see it if we use the returned value of `++/--`.
+Ar yra koks nors skirtumas? Taip, bet jį galime pamatyti tik naudodami grąžintą vertę iš `++/--`.
 
-Let's clarify. As we know, all operators return a value. Increment/decrement is no exception. The prefix form returns the new value while the postfix form returns the old value (prior to increment/decrement).
+Pasiaiškinkime. Kaip žinoma, visi operatoriai grąžina vertę. Padidinimas/sumažinimas ne išimtis. Priešdėlio forma grąžina naują vertę kai tuo tarpu priedėlio forma grąžina senąją formą (prieš padidinimą/sumažinimą). 
 
-To see the difference, here's an example:
+Tam kad pamatytume skirtumą, pavyzdys:
 
 ```js run
 let counter = 1;
@@ -286,64 +286,64 @@ let a = ++counter; // (*)
 alert(a); // *!*2*/!*
 ```
 
-In the line `(*)`, the *prefix* form `++counter` increments `counter` and returns the new value, `2`. So, the `alert` shows `2`.
+Eilėje `(*)`, *priešdėlio* forma `++counter` padidina `counter` ir grąžina vertę `2`. Tad `alert` parodo `2`.
 
-Now, let's use the postfix form:
+Dabar patikrinkime priedėlio formą:
 
 ```js run
 let counter = 1;
-let a = counter++; // (*) changed ++counter to counter++
+let a = counter++; // (*) pakeitėme ++counter į counter++
 
 alert(a); // *!*1*/!*
 ```
 
-In the line `(*)`, the *postfix* form `counter++` also increments `counter` but returns the *old* value (prior to increment). So, the `alert` shows `1`.
+Eilutėje `(*)`, *priedėlio* forma `counter++` taip pat padidina `counter`, bet grąžina *senąją* vertę (dar prieš padidinimą. Tad `alert` parodo `1`.
 
-To summarize:
+Apibendrintai:
 
-- If the result of increment/decrement is not used, there is no difference in which form to use:
+- Jeigu padidinimo/sumažinimo rezultatas nėra naudojamas, nėra jokio skirtumo kokią formą naudoti:
 
     ```js run
     let counter = 0;
     counter++;
     ++counter;
-    alert( counter ); // 2, the lines above did the same
+    alert( counter ); // 2, abi eilės viršuje padarė tą patį
     ```
-- If we'd like to increase a value *and* immediately use the result of the operator, we need the prefix form:
+- Jeigu norime padidinti vertę *ir* iš karto panaudoti operatoriaus rezultatą, mums reikia priešdėlio formos:
 
     ```js run
     let counter = 0;
     alert( ++counter ); // 1
     ```
-- If we'd like to increment a value but use its previous value, we need the postfix form:
+- Jeigu norime padidinti vertę, bet naudoti jos senąją formą, mums reikia priedėlio formos:
 
     ```js run
     let counter = 0;
     alert( counter++ ); // 0
     ```
 
-````smart header="Increment/decrement among other operators"
-The operators `++/--` can be used inside expressions as well. Their precedence is higher than most other arithmetical operations.
+````smart header="Padidinimas/sumažinimas tarp kitų operatorių"
+Operatoriai `++/--` gali būti naudojami su išraiškomis. Pirmumas yra aukštesnis už didelę dalį kitų aritmetinių veiksmų.
 
-For instance:
+Pavyzdžiui:
 
 ```js run
 let counter = 1;
 alert( 2 * ++counter ); // 4
 ```
 
-Compare with:
+Palyginkite tai su:
 
 ```js run
 let counter = 1;
-alert( 2 * counter++ ); // 2, because counter++ returns the "old" value
+alert( 2 * counter++ ); // 2, nes counter++ grąžina *senąją* vertę
 ```
 
-Though technically okay, such notation usually makes code less readable. One line does multiple things -- not good.
+Nors techniškai viskas yra gerai, bet tokie žymėjimai dažniausiai padaro kodą sunkiau įskaitomu. Viena eilutė atlieka daug veiksmų -- negerai.
 
-While reading code, a fast "vertical" eye-scan can easily miss something like `counter++` and it won't be obvious that the variable increased.
+Skaitant kodą, greitas "vertikalus" skanavimas akimis gali praleisti tokį užrašą kaip `counter++` ir nebus pilnai aišku, kad kintamasis padidėjo.
 
-We advise a style of "one line -- one action":
+Mes patariame naudoti "viena eilutė -- vienas veiksmas" stilių:
 
 ```js run
 let counter = 1;
@@ -352,13 +352,13 @@ counter++;
 ```
 ````
 
-## Bitwise operators
+## Bitų operatoriai
 
-Bitwise operators treat arguments as 32-bit integer numbers and work on the level of their binary representation.
+Bitų (ang. bitwise) operatoriai su argumentais elgiasi kaip su 32-bit sveikaisiais skaičias ir dirba jų binarinio pateikimo lygyje.
 
-These operators are not JavaScript-specific. They are supported in most programming languages.
+Tokie operatoriai nėra specifiniai vien JavaScript kalbai. Jie yra palaikomi didžiojoje dalyje programinių kalbų.
 
-The list of operators:
+Operatorių sąrašas:
 
 - AND ( `&` )
 - OR ( `|` )
@@ -368,13 +368,13 @@ The list of operators:
 - RIGHT SHIFT ( `>>` )
 - ZERO-FILL RIGHT SHIFT ( `>>>` )
 
-These operators are used very rarely. To understand them, we need to delve into low-level number representation and it would not be optimal to do that right now, especially since we won't need them any time soon. If you're curious, you can read the [Bitwise Operators](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators) article on MDN. It would be more practical to do that when a real need arises.
+Šie operatoriai naudojami labai retai. Kad juos suprastume, mums reikia pasinerti į žemo-lygio skaičių taikimą ir tai daryti šiuo metu nebūtų optimalu, juolabiau, kad mums jų greitu laiku neprireiks. Jeigu jums įdomu, galite daugiau paskaityti apie [Bitwise Operators](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators) MDN straipsnyje. Daug praktiškiau tai padaryti kai iškils tikras poreikis. 
 
-## Modify-in-place
+## Keitimas vietoje (ang. Modify-in-place)
 
-We often need to apply an operator to a variable and store the new result in that same variable.
+Mums dažnai tenka kintamajam pritaikyti operatorių ir tuo pačiu patalpinti naują rezultatą į tą patį kintamajį.
 
-For example:
+Pavyzdžiui:
 
 ```js
 let n = 2;
@@ -382,63 +382,63 @@ n = n + 5;
 n = n * 2;
 ```
 
-This notation can be shortened using the operators `+=` and `*=`:
+Šis užrašas gali būti sutrumpintas naudojant operatorius `+=` ir `*=`:
 
 ```js run
 let n = 2;
-n += 5; // now n = 7 (same as n = n + 5)
-n *= 2; // now n = 14 (same as n = n * 2)
+n += 5; // dabar n = 7 (tas pats kaip n = n + 5)
+n *= 2; // dabar n = 14 (tas pats kaip n = n * 2)
 
 alert( n ); // 14
 ```
 
-Short "modify-and-assign" operators exist for all arithmetical and bitwise operators: `/=`, `-=`, etc.
+Trumpieji "keitimo-ir-priskyrimo" operatoriai egzistuoja visiems aritmetiniams ir bitų operatoriams: `/=`, `-=` ir t.t.
 
-Such operators have the same precedence as a normal assignment, so they run after most other calculations:
+Tokie operatoriai turi tokį patį pirmumą kaip ir įprastiniai asignavimai, tad jie dažniausiai vykdomi po didžiosios dalies kitų skaičiavimų:
 
 ```js run
 let n = 2;
 
 n *= 3 + 5;
 
-alert( n ); // 16  (right part evaluated first, same as n *= 8)
+alert( n ); // 16  (pirma įvykdoma dešinė pusė, tas pats kaip būtų n *= 8)
 ```
 
-## Comma
+## Kablelis
 
-The comma operator `,` is one of the rarest and most unusual operators. Sometimes, it's used to write shorter code, so we need to know it in order to understand what's going on.
+Kablelio operatorius `,` yra vienas iš rečiausių ir neįprasčiausių operatorių. Kartais jis naudojamas, kad sutrumpintume kodą, tad turime apie jį žinoti, kad suprastume kas vyksta.
 
-The comma operator allows us to evaluate several expressions, dividing them with a comma `,`. Each of them is evaluated but only the result of the last one is returned.
+Kablelio operatorius leidžia įvertinti kelias išraiškas, atskirdamas jas kableliu `,`. Kiekviena jų įvykdoma, tačiau grąžinamas tik rezultatas iš paskutinės išraiškos. 
 
-For example:
+Pavyzdžiui:
 
 ```js run
 *!*
 let a = (1 + 2, 3 + 4);
 */!*
 
-alert( a ); // 7 (the result of 3 + 4)
+alert( a ); // 7 (3 + 4 rezultatas)
 ```
 
-Here, the first expression `1 + 2` is evaluated and its result is thrown away. Then, `3 + 4` is evaluated and returned as the result.
+šiuo atveju išraiška `1 + 2`  yra įvertinama, bet jos rezultatas išmetamas. Tada įvertinama `3 + 4` ir grąžinamas jos rezultatas.
 
-```smart header="Comma has a very low precedence"
-Please note that the comma operator has very low precedence, lower than `=`, so parentheses are important in the example above.
+```smart header="Kablelis turi labai žemą prioritetą"
+Atkreipkite dėmesį, kad kablelio operatorius turi labai žemą prioritetą, žemesnį nei `=`, dėl to skliausteliai yra labai svarbūs kaip pavyzdyje aukščiau.
 
-Without them: `a = 1 + 2, 3 + 4` evaluates `+` first, summing the numbers into `a = 3, 7`, then the assignment operator `=` assigns `a = 3`, and the rest is ignored. It's like `(a = 1 + 2), 3 + 4`.
+Be jų: `a = 1 + 2, 3 + 4` pirma įvertina `+` susumuodamas visus skaičius į `a = 3, 7`, o tada užduoties operatorius `=` priskiria `a = 3`, o visa kita yra ignoruojama. Panašiai lyg tai būtų `(a = 1 + 2), 3 + 4`.
 ```
 
-Why do we need an operator that throws away everything except the last expression?
+Kam mums reikalingas operatorius, kuris išmeta viską išskyrus paskutinę išraišką? 
 
-Sometimes, people use it in more complex constructs to put several actions in one line.
+Kartais žmonės jį naudoja sudėtingesniuose konstruktuose, kad sudėtų kelis veiksmus į vieną eilę. 
 
-For example:
+Pavyzdžiui:
 
 ```js
-// three operations in one line
+// trys operacijos vienoje eilutėje
 for (*!*a = 1, b = 3, c = a * b*/!*; a < 10; a++) {
  ...
 }
 ```
 
-Such tricks are used in many JavaScript frameworks. That's why we're mentioning them. But usually they don't improve code readability so we should think well before using them.
+Tokie triukai dažnai naudojami JavaScript struktūrose (ang. frameworks). Dėl to juos ir paminėjome. Bet dažniausiai jie nepalengvina kodo skaitymo tad turėtume gerai pagalvoti prieš juos naudodami.

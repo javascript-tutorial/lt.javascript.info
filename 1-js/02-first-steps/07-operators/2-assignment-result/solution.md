@@ -1,5 +1,5 @@
-The answer is:
+Atsakymas:
 
-- `a = 4` (multiplied by 2)
-- `x = 5` (calculated as 1 + 4)
+- `a = 4` (padauginta iš 2)
+- `x = 5` (suskaičiuota kaip 1 + 4)
 
