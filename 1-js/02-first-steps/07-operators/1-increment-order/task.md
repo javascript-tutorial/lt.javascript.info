@@ -2,9 +2,9 @@ importance: 5
 
 ---
 
-# The postfix and prefix forms
+# Priedėlio ir priešdėlio formos
 
-What are the final values of all variables `a`, `b`, `c` and `d` after the code below?
+Kokios yra galutės šių kintamųjų `a`, `b`, `c` ir `d` vertės įvykdžius kodą?
 
 ```js
 let a = 1, b = 1;
