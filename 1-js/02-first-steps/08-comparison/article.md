@@ -1,41 +1,41 @@
-# Comparisons
+# Palyginimai
 
-We know many comparison operators from maths:
+Iš matematikos mes žinome daug palyginimo operatorių:
 
-- Greater/less than: <code>a &gt; b</code>, <code>a &lt; b</code>.
-- Greater/less than or equals: <code>a &gt;= b</code>, <code>a &lt;= b</code>.
-- Equals: `a == b` (please note the double equals sign `=`. A single symbol `a = b` would mean an assignment).
-- Not equals. In maths the notation is <code>&ne;</code>, but in JavaScript it's written as an assignment with an exclamation sign before it: <code>a != b</code>.
+- Daugiau/mažiau negu: <code>a &gt; b</code>, <code>a &lt; b</code>.
+- Daugiau/mažiau arba lygu negu: <code>a &gt;= b</code>, <code>a &lt;= b</code>.
+- Lygu: `a == b` (atkreipkite dėmesį į dvigubos lygybės ženklą `=`. Vienas ženklas `a = b` reikštų priskyrimą).
+- Nelygus. Matematikos toks ženklas yra <code>&ne;</code>, bet JavaScript jis rašomas kaip asigmentas su šauktuku prieš jį: <code>a != b</code>.
 
-## Boolean is the result
+## Loginė vertė yra rezultatas
 
-Like all other operators, a comparison returns a value. In this case, the value is a boolean.
+Kaip ir visi kiti operatoriai, palyginimas grąžina vertę. Šiuo atvejuta vertė yra loginė.
 
-- `true` -- means "yes", "correct" or "the truth".
-- `false` -- means "no", "wrong" or "not the truth".
+- `true` -- reiškia "taip", "teisingai" arba "tiesa".
+- `false` -- reiškia "ne", "neteisingai" arba "netiesa".
 
-For example:
+Pavyzdžiui:
 
 ```js run
-alert( 2 > 1 );  // true (correct)
-alert( 2 == 1 ); // false (wrong)
-alert( 2 != 1 ); // true (correct)
+alert( 2 > 1 );  // true (teisingai)
+alert( 2 == 1 ); // false (neteisingai)
+alert( 2 != 1 ); // true (teisingai)
 ```
 
-A comparison result can be assigned to a variable, just like any value:
+Palyginimo rezultatas gali būti priskirtas kintamajam, kaip ir bet kuri kita vertė:
 
 ```js run
-let result = 5 > 4; // assign the result of the comparison
+let result = 5 > 4; // priskirti palyginimo rezultato vertę
 alert( result ); // true
 ```
 
-## String comparison
+## Eilutės palyginimas
 
-To see whether a string is greater than another, JavaScript uses the so-called "dictionary" or "lexicographical" order.
+Kad patikrintų ar viena eilutė yra didesnė už kitą, JavaScript naudoja taip vadinamą "žodyno" arba "leksikografinį" eiliškumą
 
-In other words, strings are compared letter-by-letter.
+Kitais žodžiais, eilutės yra lyginamos paraidžiui.
 
-For example:
+Pavyzdžiui:
 
 ```js run
 alert( 'Z' > 'A' ); // true
@@ -43,53 +43,53 @@ alert( 'Glow' > 'Glee' ); // true
 alert( 'Bee' > 'Be' ); // true
 ```
 
-The algorithm to compare two strings is simple:
+Algoritmas eilučių palyginimui yra labai paprastas:
 
-1. Compare the first character of both strings.
-2. If the first character from the first string is greater (or less) than the other string's, then the first string is greater (or less) than the second. We're done.
-3. Otherwise, if both strings' first characters are the same, compare the second characters the same way.
-4. Repeat until the end of either string.
-5. If both strings end at the same length, then they are equal. Otherwise, the longer string is greater.
+1. Palyginti abiejų eilučių pirmus ženklus.
+2. Jeigu pirmas ženklas iš pirmos eilutės yra didesnis (ar mažesnis) negu kitos eilutės, tada pirma eilutė yra didesnį (ar mažesnė) už antrąją. Pabaiga.
+3. Kitu atveju, jeigu abiejų eilučių pirmi ženklai yra vienodi, tada lyginami antri ženklai tuo pačiu principu.
+4. Pakartoti iki vienos iš eilučių pabaigos.
+5. Jeigu abi eilutės baigiasi tuo pačiu metu, jos yra vienodo. Kitu atveju ilgesnė eilutė yra didesnė.
 
-In the examples above, the comparison `'Z' > 'A'` gets to a result at the first step while the strings `"Glow"` and `"Glee"` are compared character-by-character:
+Pavyzdyje aukščiau, palyginimas `'Z' > 'A'` gauna atsakymą pirmame žingsnyje, kai tuo tarpu `"Glow"` ir `"Glee"` yra lyginami ženklas po ženklo:
 
-1. `G` is the same as `G`.
-2. `l` is the same as `l`.
-3. `o` is greater than `e`. Stop here. The first string is greater.
+1. `G` tas pats kaip `G`.
+2. `l` tas pats kaip `l`.
+3. `o` yra didesnis nei `e`. Čia sustojame. Pirma eilutė yra didesnė.
 
-```smart header="Not a real dictionary, but Unicode order"
-The comparison algorithm given above is roughly equivalent to the one used in dictionaries or phone books, but it's not exactly the same.
+```smart header="Ne tikras žodynas, bet Unicode eiliškumas"
+Palyginimo algorimtas esantis aukščiau yra maždaug panašus į tokį koks naudojamas žodynuose ir telefonų knygoje, tačiau jis nėra visiškai toks pats.
 
-For instance, case matters. A capital letter `"A"` is not equal to the lowercase `"a"`. Which one is greater? The lowercase `"a"`. Why? Because the lowercase character has a greater index in the internal encoding table JavaScript uses (Unicode). We'll get back to specific details and consequences of this in the chapter <info:string>.
+Pavyzdžiui svarbu ar raidės yra mažosios ar didžiosios. Didžioji raidė `"A"` nėra lygi mažajai raidei `"a"`. Kuri yra didesnė? Mažoji `"a"`. Kodėl? Nes mažosios raidės turi aukštesnį indeksą vidinėje JavaScript kodavimo lentelėje (Unicode). Mes sugrįšime prie specifinių detalių ir pasekmių skyriuje <info:string>.
 ```
 
-## Comparison of different types
+## Skirtingų tipų palyginimai
 
-When comparing values of different types, JavaScript converts the values to numbers.
+JavaScript lygindama skirtingų tipų vertes, jas paverčia į skaičius.
 
-For example:
+Pavyzdžiui:
 
 ```js run
-alert( '2' > 1 ); // true, string '2' becomes a number 2
-alert( '01' == 1 ); // true, string '01' becomes a number 1
+alert( '2' > 1 ); // true, eilutė '2' tampa skaičiumi 2
+alert( '01' == 1 ); // true, eilutė '01' tampa skaičiumi 1
 ```
 
-For boolean values, `true` becomes `1` and `false` becomes `0`.
+Loginėse vertėse, `true` tampa `1`, o `false` tampa `0`.
 
-For example:
+Pavyzdžiui:
 
 ```js run
 alert( true == 1 ); // true
 alert( false == 0 ); // true
 ```
 
-````smart header="A funny consequence"
-It is possible that at the same time:
+````smart header="Linksmas sutapimas"
+Ar įmanoma, kad tuo pačiu metu:
 
-- Two values are equal.
-- One of them is `true` as a boolean and the other one is `false` as a boolean.
+- Dvi vertės yra vienodos.
+- Kaip loginė vertė viena iš jų yra `true`, o kita yra `false`.
 
-For example:
+Pavyzdžiui:
 
 ```js run
 let a = 0;
@@ -101,42 +101,42 @@ alert( Boolean(b) ); // true
 alert(a == b); // true!
 ```
 
-From JavaScript's standpoint, this result is quite normal. An equality check converts values using the numeric conversion (hence `"0"` becomes `0`), while the explicit `Boolean` conversion uses another set of rules.
+Iš JavaScript pozicijos, toks rezultatas yra visiškai normalus. Palyginimas paverčia vertes naudodamas skaičių konversijas (tad `"0"` tampa `0`), o tuo tarpu išskirtinė loginė `Boolean` konversija naudoja kitokias taisykles.
 ````
 
-## Strict equality
+## Griežta lygybė
 
-A regular equality check `==` has a problem. It cannot differentiate `0` from `false`:
+Įprastinės lygybės patikrinimas `==` turi problemą. Ji negali atskirti `0` nuo `false`:
 
 ```js run
 alert( 0 == false ); // true
 ```
 
-The same thing happens with an empty string:
+Tas pats nutinka su tuščia eilutė:
 
 ```js run
 alert( '' == false ); // true
 ```
 
-This happens because operands of different types are converted to numbers by the equality operator `==`. An empty string, just like `false`, becomes a zero.
+Taip nutinka dėl to, kad skirtingų tipų operandai naudojant lygybės operatorių `==` yra paverčiami į skaičius. Tuščia eilutė, taip pat kaip ir `false`, tampa nuliu. 
 
-What to do if we'd like to differentiate `0` from `false`?
+Ką daryti jeigu mes norime, kad `0` skirtųsi nuo `false`?
 
-**A strict equality operator `===` checks the equality without type conversion.**
+**Griežtos lygybės operatorius `===` patikrina lygybę nedarydamas tipo konversijos.**
 
-In other words, if `a` and `b` are of different types, then `a === b` immediately returns `false` without an attempt to convert them.
+Kitaip sakant, jeigu `a` ir `b` yra skirtingų tipų, tada `a === b` iš karto grąžina `false` net nebandydama jų konvertuoti.
 
-Let's try it:
+Pabandykime:
 
 ```js run
-alert( 0 === false ); // false, because the types are different
+alert( 0 === false ); // false, nes tipai yra skirtingi
 ```
 
-There is also a "strict non-equality" operator `!==` analogous to `!=`.
+Taip pat yra ir "griežtos nelygybės" operatorius `!==` analogiškas `!=`.
 
-The strict equality operator is a bit longer to write, but makes it obvious what's going on and leaves less room for errors.
+Griežtos lygybės operatorius yra ilgesnis, bet jis padeda kodui atrodyti aiškesniu ir palieka mažiau vietos klaidoms. 
 
-## Comparison with null and undefined
+## Palyginimai su null ir undefined
 
 There's a non-intuitive behavior when `null` or `undefined` are compared to other values.
 
