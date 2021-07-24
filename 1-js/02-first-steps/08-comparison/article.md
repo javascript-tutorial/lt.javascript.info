@@ -5,11 +5,11 @@ Iš matematikos mes žinome daug palyginimo operatorių:
 - Daugiau/mažiau negu: <code>a &gt; b</code>, <code>a &lt; b</code>.
 - Daugiau/mažiau arba lygu negu: <code>a &gt;= b</code>, <code>a &lt;= b</code>.
 - Lygu: `a == b` (atkreipkite dėmesį į dvigubos lygybės ženklą `=`. Vienas ženklas `a = b` reikštų priskyrimą).
-- Nelygus. Matematikos toks ženklas yra <code>&ne;</code>, bet JavaScript jis rašomas kaip asigmentas su šauktuku prieš jį: <code>a != b</code>.
+- Nelygus. Matematikoje toks ženklas yra <code>&ne;</code>, bet JavaScript jis rašomas kaip asigmentas su šauktuku prieš jį: <code>a != b</code>.
 
 ## Loginė vertė yra rezultatas
 
-Kaip ir visi kiti operatoriai, palyginimas grąžina vertę. Šiuo atvejuta vertė yra loginė.
+Kaip ir visi kiti operatoriai, palyginimas grąžina vertę. Šiuo atveju ta vertė yra loginė.
 
 - `true` -- reiškia "taip", "teisingai" arba "tiesa".
 - `false` -- reiškia "ne", "neteisingai" arba "netiesa".
@@ -46,10 +46,10 @@ alert( 'Bee' > 'Be' ); // true
 Algoritmas eilučių palyginimui yra labai paprastas:
 
 1. Palyginti abiejų eilučių pirmus ženklus.
-2. Jeigu pirmas ženklas iš pirmos eilutės yra didesnis (ar mažesnis) negu kitos eilutės, tada pirma eilutė yra didesnį (ar mažesnė) už antrąją. Pabaiga.
+2. Jeigu pirmas ženklas iš pirmos eilutės yra didesnis (ar mažesnis) negu kitos eilutės, tada pirma eilutė yra didesnė (ar mažesnė) už antrąją. Pabaiga.
 3. Kitu atveju, jeigu abiejų eilučių pirmi ženklai yra vienodi, tada lyginami antri ženklai tuo pačiu principu.
 4. Pakartoti iki vienos iš eilučių pabaigos.
-5. Jeigu abi eilutės baigiasi tuo pačiu metu, jos yra vienodo. Kitu atveju ilgesnė eilutė yra didesnė.
+5. Jeigu abi eilutės baigiasi tuo pačiu metu, jos yra vienodos. Kitu atveju ilgesnė eilutė yra didesnė.
 
 Pavyzdyje aukščiau, palyginimas `'Z' > 'A'` gauna atsakymą pirmame žingsnyje, kai tuo tarpu `"Glow"` ir `"Glee"` yra lyginami ženklas po ženklo:
 
@@ -58,7 +58,7 @@ Pavyzdyje aukščiau, palyginimas `'Z' > 'A'` gauna atsakymą pirmame žingsnyje
 3. `o` yra didesnis nei `e`. Čia sustojame. Pirma eilutė yra didesnė.
 
 ```smart header="Ne tikras žodynas, bet Unicode eiliškumas"
-Palyginimo algorimtas esantis aukščiau yra maždaug panašus į tokį koks naudojamas žodynuose ir telefonų knygoje, tačiau jis nėra visiškai toks pats.
+Palyginimo algoritmas esantis aukščiau yra maždaug panašus į tokį koks naudojamas žodynuose ir telefonų knygoje, tačiau jis nėra visiškai toks pats.
 
 Pavyzdžiui svarbu ar raidės yra mažosios ar didžiosios. Didžioji raidė `"A"` nėra lygi mažajai raidei `"a"`. Kuri yra didesnė? Mažoji `"a"`. Kodėl? Nes mažosios raidės turi aukštesnį indeksą vidinėje JavaScript kodavimo lentelėje (Unicode). Mes sugrįšime prie specifinių detalių ir pasekmių skyriuje <info:string>.
 ```
@@ -138,30 +138,30 @@ Griežtos lygybės operatorius yra ilgesnis, bet jis padeda kodui atrodyti aišk
 
 ## Palyginimai su null ir undefined
 
-There's a non-intuitive behavior when `null` or `undefined` are compared to other values.
+Kai lyginami`null` ar `undefined`su kitomis vertėmis elgesys nėra intuityvus.
 
-For a strict equality check `===`
-: These values are different, because each of them is a different type.
+Griežtos lygybės patikrinime `===`
+: Šios vertės yra skirtingos, nes kiekviena jų yra skirtingo tipo.
 
     ```js run
     alert( null === undefined ); // false
     ```
 
-For a non-strict check `==`
-: There's a special rule. These two are a "sweet couple": they equal each other (in the sense of `==`), but not any other value.
+Negriežtos lygybės patikrai `==`
+: Yra speciali taisyklė. Šie du yra "saldi porelė": jie yra lygūs vienas kitam (kai yra `==`), bet jokioms kitoms vertėms.
 
     ```js run
     alert( null == undefined ); // true
     ```
 
-For maths and other comparisons `< > <= >=`
-: `null/undefined` are converted to numbers: `null` becomes `0`, while `undefined` becomes `NaN`.
+Matematiniuose ir kitokiuose palyginimuose `< > <= >=`
+: `null/undefined` yra paverčiami skaičiais: `null` tampa `0`, tuo tarpu `undefined` tampa `NaN`.
 
-Now let's see some funny things that happen when we apply these rules. And, what's more important, how to not fall into a trap with them.
+Dabar pasižiūrėkime į juokingus atvejus kai šios taisyklės būna pritaikomos. Ir visų svarbiausia kaip dėl jų nepakliūti į spąstus.
 
-### Strange result: null vs 0
+### Keistas rezultatas: null vs 0
 
-Let's compare `null` with a zero:
+Palyginkime `null` su nuliu:
 
 ```js run
 alert( null > 0 );  // (1) false
@@ -169,15 +169,15 @@ alert( null == 0 ); // (2) false
 alert( null >= 0 ); // (3) *!*true*/!*
 ```
 
-Mathematically, that's strange. The last result states that "`null` is greater than or equal to zero", so in one of the comparisons above it must be `true`, but they are both false.
+Tai labai keista matematiškai. Rezultatas sako, kad "`null` yra didesnis arba lygus nuliu", vadinasi viename iš aukščiau esančių palyginimų turėtų būti taip pat `true`, bet jie abu yra neteisingi.
 
-The reason is that an equality check `==` and comparisons `> < >= <=` work differently. Comparisons convert `null` to a number, treating it as `0`. That's why (3) `null >= 0` is true and (1) `null > 0` is false.
+To priežastis yra tai, kad lygybės patikrinimas `==` ir palyginimai `> < >= <=` veikia kitaip. Palyginimai paverčia `null` į skaičių ir laiko jį nuliu `0`. Štai dėl ko (3) `null >= 0` yra tiesa, o `null > 0` yra netiesa.
 
-On the other hand, the equality check `==` for `undefined` and `null` is defined such that, without any conversions, they equal each other and don't equal anything else. That's why (2) `null == 0` is false.
+Iš kitos pusės, lygybės patikrinimas `==` kaip jau yra apibūdinta, `undefined` ir `null` kai jie nėra konvertuojami, jie yra vienas kitam lygūs, bet nelygūs niekam kitam. Štai kodėl (2) `null == 0` yra netiesa.
 
-### An incomparable undefined
+### Nepalyginimasis undefined
 
-The value `undefined` shouldn't be compared to other values:
+Vertė `undefined` neturėtų būti lyginima su kitomis vertėmis:
 
 ```js run
 alert( undefined > 0 ); // false (1)
@@ -185,25 +185,25 @@ alert( undefined < 0 ); // false (2)
 alert( undefined == 0 ); // false (3)
 ```
 
-Why does it dislike zero so much? Always false!
+Kodėl jis taip nemėgsta nulio? Visada netiesa!
 
-We get these results because:
+Gauname tokius rezultatas, nes:
 
-- Comparisons `(1)` and `(2)` return `false` because `undefined` gets converted to `NaN` and `NaN` is a special numeric value which returns `false` for all comparisons.
-- The equality check `(3)` returns `false` because `undefined` only equals `null`, `undefined`, and no other value.
+- Palyginimai `(1)` ir `(2)` grąžina `false`, nes `undefined` paverčiamas į `NaN`, o `NaN` yra ypatinga skaitinė vertė, kuri visoms vertėms grąžina `false`.
+- Lygybės patikrinimas `(3)` grąžina `false`, nes `undefined` yra lygus tik `null`, `undefined` ir jokiai kitai vertei.
 
-### Evade problems
+### Išvenkite problemų
 
-Why did we go over these examples? Should we remember these peculiarities all the time? Well, not really. Actually, these tricky things will gradually become familiar over time, but there's a solid way to evade problems with them:
+Kodėl mes peržiūrėjome tokius pavyzdžius? Ar turėtume tokias keistenybes visada prisiminti? Nebūtinai. Tiesą sakant tokie triukai taps pažįstamais su laiku, bet yra būdas kaip išvengti su jais susijusių problemų:
 
-Just treat any comparison with `undefined/null` except the strict equality `===` with exceptional care.
+Kiekvieną palyginimą susijusį su `undefined/null` vertinkite atsargiai, išskyrus su griežta lygybe `===`.
 
-Don't use comparisons `>= > < <=` with a variable which may be `null/undefined`, unless you're really sure of what you're doing. If a variable can have these values, check for them separately.
+Nenaudokite palyginimų `>= > < <=` su kintamuoju, kuris gali būti `null/undefined`, nebent tikrai žinote ką darote. Jeigu kintamasis gali turėti tokias vertybes, patikrinkite jas atskirai.
 
-## Summary
+## Santrauka
 
-- Comparison operators return a boolean value.
-- Strings are compared letter-by-letter in the "dictionary" order.
-- When values of different types are compared, they get converted to numbers (with the exclusion of a strict equality check).
-- The values `null` and `undefined` equal `==` each other and do not equal any other value.
-- Be careful when using comparisons like `>` or `<` with variables that can occasionally be `null/undefined`. Checking for `null/undefined` separately is a good idea.
+- Palyginimų operatoriai grąžina loginę vertę.
+- Eilutės yra tikrinamos paraidžiui "žodynėlio" eiliškumo principu.
+- Kai lyginamos skirtingų tipų vertės, jos yra paverčiamos į skaičius (išskyrus tik griežtą lygybės patikrinimą).
+- Vertės `null` ir `undefined` yra lygios `==` viena kitai, bet nelygios jokiai kitai vertei.
+- Būkite atsargūs kai naudojate tokius palyginimus kaip `>` arba `<` su kintamaisiai, kurie laikas nuo laiko gali būti `null/undefined`. Gera mintis yra patikrinti `null/undefined` atskirai.
