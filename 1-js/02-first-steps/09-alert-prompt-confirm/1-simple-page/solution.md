@@ -1,11 +1,11 @@
-JavaScript-code:
+JavaScript-kodas:
 
 ```js demo run
-let name = prompt("What is your name?", "");
+let name = prompt("Koks jūsų vardas?", "");
 alert(name);
 ```
 
-The full page:
+Pilnas puslapis:
 
 ```html
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ The full page:
   <script>
     'use strict';
 
-    let name = prompt("What is your name?", "");
+    let name = prompt("Koks jūsų vardas?", "");
     alert(name);
   </script>
 
