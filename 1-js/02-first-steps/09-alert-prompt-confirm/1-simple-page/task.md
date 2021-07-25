@@ -2,8 +2,8 @@ importance: 4
 
 ---
 
-# A simple page
+# Paprastas puslapis
 
-Create a web-page that asks for a name and outputs it.
+Sukurkite internetinį puslapį, kuris klausia vardo ir paskui jį parodo.
 
 [demo]
