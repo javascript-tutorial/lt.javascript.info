@@ -1,109 +1,109 @@
-# Interaction: alert, prompt, confirm
+# Interakcija: alert, prompt, confirm
 
-In this part of the tutorial we cover JavaScript language "as is", without environment-specific tweaks.
+Šioje pamokų dalyje kalbėsime apie JavaScript kalbą "tokia kokia ji yra", be aplinkai būdingų pataisymų.
 
-But we'll still be using the browser as our demo environment, so we should know at least a few of its user-interface functions. In this chapter, we'll get familiar with the browser functions `alert`, `prompt` and `confirm`.
+Bet vis dar naudosime naršykles kaip mūsų pavyzdinę aplinką, tad turėtume žinoti bent kelias vartotojo sąsajos (ang. user-interface) savybes. Šiame skyriuje susipažinsime su šiomis naršyklės funkcijomis `alert`, `prompt` ir `confirm`.
 
 ## alert
 
-Syntax:
+Sintaksė:
 
 ```js
 alert(message);
 ```
 
-This shows a message and pauses script execution until the user presses "OK".
+Parodo žinutę ir sustabdo skriptą iki kol vartotojas paspaus "OK".
 
-For example:
+Pavyzdžiui:
 
 ```js run
-alert("Hello");
+alert("Labas");
 ```
 
-The mini-window with the message is called a *modal window*. The word "modal" means that the visitor can't interact with the rest of the page, press other buttons, etc. until they have dealt with the window. In this case -- until they press "OK".
+Miniatiūrinis langelis su žinute yra vadinamas *modaliniu langeliu* (ang. *modal window*). Žodis "modalinis" reiškia, kad lankytojas negali naudotis likusiu puslapiu, spausti kitų mygtukų ir t.t. kol nesusitvarkė su langeliu. Šiuo atveju -- iki kol paspaus "OK".
 
 ## prompt
 
-The function `prompt` accepts two arguments:
+Funkcija `prompt` priima du argumentus:
 
 ```js no-beautify
 result = prompt(title, [default]);
 ```
 
-It shows a modal window with a text message, an input field for the visitor, and the buttons OK/Cancel.
+Parodo modalinį langelį su paprasta tekstine žinute, įvesties laukeliu lankytojui ir mygtukus OK/Cancel.
 
 `title`
-: The text to show the visitor.
+: Tekstas, kurį reikės parodyti lankytojui.
 
 `default`
-: An optional second parameter, the initial value for the input field.
+: Nebūtinas antras parametras, pradinė vertė įvesties laukeliui.
 
-The visitor may type something in the prompt input field and press OK. Or they can cancel the input by pressing Cancel or hitting the `key:Esc` key.
+Lankytojas gali ką nors įvesti laukelyje ir paspausti OK. Arba jie gali atšaukti paspausdami Cancel ar klaviatūroje `key:Esc` mygtuką.
 
-The call to `prompt` returns the text from the input field or `null` if the input was canceled.
+Iššauktas `prompt` grąžina tekstą iš įvesties laukelio arba `null`, jeigu įvestis buvo atšaukta.
 
-For instance:
+Pavyzdžiui:
 
 ```js run
-let age = prompt('How old are you?', 100);
+let age = prompt('Kiek jums metų?', 100);
 
-alert(`You are ${age} years old!`); // You are 100 years old!
+alert(`Jums yra ${age} metų!`); // Jums yra 100 metų!
 ```
 
-````warn header="In IE: always supply a `default`"
-The second parameter is optional, but if we don't supply it, Internet Explorer will insert the text `"undefined"` into the prompt.
+````warn header="IE naršyklėje: visada nurodykite `default`"
+Antras parametras nėra būtinas, bet jeigu jo nepateiksite, Internet Explorer įtrauks `"undefined"` į prompt tekstą.
 
-Run this code in Internet Explorer to see:
+Norėdami išbandyti, paleiskite šį kodą Internet Explorer naršyklėje:
 
 ```js run
-let test = prompt("Test");
+let test = prompt("Testas");
 ```
 
-So, for prompts to look good in IE, we recommend always providing the second argument:
+Tad tam, kad prompt visada gerai atrodytų IE, mes rekomenduojame visada pateikti antrą argumentą:
 
 ```js run
-let test = prompt("Test", ''); // <-- for IE
+let test = prompt("Testas", ''); // <-- skirta IE
 ```
 ````
 
 ## confirm
 
-The syntax:
+Sintaksė:
 
 ```js
 result = confirm(question);
 ```
 
-The function `confirm` shows a modal window with a `question` and two buttons: OK and Cancel.
+Funkcija `confirm` parodo modalinį langelį su `question` (klausimu) ir dviem mygtukais: OK ir Cancel.
 
-The result is `true` if OK is pressed and `false` otherwise.
+Rezultatas būna `true`, jeigu paspaudžiamas OK ir `false` kitu atveju.
 
-For example:
+Pavyzdžiui:
 
 ```js run
-let isBoss = confirm("Are you the boss?");
+let isBoss = confirm("Ar tu esi bosas?");
 
-alert( isBoss ); // true if OK is pressed
+alert( isBoss ); // true, jeigu paspaudžiamas OK
 ```
 
-## Summary
+## Santrauka
 
-We covered 3 browser-specific functions to interact with visitors:
+Mes aptarėme 3 naršyklei būdingas funkcijas skirtas bendrauti su lankytojais:
 
 `alert`
-: shows a message.
+: parodo žinutę.
 
 `prompt`
-: shows a message asking the user to input text. It returns the text or, if Cancel button or `key:Esc` is clicked, `null`.
+: parodo žinutę prašydamas vartotojo įvesti tekstą. Grąžina tekstą arba, jeigu paspaudžiamas Cancel ar `key:Esc` grąžinamas `null`.
 
 `confirm`
-: shows a message and waits for the user to press "OK" or "Cancel". It returns `true` for OK and `false` for Cancel/`key:Esc`.
+: parodo žinutę ir laukia kol lankytojas paspaus "OK" arba "Cancel". Grąžina `true` kai OK ir `false` kai Cancel/`key:Esc`.
 
-All these methods are modal: they pause script execution and don't allow the visitor to interact with the rest of the page until the window has been dismissed.
+Visi šie veiksmai yra modaliniai: jie sustabdo skripto vykdymą ir neleidžia lankytojams naudotis likusiu puslapiu kol langelis nėra uždaromas.
 
-There are two limitations shared by all the methods above:
+Visus anksčiau minėtus metodus sieja du apribojimai:
 
-1. The exact location of the modal window is determined by the browser. Usually, it's in the center.
-2. The exact look of the window also depends on the browser. We can't modify it.
+1. Naršyklė nustato tikslią modalinio langelio vietą. Dažniausiai tai yra centras.
+2. Tiksli langelio išvaizda taip pat priklauso nuo naršyklės. Mes jo pakeisti negalime.
 
-That is the price for simplicity. There are other ways to show nicer windows and richer interaction with the visitor, but if "bells and whistles" do not matter much, these methods work just fine.
+Tokia yra paprastumo kaina. Yra daug kitų būdų parodyti gražesnius langelius ir naudoti puikesnį bendravimą su lankytojais, bet jeigu nėra labai svarbu įmantrumai esami metodai veikia kuo puikiausiai. 
