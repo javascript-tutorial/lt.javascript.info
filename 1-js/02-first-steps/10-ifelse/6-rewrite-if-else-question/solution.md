@@ -1,9 +1,9 @@
 
 
 ```js
-let message = (login == 'Employee') ? 'Hello' :
-  (login == 'Director') ? 'Greetings' :
-  (login == '') ? 'No login' :
+let message = (login == 'Darbuotojas') ? 'Labas' :
+  (login == 'Direktorius') ? 'Sveiki' :
+  (login == '') ? 'Nėra prisijungimo' :
   '';
 ```
 
