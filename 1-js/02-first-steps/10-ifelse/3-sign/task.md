@@ -2,14 +2,14 @@ importance: 2
 
 ---
 
-# Show the sign
+# Parodykite ženklą
 
-Using `if..else`, write the code which gets a number via `prompt` and then shows in `alert`:
+Naudodami `if..else`, parašykite kodą, kuris gauna numerį per `prompt` ir tada parodo jį per `alert`:
 
-- `1`, if the value is greater than zero,
-- `-1`, if less than zero,
-- `0`, if equals zero.
+- `1`, jeigu vertė yra didesnė nei nulis,
+- `-1`, jeigu mažesnė nei nulis,
+- `0`, jeigu lygus nuliui.
 
-In this task we assume that the input is always a number.
+Šioje užduotyje mes tariame, kad visada yra įvedamas numeris.
 
 [demo src="if_sign"]
