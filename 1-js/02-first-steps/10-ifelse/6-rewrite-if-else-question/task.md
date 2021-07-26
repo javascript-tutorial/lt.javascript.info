@@ -2,21 +2,21 @@ importance: 5
 
 ---
 
-# Rewrite 'if..else' into '?'
+# Perrašykite 'if..else' į '?'
 
-Rewrite `if..else` using multiple ternary operators `'?'`.
+Perrašykite `if..else` naudodami daugybinius ternarinius operatorius `'?'`.
 
-For readability, it's recommended to split the code into multiple lines.
+Dėl skaitomo rekomenduoja išskirti kodą į kelias eiles.
 
 ```js
 let message;
 
-if (login == 'Employee') {
-  message = 'Hello';
-} else if (login == 'Director') {
-  message = 'Greetings';
+if (login == 'Darbuotojas') {
+  message = 'Labas';
+} else if (login == 'Direktorius') {
+  message = 'Sveiki';
 } else if (login == '') {
-  message = 'No login';
+  message = 'Nėra prisijungimo';
 } else {
   message = '';
 }
