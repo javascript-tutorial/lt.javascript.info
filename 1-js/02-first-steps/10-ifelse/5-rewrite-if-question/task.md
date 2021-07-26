@@ -2,16 +2,16 @@ importance: 5
 
 ---
 
-# Rewrite 'if' into '?'
+# Perrašykite 'if' į '?'
 
-Rewrite this `if` using the conditional operator `'?'`:
+Perrašykite šį `if` naudodami sąlygos operatorių `'?'`:
 
 ```js
 let result;
 
 if (a + b < 4) {
-  result = 'Below';
+  result = 'Žemiau';
 } else {
-  result = 'Over';
+  result = 'Aukščiau';
 }
 ```
