@@ -1,117 +1,117 @@
-# Conditional operators: if, '?'
+# Sąlyginiai operatoriai: if, '?'
 
-Sometimes, we need to perform different actions based on different conditions.
+Kartais mums tenka atlikti skirtingus veiksmus atitinkančius skirtingas sąlygas.
 
-To do that, we can use the `if` statement and the conditional operator `?`, that's also called a "question mark" operator.
+Kad tai padarytume mes naudojame teiginį `if` ir sąlyginį operatorių `?`, arba dar kitaip vadinamą "klaustuko" operatorių.
 
-## The "if" statement
+## Teiginys "if"
 
-The `if(...)` statement evaluates a condition in parentheses and, if the result is `true`, executes a block of code.
+Teiginys `if(...)` įvertina sąlygas esančias tarp skliaustelių ir jeigu rezultatas yra `true` tada įvykdo kodų rinkinį.
 
-For example:
+Pavyzdžiui:
 
 ```js run
-let year = prompt('In which year was ECMAScript-2015 specification published?', '');
+let year = prompt('Kuriais metais buvo išleista ECMAScript-2015 specifikacija?', '');
 
 *!*
-if (year == 2015) alert( 'You are right!' );
+if (year == 2015) alert( 'Jūs teisi(-us)!' );
 */!*
 ```
 
-In the example above, the condition is a simple equality check (`year == 2015`), but it can be much more complex.
+Pavyzdyje viršuje, sąlyga yra paprastas lygybės patikrinimas (`year == 2015`), bet jis gali būti daug sudėtingesnis.
 
-If we want to execute more than one statement, we have to wrap our code block inside curly braces:
+Jeigu norime įvykdyti daugiau nei vieną teiginį, turime kodų rinkinį apskliausti riestiniais skliaustais:
 
 ```js
 if (year == 2015) {
-  alert( "That's correct!" );
-  alert( "You're so smart!" );
+  alert( "Jūs teisi(-us)!" );
+  alert( "Jūs protinga(-as)!" );
 }
 ```
 
-We recommend wrapping your code block with curly braces `{}` every time you use an `if` statement, even if there is only one statement to execute. Doing so improves readability.
+Rekomenduojame apskliausti kodų rinkinį su riestiniais skliaustais `{}` kiekvieną kartą kai pamatote `if`, net kai tereikia įvykdyti tik vieną teiginį. Taip darydami palengvinsite skaitomumą.
 
-## Boolean conversion
+## Loginės konversijos
 
-The `if (…)` statement evaluates the expression in its parentheses and converts the result to a boolean.
+Teiginys `if (…)` įvertina išraišką esančią skliaustuose ir paverčia rezultatą į loginę vertę.
 
-Let's recall the conversion rules from the chapter <info:type-conversions>:
+Prisiminkime konversijos taisykles iš skyriaus <info:type-conversions>:
 
-- A number `0`, an empty string `""`, `null`, `undefined`, and `NaN` all become `false`. Because of that they are called "falsy" values.
-- Other values become `true`, so they are called "truthy".
+- Skaičius `0`, tuščia eilutė `""`, `null`, `undefined` ir `NaN` visi tampa `false`. Nes jos yra vadinamosios "falsy" (neteisingosio) vertės.
+- Kitos vertės tampa `true`, tad jos vadinamos "truthy" (teisingosios).
 
-So, the code under this condition would never execute:
+Taigi kodas tokiu atveju niekada nebūtų įvykdytas:
 
 ```js
-if (0) { // 0 is falsy
+if (0) { // 0 yra falsy
   ...
 }
 ```
 
-...and inside this condition -- it always will:
+...o šios sąlygos viduje -- visada įvykdomas:
 
 ```js
-if (1) { // 1 is truthy
+if (1) { // 1 yra truthy
   ...
 }
 ```
 
-We can also pass a pre-evaluated boolean value to `if`, like this:
+Mes taip pat galime praleisti iš anksto įvertintą loginę vertę per `if`, štai taip:
 
 ```js
-let cond = (year == 2015); // equality evaluates to true or false
+let cond = (year == 2015); // lygybė įvertinama į true arba false
 
 if (cond) {
   ...
 }
 ```
 
-## The "else" clause
+## Išlyga "else"
 
-The `if` statement may contain an optional "else" block. It executes when the condition is false.
+Teiginys `if` gali turėti išlygos "else" rinkinį. Jis įvykdomas kai sąlyga yra false.
 
-For example:
+Pavyzdžiui:
 ```js run
-let year = prompt('In which year was the ECMAScript-2015 specification published?', '');
+let year = prompt('Kuriais metais buvo išleista ECMAScript-2015 specifikacija?', '');
 
 if (year == 2015) {
-  alert( 'You guessed it right!' );
+  alert( 'Jūs atspėjote!' );
 } else {
-  alert( 'How can you be so wrong?' ); // any value except 2015
+  alert( 'Kaip galėjote taip suklysti?' ); // bet kuriai kitai vertei išskyrus 2015
 }
 ```
 
-## Several conditions: "else if"
+## Kelios sąlygos: "else if"
 
-Sometimes, we'd like to test several variants of a condition. The `else if` clause lets us do that.
+Kartais mums gali tekti testuoti kelis sąlygos variantus. Išlyga `else if` leidžia tai padaryti.
 
-For example:
+Pavyzdžiui:
 
 ```js run
-let year = prompt('In which year was the ECMAScript-2015 specification published?', '');
+let year = prompt('Kuriais metais buvo išleista ECMAScript-2015 specifikacija?', '');
 
 if (year < 2015) {
-  alert( 'Too early...' );
+  alert( 'Per anksti...' );
 } else if (year > 2015) {
-  alert( 'Too late' );
+  alert( 'Per vėlai' );
 } else {
-  alert( 'Exactly!' );
+  alert( 'Būtent!' );
 }
 ```
 
-In the code above, JavaScript first checks `year < 2015`. If that is falsy, it goes to the next condition `year > 2015`. If that is also falsy, it shows the last `alert`.
+JavaScript kode aukščiau visų pirma patikrina `year < 2015`. Jeigu jis yra falsy, ji pereina prie kitos sąlygos `year > 2015`. Jeigu ji yra falsy, parodo paskutinį `alert`.
 
-There can be more `else if` blocks. The final `else` is optional.
+Gali būti daug `else if` rinkinių. Paskutinis `else` nėra privalomas.
 
-## Conditional operator '?'
+## Sąlyginis operatorius '?'
 
-Sometimes, we need to assign a variable depending on a condition.
+Kartais mes turime priskirti kintamąjį priklausomai nuo sąlygos. 
 
-For instance:
+Pavyzdžiui:
 
 ```js run no-beautify
 let accessAllowed;
-let age = prompt('How old are you?', '');
+let age = prompt('Kiek jums metų?', '');
 
 *!*
 if (age > 18) {
@@ -124,116 +124,116 @@ if (age > 18) {
 alert(accessAllowed);
 ```
 
-The so-called "conditional" or "question mark" operator lets us do that in a shorter and simpler way.
+Taip vadinamas "sąlyginis" arba "klaustuko" operatorius mums leidžia tai padaryti daug trumpesniu ir paprastesniu būdu.
 
-The operator is represented by a question mark `?`. Sometimes it's called "ternary", because the operator has three operands. It is actually the one and only operator in JavaScript which has that many.
+Operatorių atstovauja klaustukas `?`. Kartais jis vadinamas "ternariniu", nes operatorius turi tris operandus. Iš tikrųjų jis vienas ir vienintelis, kuris JavaScript turi tiek operandų.
 
-The syntax is:
+Sintaksė yra tokia:
 ```js
 let result = condition ? value1 : value2;
 ```
 
-The `condition` is evaluated: if it's truthy then `value1` is returned, otherwise -- `value2`.
+Sąlyga `condition` yra įvertinama: jeigu ji yra truthy tada grąžinama vertė `value1`, kitu atveju -- `value2`.
 
-For example:
+Pavyzdžiui:
 
 ```js
 let accessAllowed = (age > 18) ? true : false;
 ```
 
-Technically, we can omit the parentheses around `age > 18`. The question mark operator has a low precedence, so it executes after the comparison `>`.
+Techniškai galime nedėti skliaustelių aplink `age > 18`. Klaustukas turi žemą prioritetą, tad jis įvykdomas po palyginimo `>`.
 
-This example will do the same thing as the previous one:
+Šis palyginimas darys tą patį kaip aukščiau esantis:
 
 ```js
-// the comparison operator "age > 18" executes first anyway
-// (no need to wrap it into parentheses)
+// palyginimo operatorius "age > 18" įvykdomas pirmas
+// (nebūtina skliausti lenktiniais skliaustais)
 let accessAllowed = age > 18 ? true : false;
 ```
 
-But parentheses make the code more readable, so we recommend using them.
+Tačiau skliaustai daro kodą labiau įskaitomu, tad mes rekomenduojame juos naudoti.
 
 ````smart
-In the example above, you can avoid using the question mark operator because the comparison itself returns `true/false`:
+Pavyzdyje viršuje galite išvengti klaustuko, nes palyginimas bet kokiu atveju grąžina `true/false`:
 
 ```js
-// the same
+// tas pats
 let accessAllowed = age > 18;
 ```
 ````
 
-## Multiple '?'
+## Daugkartiniai '?'
 
-A sequence of question mark operators `?` can return a value that depends on more than one condition.
+Seka klaustukų operatorių `?` gali grąžinti vertę, kuri priklauso nuo daugiau nei vienos sąlygos.
 
-For instance:
+Pavyzdžiui:
 ```js run
-let age = prompt('age?', 18);
+let age = prompt('amžius?', 18);
 
-let message = (age < 3) ? 'Hi, baby!' :
-  (age < 18) ? 'Hello!' :
-  (age < 100) ? 'Greetings!' :
-  'What an unusual age!';
+let message = (age < 3) ? 'Labas, kūdikėli!' :
+  (age < 18) ? 'Labas!' :
+  (age < 100) ? 'Sveiki!' :
+  'Koks neįprastas amžius!';
 
 alert( message );
 ```
 
-It may be difficult at first to grasp what's going on. But after a closer look, we can see that it's just an ordinary sequence of tests:
+Iš praždių gali būti sunku suprasti kas vyksta. Bet geriau įsižiūrėjus matome, kad tai tik įprastinė testų seka:
 
-1. The first question mark checks whether `age < 3`.
-2. If true -- it returns `'Hi, baby!'`. Otherwise, it continues to the expression after the colon '":"', checking `age < 18`.
-3. If that's true -- it returns `'Hello!'`. Otherwise, it continues to the expression after the next colon '":"', checking `age < 100`.
-4. If that's true -- it returns `'Greetings!'`. Otherwise, it continues to the expression after the last colon '":"', returning `'What an unusual age!'`.
+1. Pirmas klaustukas patikrina ar `age < 3`.
+2. Jeigu true -- grąžina `'Labas, kūdikėli!'`. Kitu atveju, pereina prie išraiškos po dvitaškio '":"' ir tikrina `age < 18`.
+3. Jeigu šitas yra true -- grąžina `'Labas!'`. Kitu atveju, pereina prie išraiškos po dvitaškio '":"' ir tikrina `age < 100`.
+4. Jeigu tai true -- grąžina `'Sveiki!'`. Kitu atveju, pereina prie išraiškos po paskutinio dvitaškio '":"', grąžina `'Koks neįprastas amžius!'`.
 
-Here's how this looks using `if..else`:
+Štai kaip tai atrodytų, jeigu naudotume `if..else`:
 
 ```js
 if (age < 3) {
-  message = 'Hi, baby!';
+  message = 'Labas, kūdikėli!';
 } else if (age < 18) {
-  message = 'Hello!';
+  message = 'Labas!';
 } else if (age < 100) {
-  message = 'Greetings!';
+  message = 'Sveiki!';
 } else {
-  message = 'What an unusual age!';
+  message = 'Koks neįprastas amžius!';
 }
 ```
 
-## Non-traditional use of '?'
+## Netradicinis '?' naudojimas
 
-Sometimes the question mark `?` is used as a replacement for `if`:
+Kartais klaustukas `?` naudojamas kaip pakaitalas `if`:
 
 ```js run no-beautify
-let company = prompt('Which company created JavaScript?', '');
+let company = prompt('Kuri kompanija sukūrė JavaScript?', '');
 
 *!*
 (company == 'Netscape') ?
-   alert('Right!') : alert('Wrong.');
+   alert('Teisingai!') : alert(Neteisingai.');
 */!*
 ```
 
-Depending on the condition `company == 'Netscape'`, either the first or the second expression after the `?` gets executed and shows an alert.
+Priklausomai nuo sąlygos `company == 'Netscape'`, arba pirma, arba antra išraiška po `?` bus įvykdyta ir parodys alert.
 
-We don't assign a result to a variable here. Instead, we execute different code depending on the condition.
+Šiuo atveju rezultatas nėra priskiriamas kintamajam. Vietoje to mes įvykdome atitinkamą kodą priklausomai nuo sąlygos.
 
-**It's not recommended to use the question mark operator in this way.**
+**Nerekomenduojama naudoti klaustuko tokiu būdu.**
 
-The notation is shorter than the equivalent `if` statement, which appeals to some programmers. But it is less readable.
+Toks žymėjimas yra trumpesnė teiginio`if` versija, o tai yra patrauklu kai kuriems programuotojams. Bet ji yra sunkiau perskaitoma.
 
-Here is the same code using `if` for comparison:
+Štai palyginimui toks pats kodas, bet naudojant `if`:
 
 ```js run no-beautify
-let company = prompt('Which company created JavaScript?', '');
+let company = prompt('Kuri kompanija sukūrė JavaScript?', '');
 
 *!*
 if (company == 'Netscape') {
-  alert('Right!');
+  alert('Teisingai!');
 } else {
-  alert('Wrong.');
+  alert('Neteisingai.');
 }
 */!*
 ```
 
-Our eyes scan the code vertically. Code blocks which span several lines are easier to understand than a long, horizontal instruction set.
+Mūsų akys skanuoja kodą vertikaliai. Kodų rinkinius, kurie išsiplečia per kelias eiles, daug lengviau perskaityti negu ilgus horizontalius instrukcijų rinkinius. 
 
-The purpose of the question mark operator `?` is to return one value or another depending on its condition. Please use it for exactly that. Use `if` when you need to execute different branches of code.
+Klaustuko operatoriaus `?` tikslas yra grąžinti vieną arba kitą vertę priklausomai nuo sąlygos. Prašau naudokite jį būtent tam. Naudokite `if` kai jums reikia įvykdyti kodą su skirtingai išsišakojimais.

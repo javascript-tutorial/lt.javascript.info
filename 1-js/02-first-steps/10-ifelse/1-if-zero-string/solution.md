@@ -1,12 +1,12 @@
-**Yes, it will.**
+**Taip, bus.**
 
-Any string except an empty one (and `"0"` is not empty) becomes `true` in the logical context.
+Bet kokia eilutė išskyrus tuščią (o `"0"` nėra tuščia) tampa `true` loginiame kontekste.
 
-We can run and check:
+Mes galime paleisti ir patikrinti:
 
 ```js run
 if ("0") {
-  alert( 'Hello' );
+  alert( 'Labas' );
 }
 ```
 

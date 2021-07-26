@@ -2,13 +2,13 @@ importance: 5
 
 ---
 
-# if (a string with zero)
+# if (eilutė su nuliu)
 
-Will `alert` be shown?
+Ar bus parodytas `alert`?
 
 ```js
 if ("0") {
-  alert( 'Hello' );
+  alert( 'Labas' );
 }
 ```
 
