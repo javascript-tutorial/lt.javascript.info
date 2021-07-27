@@ -99,41 +99,41 @@ alert( undefined || null || 0 ); // 0 (visos falsy, grąžinama paskutinė vert�
 
 Tai veda prie labai įdomių panaudojimo būdų, lyginant su "grynu, klasikiniu, loginiu ARBA".
 
-1. **Getting the first truthy value from a list of variables or expressions.**
+1. **Gaunant pirmą truthy vertę iš kintamųjų ar išraiškų sąrašo.**
 
-    Imagine we have a list of variables which can either contain data or be `null/undefined`. How can we find the first one with data?
+    Įsivaizduokite, kad turime sąrašą kintamųjų, kuriuose arba yra duomenys arba `null/undefined`. Kaip mums surasti pirmąjį su duomenimis?
 
-    We can use OR `||`:
+    Galime naudoti ARBA `||`:
 
     ```js run
     let currentUser = null;
     let defaultUser = "John";
 
     *!*
-    let name = currentUser || defaultUser || "unnamed";
+    let name = currentUser || defaultUser || "bevardis";
     */!*
 
-    alert( name ); // selects "John" – the first truthy value
+    alert( name ); // pasirenka "John" – pirmąją truthy vertę
     ```
 
-    If both `currentUser` and `defaultUser` were falsy, `"unnamed"` would be the result.
-2. **Short-circuit evaluation.**
+    Jeigu abu `currentUser` ir `defaultUser` būtų falsy, rezultatas būtų `"bevardis"`.
+2. **Supaprastintas įvertinimas.**
 
-    Operands can be not only values, but arbitrary expressions. OR evaluates and tests them from left to right. The evaluation stops when a truthy value is reached, and the value is returned. This process is called "a short-circuit evaluation" because it goes as short as possible from left to right.
+    Operandai gali būti ne tik vertės, bet ir sutartinės išraiškos. ARBA juos įvertina ir testuoja iš kairės į dešinę. Įvertinimas sustoja kai pasiekiama truthy vertė ir ta vertė sugrąžinama. Toks procesas yra vadinamas "supaprastintu įvertinimu" (ang. "a short-circuit evaluation"), nes jis vyksta taip trumpai iš kairės į dešinę kaip tik įmanoma.
 
-    This is clearly seen when the expression given as the second argument has a side effect like a variable assignment.
+    Tai labai akivaizdu kai išraiška, duota kaip antras argumentas, turi tokį šalutinį efektą kaip kintamojo priskyrimą.
 
-    In the example below, `x` does not get assigned:
+    Pavyzdyje žemiau `x` nėra priskiriamas:
 
     ```js run no-beautify
     let x;
 
     *!*true*/!* || (x = 1);
 
-    alert(x); // undefined, because (x = 1) not evaluated
+    alert(x); // undefined, nes (x = 1) nėra įvertinamas
     ```
 
-    If, instead, the first argument is `false`, `||` evaluates the second one, thus running the assignment:
+    Tačiau jeigu pirmas argumentas yra `false`, `||` įvertina antrąjį, tada įvykdomas priskyrimas:
 
     ```js run no-beautify
     let x;
@@ -143,21 +143,21 @@ Tai veda prie labai įdomių panaudojimo būdų, lyginant su "grynu, klasikiniu,
     alert(x); // 1
     ```
 
-    An assignment is a simple case. There may be side effects, that won't show up if the evaluation doesn't reach them.
+    Asignavimas yra paprastas atvejis. Tam gali būti šalutinių efektų, kurie nepasirodys, jeigu įvertinimas jų nepasieks.
 
-    As we can see, such a use case is a "shorter way of doing `if`". The first operand is converted to boolean. If it's false, the second one is evaluated.
+    Kaip matote toks naudojimo atvejis yra "trumpesnis būdas" su `if`". Pirmasis operandas paverčiamas logine verte, antrasis įvertinamas.
 
-    Most of time, it's better to use a "regular" `if` to keep the code easy to understand, but sometimes this can be handy.
+    Dažniausiai, geriau naudoti "įprastinį" `if`, kad kodas būtų lengviau įskaitomas, bet kartais toks būdas gali būti naudingas.
 
-## && (AND)
+## && (IR)
 
-The AND operator is represented with two ampersands `&&`:
+IR operatorių atstovauja du ampersandai `&&`:
 
 ```js
 result = a && b;
 ```
 
-In classical programming, AND returns `true` if both operands are truthy and `false` otherwise:
+Klasikiniame programavime, IR grąžina `true` tik tokiu atveju kai abu operandai yra arba truthy, arba `false`:
 
 ```js run
 alert( true && true );   // true
@@ -166,45 +166,45 @@ alert( true && false );  // false
 alert( false && false ); // false
 ```
 
-An example with `if`:
+Pavyzdys su `if`:
 
 ```js run
 let hour = 12;
 let minute = 30;
 
 if (hour == 12 && minute == 30) {
-  alert( 'The time is 12:30' );
+  alert( 'Dabar yra 12:30' );
 }
 ```
 
-Just as with OR, any value is allowed as an operand of AND:
+Taip kaip ir su ARBA, bet kokia vertė gali būti IR operandu:
 
 ```js run
-if (1 && 0) { // evaluated as true && false
-  alert( "won't work, because the result is falsy" );
+if (1 && 0) { // įvertintas kaip true && false
+  alert( "neveiks, nes rezultatas yra falsy" );
 }
 ```
 
 
-## AND "&&" finds the first falsy value
+## IR "&&" suranda pirmą falsy vertę
 
-Given multiple AND'ed values:
+Turint daug AND verčių:
 
 ```js
 result = value1 && value2 && value3;
 ```
 
-The AND `&&` operator does the following:
+Operatorius IR `&&` veikia sekančiai:
 
-- Evaluates operands from left to right.
-- For each operand, converts it to a boolean. If the result is `false`, stops and returns the original value of that operand.
-- If all operands have been evaluated (i.e. all were truthy), returns the last operand.
+- Įvertina operandus iš kairės į dešinę.
+- Kiekvieną operandą paverčia į loginę vertę. Jeigu rezultatas yra `false`, sustoja ir grąžina originalią operando vertę.
+- Jeigu visi operandai buvo įvertinti (pvz. visi buvo truthy), grąžina paskutinį operandą.
 
-In other words, AND returns the first falsy value or the last value if none were found.
+Kitais žodžiais IR grąžina pirmą falsy vertę arba jeigu tokių nerado, pačią paskutinę vertę.
 
-The rules above are similar to OR. The difference is that AND returns the first *falsy* value while OR returns the first *truthy* one.
+Taisklės aukščiau yra panašios į ARBA. Skirtumas toks, kad IR grąžina pirmą *falsy* vertę kai tuo tarpu ARBA grąžina pirmą *truthy* vertę.
 
-Examples:
+Pavyzdžiai:
 
 ```js run
 // if the first operand is truthy,
