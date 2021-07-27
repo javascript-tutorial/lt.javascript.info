@@ -1,24 +1,24 @@
-# Logical operators
+# Loginiai operatoriai
 
-There are three logical operators in JavaScript: `||` (OR), `&&` (AND), `!` (NOT).
+JavaScript yra trys loginiai operatoriai: `||` (OR - arba), `&&` (AND - ir), `!` (NOT - ne).
 
-Although they are called "logical", they can be applied to values of any type, not only boolean. Their result can also be of any type.
+Nors jie vadinami "loginiais", juos galima naudoti su bet kokio tipo vertėmis, ne vien loginėmis. Jų rezultatas taip pat gali būti bet kokio tipo.
 
-Let's see the details.
+Pažiūrėkime detaliau.
 
 ## || (OR)
 
-The "OR" operator is represented with two vertical line symbols:
+Dvi vertikalios linijos atstoja "ARBA" operatorių:
 
 ```js
 result = a || b;
 ```
 
-In classical programming, the logical OR is meant to manipulate boolean values only. If any of its arguments are `true`, it returns `true`, otherwise it returns `false`.
+Klasikiniame programavime, loginis ARBA yra skirtas manipuliuoti tik logines vertes. Jeigu bent vienas jo argumentas yra `true`, tai ir jis grąžina `true`, kitu atveju grąžina `false`.
 
-In JavaScript, the operator is a little bit trickier and more powerful. But first, let's see what happens with boolean values.
+JavaScript operatorius yra šiek tiek sudėtingesnis ir galingesnis. Bet visų pirma pažvelkime kas nutinka su loginėmis vertėmis.
 
-There are four possible logical combinations:
+Yra keturios įmanomos loginės kombinacijos:
 
 ```js run
 alert( true || true );   // true
@@ -27,21 +27,21 @@ alert( true || false );  // true
 alert( false || false ); // false
 ```
 
-As we can see, the result is always `true` except for the case when both operands are `false`.
+Kaip matome, rezultatas yra visada `true` išskyrus kai abu operandai yra `false`.
 
-If an operand is not a boolean, it's converted to a boolean for the evaluation.
+Jeigu operandas nėra loginis, tai jis paverčiamas logine vertė, kad būtų įvertintas.
 
-For instance, the number `1` is treated as `true`, the number `0` as `false`:
+Pavyzdžiui, skaičius `1` laikomas `true`, skaičius `0` laikomas `false`:
 
 ```js run
-if (1 || 0) { // works just like if( true || false )
+if (1 || 0) { // veikia taip pat kaip ( true || false )
   alert( 'truthy!' );
 }
 ```
 
-Most of the time, OR `||` is used in an `if` statement to test if *any* of the given conditions is `true`.
+Dažniausiai ARBA `||` yra naudojamas `if` teiginiuose, kad pratestuotų ar *kuri nors* iš duotų sąlygų yra `true`.
 
-For example:
+Pavyzdžiui:
 
 ```js run
 let hour = 9;
@@ -49,55 +49,55 @@ let hour = 9;
 *!*
 if (hour < 10 || hour > 18) {
 */!*
-  alert( 'The office is closed.' );
+  alert( 'Ofisas uždarytas.' );
 }
 ```
 
-We can pass more conditions:
+Galime praleisti ir daugiau sąlygų:
 
 ```js run
 let hour = 12;
 let isWeekend = true;
 
 if (hour < 10 || hour > 18 || isWeekend) {
-  alert( 'The office is closed.' ); // it is the weekend
+  alert( 'Ofisas uždarytas.' ); // nes savaitgalis
 }
 ```
 
-## OR "||" finds the first truthy value
+## ARBA "||" suranda pirmąją truthy vertę
 
-The logic described above is somewhat classical. Now, let's bring in the "extra" features of JavaScript.
+Aukščiau apibūdinta logika yra klasikinė. Dabar pridėkime "ekstra" JavaScript savybių.
 
-The extended algorithm works as follows.
+Štai kaip veikia išplėstas algoritmas.
 
-Given multiple OR'ed values:
+Turint daugybines ARBA vertes:
 
 ```js
 result = value1 || value2 || value3;
 ```
 
-The OR `||` operator does the following:
+ARBA `||` operatorius atlieka sekančius veiksmus:
 
-- Evaluates operands from left to right.
-- For each operand, converts it to boolean. If the result is `true`, stops and returns the original value of that operand.
-- If all operands have been evaluated (i.e. all were `false`), returns the last operand.
+- Įvertina operandus iš kairės į dešinę.
+- Kiekvieną operandą paverčia į loginę vertę. Jeigu rezultatas yra `true`, sustoja ir grąžina orginalią operando vertę.
+- Jeigu visi operandai įvertinti (pvz. visi buvo `false`), grąžinamas paskutinis operandas.
 
-A value is returned in its original form, without the conversion.
+Vertė grąžinama savo originalioje formoje be konversijos.
 
-In other words, a chain of OR `"||"` returns the first truthy value or the last one if no truthy value is found.
+Kitaip sakant ARBA `"||"` grandinė grąžina pirmąją truthy vertę arba pačią paskutinę vertę, jeigu teisinga vertė nebuvo rasta.
 
-For instance:
+Pavyzdžiui:
 
 ```js run
-alert( 1 || 0 ); // 1 (1 is truthy)
-alert( true || 'no matter what' ); // (true is truthy)
+alert( 1 || 0 ); // 1 (1 yra truthy)
+alert( true || 'nesvarbu kas' ); // (true yra truthy)
 
-alert( null || 1 ); // 1 (1 is the first truthy value)
-alert( null || 0 || 1 ); // 1 (the first truthy value)
-alert( undefined || null || 0 ); // 0 (all falsy, returns the last value)
+alert( null || 1 ); // 1 (1 yra pirmoji truthy vertė)
+alert( null || 0 || 1 ); // 1 (pirmoji truthy vertė)
+alert( undefined || null || 0 ); // 0 (visos falsy, grąžinama paskutinė vertė)
 ```
 
-This leads to some interesting usage compared to a "pure, classical, boolean-only OR".
+Tai veda prie labai įdomių panaudojimo būdų, lyginant su "grynu, klasikiniu, loginiu ARBA".
 
 1. **Getting the first truthy value from a list of variables or expressions.**
 
