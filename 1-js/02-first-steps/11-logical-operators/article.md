@@ -53,7 +53,7 @@ if (hour < 10 || hour > 18) {
 }
 ```
 
-Galime praleisti ir daugiau sąlygų:
+Galime paleisti ir daugiau sąlygų:
 
 ```js run
 let hour = 12;
@@ -145,9 +145,9 @@ Tai veda prie labai įdomių panaudojimo būdų, lyginant su "grynu, klasikiniu,
 
     Asignavimas yra paprastas atvejis. Tam gali būti šalutinių efektų, kurie nepasirodys, jeigu įvertinimas jų nepasieks.
 
-    Kaip matote toks naudojimo atvejis yra "trumpesnis būdas" su `if`". Pirmasis operandas paverčiamas logine verte, antrasis įvertinamas.
+    Kaip matote toks naudojimo atvejis yra "trumpesnis būdas" nei `if`". Pirmasis operandas paverčiamas logine verte, antrasis įvertinamas.
 
-    Dažniausiai, geriau naudoti "įprastinį" `if`, kad kodas būtų lengviau įskaitomas, bet kartais toks būdas gali būti naudingas.
+    Vis dėlto dažniausiai, geriau naudoti "įprastinį" `if`, kad kodas būtų lengviau įskaitomas, bet kartais toks būdas gali būti naudingas.
 
 ## && (IR)
 
@@ -188,7 +188,7 @@ if (1 && 0) { // įvertintas kaip true && false
 
 ## IR "&&" suranda pirmą falsy vertę
 
-Turint daug AND verčių:
+Turint daug IR verčių:
 
 ```js
 result = value1 && value2 && value3;
@@ -202,102 +202,102 @@ Operatorius IR `&&` veikia sekančiai:
 
 Kitais žodžiais IR grąžina pirmą falsy vertę arba jeigu tokių nerado, pačią paskutinę vertę.
 
-Taisklės aukščiau yra panašios į ARBA. Skirtumas toks, kad IR grąžina pirmą *falsy* vertę kai tuo tarpu ARBA grąžina pirmą *truthy* vertę.
+Taisyklės aukščiau yra panašios į ARBA. Skirtumas toks, kad IR grąžina pirmą *falsy* vertę kai tuo tarpu ARBA grąžina pirmą *truthy* vertę.
 
 Pavyzdžiai:
 
 ```js run
-// if the first operand is truthy,
-// AND returns the second operand:
+// jeigu pirmasis operandas yra truthy,
+// IR grąžins antrąjį operandą:
 alert( 1 && 0 ); // 0
 alert( 1 && 5 ); // 5
 
-// if the first operand is falsy,
-// AND returns it. The second operand is ignored
+// jeigu pirmasis operandas yra falsy,
+// IR jį grąžins. Antrasis operandas ignoruojamas
 alert( null && 5 ); // null
-alert( 0 && "no matter what" ); // 0
+alert( 0 && "nesvarbu kas" ); // 0
 ```
 
-We can also pass several values in a row. See how the first falsy one is returned:
+Mes taip pat galime praleisti kelias vertes iš eilės. Atkreipkite dėmesį kaip yra grąžinamas pirmasis falsy:
 
 ```js run
 alert( 1 && 2 && null && 3 ); // null
 ```
 
-When all values are truthy, the last value is returned:
+Kai visos vertės yra truthy, grąžinama paskutinė vertė:
 
 ```js run
-alert( 1 && 2 && 3 ); // 3, the last one
+alert( 1 && 2 && 3 ); // 3, paskutinis
 ```
 
-````smart header="Precedence of AND `&&` is higher than OR `||`"
-The precedence of AND `&&` operator is higher than OR `||`.
+````smart header="IR `&&` pirmenybė yra aukštesnė už ARBA `||`"
+IR `&&` operatoriaus pirmenybė yra aukštesnė už ARBA `||`.
 
-So the code `a && b || c && d` is essentially the same as if the `&&` expressions were in parentheses: `(a && b) || (c && d)`.
+Tad kodas `a && b || c && d` būtų tas pats lyg `&&` išraiškos būtų tarp skliaustelių: `(a && b) || (c && d)`.
 ````
 
-Just like OR, the AND `&&` operator can sometimes replace `if`.
+Taip pat kaip ir ARBA, operatorius IR `&&` kartais gali pakeisti `if`.
 
-For instance:
+Pavyzdžiui:
 
 ```js run
 let x = 1;
 
-(x > 0) && alert( 'Greater than zero!' );
+(x > 0) && alert( 'Didesnis nei nulis!' );
 ```
 
-The action in the right part of `&&` would execute only if the evaluation reaches it. That is, only if `(x > 0)` is true.
+Veiksmas dešinėje `&&` pusėję įvyktų tik tokiu atveju jeigu įvertinimas jį pasiektų. Tai yra, jeigu `(x > 0)` yra tiesa.
 
-So we basically have an analogue for:
+Tad mes tiesiog turime analogą šiai išraiškai:
 
 ```js run
 let x = 1;
 
 if (x > 0) {
-  alert( 'Greater than zero!' );
+  alert( 'Didesnis nei nulis!' );
 }
 ```
 
-The variant with `&&` appears shorter. But `if` is more obvious and tends to be a little bit more readable.
+Variantas su `&&` atrodo trumpesnis. Bet `if` yra labiau akivaizdus ir dėl to yra geriau įskaitomas.
 
-So we recommend using every construct for its purpose: use `if` if we want if and use `&&` if we want AND.
+Mes rekomenduojame naudoti kiekvieną konstruktą pagal paskirtį: naudokite `if` jeigu norite if, o `&&` jeigu norite IR.
 
-## ! (NOT)
+## ! (NE)
 
-The boolean NOT operator is represented with an exclamation sign `!`.
+Loginis NE operatorius yra atsotvaujamas šauktuko ženklo `!`.
 
-The syntax is pretty simple:
+Sintaksė paprasta:
 
 ```js
 result = !value;
 ```
 
-The operator accepts a single argument and does the following:
+Operatorius priima vieną argumentą ir atlieka sekančius veiksmus:
 
-1. Converts the operand to boolean type: `true/false`.
-2. Returns the inverse value.
+1. Konvertuoja operatorių į loginę vertę: `true/false`.
+2. Grąžina atvirkštinę vertę.
 
-For instance:
+Pavyzdžiui:
 
 ```js run
 alert( !true ); // false
 alert( !0 ); // true
 ```
 
-A double NOT `!!` is sometimes used for converting a value to boolean type:
+Dvigubas NE `!!` kartais naudojamas, kad paverstų vertę į loginį tipą:
 
 ```js run
-alert( !!"non-empty string" ); // true
+alert( !!"ne tuščia eilutė" ); // true
 alert( !!null ); // false
 ```
 
-That is, the first NOT converts the value to boolean and returns the inverse, and the second NOT inverses it again. In the end, we have a plain value-to-boolean conversion.
+Tai yra, pirmasis NE paverčia vertę į loginę ir grąžina atvirkštinį variantą, o antrasis NE jį atverčia atgalios. Galų gale turime paprastą konversiją į loginę vertę.
 
-There's a little more verbose way to do the same thing -- a built-in `Boolean` function:
+Yra kiek mažiau žodžių reikalaujantis kelias, kuris daro tą patį -- iš anksto paruošta loginė `Boolean` funkcija:
 
 ```js run
-alert( Boolean("non-empty string") ); // true
+alert( Boolean("ne tuščia eilutė") ); // true
 alert( Boolean(null) ); // false
 ```
 
-The precedence of NOT `!` is the highest of all logical operators, so it always executes first, before `&&` or `||`.
+Pirmenybė NE `!` yra aukščiausia iš visų loginių operatorių, tad jis visada įvykdomas pirmiau nei `&&` ar `||`.
