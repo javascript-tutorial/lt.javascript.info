@@ -1,4 +1,4 @@
-The answer is `2`, that's the first truthy value.
+Atsakymas yra `2`, pirmoji truthy vertė.
 
 ```js run
 alert( null || 2 || undefined );
