@@ -2,9 +2,9 @@ importance: 3
 
 ---
 
-# What is the result of AND'ed alerts?
+# Koks yra IR alerts rezultatas?
 
-What will this code show?
+Kas parodys kodas esantis žemiau?
 
 ```js
 alert( alert(1) && alert(2) );
