@@ -2,9 +2,9 @@ importance: 5
 
 ---
 
-# The result of OR AND OR
+# ARBA IR ARBA rezultatas
 
-What will the result be?
+Koks bus rezultatas?
 
 ```js
 alert( null || 2 && 3 || 4 );
