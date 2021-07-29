@@ -2,24 +2,24 @@ importance: 3
 
 ---
 
-# Check the login
+# Patikrinti prisijungimą
 
-Write the code which asks for a login with `prompt`.
+Parašykite kodą, kuris prašo prisijungimo su `prompt`.
 
-If the visitor enters `"Admin"`, then `prompt` for a password, if the input is an empty line or `key:Esc` -- show "Canceled", if it's another string -- then show "I don't know you".
+Jeigu lankytojas įveda `"Admin"`, tada `prompt` slaptažodžio, jeigu įvedama tuščia eilė arba paspaudžiamas `key:Esc` -- parodyti "Atšaukta", jeigu tai kitokia eilutė -- tada parodyti "Aš jūsų nežinau".
 
-The password is checked as follows:
+Slaptažodis patikrinamas sekančiais žingsniais:
 
-- If it equals "TheMaster", then show "Welcome!",
-- Another string -- show "Wrong password",
-- For an empty string or cancelled input, show "Canceled"
+- Jeigu lygus "TheMaster", parodyti "Sveiki!",
+- Kitokia eilutė -- parodyti "Neteisingas slaptažodis",
+- Tuščiai eilutei arba jeigu buvo atšauktas, parodyti "Atšauktas"
 
-The schema:
+Diagrama:
 
 ![](ifelse_task.svg)
 
-Please use nested `if` blocks. Mind the overall readability of the code.
+Prašau, naudokite įdėtinius (ang. "nested") `if` rinkinius. Prižiūrėkite skaitomumą viso kodo
 
-Hint:  passing an empty input to a prompt returns an empty string `''`. Pressing `key:ESC` during a prompt returns `null`.
+Patarimas:  praleidžiant tuščią įvestį per prompt grąžina tuščią eilutę `''`. Paspaudžiant `key:ESC` per prompt grąžina `null`.
 
 [demo]
