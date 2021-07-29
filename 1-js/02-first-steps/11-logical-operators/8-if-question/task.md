@@ -2,15 +2,15 @@ importance: 5
 
 ---
 
-# A question about "if"
+# Klausimas apie "if"
 
-Which of these `alert`s are going to execute?
+Kurie iš šių `alert`s bus įvykdyti?
 
-What will the results of the expressions be inside `if(...)`?
+Koks bus išraiškų rezultatas viduje `if(...)`?
 
 ```js
-if (-1 || 0) alert( 'first' );
-if (-1 && 0) alert( 'second' );
-if (null || -1 && 1) alert( 'third' );
+if (-1 || 0) alert( 'pirmas' );
+if (-1 && 0) alert( 'antras' );
+if (null || -1 && 1) alert( 'trečias' );
 ```
 
