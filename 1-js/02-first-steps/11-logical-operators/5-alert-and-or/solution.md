@@ -1,16 +1,16 @@
-The answer: `3`.
+Atsakymas: `3`.
 
 ```js run
 alert( null || 2 && 3 || 4 );
 ```
 
-The precedence of AND `&&` is higher than `||`, so it executes first.
+IR `&&` pirmenybė yra aukštesnė už `||`, tad jis įvykdomas pirmiau.
 
-The result of `2 && 3 = 3`, so the expression becomes:
+Rezultatas yra `2 && 3 = 3`, tad išraiška tampa:
 
 ```
 null || 3 || 4
 ```
 
-Now the result is the first truthy value: `3`.
+Dabar rezultatas yra pirmoji truthy vertė: `3`.
 
