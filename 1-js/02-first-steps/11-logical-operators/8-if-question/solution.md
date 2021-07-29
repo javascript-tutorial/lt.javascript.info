@@ -1,20 +1,20 @@
-The answer: the first and the third will execute.
+Atsakymas: pirma ir antra bus įvykdytos.
 
 Details:
 
 ```js run
-// Runs.
-// The result of -1 || 0 = -1, truthy
-if (-1 || 0) alert( 'first' );
+// Paleidžiama.
+// Rezultatas iš -1 || 0 = -1, truthy
+if (-1 || 0) alert( 'pirmas' );
 
-// Doesn't run
+// Nepaleidžiamas
 // -1 && 0 = 0, falsy
-if (-1 && 0) alert( 'second' );
+if (-1 && 0) alert( 'antras' );
 
-// Executes
-// Operator && has a higher precedence than ||
-// so -1 && 1 executes first, giving us the chain:
+// Įvykdomas
+// Operatorius && turi aukštesnį prioritetą negu ||
+// tad -1 && 1 įvykdomas pirmiau, sukurdamas mums grandinę:
 // null || -1 && 1  ->  null || 1  ->  1
-if (null || -1 && 1) alert( 'third' );
+if (null || -1 && 1) alert( 'trečias' );
 ```
 
