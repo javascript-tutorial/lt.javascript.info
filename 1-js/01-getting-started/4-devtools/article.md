@@ -29,10 +29,19 @@ Konkretus vaizdas priklauso nuo Chrome versijos, kurią naudoji. Kartais atsiran
 - Čia mes galim pamatyti raudoną klaidos žinutę. Šiuo atveju skriptas turi nežinomą "lalala" komandą.
 - Dešinėje yra aktyvi nuoroda į `bug.html:12` su skaičiumi eilutės, kurioje yra klaida.
 
+<<<<<<< HEAD
 Žemiau klaidos žinutės yra mėlynas `>` simbolis. Jis parodo komandų eilutę (ang. "command line"), kurioje mes galime rašyti JavaScript komandas. Spausk `key:Enter` kad jas paleisti (`key:Shift+Enter` kad rašyti komandas per daugiau nei vieną eilutę).
+=======
+Below the error message, there is a blue `>` symbol. It marks a "command line" where we can type JavaScript commands. Press `key:Enter` to run them.
+>>>>>>> ef8d576821ff28c69bfb7410dc79fd216b0a315b
 
 Dabar mes galime matyti klaidas. Pradžiai, to pakanka. Vėliau mes grįšime į programuotojų įrankius ir kalbėsime apie klaidų taisymą skyriuje <info:debugging-chrome>.
 
+```smart header="Multi-line input"
+Usually, when we put a line of code into the console, and then press `key:Enter`, it executes.
+
+To insert multiple lines, press `key:Shift+Enter`. This way one can enter long fragments of JavaScript code.
+```
 
 ## Firefox, Edge ir kiti
 
@@ -50,6 +59,7 @@ Atidaryk Nuostatas (ang. "Preferences") ir eik į "Pažangi" (ang. "Advanced"). 
 
 Dabar `key:Cmd+Opt+C` įjungs konsolę. Taip pat turėk omeny, kad naujas pasirinkimas "Programuoti" (ang. "Develop") atsirado viršutiniame meniu. Jame yra daug komandų ir nustatymų.
 
+<<<<<<< HEAD
 ```smart header="Kelių eilučių komandos"
 Dažniausiai, jeigu konsolėje parašome vieną eilutę kodo ir paspaudžiame `key:Enter`, ji suveikia.
 
@@ -57,6 +67,9 @@ Tam, kad parašyti kelias eilutes, spausk `key:Shift+Enter`. Tokiu būdu mes gal
 ```
 
 ## Reziumė
+=======
+## Summary
+>>>>>>> ef8d576821ff28c69bfb7410dc79fd216b0a315b
 
 - Programuotojo įrankiai leidžia mums pamatyti klaidas, paleisti komandas, analizuoti kintamuosiuos ir daugiau.
 - Juos paleisti galime su `key:F12` dauguma naršklių per Windows. Chrome, jeigu naudojame Mac, reikalauja `key:Cmd+Opt+J`, Safari: `key:Cmd+Opt+C` (iš pradžių reikia aktyvuoti).
