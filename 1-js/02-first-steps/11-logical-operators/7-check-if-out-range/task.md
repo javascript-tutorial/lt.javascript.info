@@ -2,8 +2,8 @@ importance: 3
 
 ---
 
-# Check the range outside
+# Patikrinkite už intervalo ribų
 
-Write an `if` condition to check that `age` is NOT between 14 and 90 inclusively.
+Parašykite `if` sąlygą, kuri patikrintų ar `age` nėra tarp 14 ir 90 įskaitant.
 
-Create two variants: the first one using NOT `!`, the second one -- without it.
+Sukurkite du variantus: vieną naudojant NE `!`, kitą nenaudojant jo.

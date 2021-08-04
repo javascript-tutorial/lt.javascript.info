@@ -1,10 +1,10 @@
-The answer: `1`, and then `undefined`.
+Atsakymas: `1`, ir tada `undefined`.
 
 ```js run
 alert( alert(1) && alert(2) );
 ```
 
-The call to `alert` returns `undefined` (it just shows a message, so there's no meaningful return).
+Šaukimas `alert` grąžina `undefined` (tiesiog parodo žinutę, tad nebus prasmingo grąžinimo).
 
-Because of that, `&&` evaluates the left operand (outputs `1`), and immediately stops, because `undefined` is a falsy value. And `&&` looks for a falsy value and returns it, so it's done.
+Dėl to `&&` įvertina kairį operandą (parodo `1`), ir iš karto sustoja, nes `undefined` yra falsy vertė. O `&&` ieško falsy vertės ir ją grąžina, ir sustoja.
 

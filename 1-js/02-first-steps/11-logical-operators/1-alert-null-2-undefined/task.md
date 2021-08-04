@@ -2,9 +2,9 @@ importance: 5
 
 ---
 
-# What's the result of OR?
+# Koks bus ARBA rezultatas?
 
-What is the code below going to output?
+Ką atiduos žemiau esantis kodas?
 
 ```js
 alert( null || 2 || undefined );

@@ -1,24 +1,24 @@
-# Logical operators
+# Loginiai operatoriai
 
-There are three logical operators in JavaScript: `||` (OR), `&&` (AND), `!` (NOT).
+JavaScript yra trys loginiai operatoriai: `||` (OR - arba), `&&` (AND - ir), `!` (NOT - ne).
 
-Although they are called "logical", they can be applied to values of any type, not only boolean. Their result can also be of any type.
+Nors jie vadinami "loginiais", juos galima naudoti su bet kokio tipo vertėmis, ne vien loginėmis. Jų rezultatas taip pat gali būti bet kokio tipo.
 
-Let's see the details.
+Pažiūrėkime detaliau.
 
 ## || (OR)
 
-The "OR" operator is represented with two vertical line symbols:
+Dvi vertikalios linijos atstoja "ARBA" operatorių:
 
 ```js
 result = a || b;
 ```
 
-In classical programming, the logical OR is meant to manipulate boolean values only. If any of its arguments are `true`, it returns `true`, otherwise it returns `false`.
+Klasikiniame programavime, loginis ARBA yra skirtas manipuliuoti tik logines vertes. Jeigu bent vienas jo argumentas yra `true`, tai ir jis grąžina `true`, kitu atveju grąžina `false`.
 
-In JavaScript, the operator is a little bit trickier and more powerful. But first, let's see what happens with boolean values.
+JavaScript operatorius yra šiek tiek sudėtingesnis ir galingesnis. Bet visų pirma pažvelkime kas nutinka su loginėmis vertėmis.
 
-There are four possible logical combinations:
+Yra keturios įmanomos loginės kombinacijos:
 
 ```js run
 alert( true || true );   // true
@@ -27,21 +27,21 @@ alert( true || false );  // true
 alert( false || false ); // false
 ```
 
-As we can see, the result is always `true` except for the case when both operands are `false`.
+Kaip matome, rezultatas yra visada `true` išskyrus kai abu operandai yra `false`.
 
-If an operand is not a boolean, it's converted to a boolean for the evaluation.
+Jeigu operandas nėra loginis, tai jis paverčiamas logine vertė, kad būtų įvertintas.
 
-For instance, the number `1` is treated as `true`, the number `0` as `false`:
+Pavyzdžiui, skaičius `1` laikomas `true`, skaičius `0` laikomas `false`:
 
 ```js run
-if (1 || 0) { // works just like if( true || false )
+if (1 || 0) { // veikia taip pat kaip ( true || false )
   alert( 'truthy!' );
 }
 ```
 
-Most of the time, OR `||` is used in an `if` statement to test if *any* of the given conditions is `true`.
+Dažniausiai ARBA `||` yra naudojamas `if` teiginiuose, kad pratestuotų ar *kuri nors* iš duotų sąlygų yra `true`.
 
-For example:
+Pavyzdžiui:
 
 ```js run
 let hour = 9;
@@ -49,91 +49,91 @@ let hour = 9;
 *!*
 if (hour < 10 || hour > 18) {
 */!*
-  alert( 'The office is closed.' );
+  alert( 'Ofisas uždarytas.' );
 }
 ```
 
-We can pass more conditions:
+Galime paleisti ir daugiau sąlygų:
 
 ```js run
 let hour = 12;
 let isWeekend = true;
 
 if (hour < 10 || hour > 18 || isWeekend) {
-  alert( 'The office is closed.' ); // it is the weekend
+  alert( 'Ofisas uždarytas.' ); // nes savaitgalis
 }
 ```
 
-## OR "||" finds the first truthy value
+## ARBA "||" suranda pirmąją truthy vertę
 
-The logic described above is somewhat classical. Now, let's bring in the "extra" features of JavaScript.
+Aukščiau apibūdinta logika yra klasikinė. Dabar pridėkime "ekstra" JavaScript savybių.
 
-The extended algorithm works as follows.
+Štai kaip veikia išplėstas algoritmas.
 
-Given multiple OR'ed values:
+Turint daugybines ARBA vertes:
 
 ```js
 result = value1 || value2 || value3;
 ```
 
-The OR `||` operator does the following:
+ARBA `||` operatorius atlieka sekančius veiksmus:
 
-- Evaluates operands from left to right.
-- For each operand, converts it to boolean. If the result is `true`, stops and returns the original value of that operand.
-- If all operands have been evaluated (i.e. all were `false`), returns the last operand.
+- Įvertina operandus iš kairės į dešinę.
+- Kiekvieną operandą paverčia į loginę vertę. Jeigu rezultatas yra `true`, sustoja ir grąžina orginalią operando vertę.
+- Jeigu visi operandai įvertinti (pvz. visi buvo `false`), grąžinamas paskutinis operandas.
 
-A value is returned in its original form, without the conversion.
+Vertė grąžinama savo originalioje formoje be konversijos.
 
-In other words, a chain of OR `"||"` returns the first truthy value or the last one if no truthy value is found.
+Kitaip sakant ARBA `"||"` grandinė grąžina pirmąją truthy vertę arba pačią paskutinę vertę, jeigu teisinga vertė nebuvo rasta.
 
-For instance:
+Pavyzdžiui:
 
 ```js run
-alert( 1 || 0 ); // 1 (1 is truthy)
-alert( true || 'no matter what' ); // (true is truthy)
+alert( 1 || 0 ); // 1 (1 yra truthy)
+alert( true || 'nesvarbu kas' ); // (true yra truthy)
 
-alert( null || 1 ); // 1 (1 is the first truthy value)
-alert( null || 0 || 1 ); // 1 (the first truthy value)
-alert( undefined || null || 0 ); // 0 (all falsy, returns the last value)
+alert( null || 1 ); // 1 (1 yra pirmoji truthy vertė)
+alert( null || 0 || 1 ); // 1 (pirmoji truthy vertė)
+alert( undefined || null || 0 ); // 0 (visos falsy, grąžinama paskutinė vertė)
 ```
 
-This leads to some interesting usage compared to a "pure, classical, boolean-only OR".
+Tai veda prie labai įdomių panaudojimo būdų, lyginant su "grynu, klasikiniu, loginiu ARBA".
 
-1. **Getting the first truthy value from a list of variables or expressions.**
+1. **Gaunant pirmą truthy vertę iš kintamųjų ar išraiškų sąrašo.**
 
-    Imagine we have a list of variables which can either contain data or be `null/undefined`. How can we find the first one with data?
+    Įsivaizduokite, kad turime sąrašą kintamųjų, kuriuose arba yra duomenys arba `null/undefined`. Kaip mums surasti pirmąjį su duomenimis?
 
-    We can use OR `||`:
+    Galime naudoti ARBA `||`:
 
     ```js run
     let currentUser = null;
     let defaultUser = "John";
 
     *!*
-    let name = currentUser || defaultUser || "unnamed";
+    let name = currentUser || defaultUser || "bevardis";
     */!*
 
-    alert( name ); // selects "John" – the first truthy value
+    alert( name ); // pasirenka "John" – pirmąją truthy vertę
     ```
 
-    If both `currentUser` and `defaultUser` were falsy, `"unnamed"` would be the result.
-2. **Short-circuit evaluation.**
+    Jeigu abu `currentUser` ir `defaultUser` būtų falsy, rezultatas būtų `"bevardis"`.
+2. **Supaprastintas įvertinimas.**
 
-    Operands can be not only values, but arbitrary expressions. OR evaluates and tests them from left to right. The evaluation stops when a truthy value is reached, and the value is returned. This process is called "a short-circuit evaluation" because it goes as short as possible from left to right.
+    Operandai gali būti ne tik vertės, bet ir sutartinės išraiškos. ARBA juos įvertina ir testuoja iš kairės į dešinę. Įvertinimas sustoja kai pasiekiama truthy vertė ir ta vertė sugrąžinama. Toks procesas yra vadinamas "supaprastintu įvertinimu" (ang. "a short-circuit evaluation"), nes jis vyksta taip trumpai iš kairės į dešinę kaip tik įmanoma.
 
-    This is clearly seen when the expression given as the second argument has a side effect like a variable assignment.
+    Tai labai akivaizdu kai išraiška, duota kaip antras argumentas, turi tokį šalutinį efektą kaip kintamojo priskyrimą.
 
-    In the example below, `x` does not get assigned:
+    Pavyzdyje žemiau `x` nėra priskiriamas:
 
     ```js run no-beautify
     let x;
 
     *!*true*/!* || (x = 1);
 
-    alert(x); // undefined, because (x = 1) not evaluated
+    alert(x); // undefined, nes (x = 1) nėra įvertinamas
     ```
 
-    If, instead, the first argument is `false`, `||` evaluates the second one, thus running the assignment:
+    Tačiau jeigu pirmas argumentas yra `false`, `||` įvertina antrąjį, tada įvykdomas priskyrimas:
 
     ```js run no-beautify
     let x;
@@ -143,21 +143,21 @@ This leads to some interesting usage compared to a "pure, classical, boolean-onl
     alert(x); // 1
     ```
 
-    An assignment is a simple case. There may be side effects, that won't show up if the evaluation doesn't reach them.
+    Asignavimas yra paprastas atvejis. Tam gali būti šalutinių efektų, kurie nepasirodys, jeigu įvertinimas jų nepasieks.
 
-    As we can see, such a use case is a "shorter way of doing `if`". The first operand is converted to boolean. If it's false, the second one is evaluated.
+    Kaip matote toks naudojimo atvejis yra "trumpesnis būdas" nei `if`". Pirmasis operandas paverčiamas logine verte, antrasis įvertinamas.
 
-    Most of time, it's better to use a "regular" `if` to keep the code easy to understand, but sometimes this can be handy.
+    Vis dėlto dažniausiai, geriau naudoti "įprastinį" `if`, kad kodas būtų lengviau įskaitomas, bet kartais toks būdas gali būti naudingas.
 
-## && (AND)
+## && (IR)
 
-The AND operator is represented with two ampersands `&&`:
+IR operatorių atstovauja du ampersandai `&&`:
 
 ```js
 result = a && b;
 ```
 
-In classical programming, AND returns `true` if both operands are truthy and `false` otherwise:
+Klasikiniame programavime, IR grąžina `true` tik tokiu atveju kai abu operandai yra arba truthy, arba `false`:
 
 ```js run
 alert( true && true );   // true
@@ -166,138 +166,138 @@ alert( true && false );  // false
 alert( false && false ); // false
 ```
 
-An example with `if`:
+Pavyzdys su `if`:
 
 ```js run
 let hour = 12;
 let minute = 30;
 
 if (hour == 12 && minute == 30) {
-  alert( 'The time is 12:30' );
+  alert( 'Dabar yra 12:30' );
 }
 ```
 
-Just as with OR, any value is allowed as an operand of AND:
+Taip kaip ir su ARBA, bet kokia vertė gali būti IR operandu:
 
 ```js run
-if (1 && 0) { // evaluated as true && false
-  alert( "won't work, because the result is falsy" );
+if (1 && 0) { // įvertintas kaip true && false
+  alert( "neveiks, nes rezultatas yra falsy" );
 }
 ```
 
 
-## AND "&&" finds the first falsy value
+## IR "&&" suranda pirmą falsy vertę
 
-Given multiple AND'ed values:
+Turint daug IR verčių:
 
 ```js
 result = value1 && value2 && value3;
 ```
 
-The AND `&&` operator does the following:
+Operatorius IR `&&` veikia sekančiai:
 
-- Evaluates operands from left to right.
-- For each operand, converts it to a boolean. If the result is `false`, stops and returns the original value of that operand.
-- If all operands have been evaluated (i.e. all were truthy), returns the last operand.
+- Įvertina operandus iš kairės į dešinę.
+- Kiekvieną operandą paverčia į loginę vertę. Jeigu rezultatas yra `false`, sustoja ir grąžina originalią operando vertę.
+- Jeigu visi operandai buvo įvertinti (pvz. visi buvo truthy), grąžina paskutinį operandą.
 
-In other words, AND returns the first falsy value or the last value if none were found.
+Kitais žodžiais IR grąžina pirmą falsy vertę arba jeigu tokių nerado, pačią paskutinę vertę.
 
-The rules above are similar to OR. The difference is that AND returns the first *falsy* value while OR returns the first *truthy* one.
+Taisyklės aukščiau yra panašios į ARBA. Skirtumas toks, kad IR grąžina pirmą *falsy* vertę kai tuo tarpu ARBA grąžina pirmą *truthy* vertę.
 
-Examples:
+Pavyzdžiai:
 
 ```js run
-// if the first operand is truthy,
-// AND returns the second operand:
+// jeigu pirmasis operandas yra truthy,
+// IR grąžins antrąjį operandą:
 alert( 1 && 0 ); // 0
 alert( 1 && 5 ); // 5
 
-// if the first operand is falsy,
-// AND returns it. The second operand is ignored
+// jeigu pirmasis operandas yra falsy,
+// IR jį grąžins. Antrasis operandas ignoruojamas
 alert( null && 5 ); // null
-alert( 0 && "no matter what" ); // 0
+alert( 0 && "nesvarbu kas" ); // 0
 ```
 
-We can also pass several values in a row. See how the first falsy one is returned:
+Mes taip pat galime praleisti kelias vertes iš eilės. Atkreipkite dėmesį kaip yra grąžinamas pirmasis falsy:
 
 ```js run
 alert( 1 && 2 && null && 3 ); // null
 ```
 
-When all values are truthy, the last value is returned:
+Kai visos vertės yra truthy, grąžinama paskutinė vertė:
 
 ```js run
-alert( 1 && 2 && 3 ); // 3, the last one
+alert( 1 && 2 && 3 ); // 3, paskutinis
 ```
 
-````smart header="Precedence of AND `&&` is higher than OR `||`"
-The precedence of AND `&&` operator is higher than OR `||`.
+````smart header="IR `&&` pirmenybė yra aukštesnė už ARBA `||`"
+IR `&&` operatoriaus pirmenybė yra aukštesnė už ARBA `||`.
 
-So the code `a && b || c && d` is essentially the same as if the `&&` expressions were in parentheses: `(a && b) || (c && d)`.
+Tad kodas `a && b || c && d` būtų tas pats lyg `&&` išraiškos būtų tarp skliaustelių: `(a && b) || (c && d)`.
 ````
 
-Just like OR, the AND `&&` operator can sometimes replace `if`.
+Taip pat kaip ir ARBA, operatorius IR `&&` kartais gali pakeisti `if`.
 
-For instance:
+Pavyzdžiui:
 
 ```js run
 let x = 1;
 
-(x > 0) && alert( 'Greater than zero!' );
+(x > 0) && alert( 'Didesnis nei nulis!' );
 ```
 
-The action in the right part of `&&` would execute only if the evaluation reaches it. That is, only if `(x > 0)` is true.
+Veiksmas dešinėje `&&` pusėję įvyktų tik tokiu atveju jeigu įvertinimas jį pasiektų. Tai yra, jeigu `(x > 0)` yra tiesa.
 
-So we basically have an analogue for:
+Tad mes tiesiog turime analogą šiai išraiškai:
 
 ```js run
 let x = 1;
 
 if (x > 0) {
-  alert( 'Greater than zero!' );
+  alert( 'Didesnis nei nulis!' );
 }
 ```
 
-The variant with `&&` appears shorter. But `if` is more obvious and tends to be a little bit more readable.
+Variantas su `&&` atrodo trumpesnis. Bet `if` yra labiau akivaizdus ir dėl to yra geriau įskaitomas.
 
-So we recommend using every construct for its purpose: use `if` if we want if and use `&&` if we want AND.
+Mes rekomenduojame naudoti kiekvieną konstruktą pagal paskirtį: naudokite `if` jeigu norite if, o `&&` jeigu norite IR.
 
-## ! (NOT)
+## ! (NE)
 
-The boolean NOT operator is represented with an exclamation sign `!`.
+Loginis NE operatorius yra atsotvaujamas šauktuko ženklo `!`.
 
-The syntax is pretty simple:
+Sintaksė paprasta:
 
 ```js
 result = !value;
 ```
 
-The operator accepts a single argument and does the following:
+Operatorius priima vieną argumentą ir atlieka sekančius veiksmus:
 
-1. Converts the operand to boolean type: `true/false`.
-2. Returns the inverse value.
+1. Konvertuoja operatorių į loginę vertę: `true/false`.
+2. Grąžina atvirkštinę vertę.
 
-For instance:
+Pavyzdžiui:
 
 ```js run
 alert( !true ); // false
 alert( !0 ); // true
 ```
 
-A double NOT `!!` is sometimes used for converting a value to boolean type:
+Dvigubas NE `!!` kartais naudojamas, kad paverstų vertę į loginį tipą:
 
 ```js run
-alert( !!"non-empty string" ); // true
+alert( !!"ne tuščia eilutė" ); // true
 alert( !!null ); // false
 ```
 
-That is, the first NOT converts the value to boolean and returns the inverse, and the second NOT inverses it again. In the end, we have a plain value-to-boolean conversion.
+Tai yra, pirmasis NE paverčia vertę į loginę ir grąžina atvirkštinį variantą, o antrasis NE jį atverčia atgalios. Galų gale turime paprastą konversiją į loginę vertę.
 
-There's a little more verbose way to do the same thing -- a built-in `Boolean` function:
+Yra kiek mažiau žodžių reikalaujantis kelias, kuris daro tą patį -- iš anksto paruošta loginė `Boolean` funkcija:
 
 ```js run
-alert( Boolean("non-empty string") ); // true
+alert( Boolean("ne tuščia eilutė") ); // true
 alert( Boolean(null) ); // false
 ```
 
-The precedence of NOT `!` is the highest of all logical operators, so it always executes first, before `&&` or `||`.
+Pirmenybė NE `!` yra aukščiausia iš visų loginių operatorių, tad jis visada įvykdomas pirmiau nei `&&` ar `||`.

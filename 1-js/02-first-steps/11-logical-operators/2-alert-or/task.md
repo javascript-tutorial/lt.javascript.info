@@ -2,9 +2,9 @@ importance: 3
 
 ---
 
-# What's the result of OR'ed alerts?
+# Koks bus ARBA alert rezultatas?
 
-What will the code below output?
+Ką atiduos žemiau esantis kodas?
 
 ```js
 alert( alert(1) || 2 || alert(3) );

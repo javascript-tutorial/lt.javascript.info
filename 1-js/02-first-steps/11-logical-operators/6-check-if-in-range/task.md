@@ -2,8 +2,8 @@ importance: 3
 
 ---
 
-# Check the range between
+# Patikrinkite intervalą
 
-Write an "if" condition to check that `age` is between `14` and `90` inclusively.
+Parašykite "if" sąlygą, kuri patikrintų ar `age` yra tarp `14` ir `90` įskaitant.
 
-"Inclusively" means that `age` can reach the edges `14` or `90`.
+"Įskaitant" reiškia, kad `age` gali pasiekti `14` ir `90` ribas.
