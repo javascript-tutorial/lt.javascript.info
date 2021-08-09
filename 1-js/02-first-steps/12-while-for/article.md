@@ -1,54 +1,54 @@
-# Loops: while and for
+# Ciklai: while ir for
 
-We often need to repeat actions.
+Mes dažnai turime pakartoti veiksmus. 
 
-For example, outputting goods from a list one after another or just running the same code for each number from 1 to 10.
+Pavyzdžiui, įvairių dalykų išvedimas vienas paskui kitą iš sąrašo, arba paprasčiausiai to paties kodo paliedimas kiekvienam numeriui nuo 1 iki 10.
 
-*Loops* are a way to repeat the same code multiple times.
+*Cilkai* (ang. *Loops*) yra būdas pakartoti daug kartų tą patį kodą.
 
-## The "while" loop
+## Ciklas "while"
 
-The `while` loop has the following syntax:
+Ciklas `while` turi sekančią sintaksę:
 
 ```js
 while (condition) {
-  // code
-  // so-called "loop body"
+  // kodas
+  // taip vadinamas "ciklo korpusas" (ang. "loop body")
 }
 ```
 
-While the `condition` is truthy, the `code` from the loop body is executed.
+Kol `sąlyga` yra truthy, `kodas` iš ciklo rinkinio yra įvykdomas.
 
-For instance, the loop below outputs `i` while `i < 3`:
+Pavyzdžiui, ciklas žemiau atiduoda `i` kol `i < 3`:
 
 ```js run
 let i = 0;
-while (i < 3) { // shows 0, then 1, then 2
+while (i < 3) { // parodo 0, tada 1, tada 2
   alert( i );
   i++;
 }
 ```
 
-A single execution of the loop body is called *an iteration*. The loop in the example above makes three iterations.
+Vienas ciklo rinkinio įvykdymas vadinamas *iteracija* (ang. *an iteration*). Ciklas pavyzdyje aukščiau padaro tris iteracijas.
 
-If `i++` was missing from the example above, the loop would repeat (in theory) forever. In practice, the browser provides ways to stop such loops, and in server-side JavaScript, we can kill the process.
+Jeigu kodo pavyzdyje viršuje nebūtų `i++`, ciklas (teoriškai) kartotųsi amžinai. Praktiškai, naršyklė suteikia būdų sustabdyti tokį ciklą ir procesas gali būti užbaigtas serverio pusės JavaScript. 
 
-Any expression or variable can be a loop condition, not just comparisons: the condition is evaluated and converted to a boolean by `while`.
+Bet kokia išraiška arba kintamasis gali būti ciklo sąlyga, ne tik palyginimas: sąlyga yra įvertinama ir `while` paverčiama į loginį sprendimą. 
 
-For instance, a shorter way to write `while (i != 0)` is `while (i)`:
+Pavyzdžiui, trumpesnis būdas parašyti `while (i != 0)` yra `while (i)`:
 
 ```js run
 let i = 3;
 *!*
-while (i) { // when i becomes 0, the condition becomes falsy, and the loop stops
+while (i) { // kai i pavirsta 0, sąlyga tampa falsy ir ciklas sustoja
 */!*
   alert( i );
   i--;
 }
 ```
 
-````smart header="Curly braces are not required for a single-line body"
-If the loop body has a single statement, we can omit the curly braces `{…}`:
+````smart header="Riestiniai skliaustai nėra reikalingi vienos eilės korpusui"
+Jeigu ciklo kopusas turi tik vieną teiginį, galime nenaudoti riestinių skliaustų `{…}`:
 
 ```js run
 let i = 3;
@@ -58,19 +58,19 @@ while (i) alert(i--);
 ```
 ````
 
-## The "do..while" loop
+## Ciklas "do..while"
 
-The condition check can be moved *below* the loop body using the `do..while` syntax:
+Sąlygos patikrinimas gali būtų perkeltas *žemiau* ciklo korpuso naudojant sintaksę `do..while`:
 
 ```js
 do {
-  // loop body
-} while (condition);
+  // ciklo korpusas
+} while (sąlyga);
 ```
 
-The loop will first execute the body, then check the condition, and, while it's truthy, execute it again and again.
+Ciklas visų pirma įvykdys korpusą, tada patikrins sąlygą ir kol ji yra truthy, įvykdys vėl ir vėl.
 
-For example:
+Pavyzdžiui:
 
 ```js run
 let i = 0;
@@ -80,69 +80,69 @@ do {
 } while (i < 3);
 ```
 
-This form of syntax should only be used when you want the body of the loop to execute **at least once** regardless of the condition being truthy. Usually, the other form is preferred: `while(…) {…}`.
+Tokia sintaksė turėtų būti naudojama kai norite, kad ciklo korpusas būtų įvykdytas **bent vieną kartą** nepaisant to ar jo sąlyga yra truthy. Dažniausiai vis dėlto naudojama kita forma: `while(…) {…}`.
 
-## The "for" loop
+## Ciklas "for"
 
-The `for` loop is more complex, but it's also the most commonly used loop.
+Ciklas `for` yra kiek sudėtingesnis, bet jis taip pat yra dažniausiai naudojamas ciklas.
 
-It looks like this:
+Jis atrodo taip:
 
 ```js
-for (begin; condition; step) {
-  // ... loop body ...
+for (begin; condition; step) { // pradžia; sąlyga; žingsnis
+  // ... ciklo korpusas ...
 }
 ```
 
-Let's learn the meaning of these parts by example. The loop below runs `alert(i)` for `i` from `0` up to (but not including) `3`:
+Išmokime šių dalių reikšmę su pavyzdžiais. Ciklas žemiau paleidžia `alert(i)` dėl `i` nuo `0` iki (bet neįskaitant) `3`:
 
 ```js run
-for (let i = 0; i < 3; i++) { // shows 0, then 1, then 2
+for (let i = 0; i < 3; i++) { // parodo 0, tada 1, tada 2
   alert(i);
 }
 ```
 
-Let's examine the `for` statement part-by-part:
+Ištikrime teiginį `for` dalis po dalies:
 
-| part  |          |                                                                            |
+| dalis |          |                                                                            |
 |-------|----------|----------------------------------------------------------------------------|
-| begin | `i = 0`    | Executes once upon entering the loop.                                      |
-| condition | `i < 3`| Checked before every loop iteration. If false, the loop stops.              |
-| body | `alert(i)`| Runs again and again while the condition is truthy.                         |
-| step| `i++`      | Executes after the body on each iteration. |
+| pradžia | `i = 0`    | Įvykdomas vieną kartą pradedant ciklą                                  |
+| salyga | `i < 3`| Patikrinama prieš kiekvieną ciklo iteraciją. Jeigu netiesa, ciklas sustoja  |
+| korpusas | `alert(i)`| Įvykdomas vėl ir vėl kol sąlyga yra truthy.                         |
+| žingsnis | `i++`     | Įvykdomas po korpuso per kiekvieną iteraciją.     |
 
-The general loop algorithm works like this:
+Įprastinio ciklo algoritmasveikia taip:
 
 ```
-Run begin
-→ (if condition → run body and run step)
-→ (if condition → run body and run step)
-→ (if condition → run body and run step)
+Pradedamas vykdymas
+→ (jeigu sąlyga → paleisti korpusą ir paleisti žingsnį)
+→ (jeigu sąlyga → paleisti korpusą ir paleisti žingsnį)
+→ (jeigu sąlyga → paleisti korpusą ir paleisti žingsnį)
 → ...
 ```
 
-That is, `begin` executes once, and then it iterates: after each `condition` test, `body` and `step` are executed.
+Tai yra, `begin` įvykdomas vieną kartą ir tada jis kartojasi (ang. iterates): po kiekvieno `sąlygos` testo, įvykdomi `korpusas` ir `žingsnis`.
 
-If you are new to loops, it could help to go back to the example and reproduce how it runs step-by-step on a piece of paper.
+Jeigu ciklai jums naujiena, padėtų juos geriau suprasti, jeigu sugrįžtumėte prie pavyzdžio ir atkurtumėte kaip jis veikia žingsnis po žingsnio ant popieriaus lapo.
 
-Here's exactly what happens in our case:
+Štai kas konkrečiai vyksta mūsų atveju:
 
 ```js
 // for (let i = 0; i < 3; i++) alert(i)
 
-// run begin
+// pradedamas vykdymas
 let i = 0
-// if condition → run body and run step
+// jeigu sąlyga → paleisti korpusą ir paleisti žingsnį
 if (i < 3) { alert(i); i++ }
-// if condition → run body and run step
+// jeigu sąlyga → paleisti korpusą ir paleisti žingsnį
 if (i < 3) { alert(i); i++ }
-// if condition → run body and run step
+// jeigu sąlyga → paleisti korpusą ir paleisti žingsnį
 if (i < 3) { alert(i); i++ }
-// ...finish, because now i == 3
+// ...pabaiga, nes dabar i == 3
 ```
 
-````smart header="Inline variable declaration"
-Here, the "counter" variable `i` is declared right in the loop. This is called an "inline" variable declaration. Such variables are visible only inside the loop.
+````smart header="Įterptojo kintamojo deklaracija"
+Čia "skaičiuojantis" (ang. "counter") kintamasis `i` yra deklaruotas tiesis cikle.  is declared right in the loop. This is called an "inline" variable declaration. Such variables are visible only inside the loop.
 
 ```js run
 for (*!*let*/!* i = 0; i < 3; i++) {
