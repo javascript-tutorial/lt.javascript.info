@@ -102,16 +102,16 @@ for (let i = 0; i < 3; i++) { // parodo 0, tada 1, tada 2
 }
 ```
 
-Ištikrime teiginį `for` dalis po dalies:
+Ištirkime teiginį `for` dalis po dalies:
 
 | dalis |          |                                                                            |
 |-------|----------|----------------------------------------------------------------------------|
-| pradžia | `i = 0`    | Įvykdomas vieną kartą pradedant ciklą                                  |
-| salyga | `i < 3`| Patikrinama prieš kiekvieną ciklo iteraciją. Jeigu netiesa, ciklas sustoja  |
+| pradžia | `i = 0`    | Įvykdomas vieną kartą pradedant ciklą.                                 |
+| salyga | `i < 3`| Patikrinama prieš kiekvieną ciklo iteraciją. Jeigu netiesa, ciklas sustoja. |
 | korpusas | `alert(i)`| Įvykdomas vėl ir vėl kol sąlyga yra truthy.                         |
 | žingsnis | `i++`     | Įvykdomas po korpuso per kiekvieną iteraciją.     |
 
-Įprastinio ciklo algoritmasveikia taip:
+Įprastinio ciklo algoritmas veikia taip:
 
 ```
 Pradedamas vykdymas
@@ -123,7 +123,7 @@ Pradedamas vykdymas
 
 Tai yra, `begin` įvykdomas vieną kartą ir tada jis kartojasi (ang. iterates): po kiekvieno `sąlygos` testo, įvykdomi `korpusas` ir `žingsnis`.
 
-Jeigu ciklai jums naujiena, padėtų juos geriau suprasti, jeigu sugrįžtumėte prie pavyzdžio ir atkurtumėte kaip jis veikia žingsnis po žingsnio ant popieriaus lapo.
+Jeigu ciklai jums naujiena, juos geriau suprasti padėtų , jeigu sugrįžtumėte prie pavyzdžio ir žingsnis po žingsnio atkurtumėte kaip jis veikia ant popieriaus lapo.
 
 Štai kas konkrečiai vyksta mūsų atveju:
 
@@ -142,47 +142,47 @@ if (i < 3) { alert(i); i++ }
 ```
 
 ````smart header="Įterptojo kintamojo deklaracija"
-Čia "skaičiuojantis" (ang. "counter") kintamasis `i` yra deklaruotas tiesis cikle.  is declared right in the loop. This is called an "inline" variable declaration. Such variables are visible only inside the loop.
+Čia "skaičiuojantis" (ang. "counter") kintamasis `i` yra deklaruotas tiesiai cikle. Tai vadinama "įterptojo" (ang. "inline") kintamojo deklaracija. Toks kintamasis yra matomas tik ciklo viduje.
 
 ```js run
 for (*!*let*/!* i = 0; i < 3; i++) {
   alert(i); // 0, 1, 2
 }
-alert(i); // error, no such variable
+alert(i); // klaida, tokio kintamojo nėra
 ```
 
-Instead of defining a variable, we could use an existing one:
+Vietoje to, kad apibrėžtume kintamąjį, galime naudoti jau egzituojantį:
 
 ```js run
 let i = 0;
 
-for (i = 0; i < 3; i++) { // use an existing variable
+for (i = 0; i < 3; i++) { // naudojamas jau egzituojantis kintamasis
   alert(i); // 0, 1, 2
 }
 
-alert(i); // 3, visible, because declared outside of the loop
+alert(i); // 3, matomas, nes deklaruotas už ciklo ribų
 ```
 
 ````
 
 
-### Skipping parts
+### Dalių praleidimas
 
-Any part of `for` can be skipped.
+Bet kuri `for` dalis gali būti praleista.
 
-For example, we can omit `begin` if we don't need to do anything at the loop start.
+Pavyzdžiui, mes galime neįtraukti `begin`, jeigu mums nieko nereikia daryti ciklo pradžioje.
 
-Like here:
+Kaip šiame pavyzdyje:
 
 ```js run
-let i = 0; // we have i already declared and assigned
+let i = 0; // jau turime deklaravę ir priskyrę i
 
-for (; i < 3; i++) { // no need for "begin"
+for (; i < 3; i++) { // nereikia "pradžios"
   alert( i ); // 0, 1, 2
 }
 ```
 
-We can also remove the `step` part:
+Taip pat galime nenaudoti `žingsnio` dalies:
 
 ```js run
 let i = 0;
@@ -192,32 +192,32 @@ for (; i < 3;) {
 }
 ```
 
-This makes the loop identical to `while (i < 3)`.
+Tai padaro ciklą identišku `while (i < 3)`.
 
-We can actually remove everything, creating an infinite loop:
+Mes netgi galime viską panaikinti, sukurdami begalinį ciklą:
 
 ```js
 for (;;) {
-  // repeats without limits
+  // kartojasi be ribų
 }
 ```
 
-Please note that the two `for` semicolons `;` must be present. Otherwise, there would be a syntax error.
+Atkreipkite dėmesį, kad du `for` kabliataškiai `;` myra privalomi. Kitu atveju bus sintaksės klaida.
 
-## Breaking the loop
+## Ciklo nutraukimas
 
-Normally, a loop exits when its condition becomes falsy.
+Dažniausiai, ciklas egzituoja kol jo sąlyga tampa falsy.
 
-But we can force the exit at any time using the special `break` directive.
+Bet mes galime priverstinai išeiti naudodami ypatingają `break` direktyvą.
 
-For example, the loop below asks the user for a series of numbers, "breaking" when no number is entered:
+Pavyzdžiui, ciklas žemiau klausia naudotojo numerių serijos, "nutraukdamas" kai nėra įvedamas skaičius:
 
 ```js run
 let sum = 0;
 
 while (true) {
 
-  let value = +prompt("Enter a number", '');
+  let value = +prompt("Įveskite skaičių", '');
 
 *!*
   if (!value) break; // (*)
@@ -226,32 +226,32 @@ while (true) {
   sum += value;
 
 }
-alert( 'Sum: ' + sum );
+alert( 'Suma: ' + sum );
 ```
 
-The `break` directive is activated at the line `(*)` if the user enters an empty line or cancels the input. It stops the loop immediately, passing control to the first line after the loop. Namely, `alert`.
+Direktyva `break` yra aktyvuojama eilutėje `(*)`, jeigu lankytojas pateikia tuščią rezultatą arba atšaukia įvedimą. Tai iš karto sustabdo ciklą, perduodant kontrolę pirmai eilei po ciklo. Šiuo atveju `alert`.
 
-The combination "infinite loop + `break` as needed" is great for situations when a loop's condition must be checked not in the beginning or end of the loop, but in the middle or even in several places of its body.
+Kombinacija "bagalinis ciklas + `break` kai reikia" yra gerai tokiose situacijose kai ciklo sąlyga turi būti patikrinama ne pačioje pradžio ar pabaigoje ciklo, bet viduryje arba netgi keliose jo korpuso vietose. 
 
-## Continue to the next iteration [#continue]
+## Tęsinys kitoje iteracijoje [#continue]
 
-The `continue` directive is a "lighter version" of `break`. It doesn't stop the whole loop. Instead, it stops the current iteration and forces the loop to start a new one (if the condition allows).
+Direktyva `continue` (tęsti) yra "lengvesnė versija" direktyvos `break`. Ji nesustobado viso ciklo. Vietoje to, ji sustabdo esamą iteraciją ir priverčią ciklą pradėti naują iteraciją (jeigu sąlyga tai leidžia).
 
-We can use it if we're done with the current iteration and would like to move on to the next one.
+Galime tai naudoti kai baihiame su esama iteracija ir esame pasiruošę pereiti prie sekančios.
 
-The loop below uses `continue` to output only odd values:
+Ciklas žemiau naudoja `continue`, kad atiduotų tik nelygines vertes:
 
 ```js run no-beautify
 for (let i = 0; i < 10; i++) {
 
-  // if true, skip the remaining part of the body
+  // jeigu tiesa, praleisti likusią korpuso dalį
   *!*if (i % 2 == 0) continue;*/!*
 
   alert(i); // 1, then 3, 5, 7, 9
 }
 ```
 
-For even values of `i`, the `continue` directive stops executing the body and passes control to the next iteration of `for` (with the next number). So the `alert` is only called for odd values.
+Lyginėms `i` vertėms, direktyva `continue` nustoja vykdyti korpusą ir perleidžia kontrolę sekančiai `for` iteracijai (su sekančiu skaičiumi). Tad `alert` yra iškviečiamas tik nelyginėms vertėms.
 
 ````smart header="The `continue` directive helps decrease nesting"
 A loop that shows odd values could look like this:
