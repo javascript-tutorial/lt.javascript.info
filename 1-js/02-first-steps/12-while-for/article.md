@@ -2,7 +2,7 @@
 
 Mes dažnai turime pakartoti veiksmus. 
 
-Pavyzdžiui, įvairių dalykų išvedimas vienas paskui kitą iš sąrašo, arba paprasčiausiai to paties kodo paliedimas kiekvienam numeriui nuo 1 iki 10.
+Pavyzdžiui, įvairių prekių išbraukimas viena paskui kitą iš sąrašo, arba paprasčiausiai to paties kodo paleidimas kiekvienam numeriui nuo 1 iki 10.
 
 *Cilkai* (ang. *Loops*) yra būdas pakartoti daug kartų tą patį kodą.
 
@@ -237,7 +237,7 @@ Kombinacija "bagalinis ciklas + `break` kai reikia" yra gerai tokiose situacijos
 
 Direktyva `continue` (tęsti) yra "lengvesnė versija" direktyvos `break`. Ji nesustobado viso ciklo. Vietoje to, ji sustabdo esamą iteraciją ir priverčią ciklą pradėti naują iteraciją (jeigu sąlyga tai leidžia).
 
-Galime tai naudoti kai baihiame su esama iteracija ir esame pasiruošę pereiti prie sekančios.
+Galime tai naudoti kai baigiame su esama iteracija ir esame pasiruošę pereiti prie sekančios.
 
 Ciklas žemiau naudoja `continue`, kad atiduotų tik nelygines vertes:
 
@@ -247,14 +247,14 @@ for (let i = 0; i < 10; i++) {
   // jeigu tiesa, praleisti likusią korpuso dalį
   *!*if (i % 2 == 0) continue;*/!*
 
-  alert(i); // 1, then 3, 5, 7, 9
+  alert(i); // 1, tada 3, 5, 7, 9
 }
 ```
 
 Lyginėms `i` vertėms, direktyva `continue` nustoja vykdyti korpusą ir perleidžia kontrolę sekančiai `for` iteracijai (su sekančiu skaičiumi). Tad `alert` yra iškviečiamas tik nelyginėms vertėms.
 
-````smart header="The `continue` directive helps decrease nesting"
-A loop that shows odd values could look like this:
+````smart header="Direktyva `continue` sumažina matrioškinį kodą (ang. nesting)"
+Ciklas, kuris parodo nelygines vertes gali atrodyti taip:
 
 ```js
 for (let i = 0; i < 10; i++) {
@@ -266,15 +266,15 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-From a technical point of view, this is identical to the example above. Surely, we can just wrap the code in an `if` block instead of using `continue`.
+Iš techninės perspektyvos tai yra visiškai identiškas kodas pavyzdžiui aukšąiau. Žinoma, mes galime tiesiog apgobti `if` rinkinį vietoje to, kad naudotume `continue`.
 
-But as a side-effect, this created one more level of nesting (the `alert` call inside the curly braces). If the code inside of`if` is longer than a few lines, that may decrease the overall readability.
+Bet to pašalinis efektas yra papildomas matrioškinis lygis (šaukimas `alert` viduje riestinių skliaustų). O jeigu kodas `if` viduje yra ilgesnis nei kelios eilės, tai apsunkina skaitomumą. 
 ````
 
-````warn header="No `break/continue` to the right side of '?'"
-Please note that syntax constructs that are not expressions cannot be used with the ternary operator `?`. In particular, directives such as `break/continue` aren't allowed there.
+````warn header="Jokių `break/continue` dešinėje '?' pusėje"
+Atkreipkite dėmesį, kad sintaksiniai konstruktai, kurie nėra išraiškos, negalimi su ternariniu operatoriumi `?`. Ypatingai tokios direktyvos kaip `break/continue` yra neleidžiamos.
 
-For example, if we take this code:
+Pavyzdžiui, jeigu paimtume tokį kodą:
 
 ```js
 if (i > 5) {
@@ -284,19 +284,19 @@ if (i > 5) {
 }
 ```
 
-...and rewrite it using a question mark:
+...ir perrašytume jį naudodami klaustuką:
 
 
 ```js no-beautify
-(i > 5) ? alert(i) : *!*continue*/!*; // continue isn't allowed here
+(i > 5) ? alert(i) : *!*continue*/!*; // continue nėra čią leidžiamas
 ```
 
-...it stops working: there's a syntax error.
+...jis nustoja veikti: tai yra sintaksinė klaida.
 
-This is just another reason not to use the question mark operator `?` instead of `if`.
+Tai tik dar viena priežastis nenaudoti klaustuko operatoriaus `?` vietoje`if`.
 ````
 
-## Labels for break/continue
+## Etiketės break/continue
 
 Sometimes we need to break out from multiple nested loops at once.
 
