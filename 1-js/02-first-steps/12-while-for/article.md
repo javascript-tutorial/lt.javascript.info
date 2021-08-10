@@ -4,14 +4,14 @@ Mes dažnai turime pakartoti veiksmus.
 
 Pavyzdžiui, įvairių prekių išbraukimas viena paskui kitą iš sąrašo, arba paprasčiausiai to paties kodo paleidimas kiekvienam numeriui nuo 1 iki 10.
 
-*Cilkai* (ang. *Loops*) yra būdas pakartoti daug kartų tą patį kodą.
+*Ciklai* (ang. *Loops*) yra būdas pakartoti daug kartų tą patį kodą.
 
 ## Ciklas "while"
 
 Ciklas `while` turi sekančią sintaksę:
 
 ```js
-while (condition) {
+while (sąlyga) {
   // kodas
   // taip vadinamas "ciklo korpusas" (ang. "loop body")
 }
@@ -31,9 +31,9 @@ while (i < 3) { // parodo 0, tada 1, tada 2
 
 Vienas ciklo rinkinio įvykdymas vadinamas *iteracija* (ang. *an iteration*). Ciklas pavyzdyje aukščiau padaro tris iteracijas.
 
-Jeigu kodo pavyzdyje viršuje nebūtų `i++`, ciklas (teoriškai) kartotųsi amžinai. Praktiškai, naršyklė suteikia būdų sustabdyti tokį ciklą ir procesas gali būti užbaigtas serverio pusės JavaScript. 
+Jeigu kodo pavyzdyje viršuje nebūtų `i++`, ciklas (teoriškai) kartotųsi amžinai. Praktikoje naršyklė suteikia būdų sustabdyti tokį ciklą ir procesas gali būti užbaigtas JavaScript serverio pusėje. 
 
-Bet kokia išraiška arba kintamasis gali būti ciklo sąlyga, ne tik palyginimas: sąlyga yra įvertinama ir `while` paverčiama į loginį sprendimą. 
+Bet kokia išraiška arba kintamasis gali būti ciklo sąlyga, ne tik palyginimas: sąlyga yra įvertinama ir `while` ciklo paverčiama į loginį sprendimą. 
 
 Pavyzdžiui, trumpesnis būdas parašyti `while (i != 0)` yra `while (i)`:
 
@@ -84,7 +84,7 @@ Tokia sintaksė turėtų būti naudojama kai norite, kad ciklo korpusas būtų �
 
 ## Ciklas "for"
 
-Ciklas `for` yra kiek sudėtingesnis, bet jis taip pat yra dažniausiai naudojamas ciklas.
+Ciklas `for` yra kiek sudėtingesnis, bet jis tuo pačiu yra dažniausiai naudojamas ciklas.
 
 Jis atrodo taip:
 
@@ -94,7 +94,7 @@ for (begin; condition; step) { // pradžia; sąlyga; žingsnis
 }
 ```
 
-Išmokime šių dalių reikšmę su pavyzdžiais. Ciklas žemiau paleidžia `alert(i)` dėl `i` nuo `0` iki (bet neįskaitant) `3`:
+Išmokime šių dalių reikšmę su pavyzdžiais. Ciklas žemiau paleidžia `alert(i)` kol `i` yra nuo `0` iki (bet neįskaitant) `3`:
 
 ```js run
 for (let i = 0; i < 3; i++) { // parodo 0, tada 1, tada 2
@@ -121,7 +121,7 @@ Pradedamas vykdymas
 → ...
 ```
 
-Tai yra, `begin` įvykdomas vieną kartą ir tada jis kartojasi (ang. iterates): po kiekvieno `sąlygos` testo, įvykdomi `korpusas` ir `žingsnis`.
+Tai yra, `begin` įvykdomas vieną kartą ir tada jis kartojasi (ang. iterates): po kiekvieno `sąlygos` testo įvykdomi `korpusas` ir `žingsnis`.
 
 Jeigu ciklai jums naujiena, juos geriau suprasti padėtų , jeigu sugrįžtumėte prie pavyzdžio ir žingsnis po žingsnio atkurtumėte kaip jis veikia ant popieriaus lapo.
 
@@ -141,8 +141,8 @@ if (i < 3) { alert(i); i++ }
 // ...pabaiga, nes dabar i == 3
 ```
 
-````smart header="Įterptojo kintamojo deklaracija"
-Čia "skaičiuojantis" (ang. "counter") kintamasis `i` yra deklaruotas tiesiai cikle. Tai vadinama "įterptojo" (ang. "inline") kintamojo deklaracija. Toks kintamasis yra matomas tik ciklo viduje.
+````smart header="Vidinio kintamojo deklaracija"
+Čia "skaičiuojantis" (ang. "counter") kintamasis `i` yra deklaruotas tiesiai cikle. Tai vadinama "vidinio" (ang. "inline") kintamojo deklaracija. Toks kintamasis yra matomas tik ciklo viduje.
 
 ```js run
 for (*!*let*/!* i = 0; i < 3; i++) {
@@ -160,7 +160,7 @@ for (i = 0; i < 3; i++) { // naudojamas jau egzituojantis kintamasis
   alert(i); // 0, 1, 2
 }
 
-alert(i); // 3, matomas, nes deklaruotas už ciklo ribų
+alert(i); // 3, matomas, nes buvo deklaruotas už ciklo ribų
 ```
 
 ````
@@ -202,7 +202,7 @@ for (;;) {
 }
 ```
 
-Atkreipkite dėmesį, kad du `for` kabliataškiai `;` myra privalomi. Kitu atveju bus sintaksės klaida.
+Atkreipkite dėmesį, kad du `for` kabliataškiai `;` yra privalomi. Kitu atveju bus sintaksės klaida.
 
 ## Ciklo nutraukimas
 
@@ -254,7 +254,7 @@ for (let i = 0; i < 10; i++) {
 Lyginėms `i` vertėms, direktyva `continue` nustoja vykdyti korpusą ir perleidžia kontrolę sekančiai `for` iteracijai (su sekančiu skaičiumi). Tad `alert` yra iškviečiamas tik nelyginėms vertėms.
 
 ````smart header="Direktyva `continue` sumažina matrioškinį kodą (ang. nesting)"
-Ciklas, kuris parodo nelygines vertes gali atrodyti taip:
+Ciklas, kuris parodo nelygines vertes gali atrodyti ir taip:
 
 ```js
 for (let i = 0; i < 10; i++) {
@@ -266,7 +266,7 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-Iš techninės perspektyvos tai yra visiškai identiškas kodas pavyzdžiui aukšąiau. Žinoma, mes galime tiesiog apgobti `if` rinkinį vietoje to, kad naudotume `continue`.
+Iš techninės perspektyvos tai yra visiškai identiškas kodas aukščiau esančiam pavyzdžiui. Žinoma, mes galime tiesiog apgobti `if` rinkinį vietoje to, kad naudotume `continue`.
 
 Bet to pašalinis efektas yra papildomas matrioškinis lygis (šaukimas `alert` viduje riestinių skliaustų). O jeigu kodas `if` viduje yra ilgesnis nei kelios eilės, tai apsunkina skaitomumą. 
 ````
@@ -288,99 +288,99 @@ if (i > 5) {
 
 
 ```js no-beautify
-(i > 5) ? alert(i) : *!*continue*/!*; // continue nėra čią leidžiamas
+(i > 5) ? alert(i) : *!*continue*/!*; // continue nėra leidžiamas
 ```
 
-...jis nustoja veikti: tai yra sintaksinė klaida.
+...jis nustoja veikti: tai yra sintaksės klaida.
 
 Tai tik dar viena priežastis nenaudoti klaustuko operatoriaus `?` vietoje`if`.
 ````
 
 ## Etiketės break/continue
 
-Sometimes we need to break out from multiple nested loops at once.
+Kartais mums reikia ištrūkti iš daugybinių matrioškinių ciklų tuo pačiu metu.
 
-For example, in the code below we loop over `i` and `j`, prompting for the coordinates `(i, j)` from `(0,0)` to `(2,2)`:
+Pavyzdžiui, kode žemiau mes paleidžiame ciklą per `i` ir `j`, klausdami koordinačių `(i, j)` nuo `(0,0)` iki `(2,2)`:
 
 ```js run no-beautify
 for (let i = 0; i < 3; i++) {
 
   for (let j = 0; j < 3; j++) {
 
-    let input = prompt(`Value at coords (${i},${j})`, '');
+    let input = prompt(`Vertė koordinatėse (${i},${j})`, '');
 
-    // what if we want to exit from here to Done (below)?
+    // kas nutinka jeigu norime išeiti šiuo momentu iki Baigta (žemiau)?
   }
 }
 
-alert('Done!');
+alert('Baigta!');
 ```
 
-We need a way to stop the process if the user cancels the input.
+Mums reikia tokio būdo, kuris sustabdytų procesą, jeigu lankytojas atšaukia įvedimą.
 
-The ordinary `break` after `input` would only break the inner loop. That's not sufficient--labels, come to the rescue!
+Įprastinis `break` sekantis po `input` sustabdytų tik vidinį ciklą. To neužtenka--į pagalba ateina etiketės!
 
-A *label* is an identifier with a colon before a loop:
+*Etikėtė* tai toks identifikatorius su dvitaškiu prieš ciklą:
 ```js
-labelName: for (...) {
+etiketėsPavadinimas: for (...) {
   ...
 }
 ```
 
-The `break <labelName>` statement in the loop below breaks out to the label:
+Teiginys `break <etiketėsPavadinimas>` cikle žemiau nutraukia procesą iki etiketės:
 
 ```js run no-beautify
-*!*outer:*/!* for (let i = 0; i < 3; i++) {
+*!*išorinis:*/!* for (let i = 0; i < 3; i++) {
 
   for (let j = 0; j < 3; j++) {
 
-    let input = prompt(`Value at coords (${i},${j})`, '');
+    let input = prompt(`Vertė koordinatėse (${i},${j})`, '');
 
-    // if an empty string or canceled, then break out of both loops
-    if (!input) *!*break outer*/!*; // (*)
+    // jeigu eilutė tuščia arba buvo atšaukta, nutraukti procesą iš abiejų ciklų
+    if (!input) *!*break išorinis*/!*; // (*)
 
-    // do something with the value...
+    // darykite kažką su verte...
   }
 }
-alert('Done!');
+alert('Baigta!');
 ```
 
-In the code above, `break outer` looks upwards for the label named `outer` and breaks out of that loop.
+Kodas viršuje `break išorinis` suranda viršuje etiketę su pavadinimu `išorinis` ir nutraukia tą ciklą.
 
-So the control goes straight from `(*)` to `alert('Done!')`.
+Tad kontrolė pereina tiesiai nuo `(*)` iki `alert('Baigta!')`.
 
-We can also move the label onto a separate line:
+Mes taip pat galime perkelti etiketę į atskirą eilę:
 
 ```js no-beautify
-outer:
+išorinis:
 for (let i = 0; i < 3; i++) { ... }
 ```
 
-The `continue` directive can also be used with a label. In this case, code execution jumps to the next iteration of the labeled loop.
+Direktyva `continue` taip pat gali būti naudojama su etiketėmis. Šiuo atveju kodo įvykdymas peršoka prie sekančios ciklo su etikete iteracijos.
 
-````warn header="Labels do not allow to \"jump\" anywhere"
-Labels do not allow us to jump into an arbitrary place in the code.
+````warn header="Etiketės neleidžia \"peršokti\" bet kur"
+Etiketės negali leisti peršokti į bet kurią arbitrišką kodo vietą.
 
-For example, it is impossible to do this:
+Pavyzdžiui tai nėra įmanoma:
 ```js
-break label; // doesn't jumps to the label below
+break etiketė; // neperšoka į etiketę žemiau
 
-label: for (...)
+etiketė: for (...)
 ```
 
-A call to `break/continue` is only possible from inside a loop and the label must be somewhere above the directive.
+Šaukimas `break/continue` įmanoma tik iš ciklo vidaus ir etiketė turi būti kažkur virš direktyvos.
 ````
 
-## Summary
+## Santrauka
 
-We covered 3 types of loops:
+Mes aptarėme 3 ciklų tipus:
 
-- `while` -- The condition is checked before each iteration.
-- `do..while` -- The condition is checked after each iteration.
-- `for (;;)` -- The condition is checked before each iteration, additional settings available.
+- `while` -- Sąlyga patikrinima prieš kiekvieną iteraciją.
+- `do..while` -- Sąlyga patikrinama po kiekvienos iteracijos.
+- `for (;;)` -- Sąlyga patikrinama prieš kiekvieną iteraciją, įmanomi papildomi nustatymai.
 
-To make an "infinite" loop, usually the `while(true)` construct is used. Such a loop, just like any other, can be stopped with the `break` directive.
+Kad padarytume "begalinį" ciklą, naudojamas konstruktas `while(true)`. Toks ciklas, kaip ir bet kuris kitas, gali būti sustabdytas naudojant direktyvą `break`.
 
-If we don't want to do anything in the current iteration and would like to forward to the next one, we can use the `continue` directive.
+Jeigu nenorime nieko daryti esamoje iteracijoje, bet norime pereiti prie sekančios, galime naudoti `continue` direktyvą.
 
-`break/continue` support labels before the loop. A label is the only way for `break/continue` to escape a nested loop to go to an outer one.
+`break/continue` palaiko etiketes prieš ciklą. Etiketė yra vienintelis kelias tam, kad `break/continue` išeitų iš matrioškinio vidinio ciklo į išorinį.
