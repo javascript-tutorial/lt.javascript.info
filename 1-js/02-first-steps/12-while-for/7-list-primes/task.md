@@ -2,16 +2,16 @@ importance: 3
 
 ---
 
-# Output prime numbers
+# Atiduoti pirminius numerius
 
-An integer number greater than `1` is called a [prime](https://en.wikipedia.org/wiki/Prime_number) if it cannot be divided without a remainder by anything except `1` and itself.
+Sveikieji skaičiai didesni už `1` yra vadinami [prime](https://en.wikipedia.org/wiki/Prime_number), jeigu jie gali būti padalinti be liekanos tik iš pačio savęs arba `1`.
 
-In other words, `n > 1` is a prime if it can't be evenly divided by anything except `1` and `n`.
+Kitaip sakant, `n > 1` yra pirminis, jeigu jis negali būti lygiai padalintas iš nieko kitaip kaip tik `1` ir `n`.
 
-For example, `5` is a prime, because it cannot be divided without a remainder by `2`, `3` and `4`.
+Pavyzdžiui, `5` yra pirminis, nes negali būti padalintas be liekanos iš `2`, `3` ir `4`.
 
-**Write the code which outputs prime numbers in the interval from `2` to `n`.**
+**Parašykite kodą, kuris atiduotų pirminius numerius intervalu tarp `2` iki `n`.**
 
-For `n = 10` the result will be `2,3,5,7`.
+Šiuo atveju `n = 10` rezultatas būtų `2,3,5,7`.
 
-P.S. The code should work for any `n`, not be hard-tuned for any fixed value.
+P.S. Kodas turi veikti bet kuriam `n`, o ne paruoštas atitinkamoms vertėms.

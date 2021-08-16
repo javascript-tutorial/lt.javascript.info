@@ -2,19 +2,19 @@ importance: 4
 
 ---
 
-# Which values does the while loop show?
+# Kurias vertes parodo while ciklas?
 
-For every loop iteration, write down which value it outputs and then compare it with the solution.
+Kiekvienai ciklo iteracijai užrašykite kurią vertę ji atiduoda ir tada palygininkite tą vertę su sprendimu. 
 
-Both loops `alert` the same values, or not?
+Abu ciklai `alert` tas pačias vertes ar ne?
 
-1. The prefix form `++i`:
+1. Priešdėlinė forma `++i`:
 
     ```js
     let i = 0;
     while (++i < 5) alert( i );
     ```
-2. The postfix form `i++`
+2. Podėlinė forma `i++`
 
     ```js
     let i = 0;

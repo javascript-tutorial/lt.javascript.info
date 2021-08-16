@@ -1,4 +1,4 @@
-The answer: `1`.
+Atsakymas: `1`.
 
 ```js run
 let i = 3;
@@ -8,18 +8,18 @@ while (i) {
 }
 ```
 
-Every loop iteration decreases `i` by `1`. The check `while(i)` stops the loop when `i = 0`.
+Kiekviena ciklo iteracija sumažina `i` per `1`. Patikrinimas `while(i)` sustabdo ciklą kai `i = 0`.
 
-Hence, the steps of the loop form the following sequence ("loop unrolled"):
+Dėl to žingsniai iš paskutinio ciklo suformuoja tokią seką ("atskleistas ciklas"):
 
 ```js
 let i = 3;
 
-alert(i--); // shows 3, decreases i to 2
+alert(i--); // parodo 3, sumažina i iki 2
 
-alert(i--) // shows 2, decreases i to 1
+alert(i--) // parodo 2, sumažina i iki 1
 
-alert(i--) // shows 1, decreases i to 0
+alert(i--) // parodo 1, sumažina i iki 0
 
-// done, while(i) check stops the loop
+// viskas, while(i) patikrinimas sustabdo ciklą
 ```

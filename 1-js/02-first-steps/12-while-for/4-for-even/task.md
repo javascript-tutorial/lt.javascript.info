@@ -2,8 +2,8 @@ importance: 5
 
 ---
 
-# Output even numbers in the loop
+# Grąžinkite lyginius skaičius su ciklu
 
-Use the `for` loop to output even numbers from `2` to `10`.
+Panaudokite `for` ciklą, kad gautumėte lyginius skaičius nuo `2` iki `10`.
 
 [demo]

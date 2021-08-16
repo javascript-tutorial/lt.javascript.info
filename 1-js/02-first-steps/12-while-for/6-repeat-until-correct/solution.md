@@ -3,13 +3,13 @@
 let num;
 
 do {
-  num = prompt("Enter a number greater than 100?", 0);
+  num = prompt("Įveskite skaičių didesnį nei 100?", 0);
 } while (num <= 100 && num);
 ```
 
-The loop `do..while` repeats while both checks are truthy:
+Ciklas`do..while` pakartoja kol abu patikrinimai yra truthy:
 
-1. The check for `num <= 100` -- that is, the entered value is still not greater than `100`.
-2. The check `&& num` is false when `num` is `null` or a empty string. Then the `while` loop stops too.
+1. Patikrinimas dėl `num <= 100` -- tai yra, įvesta vertė vis dar nėra didesnė už `100`.
+2. Patikrinimas `&& num` yra neteisingas, jeigu `num` yra `null` arba tuščia eilutė. Tada `while` ciklas taip pat sustoja.
 
-P.S. If `num` is `null` then `num <= 100` is `true`, so without the 2nd check the loop wouldn't stop if the user clicks CANCEL. Both checks are required.
+P.S. Jeigu `num` yra `null` tada `num <= 100` yra `true`, tad be antro patikrinimo ciklas nesustotų, jeigu lankytojas paspaustų CANCEL. Abu patikrinimai yra reikalingi.
