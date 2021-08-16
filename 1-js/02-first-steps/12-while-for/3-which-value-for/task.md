@@ -2,18 +2,18 @@ importance: 4
 
 ---
 
-# Which values get shown by the "for" loop?
+# Korias vertes parodo "for" ciklas?
 
-For each loop write down which values it is going to show. Then compare with the answer.
+Kiekvienam ciklui parašykite vertes, kurias jis parodys. Tada palyginkite atsakymus.
 
-Both loops `alert` same values or not?
+Abu `alert` ciklai, bet ar tos pačios vertės?
 
-1. The postfix form:
+1. Podėlio forma:
 
     ```js
     for (let i = 0; i < 5; i++) alert( i );
     ```
-2. The prefix form:
+2. Priešdėlio forma:
 
     ```js
     for (let i = 0; i < 5; ++i) alert( i );
