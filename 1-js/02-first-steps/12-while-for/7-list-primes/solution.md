@@ -1,29 +1,29 @@
-There are many algorithms for this task.
+Yra daug algoritmų šiai užduočiai.
 
-Let's use a nested loop:
+Panaudokime matrioškinį ciklą:
 
 ```js
-For each i in the interval {
-  check if i has a divisor from 1..i
-  if yes => the value is not a prime
-  if no => the value is a prime, show it
+Kiekvienam i intervale {
+  patikrinkite ar i turi daliklį iš 1..i
+  jeigu taip => vertė nėra pirminius skaičius
+  jeigu ne => vertė yra pirminis skaičius, parodykite ją
 }
 ```
 
-The code using a label:
+Kodas naudojant etiketę:
 
 ```js run
 let n = 10;
 
 nextPrime:
-for (let i = 2; i <= n; i++) { // for each i...
+for (let i = 2; i <= n; i++) { // kiekvienam i...
 
-  for (let j = 2; j < i; j++) { // look for a divisor..
-    if (i % j == 0) continue nextPrime; // not a prime, go next i
+  for (let j = 2; j < i; j++) { // ieškoti daliklio..
+    if (i % j == 0) tęsti nextPrime; // ne pirminis skaičius, eiti prie sekančio i
   }
 
-  alert( i ); // a prime
+  alert( i ); // pirminis
 }
 ```
 
-There's a lot of space to optimize it. For instance, we could look for the divisors from `2` to square root of `i`. But anyway, if we want to be really efficient for large intervals, we need to change the approach and rely on advanced maths and complex algorithms like [Quadratic sieve](https://en.wikipedia.org/wiki/Quadratic_sieve), [General number field sieve](https://en.wikipedia.org/wiki/General_number_field_sieve) etc.
+Yra daug vietos, kur galima jį optimizuoti. Pavyzdžiui, galėtume ieškoti daliklių nuo `2` iki `i` šaknies. Bet kokiu atveju, jeigu norime būti efektyvūs dideliems intervalams, reikia pakeisti priėjimo būdus ir pasitikėti pažengusia matematika ir sudėtingais algoritmais kaip [Quadratic sieve](https://en.wikipedia.org/wiki/Quadratic_sieve), [General number field sieve](https://en.wikipedia.org/wiki/General_number_field_sieve) etc.
