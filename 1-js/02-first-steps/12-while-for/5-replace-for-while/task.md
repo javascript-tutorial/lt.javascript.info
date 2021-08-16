@@ -2,13 +2,13 @@ importance: 5
 
 ---
 
-# Replace "for" with "while"
+# Pakeiskite "for" į "while"
 
-Rewrite the code changing the `for` loop to `while` without altering its behavior (the output should stay same).
+Perrašykite kodą pakeisdami ciklą `for` į `while`, nepakeisdami elgesio (turėtumėte gauti tą patį atsakymą).
 
 ```js run
 for (let i = 0; i < 3; i++) {
-  alert( `number ${i}!` );
+  alert( `skaičius ${i}!` );
 }
 ```
 
