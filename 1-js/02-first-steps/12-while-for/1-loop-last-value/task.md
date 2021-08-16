@@ -2,9 +2,9 @@ importance: 3
 
 ---
 
-# Last loop value
+# Paskutinė ciklo vertė
 
-What is the last value alerted by this code? Why?
+Kokia yra paskutinė šio kodo vertė parodyta per alert? Kodėl?
 
 ```js
 let i = 3;
