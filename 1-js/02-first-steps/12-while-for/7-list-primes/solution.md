@@ -5,7 +5,7 @@ Panaudokime matrioškinį ciklą:
 ```js
 Kiekvienam i intervale {
   patikrinkite ar i turi daliklį iš 1..i
-  jeigu taip => vertė nėra pirminius skaičius
+  jeigu taip => vertė nėra pirminis skaičius
   jeigu ne => vertė yra pirminis skaičius, parodykite ją
 }
 ```
