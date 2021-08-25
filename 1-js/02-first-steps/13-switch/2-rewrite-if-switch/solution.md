@@ -1,4 +1,4 @@
-The first two checks turn into two `case`. The third check is split into two cases:
+Pirmi du patikrinimai pavirsta į dvi atskiras bylas `case`. Trečias patikrinimas išskiriamas į dvi bylas:
 
 ```js run
 let a = +prompt('a?', '');
@@ -21,6 +21,6 @@ switch (a) {
 }
 ```
 
-Please note: the `break` at the bottom is not required. But we put it to make the code future-proof.
+Atkreipkite dėmesį: pabaigoje esantis `break` nėra reikalingas. Bet mes jį pridedame tam, kad kodas būtų paruoštas ateities pakeitimams.
 
-In the future, there is a chance that we'd want to add one more `case`, for example `case 4`. And if we forget to add a break before it, at the end of `case 3`, there will be an error. So that's a kind of self-insurance.
+Yra galimybė, kad ateityje norėsime pridėti dar vieną bylą `case`, pavyzdžiui `case 4`. Jeigu prieš tai būsime pamiršę pridėti `break`, tokiu atveju `case 3` pabaigoje bus klaida. Tad tai yra mūsų pačių apsidraudimas.
