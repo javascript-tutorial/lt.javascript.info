@@ -2,25 +2,25 @@ importance: 5
 
 ---
 
-# Rewrite the "switch" into an "if"
+# Perrašykite "switch" į "if"
 
-Write the code using `if..else` which would correspond to the following `switch`:
+Perrašykite kodą naudodami `if..else`, kuris atitiktų sekantį `switch`:
 
 ```js
 switch (browser) {
   case 'Edge':
-    alert( "You've got the Edge!" );
+    alert( "Jūs turite Edge!" );
     break;
 
   case 'Chrome':
   case 'Firefox':
   case 'Safari':
   case 'Opera':
-    alert( 'Okay we support these browsers too' );
+    alert( 'Puiku, mes palaikome ir šias naršykles' );
     break;
 
   default:
-    alert( 'We hope that this page looks ok!' );
+    alert( 'Mes tikimės, kad šis puslapis veikia gerai!' );
 }
 ```
 
