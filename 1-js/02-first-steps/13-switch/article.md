@@ -1,22 +1,22 @@
-# The "switch" statement
+# Teiginys "switch"
 
-A `switch` statement can replace multiple `if` checks.
+Teiginys `switch` gali pakeisti daugybinius `if` patikrinimus.
 
-It gives a more descriptive way to compare a value with multiple variants.
+Jis suteikia lengviau apibūdinamą kelią palyginti vertes su įvairiais variantais.
 
-## The syntax
+## Sintaksė
 
-The `switch` has one or more `case` blocks and an optional default.
+Teiginys `switch` turi vieną ir daugiau `case` (bylos) blokų ir numatytąjį pasirinkimą.
 
-It looks like this:
+Tai atrodo taip:
 
 ```js no-beautify
 switch(x) {
-  case 'value1':  // if (x === 'value1')
+  case 'vertė1':  // if (x === 'vertė1')
     ...
     [break]
 
-  case 'value2':  // if (x === 'value2')
+  case 'vertė2':  // if (x === 'vertė2')
     ...
     [break]
 
@@ -26,71 +26,71 @@ switch(x) {
 }
 ```
 
-- The value of `x` is checked for a strict equality to the value from the first `case` (that is, `value1`) then to the second (`value2`) and so on.
-- If the equality is found, `switch` starts to execute the code starting from the corresponding `case`, until the nearest `break` (or until the end of `switch`).
-- If no case is matched then the `default` code is executed (if it exists).
+- Vertė `x` yra patikrinama griežta lygybe su verte iš pirmos bylos `case` (tai yra `vertė1`) tada su antra (`vertė2`) ir taip toliau.
+- Jeigu lygybė randama, `switch` pradeda vykdyti kodą nuo atitinkančios bylos `case`, iki artimiausio `break` (arba kol pasibaigs `switch`).
+- Jeigu nei viena byla nesurado atitikimo, tokiu atveju yra įvykdomas `default` kodas (jeigu toks egzistuoja).
 
-## An example
+## Pavyzdys
 
-An example of `switch` (the executed code is highlighted):
+Pavyzdys `switch` (įvykdytas kodas yra paryškintas):
 
 ```js run
 let a = 2 + 2;
 
 switch (a) {
   case 3:
-    alert( 'Too small' );
+    alert( 'Per mažas' );
     break;
 *!*
   case 4:
-    alert( 'Exactly!' );
+    alert( 'Kaip tik!' );
     break;
 */!*
   case 5:
-    alert( 'Too large' );
+    alert( 'Per didelis' );
     break;
   default:
-    alert( "I don't know such values" );
+    alert( "Tokios vertės nežinau" );
 }
 ```
 
-Here the `switch` starts to compare `a` from the first `case` variant that is `3`. The match fails.
+Šiuo atveju `switch` pradeda lyginti `a` iš pirmos bylos `case` variantą, kuris yra `3`. Atitikmuo nėra randamas.
 
-Then `4`. That's a match, so the execution starts from `case 4` until the nearest `break`.
+Tada `4`. Atitikmuo randamas, tad pradedamas vykdymas nuo `case 4` iki artimiausio `break`.
 
-**If there is no `break` then the execution continues with the next `case` without any checks.**
+**Jeigu nėra `break` tokiu atveju vykdymas tęsiasi su sekančia `case` be jokių patikrinimų.**
 
-An example without `break`:
+Pavyzdys be `break`:
 
 ```js run
 let a = 2 + 2;
 
 switch (a) {
   case 3:
-    alert( 'Too small' );
+    alert( 'Per mažas' );
 *!*
   case 4:
-    alert( 'Exactly!' );
+    alert( 'Kaip tik!' );
   case 5:
-    alert( 'Too big' );
+    alert( 'Per didelis' );
   default:
-    alert( "I don't know such values" );
+    alert( "Tokios vertės nežinau" );
 */!*
 }
 ```
 
-In the example above we'll see sequential execution of three `alert`s:
+Pavyzdyje aukščiau iš eilės matome kaip įvykdomi trys `alert`:
 
 ```js
-alert( 'Exactly!' );
-alert( 'Too big' );
-alert( "I don't know such values" );
+alert( 'Kaip tik!' );
+alert( 'Per didelis' );
+alert( "Tokios vertės nežinau" );
 ```
 
-````smart header="Any expression can be a `switch/case` argument"
-Both `switch` and `case` allow arbitrary expressions.
+````smart header="Bet kokia išraiška gali būti `switch/case` argumentu"
+Abu `switch` ir `case` leidžia sutartines išraiškas.
 
-For example:
+Pavyzdžiui:
 
 ```js run
 let a = "1";
@@ -99,74 +99,74 @@ let b = 0;
 switch (+a) {
 *!*
   case b + 1:
-    alert("this runs, because +a is 1, exactly equals b+1");
+    alert("šitas preina, nes +a yra 1, tiksliai lygu b+1");
     break;
 */!*
 
   default:
-    alert("this doesn't run");
+    alert("tai nepasileidžia");
 }
 ```
-Here `+a` gives `1`, that's compared with `b + 1` in `case`, and the corresponding code is executed.
+Čia `+a` atiduoda `1`, tai yra palyginama su `b + 1` byloje `case`, įvykdomas atitinkamas kodas.
 ````
 
-## Grouping of "case"
+## Grupavimas su "case"
 
-Several variants of `case` which share the same code can be grouped.
+Keli `case` variantai, kurie dalinasi tuo pačiu kodu gali būti sugrupuoti.
 
-For example, if we want the same code to run for `case 3` and `case 5`:
+Pavyzdžiui, jeigu mes norime, kad tas pats kodas pasileistų byloms `case 3` ir `case 5`:
 
 ```js run no-beautify
 let a = 2 + 2;
 
 switch (a) {
   case 4:
-    alert('Right!');
+    alert('Teisingai!');
     break;
 
 *!*
-  case 3: // (*) grouped two cases
+  case 3: // (*) dvi bylos sugrupuotos
   case 5:
-    alert('Wrong!');
-    alert("Why don't you take a math class?");
+    alert('Neteisingai!');
+    alert('Būtų neblogai apsilankyti matematikos pamokoje.');
     break;
 */!*
 
   default:
-    alert('The result is strange. Really.');
+    alert('Rezultatas yra iš tikrųjų keistas.');
 }
 ```
 
-Now both `3` and `5` show the same message.
+Dabar abu `3` ir `5` parodo tą pačią žinutę.
 
-The ability to "group" cases is a side-effect of how `switch/case` works without `break`. Here the execution of `case 3` starts from the line `(*)` and goes through `case 5`, because there's no `break`.
+Gebėjimas "sugrupuoti" bylas yra šalutinis efektas to kaip `switch/case` veikia be `break`. Čia `case 3` vykdymas prasideda nuo eilės su `(*)` ir eina per bylą `case 5`, nes nėra `break`.
 
-## Type matters
+## Tipas yra svarbu
 
-Let's emphasize that the equality check is always strict. The values must be of the same type to match.
+Pabrėžkime tai, kad lygybės patikrinimas yra visada griežtas. Vertės turi būti vienodo tipo, kad atitiktų viena kitą.
 
-For example, let's consider the code:
+Pavyzdžiui, apsvarstykime tokį kodą:
 
 ```js run
-let arg = prompt("Enter a value?");
+let arg = prompt("Įveskite vertę?");
 switch (arg) {
   case '0':
   case '1':
-    alert( 'One or zero' );
+    alert( 'Vienas arba nulis' );
     break;
 
   case '2':
-    alert( 'Two' );
+    alert( 'Du' );
     break;
 
   case 3:
-    alert( 'Never executes!' );
+    alert( 'Niekada nėra įvykdomas!' );
     break;
   default:
-    alert( 'An unknown value' );
+    alert( 'Nežinoma vertė' );
 }
 ```
 
-1. For `0`, `1`, the first `alert` runs.
-2. For `2` the second `alert` runs.
-3. But for `3`, the result of the `prompt` is a string `"3"`, which is not strictly equal `===` to the number `3`. So we've got a dead code in `case 3`! The `default` variant will execute.
+1. Kai įvedamas `0`, `1`, paleidžiamas pirmas `alert`.
+2. Kai įvedamas `2` paleidžiamas antras `alert`.
+3. Bet `3` neįvykdomas, kadangi `prompt` rezultatas yra eilutė `"3"`, o tai nėra griežtai lygu `===` skaičiui `3`. Tad mes turime neveikiantį kodą byloje `case 3`! Įvykdomas `default` variantas.

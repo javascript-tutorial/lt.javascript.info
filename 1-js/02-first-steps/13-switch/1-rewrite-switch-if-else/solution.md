@@ -1,20 +1,20 @@
-To precisely match the functionality of `switch`, the `if` must use a strict comparison `'==='`.
+Tam, kad būtų palaikomas `switch` funkcionalumas `if` turi naudoti griežtą lygybę `'==='`.
 
-For given strings though, a simple `'=='` works too.
+Bet duotoms eilutėms, paprasta lygybė `'=='` taip pat veikia.
 
 ```js no-beautify
 if(browser == 'Edge') {
-  alert("You've got the Edge!");
+  alert("Jūs turite Edge!");
 } else if (browser == 'Chrome'
  || browser == 'Firefox'
  || browser == 'Safari'
  || browser == 'Opera') {
-  alert( 'Okay we support these browsers too' );
+  alert( 'Gerai, palaikome ir tokias naršykles' );
 } else {
-  alert( 'We hope that this page looks ok!' );
+  alert( 'Mes tikimės, kad šis puslapis veikia gerai!' );
 }
 ```
 
-Please note: the construct `browser == 'Chrome' || browser == 'Firefox' …` is split into multiple lines for better readability.
+Atkreipkite dėmesį: konstruktas `browser == 'Chrome' || browser == 'Firefox' …` yra atskirtas į naujas eiles dėl geresnio skaitomumo.
 
-But the `switch` construct is still cleaner and more descriptive.
+Tačiau `switch` vis tiek yra švaresnis ir labiau apibūdinantis konstruktas.

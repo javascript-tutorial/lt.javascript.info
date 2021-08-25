@@ -2,9 +2,9 @@ importance: 4
 
 ---
 
-# Rewrite "if" into "switch"
+# Perrašykite "if" į "switch"
 
-Rewrite the code below using a single `switch` statement:
+Perrašykite kodą esantį žemiau naudodami vieną `switch` teiginį:
 
 ```js run
 let a = +prompt('a?', '');
