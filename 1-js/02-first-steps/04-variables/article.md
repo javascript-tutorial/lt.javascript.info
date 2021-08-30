@@ -24,7 +24,11 @@ Dabar į jį galime patalpinti duomenis naudodami užduoties operatorių `=`:
 let message;
 
 *!*
+<<<<<<< HEAD
 message = 'Labas'; // patalpinama eilutė
+=======
+message = 'Hello'; // store the string 'Hello' in the variable named message
+>>>>>>> 4d01fc20d4d82358e61518a31efe80dec9bb2602
 */!*
 ```
 
@@ -80,9 +84,14 @@ let user = 'John'
 
 Techniškai, visi šie variantai daro tą patį. Tad tai daugiau asmeninio skonio ir estetikos reikalas. 
 
+<<<<<<< HEAD
 
 ````smart header="`var` vietoje `let`"
 Senesniuose skriptuose galite rasti raktažodį: `var` vietoje `let`:
+=======
+````smart header="`var` instead of `let`"
+In older scripts, you may also find another keyword: `var` instead of `let`:
+>>>>>>> 4d01fc20d4d82358e61518a31efe80dec9bb2602
 
 ```js
 *!*var*/!* message = 'Labas';
@@ -135,8 +144,27 @@ alert(hello); // Labas pasauli!
 alert(message); // Labas pasauli!
 ```
 
+<<<<<<< HEAD
 ```smart header="Funkcinės kalbos"
 Yra įdomu pastebėti, kad egzistuoja [funkcinės](https://en.wikipedia.org/wiki/Functional_programming) programavimo kalbos, tokios kaip [Scala](http://www.scala-lang.org/) arba [Erlang](http://www.erlang.org/), kurios draudžia keisti kintamųjų vertes.
+=======
+````warn header="Declaring twice triggers an error"
+A variable should be declared only once.
+
+A repeated declaration of the same variable is an error:
+
+```js run
+let message = "This";
+
+// repeated 'let' leads to an error
+let message = "That"; // SyntaxError: 'message' has already been declared
+```
+So, we should declare a variable once and then refer to it without `let`.
+````
+
+```smart header="Functional languages"
+It's interesting to note that there exist [functional](https://en.wikipedia.org/wiki/Functional_programming) programming languages, like [Scala](http://www.scala-lang.org/) or [Erlang](http://www.erlang.org/) that forbid changing variable values.
+>>>>>>> 4d01fc20d4d82358e61518a31efe80dec9bb2602
 
 Tokiose kalbose, kai vertė yra patalpinama "į dėžę", ji ten ir pasilieka amžiams. Jeigu norime patalpinti kažką kito, kalba mus priverčia sukurti naują dėžę (deklaruoti naują kintamąjį). Mes nebegalime dar kartą panaudoti senojo.
 
@@ -190,7 +218,11 @@ let имя = '...';
 let 我 = '...';
 ```
 
+<<<<<<< HEAD
 Techniškai jokios klaidos tame nėra ir tokie pavadinimai yra leistini, tačiau tarptautinė tradicija yra naudoti angliškus kintamųjų pavadinimus. Net jeigu rašome trumpą skriptą, jo gyvenimas gali būti labai ilgas. Kada nors žmonėms iš kitų šalių gali tekti jį perskaityti.
+=======
+Technically, there is no error here. Such names are allowed, but there is an international convention to use English in variable names. Even if we're writing a small script, it may have a long life ahead. People from other countries may need to read it some time.
+>>>>>>> 4d01fc20d4d82358e61518a31efe80dec9bb2602
 ````
 
 ````warn header="Rezervuoti pavadinimai"
