@@ -9,7 +9,11 @@ Tad visų pirma pabandykime pridėti skriptą prie internetinio puslapio. Aplink
 
 ## Žyma "script"
 
+<<<<<<< HEAD
 JavaScript programa gali būti pridėta prie bet kurios HTML dokumento dalies su `<script>` žymos pagalba.
+=======
+JavaScript programs can be inserted almost anywhere into an HTML document using the `<script>` tag.
+>>>>>>> b09e38c5573346c401a9f9f7410b4ff9be5f4115
 
 Pavyzdžiui:
 
@@ -45,8 +49,13 @@ Galite paleisti pavyzdį paspausdami mygtuką "Paleisti" dešiniame virštutinia
 
 Žyma `<script>` turi kelis atributus, kurie šiais laikais jau retai naudojami, bet juos dar galite rasti senuose koduose:
 
+<<<<<<< HEAD
 Atributas `type`: <code>&lt;script <u>type</u>=...&gt;</code>
 : Senas HTML standartas, HTML4, reikalavo, kad skriptas turėtų `type`(tipą). Dažniausiai tau būdavo `type="text/javascript"`. Dabar tai nėra reikalaujama. Dar daugiau, modernus HTML standartas visiškai pakeitė šio atributo reikšmę. Dabar jis gali būti naudojamas JavaScript moduliuose. Bet tai jau pažengusio lygio tema; apie modulius kalbėsime kitoje šių pamokų dalyje.
+=======
+The `type` attribute: <code>&lt;script <u>type</u>=...&gt;</code>
+: The old HTML standard, HTML4, required a script to have a `type`. Usually it was `type="text/javascript"`. It's not required anymore. Also, the modern HTML standard totally changed the meaning of this attribute. Now, it can be used for JavaScript modules. But that's an advanced topic, we'll talk about modules in another part of the tutorial.
+>>>>>>> b09e38c5573346c401a9f9f7410b4ff9be5f4115
 
 Atributas `language`: <code>&lt;script <u>language</u>=...&gt;</code>
 : Šis atributas turėjo nurodyti skripto kalbą, bet daugiau nebeturi prasmės, nes JavaScript ir yra numatytoji kalba. Nėra reikalo šio atributo naudoti.
@@ -78,7 +87,7 @@ Skriptų failai yra sujungiami su HTML `src` (šaltinio) atributo pagalba:
 Taip pat galime pateikti pilną adresą (URL). Pavyzdžiui:
 
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js"></script>
 ```
 
 Kad pridėtume kelis skriptus, naudojame kiekvienam atskiras žymas:
