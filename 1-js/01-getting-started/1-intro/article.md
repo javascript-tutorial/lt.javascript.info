@@ -1,10 +1,18 @@
 # JavaScript įvadas
 
+<<<<<<< HEAD
 Pažvelkime kuo ypatinga JavaScript kalba, ką mes galime su ja padaryti ir kokios kitos technologijos gali būti naudojamos kartu.
+=======
+Let's see what's so special about JavaScript, what we can achieve with it, and what other technologies play well with it.
+>>>>>>> eda333d423db8ade41f75d2e2d30ea06c7d997ef
 
 ## Kas yra JavaScript?
 
+<<<<<<< HEAD
 Iš pat pradžių *JavaScript* buvo sukurta tam, kad *"padarytų tinklalapius gyvus"*.
+=======
+*JavaScript* was initially created to "make web pages alive".
+>>>>>>> eda333d423db8ade41f75d2e2d30ea06c7d997ef
 
 Programos, parašytos šia kalba yra vadinamos *skriptais* (and. scripts). Jos gali būti parašytos tinklalapio HTML ir suveikti automatiškai, kuomet tinklalapis kraunamas.
 
@@ -24,11 +32,19 @@ Naršyklės turi savo vidinį variklį, kuris kartais vadinamas "JavaScript virt
 
 Skirtingi varikliai turi skirtingus slapyvardžius (ang. "nicknames"). Pavyzdžiui:
 
+<<<<<<< HEAD
 - [V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine)) -- Chrome ir Opera.
 - [SpiderMonkey](https://en.wikipedia.org/wiki/SpiderMonkey) -- Firefox.
 - Egzistuoja kiti slapyvardžiai, tokie kaip "Trident", "Chakra" skirtingoms IE versijom, "ChakraCore" Microsoft Edge naršklėje, "Nitro" ir "SquirellFish" Safari ir t.t.
 
 Šias sąvokas verta atsiminti, nes jos naudojamos straipsniuose, skirtuose programuotojams. Mes taip pat jas naudosime. Pavyzdžiui, jeigu "feature X yra palaikoma V8", reiškias jinai ko gero veikia Chrome ir Opera naršklėse.
+=======
+- [V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine)) -- in Chrome, Opera and Edge.
+- [SpiderMonkey](https://en.wikipedia.org/wiki/SpiderMonkey) -- in Firefox.
+- ...There are other codenames like "Chakra" for IE, "JavaScriptCore", "Nitro" and "SquirrelFish" for Safari, etc.
+
+The terms above are good to remember because they are used in developer articles on the internet. We'll use them too. For instance, if "a feature X is supported by V8", then it probably works in Chrome, Opera and Edge.
+>>>>>>> eda333d423db8ade41f75d2e2d30ea06c7d997ef
 
 ```smart header="Kaip veikia varikliai?"
 
@@ -64,7 +80,11 @@ JavaScript galimybės naryklėje yra ribojamos dėl vartotojų saugumo. Tikslas 
 Ribojimų pavyzdžiai:
 - JavaScript tinklalapyje negali skaityti/rašyti failus esančius kietajame diske, juos kopijuoti arba vykdyti programas. JavaScript neturi tiesioginės prieigos prie operacinės sistemos funkcijų. 
 
+<<<<<<< HEAD
 	Modernios naršklės leidžia dirbti su failais, bet prieiga ribojama ir tai leidžiama tik jeigu vartotojas įvykdo kažką konkretaus. Pavyzdžiui, perkelia failą į naršyklę arba pažymi failą naudodamas `<input>` žymą.
+=======
+- JavaScript on a webpage may not read/write arbitrary files on the hard disk, copy them or execute programs. It has no direct access to OS functions.
+>>>>>>> eda333d423db8ade41f75d2e2d30ea06c7d997ef
 
 Yra būdų komunikuoti su kamera/mikrofonu ir kitais įrenginiais, bet tai reikalauja išreikštinio vartotojo leidimo. Taigi, JavaScript tinklalapis negali suktai įjungti web kameros, stebėti aplinkos ir siųsti informaciją į [NSA](https://en.wikipedia.org/wiki/National_Security_Agency).
 - Atskiros naršyklės kortelės (ang. "tabs") dažniausiai nežino viena apie kitą. Tačiau kartais viena kortelė naudoja JavaScript tam, kad atidarytų kitą kortelę, bet netgi tokiu atveju, JavaScript vienoje kortelėje negali pasiekti kitos, jeigu jie ateina iš skirtingų tinklalapių (skirtingas domenas, protokolas arba portas).
@@ -103,15 +123,30 @@ Modernūs įrankiai atlieka perrašymą labai greitai, tad programuotojai gali p
 
 Tokių kalbų pavyzdžiai:
 
+<<<<<<< HEAD
 - [CoffeeScript](http://coffeescript.org/) yra "syntactic sugar" JavaScript. Trumpesnė sintaksė, su kuria galima rašyti aiškesnį ir konkretesnį kodą. Tai dažniausiai patinka Ruby programuotojams.
 - [TypeScript](http://www.typescriptlang.org/) pagrindinis tikslas yra įvesti statinį tipizavimą. Tai palengvina sudėtingų sistemų programavimą. Sukurtas Microsoft.
 - [Flow](http://flow.org/) taip pat turi statinį tipizavimą, bet kiek kitokiu būdu. Sukurtas Facebook.
 - [Dart](https://www.dartlang.org/) yra atskira kalba, kuri turi savo paties variklį, kuris veikia ne naršyklėse (pvz. mobiliose aplikacijose), bet taip pat gali būti transpiliuotas į Javascriptą. Sukurtas Google.
+=======
+- [CoffeeScript](http://coffeescript.org/) is a "syntactic sugar" for JavaScript. It introduces shorter syntax, allowing us to write clearer and more precise code. Usually, Ruby devs like it.
+- [TypeScript](http://www.typescriptlang.org/) is concentrated on adding "strict data typing" to simplify the development and support of complex systems. It is developed by Microsoft.
+- [Flow](http://flow.org/) also adds data typing, but in a different way. Developed by Facebook.
+- [Dart](https://www.dartlang.org/) is a standalone language that has its own engine that runs in non-browser environments (like mobile apps), but also can be transpiled to JavaScript. Developed by Google.
+- [Brython](https://brython.info/) is a Python transpiler to JavaScript that enables the writing of applications in pure Python without JavaScript.
+- [Kotlin](https://kotlinlang.org/docs/reference/js-overview.html) is a modern, concise and safe programming language that can target the browser or Node.
+>>>>>>> eda333d423db8ade41f75d2e2d30ea06c7d997ef
 
 Yra ir daugiau pavyzdžių. Tačiau, netgi jeigu mes naudojame kažkurią iš transpiliuojamų kalbų, suprasti JavaScript yra ne mažiau svarbu.
 
 ## Santrauka
 
+<<<<<<< HEAD
 - JavaScript iš pat pradžių buvo sukurtas kaip kalba, veikianti naršyklėje, bet dabar turi ir daugiau aplinkų, kuriose gali būti vykdoma.
 - Šią dieną JavaScript yra unikali tuo, kad tai labiausiai paplitusi kalba naršyklei, turinti pilną integraciją su HTML/CSS.
 - Yra daug kalbų, kurios gali būti konvertuojamos į JavaScript ir turi papildomų funkcijų. Rekomenduojame į jas bent jau trumpai pažvelgti po to, kaip išmoksite JavaScript.
+=======
+- JavaScript was initially created as a browser-only language, but it is now used in many other environments as well.
+- Today, JavaScript has a unique position as the most widely-adopted browser language with full integration in HTML/CSS.
+- There are many languages that get "transpiled" to JavaScript and provide certain features. It is recommended to take a look at them, at least briefly, after mastering JavaScript.
+>>>>>>> eda333d423db8ade41f75d2e2d30ea06c7d997ef
