@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Sąlyginiai operatoriai: if, '?'
+=======
+# Conditional branching: if, '?'
+>>>>>>> 4541b7af7584014a676da731f6e8774da5e059f6
 
 Kartais mums tenka atlikti skirtingus veiksmus atitinkančius skirtingas sąlygas.
 
@@ -68,7 +72,11 @@ if (cond) {
 
 ## Išlyga "else"
 
+<<<<<<< HEAD
 Teiginys `if` gali turėti išlygos "else" rinkinį. Jis įvykdomas kai sąlyga yra false.
+=======
+The `if` statement may contain an optional "else" block. It executes when the condition is falsy.
+>>>>>>> 4541b7af7584014a676da731f6e8774da5e059f6
 
 Pavyzdžiui:
 ```js run

@@ -1,6 +1,14 @@
 # Duomenų tipai
 
+<<<<<<< HEAD
 Kintamasis JavaScript gali savyje laikyti bet kokius duomenis. Kintamasis gali vienu momentu būti eilutė, o kitu numeris:
+=======
+A value in JavaScript is always of a certain type. For example, a string or a number.
+
+There are eight basic data types in JavaScript. Here, we'll cover them in general and in the next chapters we'll talk about each of them in detail.
+
+We can put any type in a variable. For example, a variable can at one moment be a string and then store a number:
+>>>>>>> 4541b7af7584014a676da731f6e8774da5e059f6
 
 ```js
 // no error
@@ -8,11 +16,17 @@ let message = "labas";
 message = 123456;
 ```
 
+<<<<<<< HEAD
 Programinės kalbos, kurios tai leidžia yra vadinamos "dinamiškai tipizuotomis" (ang. "dynamically typed"), tai reiškia, kad duomenų tipai yra, tačiau kintamieji nėra prie jų pririšti.
 
 JavaScript turi septynis pagrindinius duomenų tipus. Čia mes juos peržvelgsime bendrai, o tolesniuose skyriuose apie kiekvieną pakalbėsime detaliau.
 
 ## Skaičius
+=======
+Programming languages that allow such things, such as JavaScript, are called "dynamically typed", meaning that there exist data types, but variables are not bound to any of them.
+
+## Number
+>>>>>>> 4541b7af7584014a676da731f6e8774da5e059f6
 
 ```js
 let n = 123;
@@ -62,14 +76,48 @@ Specialios skaitinės reikšmės priklauso "skaičių" tipui. Žinoma, jie nėra
 
 Daugiau apie darbą su skaičiais bus skyriuje <info:number>.
 
+<<<<<<< HEAD
 ## Eilutė
+=======
+## BigInt [#bigint-type]
+
+In JavaScript, the "number" type cannot represent integer values larger than <code>(2<sup>53</sup>-1)</code> (that's `9007199254740991`), or less than <code>-(2<sup>53</sup>-1)</code> for negatives. It's a technical limitation caused by their internal representation.
+
+For most purposes that's quite enough, but sometimes we need really big numbers, e.g. for cryptography or microsecond-precision timestamps.
+
+`BigInt` type was recently added to the language to represent integers of arbitrary length.
+
+A `BigInt` value is created by appending `n` to the end of an integer:
+
+```js
+// the "n" at the end means it's a BigInt
+const bigInt = 1234567890123456789012345678901234567890n;
+```
+
+As `BigInt` numbers are rarely needed, we don't cover them here, but devoted them a separate chapter <info:bigint>. Read it when you need such big numbers.
+
+
+```smart header="Compatibility issues"
+Right now, `BigInt` is supported in Firefox/Chrome/Edge/Safari, but not in IE.
+```
+
+You can check [*MDN* BigInt compatibility table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#Browser_compatibility) to know which versions of a browser are supported.
+
+## String
+>>>>>>> 4541b7af7584014a676da731f6e8774da5e059f6
 
 Eilutė JavaScript turi būti apsupta kabutėmis.
 
 ```js
+<<<<<<< HEAD
 let str = "Labas";
 let str2 = 'Viengubos kabutės taip pat tinka';
 let phrase = `galima įterpti ${str}`;
+=======
+let str = "Hello";
+let str2 = 'Single quotes are ok too';
+let phrase = `can embed another ${str}`;
+>>>>>>> 4541b7af7584014a676da731f6e8774da5e059f6
 ```
 
 JavaScript turi 3-ų tipų kabutes.
@@ -78,7 +126,11 @@ JavaScript turi 3-ų tipų kabutes.
 2. Viengubos kabutės: `'Hello'`.
 3. Atvirkštinės kabutės: <code>&#96;Labas&#96;</code>.
 
+<<<<<<< HEAD
 Dvigubos ir viengubos kabutės yra "paprastosios" kabutės. Tarp jų nėra jokio skirtumo JavaScript.
+=======
+Double and single quotes are "simple" quotes. There's practically no difference between them in JavaScript.
+>>>>>>> 4541b7af7584014a676da731f6e8774da5e059f6
 
 Atvirkštinės kabutės yra kabutės su "išplėstu funkcionalumu". Jos leidžia mums įterpti kintamuosius ir išraiškas į pačią eilutę kai apsupame juos tokiais ženklais `${…}`, pavyzdžiui:
 
@@ -101,6 +153,7 @@ alert( "rezultatas yra ${1 + 2}" ); // rezultatas yra ${1 + 2} (dvigubos kabutė
 
 Mes kalbėsime daugiau apie eilutes skyriuje <info:string>.
 
+<<<<<<< HEAD
 ```smart header="Nėra tokio tipo kaip *ženklas*."
 Kai kuriose kalbose yra specialus "ženklo" (ang. character) tipas skirtas vienetiniam ženklui. Pavyzdžiui tokiose kalbose kaip C arba Java toks ženklas yra vadinamas `char`.
 
@@ -108,6 +161,15 @@ JavaScript tokio tipo nėra. Yra tik vienas tipas: `string`(eilutė). Eilutė ga
 ```
 
 ## Loginis tipas
+=======
+```smart header="There is no *character* type."
+In some languages, there is a special "character" type for a single character. For example, in the C language and in Java it is called "char".
+
+In JavaScript, there is no such type. There's only one type: `string`. A string may consist of zero characters (be empty), one character or many of them.
+```
+
+## Boolean (logical type)
+>>>>>>> 4541b7af7584014a676da731f6e8774da5e059f6
 
 Loginis tipas (ang. boolean) turi tik dvi reikšmes: `true` (tiesa) ir `false`(netiesa).
 
@@ -144,7 +206,11 @@ JavaScript `null` nėra "nuoroda į neegzistuojantį objektą" arba į "nulinę 
 
 Tai tik speciali vertė, kuri atstovauja "nieką", "tuštumą" arba "vertė nežinoma".
 
+<<<<<<< HEAD
 Kodas viršuje reiškia, kad `age` nėra žinomas arba tuščias dėl neaiškios priežasties.
+=======
+The code above states that `age` is unknown.
+>>>>>>> 4541b7af7584014a676da731f6e8774da5e059f6
 
 ## Vertė "undefined"
 
@@ -155,30 +221,50 @@ Ypatingoji vertė `undefined` (neapibrėžtas) taip pat yra išskirtinė, nes tu
 Jeigu kintamasis deklaruotas, bet nepriskirtas, tada jo vertė yra `undefined`:
 
 ```js run
-let x;
+let age;
 
+<<<<<<< HEAD
 alert(x); // parodo "undefined"
 ```
 
 Techniškai yra įmanoma priskirti `undefined` vertę bet kuriam kintamajam:
-
-```js run
-let x = 123;
-
-x = undefined;
-
-alert(x); // "undefined"
+=======
+alert(age); // shows "undefined"
 ```
 
+Technically, it is possible to explicitly assign `undefined` to a variable:
+>>>>>>> 4541b7af7584014a676da731f6e8774da5e059f6
+
+```js run
+let age = 100;
+
+// change the value to undefined
+age = undefined;
+
+alert(age); // "undefined"
+```
+
+<<<<<<< HEAD
 ...Bet mes nerekomenduojame to daryti. Dažniausiai tam, kad priskirtume "tuščią" ar "nežinomą" vertę kintamajam, mes naudojame `null`, o `undefined` naudojame patikrinimams ar kintamajam buvo priskirta vertė.
+=======
+...But we don't recommend doing that. Normally, one uses `null` to assign an "empty" or "unknown" value to a variable, while `undefined` is reserved as a default initial value for unassigned things.
+>>>>>>> 4541b7af7584014a676da731f6e8774da5e059f6
 
 ## Objektai ir Simboliai
 
 Objekto `object` tipas yra ypatingas.
 
+<<<<<<< HEAD
 Visi kiti tipai vadinami "primityviais", nes jų vertė gali turėti tik vieną dalyką (nesvarbu ar tai eilutė, numeris ar kita). Tuo tarpu objektai naudojami saugoti duomenų kolekcijas ir daug sudėtingesnius darinius. Apie juos kalbėsime vėliau skyriuje <info:object> kai sužinosime daugiau apie primityvius tipus. 
 
 Simbolio `symbol` tipas yra skirtas sukurti unikalius identifikatorius skirtus objektams. Paminėjome juos tik dėl užbaigtumo, bet labiau juos studijuosime po objektų. 
+=======
+All other types are called "primitive" because their values can contain only a single thing (be it a string or a number or whatever). In contrast, objects are used to store collections of data and more complex entities.
+
+Being that important, objects deserve a special treatment. We'll deal with them later in the chapter <info:object>, after we learn more about primitives.
+
+The `symbol` type is used to create unique identifiers for objects. We have to mention it here for the sake of completeness, but also postpone the details till we know objects.
+>>>>>>> 4541b7af7584014a676da731f6e8774da5e059f6
 
 ## Operatorius typeof [#type-typeof]
 
@@ -197,6 +283,8 @@ Kitais žodžiais, jis veikia su skliausteliais ar be jų. Rezultatas toks pats.
 typeof undefined // "undefined"
 
 typeof 0 // "number"
+
+typeof 10n // "bigint"
 
 typeof true // "boolean"
 
@@ -219,13 +307,20 @@ typeof alert // "function"  (3)
 
 Paskutinės trys eilės gali reikalauti papildomo paaiškinimo:
 
+<<<<<<< HEAD
 1. `Math` yra įrašyta (ang. built-in) matematinė operacija. Apie ją sužinosime skyriuje <info:number>. Čia ji yra tik kaip objekto pavyzdys.
 2. Rezultatas iš `typeof null` yra `"object"`. Tai nėra tiesa. Tai yra oficialiai pripažinta `typeof` klaida, palikta dėl suderinamumo. Žinoma, kad `null` nėra objektas. Tai yra ypatinga vertė su atskiru tipu. Tad dar kartą, tai yra kalbos klaida.
 3. Rezultatas iš `typeof alert` yra `"function"`, nes `alert` ir yra funkcija. Funkcijas studijuosime sekančiuose skyriuose kur sužinosime, kad JavaScript neturi atskiro ypatingo "funkcijos" tipo. Funkcijos priklauso prie objekto tipo. Bet `typeof` jas vertina kitaip, grąžindamas `"function"`. Tai nėra visiškai teisinga, bet praktiškai labai patogu.
 
+=======
+1. `Math` is a built-in object that provides mathematical operations. We will learn it in the chapter <info:number>. Here, it serves just as an example of an object.
+2. The result of `typeof null` is `"object"`. That's an officially recognized error in `typeof` behavior, coming from the early days of JavaScript and kept for compatibility. Definitely, `null` is not an object. It is a special value with a separate type of its own.
+3. The result of `typeof alert` is `"function"`, because `alert` is a function. We'll study functions in the next chapters where we'll also see that there's no special "function" type in JavaScript. Functions belong to the object type. But `typeof` treats them differently, returning `"function"`. That also comes from the early days of JavaScript. Technically, such behavior isn't correct, but can be convenient in practice.
+>>>>>>> 4541b7af7584014a676da731f6e8774da5e059f6
 
 ## Santrauka
 
+<<<<<<< HEAD
 JavaScript turi 7 pagrindinius duomenų tipus.
 
 - `number` skirta bet kokio tipo skaičiams: sveikiems ir slankiojančio kablelio skaičiams.
@@ -235,6 +330,18 @@ JavaScript turi 7 pagrindinius duomenų tipus.
 - `undefined` nepriskirtoms vertėms -- atskiras tipas turintis vieną vertę `undefined`.
 - `object` skirta sudėtingesnėms duomenų struktūroms.
 - `symbol` skirta unikaliems identifikatoriams.
+=======
+There are 8 basic data types in JavaScript.
+
+- `number` for numbers of any kind: integer or floating-point, integers are limited by <code>±(2<sup>53</sup>-1)</code>.
+- `bigint` is for integer numbers of arbitrary length.
+- `string` for strings. A string may have zero or more characters, there's no separate single-character type.
+- `boolean` for `true`/`false`.
+- `null` for unknown values -- a standalone type that has a single value `null`.
+- `undefined` for unassigned values -- a standalone type that has a single value `undefined`.
+- `object` for more complex data structures.
+- `symbol` for unique identifiers.
+>>>>>>> 4541b7af7584014a676da731f6e8774da5e059f6
 
 Operatorius `typeof` leidžia matyti, kuris tipas yra saugomas kintamajame. 
 
