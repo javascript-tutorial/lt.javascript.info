@@ -6,7 +6,11 @@ importance: 2
 
 Naudodami konstruktą `if..else`, parašykite kodą, kuris klausia: 'Koks yra "oficialus JavaScript pavadinimas?' 
 
+<<<<<<< HEAD
 Jeigu lankytojas įveda "ECMAScript", tada gaunamas "Teisingai!", kitu atveju -- gaunamas: "Nežinojote? ECMAScript!"
+=======
+If the visitor enters "ECMAScript", then output "Right!", otherwise -- output: "You don't know? ECMAScript!"
+>>>>>>> a82915575863d33db6b892087975f84dea6cb425
 
 ![](ifelse_task2.svg)
 
