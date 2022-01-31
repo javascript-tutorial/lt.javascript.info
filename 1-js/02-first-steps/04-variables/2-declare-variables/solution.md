@@ -6,7 +6,11 @@ Tai labai paprasta:
 let ourPlanetName = "Žemė";
 ```
 
+<<<<<<< HEAD
 Atkreipkite dėmesį, kad galėjome naudoti trumpesnį pavadinimą `planet`, bet tada nebūtų aišku apie kurią planetą eina kalba. Šiuo atveju nieko tokio daugiažoždiauti. Bent jau kol kintamasis nėraPerIlgas. 
+=======
+Note, we could use a shorter name `planet`, but it might not be obvious what planet it refers to. It's nice to be more verbose. At least until the variable isNotTooLong.
+>>>>>>> 0f748275e20a81700c8514f22a7cc80c4422d09c
 
 ## Esamo lankytojo vardas
 
