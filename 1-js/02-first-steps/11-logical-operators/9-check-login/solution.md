@@ -3,20 +3,32 @@
 ```js run demo
 let userName = prompt("Kas čia?", '');
 
-if (userName == 'Admin') {
+if (userName === 'Admin') {
 
   let pass = prompt('Slaptažodis?', '');
 
+<<<<<<< HEAD
   if (pass == 'TheMaster') {
     alert( 'Sveiki!' );
   } else if (pass == '' || pass == null) {
     alert( 'Atšaukta' );
+=======
+  if (pass === 'TheMaster') {
+    alert( 'Welcome!' );
+  } else if (pass === '' || pass === null) {
+    alert( 'Canceled' );
+>>>>>>> 71da17e5960f1c76aad0d04d21f10bc65318d3f6
   } else {
     alert( 'Neteisingas slaptažodis' );
   }
 
+<<<<<<< HEAD
 } else if (userName == '' || userName == null) {
   alert( 'Atšaukta' );
+=======
+} else if (userName === '' || userName === null) {
+  alert( 'Canceled' );
+>>>>>>> 71da17e5960f1c76aad0d04d21f10bc65318d3f6
 } else {
   alert( "Aš jūsų nepažįstu" );
 }

@@ -46,7 +46,11 @@ alert(3 +
 + 2);
 ```
 
+<<<<<<< HEAD
 Kodas mums atiduoda `6`, nes JavaScript šiuo atveju neįterpia kabliataškio tarp eilučių. Intuityviai akivaizdu, kad jeigu eilutė pasibaigia pliusu `"+"`, tai yra nepabaigta išraiška (ang. "incomplete expression"), tokiu atveju kabliataškis nereikalingas. O kodas suveikia taip kaip buvo tikėtasi.
+=======
+The code outputs `6` because JavaScript does not insert semicolons here. It is intuitively obvious that if the line ends with a plus `"+"`, then it is an "incomplete expression", so a semicolon there would be incorrect. And in this case, that works as intended.
+>>>>>>> 71da17e5960f1c76aad0d04d21f10bc65318d3f6
 
 **Bet yra situacijų kada JavaScript "nepavyksta" numanyti kabliataškio, kai jo iš tikrųjų reikia.**
 
@@ -56,28 +60,43 @@ Klaidas tokiais atvejais dažnai sunku surasti ir pataisyti.
 Jeigu jums smalsu pamatyti tokios klaidos konkretų pavyzdį, patikrinkite sekantį kodą:
 
 ```js run
-[1, 2].forEach(alert)
+alert("Hello");
+
+[1, 2].forEach(alert);
 ```
 
+<<<<<<< HEAD
 Kol kas negalvokite apie šiuos skliaustelius `[]` ir `forEach`. Juos studijuosime vėliau. Jums reikia tik prisiminti kodo rezultatą: jis rodo `1` tada `2`.
 
 O dabar pridėkime `alert` prieš kodą ir *neužbaikime* jo su kabliataškiu:
 
 ```js run no-beautify
 alert("Tai bus klaida")
+=======
+No need to think about the meaning of the brackets `[]` and `forEach` yet. We'll study them later. For now, just remember the result of running the code: it shows `Hello`, then `1`, then `2`.
 
-[1, 2].forEach(alert)
+Now let's remove the semicolon after the `alert`:
+
+```js run no-beautify
+alert("Hello")
+>>>>>>> 71da17e5960f1c76aad0d04d21f10bc65318d3f6
+
+[1, 2].forEach(alert);
 ```
 
+<<<<<<< HEAD
 Dabar jeigu paleisime šį kodą, tik pirmasis `alert` pasirodo, o tada gauname klaidą!
 
 Bet jeigu pridedame kabliataškį po `alert` vėl viskas gerai:
 ```js run
 alert("Dabar viskas gerai");
+=======
+The difference compared to the code above is only one character: the semicolon at the end of the first line is gone.
+>>>>>>> 71da17e5960f1c76aad0d04d21f10bc65318d3f6
 
-[1, 2].forEach(alert)  
-```
+If we run this code, only the first `Hello` shows (and there's an error, you may need to open the console to see it). There are no numbers any more.
 
+<<<<<<< HEAD
 Gauname "Dabar viskas gerai" žinutę, kurią seka `1` ir `2`.
 
 
@@ -90,11 +109,28 @@ alert("Tai bus klaida")[1, 2].forEach(alert)
 ```
 
 Bet tai turėtų būti du atskiri pareiškimai, ne vienas. Toks sujungimas šiuo atveju yra neteisingas, dėl to ir gauname klaidą. Taip gali nutikti ir kitose situacijose.
+=======
+That's because JavaScript does not assume a semicolon before square brackets `[...]`. So, the code in the last example is treated as a single statement.
+
+Here's how the engine sees it:
+
+```js run no-beautify
+alert("Hello")[1, 2].forEach(alert);
+```
+
+Looks weird, right? Such merging in this case is just wrong. We need to put a semicolon after `alert` for the code to work correctly.
+
+This can happen in other situations also.
+>>>>>>> 71da17e5960f1c76aad0d04d21f10bc65318d3f6
 ````
 
 Mes rekomenduojame dėti kabliataškius pareiškimų pabaigoje net jeigu jie yra atskirose eilutėse. Tokia taisyklė yra plačiai naudojama. Dar kartą prisiminkime -- *įmanoma* daugeliu atvejų kabliataškių nedėti. Bet daug saugiau -- ypač naujokams -- juos naudoti.
 
+<<<<<<< HEAD
 ## Komentarai
+=======
+## Comments [#code-comments]
+>>>>>>> 71da17e5960f1c76aad0d04d21f10bc65318d3f6
 
 Laikui bėgant programos tampa vis sudėtingesnės, dėl to svarbu pridėti komentarus (ang. *comments*), kurie paaiškintų ką kodas daro ir kodėl.
 
@@ -136,7 +172,11 @@ alert('Pasauli');
 ```
 
 ```smart header="Use hotkeys!"
+<<<<<<< HEAD
 Didžiojoje dalyje redaktorių vieno kodo eilutė gali būti paversta komentaru spaudžiant klaviatūroje vienu metu `key:Ctrl+/`, o kelių eilučių komentaras gaunamas spaudžiant `key:Ctrl+Shift+/` -- (išbandykite tai patys su savo kodu). Mac kompiuteriuose, naudokite `key:Cmd` vietoje `key:Ctrl`.
+=======
+In most editors, a line of code can be commented out by pressing the `key:Ctrl+/` hotkey for a single-line comment and something like `key:Ctrl+Shift+/` -- for multiline comments (select a piece of code and press the hotkey). For Mac, try `key:Cmd` instead of `key:Ctrl` and `key:Option` instead of `key:Shift`.
+>>>>>>> 71da17e5960f1c76aad0d04d21f10bc65318d3f6
 ```
 
 ````warn header="Sudedamieji (ang. nested) komentarai nėra galimi!"
