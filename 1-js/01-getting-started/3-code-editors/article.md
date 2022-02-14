@@ -36,7 +36,14 @@ Praktikoj, lengvasvoriai redaktoriai turi daug papildymų (ang. "plugin"), įska
 - [Notepad++](https://notepad-plus-plus.org/) (Windows, nemokamas).
 - [Vim](http://www.vim.org/) ir [Emacs](https://www.gnu.org/software/emacs/) yra labai puikūs, jeigu moki jais naudotis.
 
+<<<<<<< HEAD
 ## Nesiginčykime
+=======
+- [Atom](https://atom.io/) (cross-platform, free).
+- [Sublime Text](http://www.sublimetext.com) (cross-platform, shareware).
+- [Notepad++](https://notepad-plus-plus.org/) (Windows, free).
+- [Vim](http://www.vim.org/) and [Emacs](https://www.gnu.org/software/emacs/) are also cool if you know how to use them.
+>>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834
 
 Redaktoriai, kurie buvo paminėti šioje pamokoje yra tie, kuriuos aš ir mano draugai, kuriuos laikau kietais programuotojais, naudojame ilgą laiką ir kurie tenkina mūsų poreikius.
 
