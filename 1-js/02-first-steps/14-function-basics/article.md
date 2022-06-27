@@ -1,26 +1,26 @@
 # Functions
 
-Quite often we need to perform a similar action in many places of the script.
+Dažnai tą patį veiksmą reikia pakartoti daugelyje programos dalių.
 
-For example, we need to show a nice-looking message when a visitor logs in, logs out and maybe somewhere else.
+Pavyzdžiui, reikia parodyti lankytojui gražų pranešimą, kai jis įeina į svetainę, kai jis išeina iš svetainės arba bet kur kitur.
 
-Functions are the main "building blocks" of the program. They allow the code to be called many times without repetition.
+Siekiant išvengti to paties kodo kartojimo daugelyje vietų, buvo sugalvotos funkcijos. Funkcijos - tai pagrindiniai programos blokai.
 
-We've already seen examples of built-in functions, like `alert(message)`, `prompt(message, default)` and `confirm(question)`. But we can create functions of our own as well.
+Jus jau matėte integruotų funkcijų pavyzdžių - tai `alert(message)`, `prompt(message, default)` ir `confirm(question)`. Tačiau taip pat galima kurti savo funkcijas
 
-## Function Declaration
+## Funkcijos deklaravimas
 
-To create a function we can use a *function declaration*.
+Norėdami sukurti funkcijas, galime naudoti *funkcijos deklaravimų*.
 
-It looks like this:
+Funkcijos deklaravimo pavyzdys:
 
 ```js
 function showMessage() {
-  alert( 'Hello everyone!' );
+  alert( 'Labas visiems!' );
 }
 ```
 
-The `function` keyword goes first, then goes the *name of the function*, then a list of *parameters* between the parentheses (comma-separated, empty in the example above) and finally the code of the function, also named "the function body", between curly braces.
+Pirmiausia įrašomas raktažodis `funkcija', po jo nurodomas funkcijos pavadinimas, po to skliausteliuose pateikiamas parametrų sąrašas, atskirtas kableliais (aukščiau pateiktame pavyzdyje jis yra tuščias), ir, galiausiai, funkcijos kodas, dar vadinamas «funkcijos turiniu», riestiniuose skliaustuose.
 
 ```js
 function name(parameters) {
@@ -28,13 +28,13 @@ function name(parameters) {
 }
 ```
 
-Our new function can be called by its name: `showMessage()`.
+Mūsų naująją funkciją galima iškviesti jos pavadinimu: `showMessage()`.
 
-For instance:
+Pavyzdžiui:
 
 ```js run
 function showMessage() {
-  alert( 'Hello everyone!' );
+  alert( 'Labas visiems!' );
 }
 
 *!*
@@ -43,66 +43,66 @@ showMessage();
 */!*
 ```
 
-The call `showMessage()` executes the code of the function. Here we will see the message two times.
+Kai mes iškviečiame `showMessage()`, įvykdomas funkcijos kodas. Čia matysime pranešimą du kartus.
 
-This example clearly demonstrates one of the main purposes of functions: to avoid code duplication.
+Šis pavyzdys aiškiai parodo vieną iš pagrindinių funkcijų tikslų - atsikratyti kodo dubliavimo.
 
-If we ever need to change the message or the way it is shown, it's enough to modify the code in one place: the function which outputs it.
+Jei reikia pakeisti pranešimą arba jo išvedimo būdą, užteks pakeisti ją vienoje vietoje: funkcijoje, kuri išveda šį pranešimą.
 
-## Local variables
+## Lokaliniai kintamieji
 
-A variable declared inside a function is only visible inside that function.
+Funkcijoje deklaruoti kintamieji matomi tik toje funkcijoje.
 
-For example:
+Pavyzdžiui:
 
 ```js run
 function showMessage() {
 *!*
-  let message = "Hello, I'm JavaScript!"; // local variable
+  let message = "Sveiki, aš esu JavaScript!"; // lokalinis kintamasis
 */!*
 
   alert( message );
 }
 
-showMessage(); // Hello, I'm JavaScript!
+showMessage(); // Sveiki, aš esu JavaScript!
 
 alert( message ); // <-- Error! The variable is local to the function
 ```
 
-## Outer variables
+## Išoriniai kintamieji
 
-A function can access an outer variable as well, for example:
+Funkcija turi prieigą prie išorinių kintamųjų, pavyzdžiui:
 
 ```js run no-beautify
 let *!*userName*/!* = 'John';
 
 function showMessage() {
-  let message = 'Hello, ' + *!*userName*/!*;
+  let message = 'Labas, ' + *!*userName*/!*;
   alert(message);
 }
 
-showMessage(); // Hello, John
+showMessage(); // Labas, John
 ```
 
-The function has full access to the outer variable. It can modify it as well.
+Funkcija turi pilną prieigą prie išorinių kintamųjų ir gali keisti jų vertę.
 
-For instance:
+Pavyzdžiui:
 
 ```js run
 let *!*userName*/!* = 'John';
 
 function showMessage() {
-  *!*userName*/!* = "Bob"; // (1) changed the outer variable
+  *!*userName*/!* = "Bob"; // (1) keičiame išorinio kintamojo vertę
 
-  let message = 'Hello, ' + *!*userName*/!*;
+  let message = 'Labas, ' + *!*userName*/!*;
   alert(message);
 }
 
-alert( userName ); // *!*John*/!* before the function call
+alert( userName ); // *!*John*/!* prieš funkcijos iškvietimą
 
 showMessage();
 
-alert( userName ); // *!*Bob*/!*, the value was modified by the function
+alert( userName ); // *!*Bob*/!*, vertė, pakeista funkcija
 ```
 
 The outer variable is only used if there's no local one.
