@@ -105,54 +105,54 @@ showMessage();
 alert( userName ); // *!*Bob*/!*, vertė, pakeista funkcija
 ```
 
-The outer variable is only used if there's no local one.
+Išorinis kintamasis naudojamas tik tuo atveju, jei nėra lokalinio kintamojo.
 
-If a same-named variable is declared inside the function then it *shadows* the outer one. For instance, in the code below the function uses the local `userName`. The outer one is ignored:
+Jei funkcijos viduje deklaruojame kintamąjį, kuris buvo deklaruotas už funkcijos ribų, išorinis kintamasis bus ignoruojamas. Pavyzdžiui, toliau pateiktame kode funkcija naudoja lokalinį kintamąjį `userName`. Išorinis bus ignoruojamas:
 
 ```js run
 let userName = 'John';
 
 function showMessage() {
 *!*
-  let userName = "Bob"; // declare a local variable
+  let userName = "Bob"; // deklaruojame vietinį kintamąjį
 */!*
 
-  let message = 'Hello, ' + userName; // *!*Bob*/!*
+  let message = 'Labas, ' + userName; // *!*Bob*/!*
   alert(message);
 }
 
-// the function will create and use its own userName
+// funkcija sukurs savo kintamąjį userName ir jį naudos
 showMessage();
 
-alert( userName ); // *!*John*/!*, unchanged, the function did not access the outer variable
+alert( userName ); // *!*John*/!*, niekas nepasikeitė, funkcija nepakeitė išorinio kintamojo
 ```
 
-```smart header="Global variables"
-Variables declared outside of any function, such as the outer `userName` in the code above, are called *global*.
+```smart header="Globalūs kintamieji"
+Kintamieji, deklaruojami už visų funkcijų ribų, pvz., išorinis kintamasis `userName` aukščiau pateiktame kode, vadinami globaliaisiais.
 
-Global variables are visible from any function (unless shadowed by locals).
+Globalūs kintamieji matomi bet kurioje funkcijoje (nebent tose funkcijose yra to paties pavadinimo kintamųjų).
 
-It's a good practice to minimize the use of global variables. Modern code has few or no globals. Most variables reside in their functions. Sometimes though, they can be useful to store project-level data.
+Patartina kuo mažiau naudoti globaliuosius kintamuosius. Šiuolaikiniame kode paprastai globalių kintamųjų būna nedaug arba jų iš viso nebūna. Nors kartais jos yra naudingos svarbiausiems projekto duomenims saugoti.
 ```
 
-## Parameters
+## Parametrai
 
-We can pass arbitrary data to functions using parameters (also called *function arguments*) .
+Naudodami parametrus (dar vadinamus *funkcijos argumentais*) funkcijai galime perduoti bet kokią informaciją.
 
-In the example below, the function has two parameters: `from` and `text`.
+Žemiau pateiktame pavyzdyje funkcijai perduodami du argumentai: `from` ir `text`.
 
 ```js run
-function showMessage(*!*from, text*/!*) { // arguments: from, text
+function showMessage(*!*from, text*/!*) { // argumentai: from, text
   alert(from + ': ' + text);
 }
 
 *!*
-showMessage('Ann', 'Hello!'); // Ann: Hello! (*)
-showMessage('Ann', "What's up?"); // Ann: What's up? (**)
+showMessage('Ana', 'Sveiki!'); // Ann: Sveiki! (*)
+showMessage('Ana', "Kaip sekasi?"); // Ann: Kaip sekasi? (**)
 */!*
 ```
 
-When the function is called in lines `(*)` and `(**)`, the given values are copied to local variables `from` and `text`. Then the function uses them.
+Kai funkcija iškviečiama eilutėse `(*)` ir `(**)`, perduotos vertės perkeliamos į lokalinius kintamuosius from ir text. Tada jie naudojami funkcijos turinyje.
 
 Here's one more example: we have a variable `from` and pass it to the function. Please note: the function changes `from`, but the change is not seen outside, because a function always gets a copy of the value:
 
