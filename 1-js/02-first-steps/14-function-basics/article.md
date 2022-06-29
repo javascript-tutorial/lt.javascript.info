@@ -66,7 +66,7 @@ function showMessage() {
 
 showMessage(); // Sveiki, aš esu JavaScript!
 
-alert( message ); // <-- Error! The variable is local to the function
+alert( message ); // <-- bus sukelta klaida, nes kintamasis matomas tik funkcijos viduje.
 ```
 
 ## Išoriniai kintamieji
