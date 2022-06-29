@@ -2,7 +2,7 @@ importance: 1
 
 ---
 
-# Function min(a, b)
+# Funkcija min(a, b)
 
 Parašykite funkciją `min(a,b)`, kuri grąžina mažesnį iš skaičių `a` ir `b`.
 
