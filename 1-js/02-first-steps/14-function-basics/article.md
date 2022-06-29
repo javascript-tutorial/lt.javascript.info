@@ -1,4 +1,4 @@
-# Functions
+# Funkcijos
 
 Dažnai tą patį veiksmą reikia pakartoti daugelyje programos dalių.
 
