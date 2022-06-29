@@ -1,1 +1,1 @@
-No difference.
+Abi funkcijos veikia vienodai, skirtumų nėra.
