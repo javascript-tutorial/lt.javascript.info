@@ -147,8 +147,8 @@ function showMessage(*!*from, text*/!*) { // argumentai: from, text
 }
 
 *!*
-showMessage('Ana', 'Sveiki!'); // Ann: Sveiki! (*)
-showMessage('Ana', "Kaip sekasi?"); // Ann: Kaip sekasi? (**)
+showMessage('Ana', 'Sveiki!'); // Ana: Sveiki! (*)
+showMessage('Ana', "Kaip sekasi?"); // Ana: Kaip sekasi? (**)
 */!*
 ```
 
