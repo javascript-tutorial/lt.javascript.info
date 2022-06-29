@@ -20,7 +20,7 @@ function showMessage() {
 }
 ```
 
-Pirmiausia įrašomas raktažodis `funkcija', po jo nurodomas funkcijos pavadinimas, po to skliausteliuose pateikiamas parametrų sąrašas, atskirtas kableliais (aukščiau pateiktame pavyzdyje jis yra tuščias), ir, galiausiai, funkcijos kodas, dar vadinamas «funkcijos turiniu», riestiniuose skliaustuose.
+Pirmiausia įrašomas raktažodis `funkcija`, po jo nurodomas funkcijos pavadinimas, po to skliausteliuose pateikiamas parametrų sąrašas, atskirtas kableliais (aukščiau pateiktame pavyzdyje jis yra tuščias), ir, galiausiai, funkcijos kodas, dar vadinamas «funkcijos turiniu», riestiniuose skliaustuose.
 
 ```js
 function name(parameters) {
