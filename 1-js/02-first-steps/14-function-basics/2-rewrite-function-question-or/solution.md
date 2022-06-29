@@ -1,17 +1,17 @@
-Using a question mark operator `'?'`:
+Naudojant operatorių `?`:
 
 ```js
 function checkAge(age) {
-  return (age > 18) ? true : confirm('Did parents allow you?');
+  return (age > 18) ? true : confirm('Ar tėvai leido?');
 }
 ```
 
-Using OR `||` (the shortest variant):
+Naudojant operatorių `||` (trumpiausias variantas):
 
 ```js
 function checkAge(age) {
-  return (age > 18) || confirm('Did parents allow you?');
+  return (age > 18) || confirm('Ar tėvai leido?');
 }
 ```
 
-Note that the parentheses around `age > 18` are not required here. They exist for better readabilty.
+Atkreipkite dėmesį, kad skliaustai aplink `age > 18` yra neprivalomi. Jie skirti geresniam kodo skaitomumui užtikrinti.
