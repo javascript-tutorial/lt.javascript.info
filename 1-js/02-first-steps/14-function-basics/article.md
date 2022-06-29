@@ -152,7 +152,7 @@ showMessage('Ana', "Kaip sekasi?"); // Ana: Kaip sekasi? (**)
 */!*
 ```
 
-Kai funkcija iškviečiama eilutėse `(*)` ir `(**)`, perduotos vertės perkeliamos į lokalinius kintamuosius from ir text. Tada jie naudojami funkcijos turinyje.
+Kai funkcija iškviečiama eilutėse `(*)` ir `(**)`, perduotos vertės perkeliamos į lokalinius kintamuosius `from` ir `text`. Tada jie naudojami funkcijos turinyje.
 
 Štai dar vienas pavyzdys: turime kintamąjį `from` ir perduodame jį funkcijai. Atkreipkite dėmesį: funkcija pakeičia reikšmę `from`, tačiau šis pokytis nėra matomas iš išorės. Funkcija visada gauna tik vertės kopiją:
 
@@ -171,7 +171,7 @@ let from = "Ana";
 
 showMessage(from, "Hello"); // *Ana*: Sveiki
 
-// // "from" vertė lieka ta pati, funkcija pakeitė tik lokalinio kintamojo vertę
+// "from" vertė lieka ta pati, funkcija pakeitė tik lokalinio kintamojo vertę
 alert( from ); // Ana
 ```
 
@@ -185,7 +185,7 @@ Pavyzdžiui, aukščiau pateiktą funkciją `showMessage(from, text)` galima iš
 showMessage("Ana");
 ```
 
-Tai nesukels klaidos. Po tokio iškvietimo rašoma `"*Anya*: undefined"`. Kvietime nenurodytas teksto parametras, todėl laikoma, kad `text === undefined`.
+Tai nesukels klaidos. Po tokio iškvietimo rašoma `"*Ana*: undefined"`. Kvietime nenurodytas `text` parametras, todėl laikoma, kad `text === undefined`.
 
 Jei norime nustatyti numatytąją `text` parametro vertę, turime ją nurodyti po `=`:
 
@@ -235,7 +235,7 @@ function showMessage(from, text) {
 
 ```js
 function showMessage(from, text) {
-  // jei `text` vertę yra false, nustatyti `text` parametro numatytąją vertę
+  // jei text vertę yra false, nustatyti text parametro numatytąją vertę
   text = text || 'tekstas nepridėtas';
   ...
 }
@@ -306,6 +306,7 @@ function showMovie(age) {
 Aukščiau pateiktame kode, jei `checkAge(age)` grąžina `false`, `showMovie` neįvykdys `alert`.
 
 ````smart header="Funkcijos rezultatas su tuščiu `return` arba be jo yra `undefined`"
+
 Jei funkcija negrąžina vertės, tai yra tas pats, lyg ji būtų grąžinusi `undefined` vertę:
 
 ```js run
@@ -359,7 +360,7 @@ Funkcija - tai veiksmas. Todėl funkcijos pavadinimas dažniausiai yra veiksmaž
 
 Paprastai veiksmažodžių priešdėliai vartojami bendram veiksmo pobūdžiui reikšti, o po jų eina paaiškinimas. Paprastai programuotojų komandos yra sudariusios susitarimus dėl šių priešdėlių reikšmių.
 
-Pavyzdžiui, funkcijos, prasidedančios žodžiu "show", paprastai ką nors parodo.
+Pavyzdžiui, funkcijos, prasidedančios žodžiu `"show"`, paprastai ką nors parodo.
 
 Funkcijos, prasidedančios nuo...
 
@@ -408,7 +409,7 @@ Funkcijos turėtų būti trumpos ir atlikti tik vieną veiksmą. Jei funkcija yr
 
 Nedidelės funkcijos ne tik palengvina testavimą ir derinimą -- pats tokių funkcijų egzistavimas atlieka gerų komentarų vaidmenį!
 
-Pavyzdžiui, palyginkime žemiau pateiktas dvi `showPrimes(n)` funkcijas. Kiekvienas iš jų išveda [paprastąjį skaičių](https://en.wikipedia.org/wiki/Prime_number) iki n.
+Pavyzdžiui, palyginkime žemiau pateiktas dvi `showPrimes(n)` funkcijas. Kiekviena iš jų išveda [paprastąjį skaičių](https://en.wikipedia.org/wiki/Prime_number) iki n.
 
 Pirmame variante naudojama `nextPrime` žyma:
 
