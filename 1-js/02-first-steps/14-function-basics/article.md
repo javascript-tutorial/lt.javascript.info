@@ -215,7 +215,7 @@ Aukščiau pateiktame pavyzdyje `anotherFunction()` bus iškviečiama kiekvieną
 ```
 
 ````smart header="Numatytųjų nustatymų naudojimas ankstesnėse JavaScript versijose"
-Ankstyvosios "JavaScript" versijos nepalaiko numatytųjų parametrų. Todėl senesniuose skriptiniuose tekstuose galima rasti alternatyvių būdų.
+Ankstyvosios JavaScript versijos nepalaiko numatytųjų parametrų. Todėl senesniuose skriptiniuose tekstuose galima rasti alternatyvių būdų.
 
 Pavyzdžiui, patikrinimas dėl `undefined`:
 
@@ -378,7 +378,7 @@ createForm(..)      // sukuria formą (ir dažniausiai ją grąžina).
 checkPermission(..) // tikrina prieigą ir grąžina true/false
 ```
 
-Dėl prefiksų iš pirmo žvilgsnio aišku, ką funkcijos pavadinimas daro ir kokią vertę gali grąžinti.
+Dėl priešdėlių iš pirmo žvilgsnio aišku, ką funkcijos pavadinimas daro ir kokią vertę gali grąžinti.
 
 ```smart header="Viena funkcija - vienas veiksmas"
 Funkcija turėtų atlikti tik tai, ką aiškiai nurodo jos pavadinimas. Tai turėtų būti vienas veiksmas.
@@ -391,26 +391,26 @@ Du nepriklausomi veiksmai paprastai reiškia dvi funkcijas, net jei jos turi bū
 - `createForm` -- būtų netinkamas pasirinkimas, jei funkcija pakeistų dokumentą, pridėdama į jį formą (turėtų tik sukurti formą ir ją grąžinti).
 - `checkPermission` -- būtų netinkamas pasirinkimas, jei funkcija rodytų pranešimą su tekstu "Prieiga suteikta / uždrausta" (turėtų tik atlikti patikrinimą ir grąžinti jo rezultatą).
 
-These examples assume common meanings of prefixes. You and your team are free to agree on other meanings, but usually they're not much different. In any case, you should have a firm understanding of what a prefix means, what a prefixed function can and cannot do. All same-prefixed functions should obey the rules. And the team should share the knowledge.
+Šiuose pavyzdžiuose naudotos bendrinės priešdėlių reikšmės. Žinoma, savo komandoje galite susitarti ir dėl kitų reikšmių, tačiau jos paprastai nedaug skiriasi nuo bendrųjų. Bet kokiu atveju jūs ir jūsų komanda turėtumėte tiksliai suprasti, ką reiškia priešdėlių, ką funkcija gali ir ko negali su juo daryti.
 ```
 
-```smart header="Ultrashort function names"
-Functions that are used *very often* sometimes have ultrashort names.
+```smart header="Ypač trumpi funkcijų pavadinimai"
+Labai dažnai naudojami funkcijų pavadinimai kartais būna itin trumpi.
 
-For example, the [jQuery](http://jquery.com) framework defines a function with `$`. The [Lodash](http://lodash.com/) library has its core function named `_`.
+Pavyzdžiui, [jQuery](http://jquery.com) framework'e yra funkcija, pavadinta `$`. [Lodash](http://lodash.com/) bibliotekoje pagrindinę funkciją žymi vardas `_`.
 
-These are exceptions. Generally functions names should be concise and descriptive.
+Tai yra išimtys. Apskritai funkcijų pavadinimai turėtų būti vidutiniškai trumpi ir apibūdinti funkcijų veiksmus.
 ```
 
-## Functions == Comments
+## Funkcijos == Komentarai
 
-Functions should be short and do exactly one thing. If that thing is big, maybe it's worth it to split the function into a few smaller functions. Sometimes following this rule may not be that easy, but it's definitely a good thing.
+Funkcijos turėtų būti trumpos ir atlikti tik vieną veiksmą. Jei funkcija yra didelė, ją tikslinga suskaidyti į kelias mažesnes. Kartais nelengva laikytis šios taisyklės, tačiau ji tikrai gera.
 
-A separate function is not only easier to test and debug -- its very existence is a great comment!
+Nedidelės funkcijos ne tik palengvina testavimą ir derinimą -- pats tokių funkcijų egzistavimas atlieka gerų komentarų vaidmenį!
 
-For instance, compare the two functions `showPrimes(n)` below. Each one outputs [prime numbers](https://en.wikipedia.org/wiki/Prime_number) up to `n`.
+Pavyzdžiui, palyginkime žemiau pateiktas dvi `showPrimes(n)` funkcijas. Kiekvienas iš jų išveda [paprastąjį skaičių](https://en.wikipedia.org/wiki/Prime_number) iki n.
 
-The first variant uses a label:
+Pirmame variante naudojama `nextPrime` žyma:
 
 ```js
 function showPrimes(n) {
@@ -420,12 +420,12 @@ function showPrimes(n) {
       if (i % j == 0) continue nextPrime;
     }
 
-    alert( i ); // a prime
+    alert( i ); // paprastas skaičius
   }
 }
 ```
 
-The second variant uses an additional function `isPrime(n)` to test for primality:
+Antrajame variante naudojama papildoma funkcija `isPrime(n)`, skirta patikrinti, ar yra paprastųjų skaičių:
 
 ```js
 function showPrimes(n) {
@@ -433,7 +433,7 @@ function showPrimes(n) {
   for (let i = 2; i < n; i++) {
     *!*if (!isPrime(i)) continue;*/!*
 
-    alert(i);  // a prime
+    alert(i);  // paprastas skaičius
   }
 }
 
@@ -445,32 +445,32 @@ function isPrime(n) {
 }
 ```
 
-The second variant is easier to understand, isn't it? Instead of the code piece we see a name of the action (`isPrime`). Sometimes people refer to such code as *self-describing*.
+Antrąjį variantą lengviau suprasti, ar ne? Vietoj kodo dalies matome veiksmo pavadinimą (`isPrime`). Kartais programišiai šį kodą vadina *savaiminiu dokumentavimu*.
 
-So, functions can be created even if we don't intend to reuse them. They structure the code and make it readable.
+Todėl galima kurti funkcijas, net jei neplanuojame jų pakartotinai naudoti. Tokios funkcijos struktūrizuoja kodą ir daro jį aiškesnį.
 
-## Summary
+## Iš viso
 
-A function declaration looks like this:
+Funkcijos deklaravimas atrodo taip:
 
 ```js
-function name(parameters, delimited, by, comma) {
-  /* code */
+function name(kableliais, atskirti, parametrai) {
+  /* kodas */
 }
 ```
 
-- Values passed to a function as parameters are copied to its local variables.
-- A function may access outer variables. But it works only from inside out. The code outside of the function doesn't see its local variables.
-- A function can return a value. If it doesn't, then its result is `undefined`.
+- Perduotos vertės nukopijuojamos į funkcijos parametrus ir tampa lokaliniais kintamaisiais.
+- Funkcijos turi prieigą prie išorinių kintamųjų. Tačiau tai veikia tik iš vidaus į išorę. Kodas, esantis už funkcijos ribų, neturi prieigos prie jos lokalinių kintamųjų.
+- Funkcija gali grąžinti vertę. Jei funkcija nieko negrąžina, rezultatas yra `undefined`.
 
-To make the code clean and easy to understand, it's recommended to use mainly local variables and parameters in the function, not outer variables.
+Kad kodas būtų švaresnis ir aiškesnis, rekomenduojama naudoti lokalinius kintamuosius ir funkcijų parametrus, o ne išorinius kintamuosius.
 
-It is always easier to understand a function which gets parameters, works with them and returns a result than a function which gets no parameters, but modifies outer variables as a side-effect.
+Funkcija, kuri gauna parametrus, dirba su jais ir grąžina rezultatą, yra daug aiškesnė nei funkcija, kuri iškviečiama be parametrų, bet keičia išorinius kintamuosius, o tai gali turėti šalutinį poveikį.
 
-Function naming:
+Funkcijos pavadinimo pasirinkimas:
 
-- A name should clearly describe what the function does. When we see a function call in the code, a good name instantly gives us an understanding what it does and returns.
-- A function is an action, so function names are usually verbal.
-- There exist many well-known function prefixes like `create…`, `show…`, `get…`, `check…` and so on. Use them to hint what a function does.
+- Funkcijos pavadinimas turėtų būti aiškus ir aiškiai išreikšti jos paskirtį. Kai pamatysite, kad ji iškviečiama kode, iš karto suprasite, ką ji daro ir ką grąžina.
+- Funkcija - tai veiksmas, todėl jos pavadinimas paprastai yra veiksmažodis.
+- Yra daug bendrinių priešdėlių, pvz: `create…`, `show…`, `get…`, `check…` ir t. t. Naudokite juos kaip užuominas, paaiškinančias, ką funkcija daro.
 
-Functions are the main building blocks of scripts. Now we've covered the basics, so we actually can start creating and using them. But that's only the beginning of the path. We are going to return to them many times, going more deeply into their advanced features.
+Funkcijos yra pagrindinės skriptų sudedamosios dalys. Apžvelgėme tik JavaScript funkcijų pagrindus, tačiau jau galime jas kurti ir naudoti. Tai tik kelionės pradžia. Prie funkcijų grįšime daug kartų ir jas vis giliau nagrinėsime.
