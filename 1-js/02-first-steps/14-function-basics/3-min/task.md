@@ -2,11 +2,11 @@ importance: 1
 
 ---
 
-# Function min(a, b)
+# Funkcija min(a, b)
 
-Write a function `min(a,b)` which returns the least of two numbers `a` and `b`.
+Parašykite funkciją `min(a,b)`, kuri grąžina mažesnį iš skaičių `a` ir `b`.
 
-For instance:
+Pavyzdžiui:
 
 ```js
 min(2, 5) == 2

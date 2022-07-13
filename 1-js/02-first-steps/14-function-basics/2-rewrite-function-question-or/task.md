@@ -2,25 +2,25 @@ importance: 4
 
 ---
 
-# Rewrite the function using '?' or '||'
+# Perrašykite funkciją naudodami operatorių '?' arba '||'
 
-The following function returns `true` if the parameter `age` is greater than `18`.
+Ši funkcija grąžina `true`, jei parametras `age` yra didesnis nei `18`.
 
-Otherwise it asks for a confirmation and returns its result.
+Priešingu atveju klausiama `confirm' ir grąžinamas rezultatas.
 
 ```js
 function checkAge(age) {
   if (age > 18) {
     return true;
   } else {
-    return confirm('Did parents allow you?');
+    return confirm('Ar tėvai leido?');
   }
 }
 ```
 
-Rewrite it, to perform the same, but without `if`, in a single line.
+Perrašykite funkciją taip, kad ji darytų tą patį, bet be `if`, vienoje eilutėje.
 
-Make two variants of `checkAge`:
+Sukurkite dvi funkcijos `checkAge` variantus:
 
-1. Using a question mark operator `?`
-2. Using OR `||`
+1. Naudojant operatorių `?`
+2. Naudojant operatorių `||`

@@ -1,26 +1,26 @@
-# Functions
+# Funkcijos
 
-Quite often we need to perform a similar action in many places of the script.
+Dažnai tą patį veiksmą reikia pakartoti daugelyje programos dalių.
 
-For example, we need to show a nice-looking message when a visitor logs in, logs out and maybe somewhere else.
+Pavyzdžiui, reikia parodyti lankytojui gražų pranešimą, kai jis įeina į svetainę, kai jis išeina iš svetainės arba bet kur kitur.
 
-Functions are the main "building blocks" of the program. They allow the code to be called many times without repetition.
+Siekiant išvengti to paties kodo kartojimo daugelyje vietų, buvo sugalvotos funkcijos. Funkcijos - tai pagrindiniai programos blokai.
 
-We've already seen examples of built-in functions, like `alert(message)`, `prompt(message, default)` and `confirm(question)`. But we can create functions of our own as well.
+Jus jau matėte integruotų funkcijų pavyzdžių - tai `alert(message)`, `prompt(message, default)` ir `confirm(question)`. Tačiau taip pat galima kurti savo funkcijas
 
-## Function Declaration
+## Funkcijos deklaravimas
 
-To create a function we can use a *function declaration*.
+Norėdami sukurti funkcijas, galime naudoti *funkcijos deklaravimų*.
 
-It looks like this:
+Funkcijos deklaravimo pavyzdys:
 
 ```js
 function showMessage() {
-  alert( 'Hello everyone!' );
+  alert( 'Labas visiems!' );
 }
 ```
 
-The `function` keyword goes first, then goes the *name of the function*, then a list of *parameters* between the parentheses (comma-separated, empty in the example above) and finally the code of the function, also named "the function body", between curly braces.
+Pirmiausia įrašomas raktažodis `funkcija`, po jo nurodomas funkcijos pavadinimas, po to skliausteliuose pateikiamas parametrų sąrašas, atskirtas kableliais (aukščiau pateiktame pavyzdyje jis yra tuščias), ir, galiausiai, funkcijos kodas, dar vadinamas «funkcijos turiniu», riestiniuose skliaustuose.
 
 ```js
 function name(parameters) {
@@ -28,13 +28,13 @@ function name(parameters) {
 }
 ```
 
-Our new function can be called by its name: `showMessage()`.
+Mūsų naująją funkciją galima iškviesti jos pavadinimu: `showMessage()`.
 
-For instance:
+Pavyzdžiui:
 
 ```js run
 function showMessage() {
-  alert( 'Hello everyone!' );
+  alert( 'Labas visiems!' );
 }
 
 *!*
@@ -43,187 +43,187 @@ showMessage();
 */!*
 ```
 
-The call `showMessage()` executes the code of the function. Here we will see the message two times.
+Kai mes iškviečiame `showMessage()`, įvykdomas funkcijos kodas. Čia matysime pranešimą du kartus.
 
-This example clearly demonstrates one of the main purposes of functions: to avoid code duplication.
+Šis pavyzdys aiškiai parodo vieną iš pagrindinių funkcijų tikslų - atsikratyti kodo dubliavimo.
 
-If we ever need to change the message or the way it is shown, it's enough to modify the code in one place: the function which outputs it.
+Jei reikia pakeisti pranešimą arba jo išvedimo būdą, užteks pakeisti ją vienoje vietoje: funkcijoje, kuri išveda šį pranešimą.
 
-## Local variables
+## Lokaliniai kintamieji
 
-A variable declared inside a function is only visible inside that function.
+Funkcijoje deklaruoti kintamieji matomi tik toje funkcijoje.
 
-For example:
+Pavyzdžiui:
 
 ```js run
 function showMessage() {
 *!*
-  let message = "Hello, I'm JavaScript!"; // local variable
+  let message = "Sveiki, aš esu JavaScript!"; // lokalinis kintamasis
 */!*
 
   alert( message );
 }
 
-showMessage(); // Hello, I'm JavaScript!
+showMessage(); // Sveiki, aš esu JavaScript!
 
-alert( message ); // <-- Error! The variable is local to the function
+alert( message ); // <-- bus sukelta klaida, nes kintamasis matomas tik funkcijos viduje.
 ```
 
-## Outer variables
+## Išoriniai kintamieji
 
-A function can access an outer variable as well, for example:
+Funkcija turi prieigą prie išorinių kintamųjų, pavyzdžiui:
 
 ```js run no-beautify
 let *!*userName*/!* = 'John';
 
 function showMessage() {
-  let message = 'Hello, ' + *!*userName*/!*;
+  let message = 'Labas, ' + *!*userName*/!*;
   alert(message);
 }
 
-showMessage(); // Hello, John
+showMessage(); // Labas, John
 ```
 
-The function has full access to the outer variable. It can modify it as well.
+Funkcija turi pilną prieigą prie išorinių kintamųjų ir gali keisti jų vertę.
 
-For instance:
+Pavyzdžiui:
 
 ```js run
 let *!*userName*/!* = 'John';
 
 function showMessage() {
-  *!*userName*/!* = "Bob"; // (1) changed the outer variable
+  *!*userName*/!* = "Bob"; // (1) keičiame išorinio kintamojo vertę
 
-  let message = 'Hello, ' + *!*userName*/!*;
+  let message = 'Labas, ' + *!*userName*/!*;
   alert(message);
 }
 
-alert( userName ); // *!*John*/!* before the function call
+alert( userName ); // *!*John*/!* prieš funkcijos iškvietimą
 
 showMessage();
 
-alert( userName ); // *!*Bob*/!*, the value was modified by the function
+alert( userName ); // *!*Bob*/!*, vertė, pakeista funkcija
 ```
 
-The outer variable is only used if there's no local one.
+Išorinis kintamasis naudojamas tik tuo atveju, jei nėra lokalinio kintamojo.
 
-If a same-named variable is declared inside the function then it *shadows* the outer one. For instance, in the code below the function uses the local `userName`. The outer one is ignored:
+Jei funkcijos viduje deklaruojame kintamąjį, kuris buvo deklaruotas už funkcijos ribų, išorinis kintamasis bus ignoruojamas. Pavyzdžiui, toliau pateiktame kode funkcija naudoja lokalinį kintamąjį `userName`. Išorinis bus ignoruojamas:
 
 ```js run
 let userName = 'John';
 
 function showMessage() {
 *!*
-  let userName = "Bob"; // declare a local variable
+  let userName = "Bob"; // deklaruojame vietinį kintamąjį
 */!*
 
-  let message = 'Hello, ' + userName; // *!*Bob*/!*
+  let message = 'Labas, ' + userName; // *!*Bob*/!*
   alert(message);
 }
 
-// the function will create and use its own userName
+// funkcija sukurs savo kintamąjį userName ir jį naudos
 showMessage();
 
-alert( userName ); // *!*John*/!*, unchanged, the function did not access the outer variable
+alert( userName ); // *!*John*/!*, niekas nepasikeitė, funkcija nepakeitė išorinio kintamojo
 ```
 
-```smart header="Global variables"
-Variables declared outside of any function, such as the outer `userName` in the code above, are called *global*.
+```smart header="Globalūs kintamieji"
+Kintamieji, deklaruojami už visų funkcijų ribų, pvz., išorinis kintamasis `userName` aukščiau pateiktame kode, vadinami globaliaisiais.
 
-Global variables are visible from any function (unless shadowed by locals).
+Globalūs kintamieji matomi bet kurioje funkcijoje (nebent tose funkcijose yra to paties pavadinimo kintamųjų).
 
-It's a good practice to minimize the use of global variables. Modern code has few or no globals. Most variables reside in their functions. Sometimes though, they can be useful to store project-level data.
+Patartina kuo mažiau naudoti globaliuosius kintamuosius. Šiuolaikiniame kode paprastai globalių kintamųjų būna nedaug arba jų iš viso nebūna. Nors kartais jos yra naudingos svarbiausiems projekto duomenims saugoti.
 ```
 
-## Parameters
+## Parametrai
 
-We can pass arbitrary data to functions using parameters (also called *function arguments*) .
+Naudodami parametrus (dar vadinamus *funkcijos argumentais*) funkcijai galime perduoti bet kokią informaciją.
 
-In the example below, the function has two parameters: `from` and `text`.
+Žemiau pateiktame pavyzdyje funkcijai perduodami du argumentai: `from` ir `text`.
 
 ```js run
-function showMessage(*!*from, text*/!*) { // arguments: from, text
+function showMessage(*!*from, text*/!*) { // argumentai: from, text
   alert(from + ': ' + text);
 }
 
 *!*
-showMessage('Ann', 'Hello!'); // Ann: Hello! (*)
-showMessage('Ann', "What's up?"); // Ann: What's up? (**)
+showMessage('Ana', 'Sveiki!'); // Ana: Sveiki! (*)
+showMessage('Ana', "Kaip sekasi?"); // Ana: Kaip sekasi? (**)
 */!*
 ```
 
-When the function is called in lines `(*)` and `(**)`, the given values are copied to local variables `from` and `text`. Then the function uses them.
+Kai funkcija iškviečiama eilutėse `(*)` ir `(**)`, perduotos vertės perkeliamos į lokalinius kintamuosius `from` ir `text`. Tada jie naudojami funkcijos turinyje.
 
-Here's one more example: we have a variable `from` and pass it to the function. Please note: the function changes `from`, but the change is not seen outside, because a function always gets a copy of the value:
+Štai dar vienas pavyzdys: turime kintamąjį `from` ir perduodame jį funkcijai. Atkreipkite dėmesį: funkcija pakeičia reikšmę `from`, tačiau šis pokytis nėra matomas iš išorės. Funkcija visada gauna tik vertės kopiją:
 
 
 ```js run
 function showMessage(from, text) {
 
 *!*
-  from = '*' + from + '*'; // make "from" look nicer
+  from = '*' + from + '*'; // papuoškime from
 */!*
 
   alert( from + ': ' + text );
 }
 
-let from = "Ann";
+let from = "Ana";
 
-showMessage(from, "Hello"); // *Ann*: Hello
+showMessage(from, "Hello"); // *Ana*: Sveiki
 
-// the value of "from" is the same, the function modified a local copy
-alert( from ); // Ann
+// "from" vertė lieka ta pati, funkcija pakeitė tik lokalinio kintamojo vertę
+alert( from ); // Ana
 ```
 
-## Default values
+## Numatytuosius parametrus
 
-If a parameter is not provided, then its value becomes `undefined`.
+Jei parametras nenurodytas, jo reikšmė tampa `undefined`.
 
-For instance, the aforementioned function `showMessage(from, text)` can be called with a single argument:
+Pavyzdžiui, aukščiau pateiktą funkciją `showMessage(from, text)` galima iškviesti su vienu argumentu:
 
 ```js
-showMessage("Ann");
+showMessage("Ana");
 ```
 
-That's not an error. Such a call would output `"Ann: undefined"`. There's no `text`, so it's assumed that `text === undefined`.
+Tai nesukels klaidos. Po tokio iškvietimo rašoma `"*Ana*: undefined"`. Kvietime nenurodytas `text` parametras, todėl laikoma, kad `text === undefined`.
 
-If we want to use a "default" `text` in this case, then we can specify it after `=`:
+Jei norime nustatyti numatytąją `text` parametro vertę, turime ją nurodyti po `=`:
 
 ```js run
-function showMessage(from, *!*text = "no text given"*/!*) {
+function showMessage(from, *!*text = "tekstas nepridėtas"*/!*) {
   alert( from + ": " + text );
 }
 
-showMessage("Ann"); // Ann: no text given
+showMessage("Ana"); // Ana: tekstas nepridėtas
 ```
 
-Now if the `text` parameter is not passed, it will get the value `"no text given"`
+Dabar, jei `text` parametras nenurodytas, jo vertė bus `"tekstas nepridėtas"`.
 
-Here `"no text given"` is a string, but it can be a more complex expression, which is only evaluated and assigned if the parameter is missing. So, this is also possible:
+Šiuo atveju `"tekstas nepridėtas"` yra eilutė, tačiau vietoj jos gali būti sudėtingesnė išraiška, kuri apskaičiuojama ir priskiriama, kai nėra parametro. Pavyzdžiui:
 
 ```js run
 function showMessage(from, text = anotherFunction()) {
-  // anotherFunction() only executed if no text given
-  // its result becomes the value of text
+  // anotherFunction() bus vykdoma tik tuo atveju, jei `text` nebus perduotas
+  // rezultatas yra `text` vertė.
 }
 ```
 
-```smart header="Evaluation of default parameters"
-In JavaScript, a default parameter is evaluated every time the function is called without the respective parameter.
+```smart header="Numatytųjų parametrų apskaičiavimas"
+JavaScript kalba numatytieji parametrai apskaičiuojami kiekvieną kartą, kai funkcija iškviečiama be atitinkamo parametro.
 
-In the example above, `anotherFunction()` is called every time `showMessage()` is called without the `text` parameter.
+Aukščiau pateiktame pavyzdyje `anotherFunction()` bus iškviečiama kiekvieną kartą, kai `showMessage()` bus iškviesta be `text` parametro.
 ```
 
-````smart header="Default parameters old-style"
-Old editions of JavaScript did not support default parameters. So there are alternative ways to support them, that you can find mostly in the old scripts.
+````smart header="Numatytųjų nustatymų naudojimas ankstesnėse JavaScript versijose"
+Ankstyvosios JavaScript versijos nepalaiko numatytųjų parametrų. Todėl senesniuose skriptiniuose tekstuose galima rasti alternatyvių būdų.
 
-For instance, an explicit check for being `undefined`:
+Pavyzdžiui, patikrinimas dėl `undefined`:
 
 ```js
 function showMessage(from, text) {
 *!*
   if (text === undefined) {
-    text = 'no text given';
+    text = 'tekstas nepridėtas';
   }
 */!*
 
@@ -231,12 +231,12 @@ function showMessage(from, text) {
 }
 ```
 
-...Or the `||` operator:
+...Arba naudodami operatorių `||`:
 
 ```js
 function showMessage(from, text) {
-  // if text is falsy then text gets the "default" value
-  text = text || 'no text given';
+  // jei text vertę yra false, nustatyti text parametro numatytąją vertę
+  text = text || 'tekstas nepridėtas';
   ...
 }
 ```
@@ -245,11 +245,11 @@ function showMessage(from, text) {
 ````
 
 
-## Returning a value
+## Grąžintina vertė
 
-A function can return a value back into the calling code as the result.
+Funkcija gali grąžinti rezultatą, kuris bus perduotas ją iškvietusiam kodui.
 
-The simplest example would be a function that sums two values:
+Paprasčiausias pavyzdys - dviejų skaičių sudėjimo funkcija:
 
 ```js run no-beautify
 function sum(a, b) {
@@ -260,9 +260,9 @@ let result = sum(1, 2);
 alert( result ); // 3
 ```
 
-The directive `return` can be in any place of the function. When the execution reaches it, the function stops, and the value is returned to the calling code (assigned to `result` above).
+`Return` direktyva gali būti bet kurioje funkcijos turinio vietoje. Kai tik vykdymas pasiekia šį tašką, funkcija sustoja ir vertė grąžinama ją iškvietusiam kodui (priskirta aukščiau nurodytam kintamajam `result`).
 
-There may be many occurrences of `return` in a single function. For instance:
+Funkcijoje `return' gali būti naudojamas kelis kartus, pavyzdžiui:
 
 ```js run
 function checkAge(age) {
@@ -272,23 +272,23 @@ function checkAge(age) {
 */!*
   } else {
 *!*
-    return confirm('Do you have permission from your parents?');
+    return confirm('O tėvai leido?');
 */!*
   }
 }
 
-let age = prompt('How old are you?', 18);
+let age = prompt('Kiek jums metų?', 18);
 
 if ( checkAge(age) ) {
-  alert( 'Access granted' );
+  alert( 'Suteikta prieiga' );
 } else {
-  alert( 'Access denied' );
+  alert( 'Prieiga uždrausta' );
 }
 ```
 
-It is possible to use `return` without a value. That causes the function to exit immediately.
+Galima naudoti `return` be vertės. Dėl to funkcija bus iš karto baigta.
 
-For example:
+Pavyzdžiui:
 
 ```js
 function showMovie(age) {
@@ -298,23 +298,24 @@ function showMovie(age) {
 */!*
   }
 
-  alert( "Showing you the movie" ); // (*)
+  alert( "Jums rodomas filmas" ); // (*)
   // ...
 }
 ```
 
-In the code above, if `checkAge(age)` returns `false`, then `showMovie` won't proceed to the `alert`.
+Aukščiau pateiktame kode, jei `checkAge(age)` grąžina `false`, `showMovie` neįvykdys `alert`.
 
-````smart header="A function with an empty `return` or without it returns `undefined`"
-If a function does not return a value, it is the same as if it returns `undefined`:
+````smart header="Funkcijos rezultatas su tuščiu `return` arba be jo yra `undefined`"
+
+Jei funkcija negrąžina vertės, tai yra tas pats, lyg ji būtų grąžinusi `undefined` vertę:
 
 ```js run
-function doNothing() { /* empty */ }
+function doNothing() { /* tuščia */ }
 
 alert( doNothing() === undefined ); // true
 ```
 
-An empty `return` is also the same as `return undefined`:
+Tuščias `return` yra analogiškas `return undefined`:
 
 ```js run
 function doNothing() {
@@ -325,23 +326,23 @@ alert( doNothing() === undefined ); // true
 ```
 ````
 
-````warn header="Never add a newline between `return` and the value"
-For a long expression in `return`, it might be tempting to put it on a separate line, like this:
+````warn header="Niekada nedėkite eilutės laužimo tarp `return` ir jo vertės"
+Ilgos išraiškos `return` atveju gali kilti pagunda ją pateikti keliose atskirose eilutėse, pvz., taip:
 
 ```js
 return
  (some + long + expression + or + whatever * f(a) + f(b))
 ```
-That doesn't work, because JavaScript assumes a semicolon after `return`. That'll work the same as:
+Kodas nebus vykdomas, nes JavaScript interpretatorius po `return` įterpia kabliataškį. Jam šis kodas atrodys taip:
 
 ```js
 return*!*;*/!*
  (some + long + expression + or + whatever * f(a) + f(b))
 ```
 
-So, it effectively becomes an empty return.
+Tai iš tikrųjų tampa tuščiu `return`.
 
-If we want the returned expression to wrap across multiple lines, we should start it at the same line as `return`. Or at least put the opening parentheses there as follows:
+Jei norime, kad grąžinimo išraiška apimtų kelias eilutes, turime ją pradėti toje pačioje eilutėje kaip ir `return`. Arba bent jau įterpti skliaustus, pvz., taip:
 
 ```js
 return (
@@ -350,67 +351,67 @@ return (
   whatever * f(a) + f(b)
   )
 ```
-And it will work just as we expect it to.
+Tada viskas veiks taip, kaip buvo numatyta.
 ````
 
-## Naming a function [#function-naming]
+## Funkcijos pavadinimo pasirinkimas
 
-Functions are actions. So their name is usually a verb. It should be brief, as accurate as possible and describe what the function does, so that someone reading the code gets an indication of what the function does.
+Funkcija - tai veiksmas. Todėl funkcijos pavadinimas dažniausiai yra veiksmažodis. Jis turi būti paprastas, tikslus ir apibūdinti funkcijos veiksmą taip, kad programuotojas, kuris skaitys kodą, teisingai suprastų, ką funkcija daro.
 
-It is a widespread practice to start a function with a verbal prefix which vaguely describes the action. There must be an agreement within the team on the meaning of the prefixes.
+Paprastai veiksmažodžių priešdėliai vartojami bendram veiksmo pobūdžiui reikšti, o po jų eina paaiškinimas. Paprastai programuotojų komandos yra sudariusios susitarimus dėl šių priešdėlių reikšmių.
 
-For instance, functions that start with `"show"` usually show something.
+Pavyzdžiui, funkcijos, prasidedančios žodžiu `"show"`, paprastai ką nors parodo.
 
-Function starting with...
+Funkcijos, prasidedančios nuo...
 
-- `"get…"` -- return a value,
-- `"calc…"` -- calculate something,
-- `"create…"` -- create something,
-- `"check…"` -- check something and return a boolean, etc.
+- `"get…"` -- grąžina vertę,
+- `"calc…"` -- ką nors apskaičiuoja,
+- `"create…"` -- ką nors sukuria,
+- `"check…"` -- ką nors patikrina ir grąžina "Boolean" vertę ir t. t.
 
-Examples of such names:
+Tokių pavadinimų pavyzdžiai:
 
 ```js no-beautify
-showMessage(..)     // shows a message
-getAge(..)          // returns the age (gets it somehow)
-calcSum(..)         // calculates a sum and returns the result
-createForm(..)      // creates a form (and usually returns it)
-checkPermission(..) // checks a permission, returns true/false
+showMessage(..)     // rodo pranešimą
+getAge(..)          // grąžina amžių
+calcSum(..)         // apskaičiuoja sumą ir grąžina rezultatą
+createForm(..)      // sukuria formą (ir dažniausiai ją grąžina).
+checkPermission(..) // tikrina prieigą ir grąžina true/false
 ```
 
-With prefixes in place, a glance at a function name gives an understanding what kind of work it does and what kind of value it returns.
+Dėl priešdėlių iš pirmo žvilgsnio aišku, ką funkcijos pavadinimas daro ir kokią vertę gali grąžinti.
 
-```smart header="One function -- one action"
-A function should do exactly what is suggested by its name, no more.
+```smart header="Viena funkcija - vienas veiksmas"
+Funkcija turėtų atlikti tik tai, ką aiškiai nurodo jos pavadinimas. Tai turėtų būti vienas veiksmas.
 
-Two independent actions usually deserve two functions, even if they are usually called together (in that case we can make a 3rd function that calls those two).
+Du nepriklausomi veiksmai paprastai reiškia dvi funkcijas, net jei jos turi būti iškviestos kartu (tokiu atveju galime sukurti trečią funkciją joms iškviesti).
 
-A few examples of breaking this rule:
+Štai keletas pavyzdžių, kurie pažeidžia šią taisyklę:
 
-- `getAge` -- would be bad if it shows an `alert` with the age (should only get).
-- `createForm` -- would be bad if it modifies the document, adding a form to it (should only create it and return).
-- `checkPermission` -- would be bad if it displays the `access granted/denied` message (should only perform the check and return the result).
+- `getAge` -- būtų netinkamas pasirinkimas, jei funkcija išveda `alert` su amžiumi (turėtų tik grąžinti jį).
+- `createForm` -- būtų netinkamas pasirinkimas, jei funkcija pakeistų dokumentą, pridėdama į jį formą (turėtų tik sukurti formą ir ją grąžinti).
+- `checkPermission` -- būtų netinkamas pasirinkimas, jei funkcija rodytų pranešimą su tekstu "Prieiga suteikta / uždrausta" (turėtų tik atlikti patikrinimą ir grąžinti jo rezultatą).
 
-These examples assume common meanings of prefixes. You and your team are free to agree on other meanings, but usually they're not much different. In any case, you should have a firm understanding of what a prefix means, what a prefixed function can and cannot do. All same-prefixed functions should obey the rules. And the team should share the knowledge.
+Šiuose pavyzdžiuose naudotos bendrinės priešdėlių reikšmės. Žinoma, savo komandoje galite susitarti ir dėl kitų reikšmių, tačiau jos paprastai nedaug skiriasi nuo bendrųjų. Bet kokiu atveju jūs ir jūsų komanda turėtumėte tiksliai suprasti, ką reiškia priešdėlių, ką funkcija gali ir ko negali su juo daryti.
 ```
 
-```smart header="Ultrashort function names"
-Functions that are used *very often* sometimes have ultrashort names.
+```smart header="Ypač trumpi funkcijų pavadinimai"
+Labai dažnai naudojami funkcijų pavadinimai kartais būna itin trumpi.
 
-For example, the [jQuery](http://jquery.com) framework defines a function with `$`. The [Lodash](http://lodash.com/) library has its core function named `_`.
+Pavyzdžiui, [jQuery](http://jquery.com) framework'e yra funkcija, pavadinta `$`. [Lodash](http://lodash.com/) bibliotekoje pagrindinę funkciją žymi vardas `_`.
 
-These are exceptions. Generally functions names should be concise and descriptive.
+Tai yra išimtys. Apskritai funkcijų pavadinimai turėtų būti vidutiniškai trumpi ir apibūdinti funkcijų veiksmus.
 ```
 
-## Functions == Comments
+## Funkcijos == Komentarai
 
-Functions should be short and do exactly one thing. If that thing is big, maybe it's worth it to split the function into a few smaller functions. Sometimes following this rule may not be that easy, but it's definitely a good thing.
+Funkcijos turėtų būti trumpos ir atlikti tik vieną veiksmą. Jei funkcija yra didelė, ją tikslinga suskaidyti į kelias mažesnes. Kartais nelengva laikytis šios taisyklės, tačiau ji tikrai gera.
 
-A separate function is not only easier to test and debug -- its very existence is a great comment!
+Nedidelės funkcijos ne tik palengvina testavimą ir derinimą -- pats tokių funkcijų egzistavimas atlieka gerų komentarų vaidmenį!
 
-For instance, compare the two functions `showPrimes(n)` below. Each one outputs [prime numbers](https://en.wikipedia.org/wiki/Prime_number) up to `n`.
+Pavyzdžiui, palyginkime žemiau pateiktas dvi `showPrimes(n)` funkcijas. Kiekviena iš jų išveda [paprastąjį skaičių](https://en.wikipedia.org/wiki/Prime_number) iki n.
 
-The first variant uses a label:
+Pirmame variante naudojama `nextPrime` žyma:
 
 ```js
 function showPrimes(n) {
@@ -420,12 +421,12 @@ function showPrimes(n) {
       if (i % j == 0) continue nextPrime;
     }
 
-    alert( i ); // a prime
+    alert( i ); // paprastas skaičius
   }
 }
 ```
 
-The second variant uses an additional function `isPrime(n)` to test for primality:
+Antrajame variante naudojama papildoma funkcija `isPrime(n)`, skirta patikrinti, ar yra paprastųjų skaičių:
 
 ```js
 function showPrimes(n) {
@@ -433,7 +434,7 @@ function showPrimes(n) {
   for (let i = 2; i < n; i++) {
     *!*if (!isPrime(i)) continue;*/!*
 
-    alert(i);  // a prime
+    alert(i);  // paprastas skaičius
   }
 }
 
@@ -445,32 +446,32 @@ function isPrime(n) {
 }
 ```
 
-The second variant is easier to understand, isn't it? Instead of the code piece we see a name of the action (`isPrime`). Sometimes people refer to such code as *self-describing*.
+Antrąjį variantą lengviau suprasti, ar ne? Vietoj kodo dalies matome veiksmo pavadinimą (`isPrime`). Kartais programišiai šį kodą vadina *savaiminiu dokumentavimu*.
 
-So, functions can be created even if we don't intend to reuse them. They structure the code and make it readable.
+Todėl galima kurti funkcijas, net jei neplanuojame jų pakartotinai naudoti. Tokios funkcijos struktūrizuoja kodą ir daro jį aiškesnį.
 
-## Summary
+## Iš viso
 
-A function declaration looks like this:
+Funkcijos deklaravimas atrodo taip:
 
 ```js
-function name(parameters, delimited, by, comma) {
-  /* code */
+function name(kableliais, atskirti, parametrai) {
+  /* kodas */
 }
 ```
 
-- Values passed to a function as parameters are copied to its local variables.
-- A function may access outer variables. But it works only from inside out. The code outside of the function doesn't see its local variables.
-- A function can return a value. If it doesn't, then its result is `undefined`.
+- Perduotos vertės nukopijuojamos į funkcijos parametrus ir tampa lokaliniais kintamaisiais.
+- Funkcijos turi prieigą prie išorinių kintamųjų. Tačiau tai veikia tik iš vidaus į išorę. Kodas, esantis už funkcijos ribų, neturi prieigos prie jos lokalinių kintamųjų.
+- Funkcija gali grąžinti vertę. Jei funkcija nieko negrąžina, rezultatas yra `undefined`.
 
-To make the code clean and easy to understand, it's recommended to use mainly local variables and parameters in the function, not outer variables.
+Kad kodas būtų švaresnis ir aiškesnis, rekomenduojama naudoti lokalinius kintamuosius ir funkcijų parametrus, o ne išorinius kintamuosius.
 
-It is always easier to understand a function which gets parameters, works with them and returns a result than a function which gets no parameters, but modifies outer variables as a side-effect.
+Funkcija, kuri gauna parametrus, dirba su jais ir grąžina rezultatą, yra daug aiškesnė nei funkcija, kuri iškviečiama be parametrų, bet keičia išorinius kintamuosius, o tai gali turėti šalutinį poveikį.
 
-Function naming:
+Funkcijos pavadinimo pasirinkimas:
 
-- A name should clearly describe what the function does. When we see a function call in the code, a good name instantly gives us an understanding what it does and returns.
-- A function is an action, so function names are usually verbal.
-- There exist many well-known function prefixes like `create…`, `show…`, `get…`, `check…` and so on. Use them to hint what a function does.
+- Funkcijos pavadinimas turėtų būti aiškus ir aiškiai išreikšti jos paskirtį. Kai pamatysite, kad ji iškviečiama kode, iš karto suprasite, ką ji daro ir ką grąžina.
+- Funkcija - tai veiksmas, todėl jos pavadinimas paprastai yra veiksmažodis.
+- Yra daug bendrinių priešdėlių, pvz: `create…`, `show…`, `get…`, `check…` ir t. t. Naudokite juos kaip užuominas, paaiškinančias, ką funkcija daro.
 
-Functions are the main building blocks of scripts. Now we've covered the basics, so we actually can start creating and using them. But that's only the beginning of the path. We are going to return to them many times, going more deeply into their advanced features.
+Funkcijos yra pagrindinės skriptų sudedamosios dalys. Apžvelgėme tik JavaScript funkcijų pagrindus, tačiau jau galime jas kurti ir naudoti. Tai tik kelionės pradžia. Prie funkcijų grįšime daug kartų ir jas vis giliau nagrinėsime.
