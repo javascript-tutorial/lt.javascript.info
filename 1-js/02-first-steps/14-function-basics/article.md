@@ -74,14 +74,14 @@ alert( message ); // <-- bus sukelta klaida, nes kintamasis matomas tik funkcijo
 Funkcija turi prieigą prie išorinių kintamųjų, pavyzdžiui:
 
 ```js run no-beautify
-let *!*userName*/!* = 'John';
+let *!*userName*/!* = 'Jonas';
 
 function showMessage() {
-  let message = 'Labas, ' + *!*userName*/!*;
+  let message = 'Sveiki, ' + *!*userName*/!*;
   alert(message);
 }
 
-showMessage(); // Labas, John
+showMessage(); // Sveiki, Jonas
 ```
 
 Funkcija turi pilną prieigą prie išorinių kintamųjų ir gali keisti jų vertę.
@@ -89,42 +89,42 @@ Funkcija turi pilną prieigą prie išorinių kintamųjų ir gali keisti jų ver
 Pavyzdžiui:
 
 ```js run
-let *!*userName*/!* = 'John';
+let *!*userName*/!* = 'Jonas';
 
 function showMessage() {
-  *!*userName*/!* = "Bob"; // (1) keičiame išorinio kintamojo vertę
+  *!*userName*/!* = "Algirdas"; // (1) keičiame išorinio kintamojo vertę
 
-  let message = 'Labas, ' + *!*userName*/!*;
+  let message = 'Sveiki, ' + *!*userName*/!*;
   alert(message);
 }
 
-alert( userName ); // *!*John*/!* prieš funkcijos iškvietimą
+alert( userName ); // *!*Jonas*/!* prieš funkcijos iškvietimą
 
 showMessage();
 
-alert( userName ); // *!*Bob*/!*, vertė, pakeista funkcija
+alert( userName ); // *!*Algirdas*/!*, vertė, pakeista funkcija
 ```
 
-Išorinis kintamasis naudojamas tik tuo atveju, jei nėra lokalinio kintamojo.
+Išorinis kintamasis naudojamas tik tuo atveju, kai nėra lokalinio kintamojo.
 
 Jei funkcijos viduje deklaruojame kintamąjį, kuris buvo deklaruotas už funkcijos ribų, išorinis kintamasis bus ignoruojamas. Pavyzdžiui, toliau pateiktame kode funkcija naudoja lokalinį kintamąjį `userName`. Išorinis bus ignoruojamas:
 
 ```js run
-let userName = 'John';
+let userName = 'Jonas';
 
 function showMessage() {
 *!*
-  let userName = "Bob"; // deklaruojame vietinį kintamąjį
+  let userName = "Algirdas"; // deklaruojame vietinį kintamąjį
 */!*
 
-  let message = 'Labas, ' + userName; // *!*Bob*/!*
+  let message = 'Sveiki, ' + userName; // *!*Algirdas*/!*
   alert(message);
 }
 
 // funkcija sukurs savo kintamąjį userName ir jį naudos
 showMessage();
 
-alert( userName ); // *!*John*/!*, niekas nepasikeitė, funkcija nepakeitė išorinio kintamojo
+alert( userName ); // *!*Jonas*/!*, niekas nepasikeitė, funkcija nepakeitė išorinio kintamojo
 ```
 
 ```smart header="Globalūs kintamieji"
@@ -203,8 +203,8 @@ Dabar, jei `text` parametras nenurodytas, jo vertė bus `"tekstas nepridėtas"`.
 
 ```js run
 function showMessage(from, text = anotherFunction()) {
-  // anotherFunction() bus vykdoma tik tuo atveju, jei `text` nebus perduotas
-  // rezultatas yra `text` vertė.
+  // anotherFunction() bus vykdoma tik tuo atveju, jei text nebus perduotas
+  // rezultatas yra text vertė.
 }
 ```
 
@@ -260,9 +260,9 @@ let result = sum(1, 2);
 alert( result ); // 3
 ```
 
-`Return` direktyva gali būti bet kurioje funkcijos turinio vietoje. Kai tik vykdymas pasiekia šį tašką, funkcija sustoja ir vertė grąžinama ją iškvietusiam kodui (priskirta aukščiau nurodytam kintamajam `result`).
+`return` direktyva gali būti bet kurioje funkcijos turinio vietoje. Kai tik vykdymas pasiekia šį tašką, funkcija sustoja ir vertė grąžinama ją iškvietusiam kodui (priskirta aukščiau nurodytam kintamajam `result`).
 
-Funkcijoje `return' gali būti naudojamas kelis kartus, pavyzdžiui:
+Funkcijoje `return` gali būti naudojamas kelis kartus, pavyzdžiui:
 
 ```js run
 function checkAge(age) {
@@ -379,7 +379,7 @@ createForm(..)      // sukuria formą (ir dažniausiai ją grąžina).
 checkPermission(..) // tikrina prieigą ir grąžina true/false
 ```
 
-Dėl priešdėlių iš pirmo žvilgsnio aišku, ką funkcijos pavadinimas daro ir kokią vertę gali grąžinti.
+Dėl priešdėlių iš pirmo žvilgsnio aišku, ką funkcija daro ir kokią vertę gali grąžinti.
 
 ```smart header="Viena funkcija - vienas veiksmas"
 Funkcija turėtų atlikti tik tai, ką aiškiai nurodo jos pavadinimas. Tai turėtų būti vienas veiksmas.
