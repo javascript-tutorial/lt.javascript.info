@@ -175,7 +175,7 @@ showMessage(from, "Hello"); // *Ana*: Sveiki
 alert( from ); // Ana
 ```
 
-## Numatytuosius parametrus
+## Numatytieji parametrai
 
 Jei parametras nenurodytas, jo reikšmė tampa `undefined`.
 
