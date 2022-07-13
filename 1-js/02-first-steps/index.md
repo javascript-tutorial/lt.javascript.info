@@ -1,3 +1,3 @@
-# JavaScript Fundamentals
+# JavaScript pagrindai
 
-Let's learn the fundamentals of script building.
+Sužinokime skriptų kūrimo pagrindus.
