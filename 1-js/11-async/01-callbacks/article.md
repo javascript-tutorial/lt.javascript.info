@@ -1,20 +1,18 @@
-
-
-# Įvadas: *callbacks*
+# Įvadas: callbacks
 
 ```warn header="We use browser methods here"
-*Callbackų*, *promise'ų* ir kitų abstrakčių koncepcijų veikimo demonstacijai, bus naudojami naršyklės metodai. Pagrinde bus atliekamos paprastos dokumentų manipuliacijos pasitelkiant skriptus.
+*Callback'ų*, *promise'ų* ir kitų abstrakčių koncepcijų veikimo demonstacijai, bus naudojami naršyklės metodai. Pagrinde bus atliekamos paprastos dokumentų manipuliacijos pasitelkiant skriptus.
 
 Jeigu šie metodai Jums dar nepažįstami, jų naudojimas pavyzdžiuose trikdo ar tiesiog norėtumėte juos suprasti geriau, pamėginkite paskaityti kelis skyrius iš kitos šių pratybų [dalies](/document).
 ```
 
-Daugelis veiksmų JavaScripte yra *asinchroniški* (*asynchronous*). Kitaip tariant, mes juos inicijuojame dabar, bet jie įvykdomi vėliau.
+Daugelis veiksmų JavaScript'e yra *asinchroniški* (*asynchronous*). Kitaip tariant, mes juos inicijuojame dabar, bet jie įvykdomi vėliau.
 
 Tokį veiksmą ateičiai mes galime suplanuoti naudodami `setTimeout` metodą.
 
 Egzistuoja ir kiti asinchroninių veiksmų pavyzdžiai, tarkime, skriptų ir modulių (*modules*) užkrovimas (juos aptarsime vėlesniuose skyriuose).
 
-Pažvelkite į `loadScript(src)` funkciją, kurį užkrauna skriptą su pateiktu `src`.
+Pažvelkite į `loadScript(src)` funkciją, kurį užkrauna skriptą su pateiktu `src`:
 
 ```js
 function loadScript(src) {
@@ -107,11 +105,11 @@ Tai vadinama *callback'ais* grįstu (*callback-based*) asinchroniniu programavim
 
 Mes panašiai paderėme pavyzdynėje `loadScript` funkcijoje.
 
-## *Callback* funkcija *callback* funkcijoje
+## Callback funkcija callback funkcijoje
 
 O kaip paleisti du skriptus paeiliui? Pirmą, o po jo – antrą.
 
-Naturalus sprendimas būtų įdėti antrąjį `loadScript` išvietimą *callbacke*, štai taip:
+Naturalus sprendimas būtų įdėti antrąjį `loadScript` iškvietimą *callback'e*, štai taip:
 
 ```js
 loadScript('/my/script.js', function(script) {
@@ -127,7 +125,7 @@ loadScript('/my/script.js', function(script) {
 });
 ```
 
-Kai išorinė `loadScript` funkcija įvykdoma, *callbackas* inicijuoja vidinę.
+Kai išorinė `loadScript` funkcija įvykdoma, *callback'as* inicijuoja vidinę.
 
 O kas, jeigu mums reikalingas dar vienas skriptas?
 
@@ -147,13 +145,13 @@ loadScript('/my/script.js', function(script) {
 });
 ```
 
-Taigi, kekviena nauja operacija yra *callbacko* viduje. Tai priimtina nedideliam kiekiui operacijų. Kitus šios problemos spredimo būdus aptarsime netrukus.
+Taigi, kekviena nauja operacija yra *callback'o* viduje. Tai priimtina nedideliam kiekiui operacijų. Kitus šios problemos spredimo būdus aptarsime netrukus.
 
-## Tikdžių valdymas
+## Klaidų valdymas
 
-Ankstesniuose pavyzdžiuose mes visiškai nekalbėjome apie tikdžius (*errors*). Kas, jei skripto krovimasis nepavyksta? Tokiu atveju mūsų *callbackas* turėtų sugebėti į tai reaguoti.
+Ankstesniuose pavyzdžiuose mes visiškai nekalbėjome apie klaidas (*errors*). Kas, jei skripto krovimasis nepavyksta? Tokiu atveju mūsų *callback'as* turėtų sugebėti į tai reaguoti.
 
-Štai patobulinta `loadScript` versija, kuri suseka krovimosi trikdžius.
+Štai patobulinta `loadScript` versija, kuri suseka krovimosi klaidas.
 
 ```js
 function loadScript(src, callback) {
@@ -175,24 +173,24 @@ Panaudojimas:
 ```js
 loadScript('/my/script.js', function(error, script) {
   if (error) {
-    // suvaldomas trikdis
+    // apdoroti klaidą
   } else {
     // skriptas užkrautas sėkmingai
   }
 });
 ```
 
-Būdas, kuriuo mes pasinaudojome paleisti `loadScript`, yra gan dažnas. Jis pirmenybę teikia trikdžių valdymui *callbackais* ("error-first callback style").
+Būdas, kuriuo mes pasinaudojome paleisti `loadScript`, yra gan dažnas. Jis pirmenybę teikia klaidų valdymui *callback'ais* ("error-first callback style").
 
 Šio stiliaus konvencija teigia:
-1. Pirmasis *callbacko* argumentas yra rezervuotas trikdžiui, jei jis pasitaikys. Čia kviečiama `callback(err)` funkcija.
+1. Pirmasis *callback'o* argumentas yra rezervuotas klaidai, jei jį pasitaikys. Čia kviečiama `callback(err)` funkcija.
 2. Antrasis argumentas (ir tolimesni, jei jie reikalingi) yra skirtas sėkmingam rezultatui. Tuomet kviečiama `callback(null, result1, result2…)` funkcija.
 
-Taigi, viena `callback` funkcija yra tinkama ir informavimui apie trikdžius ir rezultatų grąžinimui.
+Taigi, viena `callback` funkcija yra tinkama ir informavimui apie klaidas ir rezultatų grąžinimui.
 
-## „Pražūties piraminė“ (Pyramid of Doom)
+## „Pražūties piramidė“ (Pyramid of Doom)
 
-Iš pirmo žvilgstio – tai geras būdas asinchroniniam kodavimui. Vienam ar dviem sugrupuotiems funkcijų išvietimams jis tikrai tinka.
+Iš pirmo žvilgstio – tai geras būdas asinchroniniam kodavimui. Vienam ar dviem sugrupuotiems funkcijų iškvietimams jis tikrai tinka.
 
 Bet didesniam kiekiui viena kitą sekančių asinchroninių operacijų mes turėsime štai tokį kodą:
 
@@ -225,13 +223,13 @@ loadScript('1.js', function(error, script) {
 ```
 
 Šiame kode:
-1. Mes krauname `1.js`, tuomet, jei nėra trikdžių.
-2. Mes krauname `2.js`, tuomet, jei nėra trikdžių.
-3. Mes krauname `3.js`, tuomet, jei nėra trikdžių – darome kažką kito `(*)`.
+1. Mes krauname `1.js`, tuomet, jei nėra klaidų.
+2. Mes krauname `2.js`, tuomet, jei nėra klaidų.
+3. Mes krauname `3.js`, tuomet, jei nėra klaidų – darome kažką kito `(*)`.
 
-Visi funkcijų išvietimai tampa vis labiau sugrupuoti, kodas gilėja ir tampa sunkiai suvaldomu. Ypač, jei vietoj daugtaškių `...` turime tikrą kodą, su ciklais (*loops*), sąlyginėmis išraiškomis (*conditional statements*) ir t.t.
+Visi funkcijų iškvietimai tampa vis labiau sugrupuoti, kodas gilėja ir tampa sunkiai suvaldomu. Ypač, jei vietoj daugtaškių `...` turime tikrą kodą, su ciklais (*loops*), sąlyginėmis išraiškomis (*conditional statements*) ir t.t.
 
-Tai kartais vadinama „*callbackų* pragaru“ arba „pražūties piramide“.
+Tai kartais vadinama „*callback'ų* pragaru“ arba „pražūties piramide“.
 
 <!--
 loadScript('1.js', function(error, script) {
@@ -259,7 +257,7 @@ loadScript('1.js', function(error, script) {
 
 ![](callback-hell.svg)
 
-Sugrupuotų funkcijų išvietimų piramidė auga su kiekviena asinchronine operacija ir greitai tampa nekontroliuojama.
+Sugrupuotų funkcijų iškvietimų piramidė auga su kiekviena asinchronine operacija ir greitai tampa nekontroliuojama.
 
 Todėl toks kodo rašymo būdas nėra labai geras.
 
@@ -290,12 +288,12 @@ function step3(error, script) {
   if (error) {
     handleError(error);
   } else {
-    // ...continue after all scripts are loaded (*)
+    // ...tęsti užsikrovus visiems skriptams (*)
   }
 };
 ```
 
-Matote? Ji daro tą patį, bet šiuo atveju nebeligo komplikuoto operacijų grupavimo, nes kiekvieną veiksmą mes pavertėme atskira *top-level* funkcija.
+Matote? Ji daro tą patį, bet šiuo atveju nebeliko komplikuoto operacijų grupavimo, nes kiekvieną veiksmą mes pavertėme atskira *top-level* funkcija.
 
 Viskas veikia, tačiau kodas atrodo prastai. Jis sunkiai skaitomas, o skaitytojas turi šokinėti nuo vienos kodo dalies prie kitos. Tai nepatogu, ypač jei skaitantysis nėra susipažinęs su šiuo kodu ir tiksliai nežino, kur ieškoti reikiamos kodo dalies.
 
@@ -303,4 +301,4 @@ Taipogi, funkcijos pavadinimu `step*` yra vienkartinės ir sukurtus tik „praž
 
 Mums reikėtų kažko geresnio.
 
-Laimei, yra kitų būtų išvengti minėtų „piramidžių“. Geriausias būdas yra naudoti „pažadus“, aptariamus kitame skyriuje.
+Laimei, yra kitų būdų išvengti minėtų „piramidžių“. Geriausias būdas yra naudoti „pažadus“ (*promises*), aptariamus kitame skyriuje.
