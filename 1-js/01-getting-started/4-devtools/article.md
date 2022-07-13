@@ -1,6 +1,6 @@
 # Programuotojo konsolė
 
-Kodėl lengva palikti klaidų. Ko gero, tau teks sukelti klaidų... Juokauju, tau *tikrai* teks sukelti klaidų, nebent esi [robotas](https://en.wikipedia.org/wiki/Bender_(Futurama)).
+Kodas yra linkęs į klaidas. Labai tikėtina, kad padarysite klaidų... O apie ką aš kalbu? *Visiškai* tikėtina, kad padarysite klaidų, bent jau jei esate žmogus, o ne [robotas](https://en.wikipedia.org/wiki/Bender_(Futurama)).
 
 Tačiau naršyklėje, vartotojai nemato klaidų. Todėl jeigu skripte kažkas veikia ne taip, kaip turėtų, mes to nepamatysime ir negalėsime pataisyt.
 
@@ -29,11 +29,7 @@ Konkretus vaizdas priklauso nuo Chrome versijos, kurią naudoji. Kartais atsiran
 - Čia mes galim pamatyti raudoną klaidos žinutę. Šiuo atveju skriptas turi nežinomą "lalala" komandą.
 - Dešinėje yra aktyvi nuoroda į `bug.html:12` su skaičiumi eilutės, kurioje yra klaida.
 
-<<<<<<< HEAD
-Žemiau klaidos žinutės yra mėlynas `>` simbolis. Jis parodo komandų eilutę (ang. "command line"), kurioje mes galime rašyti JavaScript komandas. Spausk `key:Enter` kad jas paleisti (`key:Shift+Enter` kad rašyti komandas per daugiau nei vieną eilutę).
-=======
-Below the error message, there is a blue `>` symbol. It marks a "command line" where we can type JavaScript commands. Press `key:Enter` to run them.
->>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834
+Žemiau klaidos žinutės yra mėlynas `>` simbolis. Jis parodo komandų eilutę (ang. "command line"), kurioje mes galime rašyti JavaScript komandas. Spausk `key:Enter` kad jas paleisti.
 
 Dabar mes galime matyti klaidas. Pradžiai, to pakanka. Vėliau mes grįšime į programuotojų įrankius ir kalbėsime apie klaidų taisymą skyriuje <info:debugging-chrome>.
 
@@ -59,7 +55,6 @@ Atidaryk Nuostatas (ang. "Preferences") ir eik į "Pažangi" (ang. "Advanced"). 
 
 Dabar `key:Cmd+Opt+C` įjungs konsolę. Taip pat turėk omeny, kad naujas pasirinkimas "Programuoti" (ang. "Develop") atsirado viršutiniame meniu. Jame yra daug komandų ir nustatymų.
 
-<<<<<<< HEAD
 ```smart header="Kelių eilučių komandos"
 Dažniausiai, jeigu konsolėje parašome vieną eilutę kodo ir paspaudžiame `key:Enter`, ji suveikia.
 
@@ -67,11 +62,8 @@ Tam, kad parašyti kelias eilutes, spausk `key:Shift+Enter`. Tokiu būdu mes gal
 ```
 
 ## Reziumė
-=======
-## Summary
->>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834
 
 - Programuotojo įrankiai leidžia mums pamatyti klaidas, paleisti komandas, analizuoti kintamuosiuos ir daugiau.
 - Juos paleisti galime su `key:F12` dauguma naršklių per Windows. Chrome, jeigu naudojame Mac, reikalauja `key:Cmd+Opt+J`, Safari: `key:Cmd+Opt+C` (iš pradžių reikia aktyvuoti).
 
-Dabar jau turime paruoštą aplinką. Kitoj pamokoj paragausime JavaScript.
+Dabar turime paruoštą aplinką. Kitame skyriuje pereisime prie JavaScript.
