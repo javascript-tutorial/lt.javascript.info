@@ -215,7 +215,7 @@ Aukščiau pateiktame pavyzdyje `anotherFunction()` bus iškviečiama kiekvieną
 ```
 
 ````smart header="Numatytųjų nustatymų naudojimas ankstesnėse JavaScript versijose"
-Ankstyvosios JavaScript versijos nepalaiko numatytųjų parametrų. Todėl senesniuose skriptiniuose tekstuose galima rasti alternatyvių būdų.
+Ankstyvosios JavaScript versijos nepalaiko numatytųjų parametrų. Todėl senesniuose skriptuose galima rasti alternatyvių būdų.
 
 Pavyzdžiui, patikrinimas dėl `undefined`:
 
