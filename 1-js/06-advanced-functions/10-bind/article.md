@@ -167,7 +167,7 @@ sayHi(); // Hello, John!
 setTimeout(sayHi, 1000); // Hello, John!
 
 // even if the value of user changes within 1 second
-// sayHi uses the pre-bound value
+// sayHi uses the pre-bound value which is reference to the old user object
 user = {
   sayHi() { alert("Another user in setTimeout!"); }
 };
@@ -187,8 +187,8 @@ let user = {
 
 let say = user.say.bind(user);
 
-say("Hello"); // Hello, John ("Hello" argument is passed to say)
-say("Bye"); // Bye, John ("Bye" is passed to say)
+say("Hello"); // Hello, John! ("Hello" argument is passed to say)
+say("Bye"); // Bye, John! ("Bye" is passed to say)
 ```
 
 ````smart header="Convenience method: `bindAll`"
@@ -202,7 +202,7 @@ for (let key in user) {
 }
 ```
 
-JavaScript libraries also provide functions for convenient mass binding , e.g. [_.bindAll(obj)](http://lodash.com/docs#bindAll) in lodash.
+JavaScript libraries also provide functions for convenient mass binding , e.g. [_.bindAll(object, methodNames)](http://lodash.com/docs#bindAll) in lodash.
 ````
 
 ## Partial functions
@@ -247,7 +247,7 @@ The call to `mul.bind(null, 2)` creates a new function `double` that passes call
 
 That's called [partial function application](https://en.wikipedia.org/wiki/Partial_application) -- we create a new function by fixing some parameters of the existing one.
 
-Please note that here we actually don't use `this` here. But `bind` requires it, so we must put in something like `null`.
+Please note that we actually don't use `this` here. But `bind` requires it, so we must put in something like `null`.
 
 The function `triple` in the code below triples the value:
 
@@ -279,7 +279,7 @@ What if we'd like to fix some arguments, but not the context `this`? For example
 
 The native `bind` does not allow that. We can't just omit the context and jump to arguments.
 
-Fortunately, a helper function `partial` for binding only arguments can be easily implemented.
+Fortunately, a function `partial` for binding only arguments can be easily implemented.
 
 Like this:
 
@@ -313,7 +313,7 @@ The result of `partial(func[, arg1, arg2...])` call is a wrapper `(*)` that call
 - Then gives it `...argsBound` -- arguments from the `partial` call (`"10:00"`)
 - Then gives it `...args` -- arguments given to the wrapper (`"Hello"`)
 
-So easy to do it with the spread operator, right?
+So easy to do it with the spread syntax, right?
 
 Also there's a ready [_.partial](https://lodash.com/docs#partial) implementation from lodash library.
 

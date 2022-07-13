@@ -4,11 +4,13 @@
 *Callback'ų*, *promise'ų* ir kitų abstrakčių koncepcijų veikimo demonstacijai, bus naudojami naršyklės metodai. Pagrinde bus atliekamos paprastos dokumentų manipuliacijos pasitelkiant skriptus.
 
 Jeigu šie metodai Jums dar nepažįstami, jų naudojimas pavyzdžiuose trikdo ar tiesiog norėtumėte juos suprasti geriau, pamėginkite paskaityti kelis skyrius iš kitos šių pratybų [dalies](/document).
+
+Nors vis tiek pasistengsime viską paaiškinti. Nieko tikrai sudėtingo naršyklėje nebus.
 ```
 
 Daugelis veiksmų JavaScript'e yra *asinchroniški* (*asynchronous*). Kitaip tariant, mes juos inicijuojame dabar, bet jie įvykdomi vėliau.
 
-Tokį veiksmą ateičiai mes galime suplanuoti naudodami `setTimeout` metodą.
+Pavyzdžiui, viena iš tokių funkcijų yra `setTimeout` funkcija.
 
 Egzistuoja ir kiti asinchroninių veiksmų pavyzdžiai, tarkime, skriptų ir modulių (*modules*) užkrovimas (juos aptarsime vėlesniuose skyriuose).
 
@@ -16,13 +18,15 @@ Pažvelkite į `loadScript(src)` funkciją, kurį užkrauna skriptą su pateiktu
 
 ```js
 function loadScript(src) {
+  // creates a <script> tag and append it to the page
+  // this causes the script with given src to start loading and run when complete
   let script = document.createElement('script');
   script.src = src;
   document.head.append(script);
 }
 ```
 
-Ši funkcija prideda (*appends*) naują, dinamiškai sukurtą žymą (*tag*) `<script src="…">`. Naršyklės ją užkrauna ir įvykdo.
+Ši funkcija prideda į dokumentą (*appends*) naują, dinamiškai sukurtą žymą (*tag*) `<script src="…">` su nurodyta `src`. Naršyklė automatiškai ją užkrauna ir įvykdo.
 
 Šią funkciją mes galime panaudoti šitaip:
 
@@ -103,7 +107,7 @@ loadScript('https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js', s
 
 Tai vadinama *callback'ais* grįstu (*callback-based*) asinchroniniu programavimu – kažką asinchroniškai vykdanti funkcija, turėtų savyje turėti *callback* argumentą, į kurią galima įdėti kitą funkciją, įvykdomą pirmajai pasibaigus.
 
-Mes panašiai paderėme pavyzdynėje `loadScript` funkcijoje.
+Čia tai padarėme `loadScript` funkcijoje, bet, žinoma, tai yra bendras būdas.
 
 ## Callback funkcija callback funkcijoje
 
@@ -140,7 +144,7 @@ loadScript('/my/script.js', function(script) {
     });
 */!*
 
-  })
+  });
 
 });
 ```
@@ -190,9 +194,9 @@ Taigi, viena `callback` funkcija yra tinkama ir informavimui apie klaidas ir rez
 
 ## „Pražūties piramidė“ (Pyramid of Doom)
 
-Iš pirmo žvilgstio – tai geras būdas asinchroniniam kodavimui. Vienam ar dviem sugrupuotiems funkcijų iškvietimams jis tikrai tinka.
+Iš pirmo žvilgsnio tai atrodo tinkamas asinchroninio kodavimo būdas. Taip ir yra. Vienam ar dviem įterptiniams iškvietimams tai atrodo gerai.
 
-Bet didesniam kiekiui viena kitą sekančių asinchroninių operacijų mes turėsime štai tokį kodą:
+Bet kelių asinchroninių veiksmų atveju, kurie seka vienas po kito, turėsime tokį kodą:
 
 ```js
 loadScript('1.js', function(error, script) {
@@ -217,7 +221,7 @@ loadScript('1.js', function(error, script) {
         });
 
       }
-    })
+    });
   }
 });
 ```
@@ -250,7 +254,7 @@ loadScript('1.js', function(error, script) {
           }
         });
       }
-    })
+    });
   }
 });
 -->
@@ -290,10 +294,10 @@ function step3(error, script) {
   } else {
     // ...tęsti užsikrovus visiems skriptams (*)
   }
-};
+}
 ```
 
-Matote? Ji daro tą patį, bet šiuo atveju nebeliko komplikuoto operacijų grupavimo, nes kiekvieną veiksmą mes pavertėme atskira *top-level* funkcija.
+Matote? Ji daro tą patį, tačiau dabar nėra jokio giluminio įterpimo, nes kiekvieną veiksmą pavertėme individualia aukščiausio lygio (*top-level*) funkcija.
 
 Viskas veikia, tačiau kodas atrodo prastai. Jis sunkiai skaitomas, o skaitytojas turi šokinėti nuo vienos kodo dalies prie kitos. Tai nepatogu, ypač jei skaitantysis nėra susipažinęs su šiuo kodu ir tiksliai nežino, kur ieškoti reikiamos kodo dalies.
 
