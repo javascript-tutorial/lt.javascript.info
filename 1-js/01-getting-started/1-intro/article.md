@@ -1,7 +1,6 @@
 # JavaScript įvadas
 
 Pažvelkime kuo ypatinga JavaScript kalba, ką mes galime su ja padaryti ir kokios kitos technologijos gali būti naudojamos kartu.
-Let's see what's so special about JavaScript, what we can achieve with it, and what other technologies play well with it.
 
 ## Kas yra JavaScript?
 
@@ -27,7 +26,7 @@ Skirtingi varikliai turi skirtingus slapyvardžius (ang. "nicknames"). Pavyzdži
 
 - [V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine)) -- Chrome, Opera ir Edge.
 - [SpiderMonkey](https://en.wikipedia.org/wiki/SpiderMonkey) -- Firefox.
-- ...Egzistuoja kiti slapyvardžiai, tokie kaip "Chakra" skirtingoms IE versijom, "JavaScriptCore", "Nitro", "SquirellFish" skirta Safari ir t.t.
+- ...Egzistuoja ir kiti slapyvardžiai, tokie kaip "Chakra" skirtingoms IE versijom, "JavaScriptCore", "Nitro", "SquirellFish" skirta Safari ir t.t.
 
 Šias sąvokas verta atsiminti, nes jos naudojamos straipsniuose, skirtuose programuotojams. Mes taip pat jas naudosime. Pavyzdžiui, jeigu "feature X yra palaikoma V8", reiškias jinai ko gero veikia Chrome, Opera ir Edge naršyklėse.
 
@@ -68,19 +67,20 @@ Ribojimų pavyzdžiai:
 	Modernios naršklės leidžia dirbti su failais, bet prieiga ribojama ir tai leidžiama tik jeigu vartotojas įvykdo kažką konkretaus. Pavyzdžiui, perkelia failą į naršyklę arba pažymi failą naudodamas `<input>` žymą.
 
 	Yra būdų komunikuoti su kamera/mikrofonu ir kitais įrenginiais, bet tai reikalauja išreikštinio vartotojo leidimo. Taigi, JavaScript tinklalapis negali suktai įjungti web kameros, stebėti aplinkos ir siųsti informaciją į [NSA](https://en.wikipedia.org/wiki/National_Security_Agency).
-- Atskiros naršyklės kortelės (ang. "tabs") dažniausiai nežino viena apie kitą. Tačiau kartais viena kortelė naudoja JavaScript tam, kad atidarytų kitą kortelę, bet netgi tokiu atveju, JavaScript vienoje kortelėje negali pasiekti kitos, jeigu jie ateina iš skirtingų tinklalapių (skirtingas domenas, protokolas arba portas).
-	Tai vadinama "Same Origin Policy". Tam, kad tai apeiti, *abudu tinklalapiai* turi sutikti apsikeisti duomenimis ir turėti specialų JavaScript kodą, kuris tai tvarkytų. Mes apie tai kalbėsime vienoje iš pamokų.
-	Šis ribojimas yra, vėlgi, dėl vartotojų saugmo. Tinklapis `http://anysite.com`, kurį vartotojas atidarė, neturėtų pasiekti kitos naršklės kortelės su URL `http://gmail.com` ir vogti informaciją.
+- Atskiros naršyklės kortelės (ang. *tabs*) arba langai (ang. *windows*) paprastai nežino vienas apie kitą. Kartais jie žino, pavyzdžiui, kai vienas langas naudoja JavaScript, kad atidarytų kitą langą. Tačiau net ir tokiu atveju JavaScript iš vieno puslapio negali pasiekti kito puslapio, jei jie yra iš skirtingų svetainių (iš skirtingų domenų, protokolų ar prievadų).
+
+	Tai vadinama "Same Origin Policy". Norint tai apeiti, *abu tinklalapiai* turi susitarti dėl keitimosi duomenimis ir juose turi būti specialus JavaScript kodas, kuris tai tvarko. Apie tai kalbėsime vienoje iš pamokų.
+
+	Šis ribojimas yra, vėlgi, dėl vartotojų saugmo. Tinklapis `http://anysite.com`, kurį vartotojas atidarė, neturėtų pasiekti kitos naršyklės kortelės su URL `http://gmail.com` ir vogti informaciją.
 - JavaScript gali lengvai komunikuoti internetu su serveriu, iš kurio atėjo tinklalapis. Bet tinklalapio galimybės gauti duomenis iš kitų tinklapių/duomenų yra kiek sudėtingesnės. Nors ir įmanoma, tai reikalauja išreikštinio susitarimo (per HTTP antraštes) iš nuotolinio serverio pusės. Vėlgi, dėl saugumo priežasčių.
 
 ![](limitations.svg)
 
-Šių ribojimų nėra, jeigu JavaScript vykdomas ne naršyklėje, bet, pavyzdžiui, serveryje. Šiuolaikinės naršyklės taip pat turi papildinius ir plėtinius(ang. "plugins/extensions"), kurie gali prašyti vartotojų leidimo.
+Šių ribojimų nėra, jeigu JavaScript vykdomas ne naršyklėje, bet, pavyzdžiui, serveryje. Šiuolaikinės naršyklės taip pat turi papildinius ir plėtinius (ang. *plugins/extensions*), kurie gali prašyti vartotojų leidimo.
 
 ## Kuo ypatinga JavaScript?
 
 JavaScript turi bent *tris* nuostabius dalykus:
-
 ```compare
 + Pilna integracija su HTML/CSS
 + Paprastus dalykus padaryti yra nesudėtinga
@@ -90,17 +90,17 @@ JavaScript yra vienintelė naršyklės technologija, kuri turi šiuos tris dalyk
 
 Štai kuo ypatinga JavaScript. Tai yra viena labiausiai išplitusių technologijų, kalbant apie naršyklės sąsajos (ang. "interface") kūrimą.
 
-Tačiau su JavaScript galima rašyti serverines, mobilias programas (ang. "applications") ir pan.
+Tačiau su JavaScript galima rašyti serverines, mobilias programas (ang. *applications*) ir pan.
 
-## Alternatyvos
+## Kalbos “virš” JavaScript
 
 JavaScript sintaksė, be abejo, tinka ne visiem ir ne visada. Skirtingi žmonės nori skirtingų savybių.
 
 Nieko nuostabaus, nes kiekvienas projektas yra skirtingas ir gali turėti labai skirtingų reikalavimų.
 
-Dėl šių priežasčių atsirado daug kalbų, kurios yra konvertuojamos (dar kitaip - perrašomos, ang. "*transpiling*") į JavaScript ir tik tada vykdomos naršyklėje.
+Dėl šių priežasčių atsirado daug kalbų, kurios yra konvertuojamos (ang. *transpiling*) į JavaScript ir tik tada vykdomos naršyklėje.
 
-Modernūs įrankiai atlieka perrašymą labai greitai, tad programuotojai gali programuoti šiomis kalbomis nesigilindami į patį konvertavimo procesą.
+Modernūs įrankiai atlieka konvertaciją labai greitai, tad programuotojai gali programuoti šiomis kalbomis nesigilindami į patį konvertavimo procesą.
 
 Tokių kalbų pavyzdžiai:
 
