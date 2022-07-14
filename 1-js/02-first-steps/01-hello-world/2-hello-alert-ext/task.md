@@ -2,7 +2,7 @@ importance: 5
 
 ---
 
-# Parodyti įspėjimą (alert) naudojant išorinį skriptą
+# Parodykite įspėjimą (alert) naudojant išorinį skriptą
 
 Panaudokite praėjusios užduoties sprendimą <info:task/hello-alert>. Pataisykite jį perkeldami skripto turinį į išorinį failą `alert.js` tame pačiame aplanke.
 

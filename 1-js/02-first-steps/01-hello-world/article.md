@@ -35,7 +35,7 @@ Pavyzdžiui:
 ```
 
 ```online
-Galite paleisti pavyzdį paspausdami mygtuką "Paleisti" dešiniame virštutiniame pavyzdžio lango kampe.
+Galite paleisti pavyzdį paspausdami mygtuką “Paleisti” dešiniame virštutiniame pavyzdžio lango kampe.
 ```
 
 Žymoje `<script>` yra JavaScript kodas, kuris automatiškai įvykdomas kai naršyklė apdoroja žymą.
