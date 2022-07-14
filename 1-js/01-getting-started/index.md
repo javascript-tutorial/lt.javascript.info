@@ -1,3 +1,3 @@
 # Įžanga
 
-Apie JavaScript kalbą ir aplinką programavimui su jotg.
+Apie JavaScript kalbą ir aplinką programavimui su ją.

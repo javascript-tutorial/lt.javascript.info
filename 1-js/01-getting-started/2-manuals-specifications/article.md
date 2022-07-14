@@ -9,11 +9,11 @@
 
 Tačiau iš šios specifikacijos mokytis iš pat pradžių yra gana sunku, nes informacija labai formali. Jeigu reikia pačios tiksliausios informacijos apie kalbą, specifikacija yra puikus šaltinis. Tačiau vargu, ar to prireiks kiekvieną dieną.
 
-Kasmet yra išleidžiama nauja specifikacijos versija. Tarp šitų išleidimų, galima rasti juodraštį (ang. "draft") čia <https://tc39.es/ecma262/>.
+Kasmet yra išleidžiama nauja specifikacijos versija. Tarp šitų išleidimų, galima rasti juodraštį (ang. *draft*) čia <https://tc39.es/ecma262/>.
 
-Galite perskaityti apie naujausias savybes, įskaitant ir tas, kurios yra "beveik standartas" (dar vadinamas "stage 3") galima rasti <https://github.com/tc39/proposals>.
+Galite perskaityti apie naujausias savybes, įskaitant ir tas, kurios yra “beveik standartas” (dar vadinamas “stage 3”) galima rasti <https://github.com/tc39/proposals>.
 
-Taip pat, jeigu norite programuoti naršyklei, tam yra kita specifikacija, kurią gali rasti [antroje](info:browser-environment) pamokų dalyje.
+Taip pat, jeigu norite programuoti naršyklei, tam yra kita specifikacija, kurią gali rasti [antroje](info:browser-environment) vadovėlio dalyje.
 
 ## Vadovai
 - **MDN (Mozilla) JavaScript Reference** yra pagrindinis vadovas su pavyzdžiais ir kita informacija. Jame galima gauti išsamios informacijos apie atskiras kalbos funkcijas, metodus ir pan.
@@ -21,9 +21,9 @@ Taip pat, jeigu norite programuoti naršyklei, tam yra kita specifikacija, kuri�
 	Vadovą galima rasti <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference>.
 
 
-	Tačiau, dažniausiai geriausia tiesiog ieškoti informacijos internete. Verta tiesiog naudoti "MDN [apibrėžimas]" užklausoje, pavyzdžiui <https://google.com/search?q=MDN+parseInt> tam, kad rastumėte informacijos apie `parseInt` funkciją.
+Tačiau, dažniausiai geriausia tiesiog ieškoti informacijos internete. Verta tiesiog naudoti “MDN [terminas]” užklausoje, pavyzdžiui <https://google.com/search?q=MDN+parseInt> tam, kad rastumėte informacijos apie `parseInt` funkciją.
 	
-## Suderinamumo (ang. "compatibility") lentelės
+## Suderinamumo lentelės
 
 JavaScript yra nuolatos tobulinama kalba, todėl naujos savybės atsiranda reguliariai.
 

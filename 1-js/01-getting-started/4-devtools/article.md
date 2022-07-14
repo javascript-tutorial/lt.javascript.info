@@ -4,19 +4,19 @@ Kodas yra linkęs į klaidas. Labai tikėtina, kad padarysite klaidų... O apie 
 
 Tačiau naršyklėje, vartotojai nemato klaidų. Todėl jeigu skripte kažkas veikia ne taip, kaip turėtų, mes to nepamatysime ir negalėsime pataisyt.
 
-Tam, kad rastume klaidas ir gautume daug kitos naudingos informacijos apie skriptus, naudojame programuotojų įrankius (ang. "developer tools") integruotus pačiose naršyklėse.
+Tam, kad rastume klaidas ir gautume daug kitos naudingos informacijos apie skriptus, naudojame programuotojų įrankius (ang. *"developer tools"*) integruotus pačiose naršyklėse.
 
-Dauguma programuotojų naudojasi Chrome arba Firefox, nes šios naršyklės turi geriausius įrankius. Kitos naršklės taip pat turi programuotojų įrankius, kartais su įdomiomis savybėmis, tačiau jie dažniausiai tik bando "pasivyti" Chrome arba Firefox. Todėl dauguma programuotojų turi "mėgstamiausią" naršyklę ir naudoja kitą, tik tada kai problema yra specifinė kažkokiai konkrečiai naršyklei.
+Dauguma programuotojų naudojasi Chrome arba Firefox, nes šios naršyklės turi geriausius įrankius. Kitos naršklės taip pat turi programuotojų įrankius, kartais su įdomiomis savybėmis, tačiau jie dažniausiai tik bando “pasivyti” Chrome arba Firefox. Todėl dauguma programuotojų turi “mėgstamiausią” naršyklę ir naudoja kitą, tik tada kai problema yra specifinė kažkokiai konkrečiai naršyklei.
 
 Programuotojų įrankiai turi daug savybių. Pradžiai, mes išmoksime juos atidaryti, pažvelgti į klaidas ir paleisti JavaScript komandas.
 
 ## Google Chrome
 
-Atidaryk puslapį [bug.html](bug.html).
+Atidarykite puslapį [bug.html](bug.html).
 
 Šio puslapio JavaScript kode yra klaida. Ji paslėpta nuo paprastų lankytojų. Atidarykime programuotojų įrankius.
 
-Spausk `key:F12` arba, jeigu naudoji Mac, `key:Cmd+Opt+I`.
+Spauskite `key:F12` arba, jeigu naudojate Mac, `key:Cmd+Opt+I`.
 
 Programuotojų įrankiai standartiškai atidarys konsolės langą.
 
@@ -24,19 +24,19 @@ Turėtų atrodyt panašiai į tai:
 
 ![chrome](chrome.png)
 
-Konkretus vaizdas priklauso nuo Chrome versijos, kurią naudoji. Kartais atsiranda pakeitimų, bet visgi vaizdas turėtų būti panašus.
+Konkretus vaizdas priklauso nuo Chrome versijos, kurią naudojate. Kartais atsiranda pakeitimų, bet visgi vaizdas turėtų būti panašus.
 
 - Čia mes galim pamatyti raudoną klaidos žinutę. Šiuo atveju skriptas turi nežinomą "lalala" komandą.
 - Dešinėje yra aktyvi nuoroda į `bug.html:12` su skaičiumi eilutės, kurioje yra klaida.
 
-Žemiau klaidos žinutės yra mėlynas `>` simbolis. Jis parodo komandų eilutę (ang. "command line"), kurioje mes galime rašyti JavaScript komandas. Spausk `key:Enter` kad jas paleisti.
+Žemiau klaidos žinutės yra mėlynas `>` simbolis. Jis parodo komandų eilutę (ang. *“command line”*), kurioje mes galime rašyti JavaScript komandas. Spauskite `key:Enter` kad jas paleisti.
 
 Dabar mes galime matyti klaidas. Pradžiai, to pakanka. Vėliau mes grįšime į programuotojų įrankius ir kalbėsime apie klaidų taisymą skyriuje <info:debugging-chrome>.
 
-```smart header="Multi-line input"
-Usually, when we put a line of code into the console, and then press `key:Enter`, it executes.
+```smart header="Kelių eilučių įvedimas"
+Paprastai, kai mes įrašome kodo eilutę į konsolę ir paspaudžiame `key:Enter`, ji įvykdoma.
 
-To insert multiple lines, press `key:Shift+Enter`. This way one can enter long fragments of JavaScript code.
+Norėdami įvesti kelias eilutes, paspauskite `key:Shift+Enter`. Taip galima įvesti ilgus JavaScript kodo fragmentus.
 ```
 
 ## Firefox, Edge ir kiti
@@ -47,19 +47,13 @@ Jų išvaizda gana panaši. Kai išmoksti vieną (gali pradėti nuo Chrome), gal
 
 ## Safari
 
-Safari (Mac naršyklė, neveikia Windows/Linux) yra šiek tiek unikali. Iš pradžių mums reikia įgalinti "Programuotojo Meniu" (ang. "Developer menu").
+Safari (Mac naršyklė, neveikia Windows/Linux) yra šiek tiek unikali. Iš pradžių mums reikia įjungti “Programuotojo Meniu” (ang. *“developer menu”*).
 
-Atidaryk Nuostatas (ang. "Preferences") ir eik į "Pažangi" (ang. "Advanced"). Apačioj bus langelis (ang. "checkbox"):
+Atidarykite Nuostatas (ang. “*preferences*”) ir eikite į "Pažangi" (ang. “advanced”). Apačioj bus langelis (ang. *“checkbox”*):
 
 ![safari](safari.png)
 
-Dabar `key:Cmd+Opt+C` įjungs konsolę. Taip pat turėk omeny, kad naujas pasirinkimas "Programuoti" (ang. "Develop") atsirado viršutiniame meniu. Jame yra daug komandų ir nustatymų.
-
-```smart header="Kelių eilučių komandos"
-Dažniausiai, jeigu konsolėje parašome vieną eilutę kodo ir paspaudžiame `key:Enter`, ji suveikia.
-
-Tam, kad parašyti kelias eilutes, spausk `key:Shift+Enter`. Tokiu būdu mes galime parašyti ilgesnius fragmentus JavaScript kodo.
-```
+Dabar `key:Cmd+Opt+C` įjungs konsolę. Taip pat turėkite omeny, kad naujas pasirinkimas “Programuoti” (ang. *"develop"*) atsirado viršutiniame meniu. Jame yra daug komandų ir nustatymų.
 
 ## Reziumė
 
