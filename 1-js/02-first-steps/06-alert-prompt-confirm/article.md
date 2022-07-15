@@ -1,26 +1,10 @@
 # Interakcija: alert, prompt, confirm
 
-<<<<<<< HEAD:1-js/02-first-steps/09-alert-prompt-confirm/article.md
-Šioje pamokų dalyje kalbėsime apie JavaScript kalbą "tokia kokia ji yra", be aplinkai būdingų pataisymų.
-
-Bet vis dar naudosime naršykles kaip mūsų pavyzdinę aplinką, tad turėtume žinoti bent kelias vartotojo sąsajos (ang. user-interface) savybes. Šiame skyriuje susipažinsime su šiomis naršyklės funkcijomis `alert`, `prompt` ir `confirm`.
+Kadangi kaip demonstracinę aplinką mes naudosime naršyklę, pažiūrėkime keletą funkcijų, skirtų interakcijai su naudotoju: `alert`, `prompt` ir `confirm`.
 
 ## alert
 
-Sintaksė:
-
-```js
-alert(message);
-```
-
-Parodo žinutę ir sustabdo skriptą iki kol vartotojas paspaus "OK".
-=======
-As we'll be using the browser as our demo environment, let's see a couple of functions to interact with the user: `alert`, `prompt` and `confirm`.
-
-## alert
-
-This one we've seen already. It shows a message and waits for the user to press "OK".
->>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834:1-js/02-first-steps/06-alert-prompt-confirm/article.md
+Šitą jau matėme. Jis rodo pranešimą ir laukia, kol naudotojas paspaus "OK".
 
 Pavyzdžiui:
 
@@ -28,11 +12,7 @@ Pavyzdžiui:
 alert("Labas");
 ```
 
-<<<<<<< HEAD:1-js/02-first-steps/09-alert-prompt-confirm/article.md
-Miniatiūrinis langelis su žinute yra vadinamas *modaliniu langeliu* (ang. *modal window*). Žodis "modalinis" reiškia, kad lankytojas negali naudotis likusiu puslapiu, spausti kitų mygtukų ir t.t. kol nesusitvarkė su langeliu. Šiuo atveju -- iki kol paspaus "OK".
-=======
-The mini-window with the message is called a *modal window*. The word "modal" means that the visitor can't interact with the rest of the page, press other buttons, etc, until they have dealt with the window. In this case -- until they press "OK".
->>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834:1-js/02-first-steps/06-alert-prompt-confirm/article.md
+Miniatiūrinis langelis su žinute yra vadinamas *modaliniu langeliu* (ang. “*modal window*”). Žodis “modalinis” reiškia, kad lankytojas negali naudotis puslapiu, spausti kitų mygtukų ir t.t. kol nesusitvarkė su langeliu. Šiuo atveju -- iki kol paspaus “OK”.
 
 ## prompt
 
@@ -50,15 +30,11 @@ Parodo modalinį langelį su paprasta tekstine žinute, įvesties laukeliu lanky
 `default`
 : Nebūtinas antras parametras, pradinė vertė įvesties laukeliui.
 
-<<<<<<< HEAD:1-js/02-first-steps/09-alert-prompt-confirm/article.md
-Lankytojas gali ką nors įvesti laukelyje ir paspausti OK. Arba jie gali atšaukti paspausdami Cancel ar klaviatūroje `key:Esc` mygtuką.
-=======
-```smart header="The square brackets in syntax `[...]`"
-The square brackets around `default` in the syntax above denote that the parameter is optional, not required.
+```smart header="Kvadratiniai skliausteliai sintaksėje`[...]`"
+Kvadratiniai skliausteliai aplink `default` aukščiau pateiktoje sintaksėje reiškia, kad parametras yra neprivalomas.
 ```
 
-The visitor can type something in the prompt input field and press OK. Then we get that text in the `result`. Or they can cancel the input by pressing Cancel or hitting the `key:Esc` key, then we get `null` as the `result`.
->>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834:1-js/02-first-steps/06-alert-prompt-confirm/article.md
+Lankytojas gali ką nors įvesti į įvesties lauką ir paspausti OK. Tada šį tekstą gausime kintamajame `result`. Arba jis gali atšaukti įvestį paspausdamas Cancel arba paspausdamas klavišą `key:Esc`, tada kaip kintamąjį `result` gausime `null`.
 
 Iššauktas `prompt` grąžina tekstą iš įvesties laukelio arba `null`, jeigu įvestis buvo atšaukta.
 

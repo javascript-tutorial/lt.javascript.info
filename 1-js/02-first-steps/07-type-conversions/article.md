@@ -1,24 +1,15 @@
 # Tipų konversijos 
 
-<<<<<<< HEAD:1-js/02-first-steps/06-type-conversions/article.md
-Dažniausiai operatoriai ir funkcijos automatiškai pakeičia jiems duotas vertes į teisingą tipą. 
-=======
-Most of the time, operators and functions automatically convert the values given to them to the right type.
->>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834:1-js/02-first-steps/07-type-conversions/article.md
+Dažniausiai operatoriai ir funkcijos automatiškai konvertuoja jiems pateiktas vertes į teisingą tipą.
 
 Pavyzdžiui `alert` automatiškai paverčia bet kokią jiems duotą vertę į eilutės tipą, kad galėtų jį parodytų. Matematinės operacijos pakeičia vertes į skaičius.
 
 Yra tokių konkrečių atvejų kai mums reikia vertę pakeisti į atitinkamą tipą.
 
-<<<<<<< HEAD:1-js/02-first-steps/06-type-conversions/article.md
-```smart header="Dar nekalbame apie objektus"
-Šiame skyriuje kol kas dar nekalbėsime apie objektus. Vietoje to studijuosime primityvius tipus. Vėliau kai sužinosime daugiau apie objektus, pamatysime kaip objektų keitimai veikia skyriuje <info:object-toprimitive>.
-=======
-```smart header="Not talking about objects yet"
-In this chapter, we won't cover objects. For now we'll just be talking about primitives.
+```smart header="Dar nekalbant apie objektus"
+Šiame skyriuje kol kas dar nekalbėsime apie objektus. Dabar kalbėsime tik apie primityvus.
 
-Later, after we learn about objects, in the chapter <info:object-toprimitive> we'll see how objects fit in.
->>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834:1-js/02-first-steps/07-type-conversions/article.md
+Vėliau, kai susipažinsime su objektais, skyriuje <info:object-toprimitive> pamatysime, kaip objektai tinka.
 ```
 
 ## Eilutės konversijos
@@ -57,7 +48,7 @@ Mes taip pat galime naudoti `Number(value)` funkciją konkrečiai tam, kad paver
 let str = "123";
 alert(typeof str); // string
 
-let num = Number(str); // tampa numeriu 123
+let num = Number(str); // tampa skaičiumi 123
 
 alert(typeof num); // number
 ```
@@ -67,7 +58,7 @@ Akivaizdžios konversijos dažniausiai reikalingos kai gauname vertę eilutės t
 Jeigu eilutė nėra tinkamas skaičius, tada tokios konversijos rezultatas bus is `NaN`. Pavyzdžiui:
 
 ```js run
-let age = Number("arbitriška eilutė vietoje skaičiaus");
+let age = Number("vietoj skaičiaus bet kokią eilutę.");
 
 alert(age); // NaN, konversija nepavyko
 ```
@@ -92,22 +83,7 @@ alert( Number(false) );       // 0
 
 Atkreipkite dėmesį, kad `null` ir `undefined` elgiasi kitaip šiuo atveju: `null` tampa nuliu kai `undefined` tampa `NaN`.
 
-<<<<<<< HEAD:1-js/02-first-steps/06-type-conversions/article.md
-````smart header="Sudėtis '+' sujungia eilutes"
-Beveik visos matematinės operacijos paverčia vertes numeriais. Svarbi išimtis yra sudėtis `+`. Jeigu viena iš verčių yra eilutės, kita taip pat paverčiama eilute.
-
-Tada ji sujungia (ang. concatenates) vertes:
-
-```js run
-alert( 1 + '2' ); // '12' (eilutė iš dešinės)
-alert( '1' + 2 ); // '12' (eilutė iš kairės)
-```
-
-Taip įvyksta tik tokiu atveju kai vienas iš argumentų yra eilutė. Kitu atveju vertės konvertuojamos į skaičius.
-````
-=======
-Most mathematical operators also perform such conversion, we'll see that in the next chapter.
->>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834:1-js/02-first-steps/07-type-conversions/article.md
+Dauguma matematinių operatorių taip pat atlieka tokį konvertavimą, tai pamatysime kitame skyriuje.
 
 ## Loginės konversijos
 

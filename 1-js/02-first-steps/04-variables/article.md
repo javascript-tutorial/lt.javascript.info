@@ -4,31 +4,27 @@ Dažniausiai JavaScript paraiška dirba su informacija. Štai du pavyzdžiai:
 1. Internetinė parduotuvė -- informacija gali apimti parduodamas prekes ir pirkimo krepšelį.
 2. Pokalbių programėlė -- informacija gali apimti vartotojus, žinutes ir daug daugiau.
 
-Kintamieji (ang. variables) yra naudojami tam, kad kauptų šią informaciją. 
+Kintamieji (ang. *“variables”*) yra naudojami tam, kad kauptų šią informaciją. 
 
 ## Kintamasis
 
 [Kintamasis](https://en.wikipedia.org/wiki/Variable_(computer_science)) yra "įvardinta saugykla" duomenims. Mes galime naudoti kintamuosius, kad kauptume informacines gėrybes, lankytojus ir kitus duomenis.
 
-Norėdami sukurti kintamąjį su JavaScript, naudokite `let` raktinį žodį (ang. "keyword").
+Norėdami sukurti kintamąjį su JavaScript, naudokite `let` raktinį žodį.
 
-Žemiau esantis pareiškimas sukuria (kitais žodžiais: *deklaruoja*, ang.*declares*) kintamąjį su pavadinimu "message":
+Žemiau esantis pareiškimas sukuria (kitais žodžiais: *deklaruoja*) kintamąjį su pavadinimu “message”:
 
 ```js
 let message;
 ```
 
-Dabar į jį galime patalpinti duomenis naudodami užduoties operatorių `=`:
+Dabar į jį galime patalpinti duomenis naudodami priskyrimo operatorių `=`:
 
 ```js
 let message;
 
 *!*
-<<<<<<< HEAD
-message = 'Labas'; // patalpinama eilutė
-=======
-message = 'Hello'; // store the string 'Hello' in the variable named message
->>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834
+message = 'Labas'; // įrašyti eilutę "Hello" į kintamąjį, pavadintą message
 */!*
 ```
 
@@ -43,7 +39,7 @@ alert(message); // parodo kintamojo turinį
 */!*
 ```
 
-Dėl glaustumo galime sujungti kintamojo deklaraciją ir užduotį į vieną eilę:
+Dėl glaustumo galime sujungti kintamojo deklaraciją ir priskyrimą į vieną eilutę:
 
 ```js run
 let message = 'Labas!'; // apibrėžti kintamąjį ir priskirti jam vertę
@@ -84,27 +80,22 @@ let user = 'John'
 
 Techniškai, visi šie variantai daro tą patį. Tad tai daugiau asmeninio skonio ir estetikos reikalas. 
 
-<<<<<<< HEAD
 
 ````smart header="`var` vietoje `let`"
-Senesniuose skriptuose galite rasti raktažodį: `var` vietoje `let`:
-=======
-````smart header="`var` instead of `let`"
-In older scripts, you may also find another keyword: `var` instead of `let`:
->>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834
+Senesniuose skriptuose galite rasti kitą raktažodį: `var` vietoje `let`:
 
 ```js
 *!*var*/!* message = 'Labas';
 ```
 
-Raktažodis `var` yra *beveik* tas pats kaip `let`. Jis taip pat deklaruoja kintamąjį, bet šiek tiek kitokiu, "senoviniu" būdu.
+Raktažodis `var` yra *beveik* tas pats kaip `let`. Jis taip pat deklaruoja kintamąjį, bet šiek tiek kitokiu, “senoviniu” būdu.
 
 Yra subtilūs skirtumai tarp `let` ir `var`, bet kol kas jie mums nėra svarbūs. Mes apie juos kalbėsime detaliau skyriuje <info:var>.
 ````
 
-## Tikro gyvenimo analogija
+## Realaus gyvenimo analogija
 
-Tam kad būtų lengviau suprasti "kintamojo" sąvoką, įsivaizduokime jį kaip "dėžę" skirtą sudėti duomenims, ant kurios priklijuotas unikaliai pavadintas lipdukas.
+Tam kad būtų lengviau suprasti “kintamojo” sąvoką, įsivaizduokime jį kaip “dėžę” skirtą sudėti duomenims, ant kurios priklijuotas unikaliai pavadintas lipdukas.
 
 Pavyzdžiui kintamąjį `message` galime įsivaizduoti kaip dėžę su etikete `"message"`, kurios viduje yra patalpinta vertė `"Labas!"`:
 
@@ -144,31 +135,26 @@ alert(hello); // Labas pasauli!
 alert(message); // Labas pasauli!
 ```
 
-<<<<<<< HEAD
-```smart header="Funkcinės kalbos"
-Yra įdomu pastebėti, kad egzistuoja [funkcinės](https://en.wikipedia.org/wiki/Functional_programming) programavimo kalbos, tokios kaip [Scala](http://www.scala-lang.org/) arba [Erlang](http://www.erlang.org/), kurios draudžia keisti kintamųjų vertes.
-=======
-````warn header="Declaring twice triggers an error"
-A variable should be declared only once.
+````warn header="Dvigubas deklaravimas sukelia klaidą"
+Kintamąjį reikia deklaruoti tik vieną kartą.
 
-A repeated declaration of the same variable is an error:
+Pakartotinis to paties kintamojo deklaravimas yra klaida:
 
 ```js run
 let message = "This";
 
-// repeated 'let' leads to an error
+// pakartotinis 'let' sukelia klaidą
 let message = "That"; // SyntaxError: 'message' has already been declared
 ```
-So, we should declare a variable once and then refer to it without `let`.
+Taigi, kintamąjį turėtume deklaruoti vieną kartą, o tada į jį atsiremti be `let`.
 ````
 
-```smart header="Functional languages"
-It's interesting to note that there exist [functional](https://en.wikipedia.org/wiki/Functional_programming) programming languages, like [Scala](http://www.scala-lang.org/) or [Erlang](http://www.erlang.org/) that forbid changing variable values.
->>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834
+```smart header="Funkcinės kalbos"
+Yra įdomu pastebėti, kad egzistuoja [funkcinės](https://en.wikipedia.org/wiki/Functional_programming) programavimo kalbos, tokios kaip [Scala](http://www.scala-lang.org/) arba [Erlang](http://www.erlang.org/), kurios draudžia keisti kintamųjų vertes.
 
-Tokiose kalbose, kai vertė yra patalpinama "į dėžę", ji ten ir pasilieka amžiams. Jeigu norime patalpinti kažką kito, kalba mus priverčia sukurti naują dėžę (deklaruoti naują kintamąjį). Mes nebegalime dar kartą panaudoti senojo.
+Tokiose kalbose, kai vertė yra patalpinama “į dėžę”, ji ten ir pasilieka amžiams. Jeigu norime patalpinti kažką kito, kalba mus priverčia sukurti naują dėžę (deklaruoti naują kintamąjį). Mes nebegalime dar kartą panaudoti senojo.
 
-Nors tai atrodo keistai iš pirmo žvilgsnio, tačiau šios kalbos yra gana gabios rimtame programų kūrime. Dar daugiau, yra tam tikrų sričių kaip lygiagretusis skaičiavimas (ang. "parallel computations") kur toks apribojimas suteikia tam tikros naudos. Studijuoti tokią kalbą (net jeigu neplanuojate jos greitu laiku naudoti) yra rekomenduotina, kad praplėstumėte savo mąstymą. 
+Nors tai atrodo keistai iš pirmo žvilgsnio, tačiau šios kalbos yra gana gabios rimtame programų kūrime. Dar daugiau, yra tam tikrų sričių kaip lygiagretusis skaičiavimas (ang. *“parallel computations”*) kur toks apribojimas suteikia tam tikros naudos. Studijuoti tokią kalbą (net jeigu neplanuojate jos greitu laiku naudoti) yra rekomenduotina, kad praplėstumėte savo mąstymą. 
 ```
 
 ## Kintamųjų įvardinimas [#variable-naming]
@@ -185,9 +171,9 @@ let userName;
 let test123;
 ```
 
-Kai pavadinimas susideda iš kelių žodžių, dažniausiai naudojamas [camelCase](https://en.wikipedia.org/wiki/CamelCase) (tiesioginis vertimas - kupranugario atvejis). Tai reiškia: žodžiai seka vienas kitą, kiekvienas žodis išskyrus pirmąjį prasideda iš didžiosios raidės: `manoLabaiIlgasVardas`.
+Kai pavadinimas susideda iš kelių žodžių, dažniausiai naudojamas [camelCase](https://en.wikipedia.org/wiki/CamelCase) stilius. Tai reiškia: žodžiai seka vienas kitą, kiekvienas žodis išskyrus pirmąjį prasideda iš didžiosios raidės: `manoLabaiIlgasVardas`.
 
-Įdomu -- dolerio `'$'` ir pabrėžimo `'_'` ženklai gali būti naudojami pavadinimuose. Jie yra normalūs simboliai, taip pat kaip raidės, be jokios ypatingos reikšmės.
+Įdomu -- dolerio `'$'` ir pabrėžimo `'_'` simboliai gali būti naudojami pavadinimuose. Jie yra normalūs simboliai, taip pat kaip raidės, be jokios ypatingos reikšmės.
 
 Šie pavadinimai yra tinkami:
 
@@ -211,18 +197,14 @@ Kintamieji su pavadinimais `obuolys` ir `obuoLYS` yra du skirtingi kintamieji.
 ```
 
 ````smart header="Nelotyniškos raidės leidžiamos, bet nerekomenduojamos"
-Galima naudoti bet kokią kalbą, net kirilicos raides ar hieroglifus kaip pavyzdyje:
+Galima naudoti bet kokią kalbą, įskaitant kirilicos raides ar net hieroglifus:
 
 ```js
 let имя = '...';
 let 我 = '...';
 ```
 
-<<<<<<< HEAD
 Techniškai jokios klaidos tame nėra ir tokie pavadinimai yra leistini, tačiau tarptautinė tradicija yra naudoti angliškus kintamųjų pavadinimus. Net jeigu rašome trumpą skriptą, jo gyvenimas gali būti labai ilgas. Kada nors žmonėms iš kitų šalių gali tekti jį perskaityti.
-=======
-Technically, there is no error here. Such names are allowed, but there is an international convention to use English in variable names. Even if we're writing a small script, it may have a long life ahead. People from other countries may need to read it some time.
->>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834
 ````
 
 ````warn header="Rezervuoti pavadinimai"
@@ -238,7 +220,7 @@ let return = 5; // taip pat negalima pavadinti "return", klaida!
 ```
 ````
 
-````warn header="Paskyrimas be `use strict`"
+````warn header="Priskyrimas be `use strict`"
 
 Dažniausiai, mums reikia apibrėžti kintamąjį prieš jį naudojant. Bet seniau techniškai buvo galima sukurti kintamąjį tiesiog priskiriant jam vertę ir nenaudojant `let`. Tai vis dar suveikia jeigu mūsų skirptuose nenurodome `use strict` skirtą palaikyti suderinamumą su senaisiais skirptais.
 
@@ -250,7 +232,7 @@ num = 5; // sukuriamas kintamasis "num", jeigu neegzistavo prieš tai
 alert(num); // 5
 ```
 
-Tai yra bloga praktika ir grąžina klaidą griežtame režime (ang. strict mode):
+Tai yra bloga praktika ir grąžina klaidą griežtame režime (ang. *“strict mode”*):
 
 ```js
 "use strict";
@@ -263,13 +245,13 @@ num = 5; // klaida: num nėra apibrėžtas
 
 ## Konstantos
 
-Tam kad deklaruotume konstantą (ang. constant) (pastovų) kintamąjį, naudojame `const` vietoje `let`:
+Tam kad deklaruotume konstantą (pastovų) kintamąjį, naudokite `const` vietoje `let`:
 
 ```js
 const myBirthday = '18.04.1982';
 ```
 
-Kintamieji deklaruoti naudojant `const` yra vadinami "konstantomis". Jie negali būti paskirti iš naujo. Bandymas tai padaryti grąžintų klaidą:
+Kintamieji deklaruoti naudojant `const` yra vadinami “konstantomis”. Jie negali būti paskirti iš naujo. Bandymas tai padaryti grąžintų klaidą:
 
 ```js run
 const myBirthday = '18.04.1982';
@@ -286,7 +268,7 @@ Plačiai paplitusi praktika naudoti konstantas kaip kodinius pavadinimus sunkiai
 
 Tokios konstantos pavadinamos naudojant didžiąsias raides ir pabrėžimo ženklą.
 
-Pavyzdžiui, sukurkime konstantas spalvoms su taip vadinamu internetiniu (šešioliktainiu, ang. hexadecimal) formatu:
+Pavyzdžiui, sukurkime konstantas spalvoms su taip vadinamu internetiniu (šešioliktainiu, ang. *“hexadecimal”*) formatu:
 
 ```js run
 const COLOR_RED = "#F00";
@@ -307,18 +289,18 @@ Nauda:
 
 Kada turėtume naudoti didžiąsias raides konstantoms ir kada turėtume jas pavadinti normaliu būdu? Išsiaiškinkime.
 
-Būti "konstanta" tereiškia, kad to kintamojo vertė niekada nesikeičia. Bet yra tokių konstantų, kurių vertė yra žinoma prieš kodo atlikimą (kaip pavyzdžiui šešioliktainė raudonos spalvos vertė) ir taip pat yra konstantos, kurios yra *išmatuojamos* (ang *calculated*) veikimo metu kol vykdomas kodas, bet nesikeičia po jų pradinio paskyrimo. 
+Būti “konstanta” tereiškia, kad to kintamojo vertė niekada nesikeičia. Bet yra tokių konstantų, kurių vertė yra žinoma prieš kodo atlikimą (kaip pavyzdžiui šešioliktainė raudonos spalvos vertė) ir taip pat yra konstantos, kurios yra *išmatuojamos* (ang. *“calculated”*) veikimo metu kol vykdomas kodas, bet nesikeičia po jų pradinio paskyrimo. 
 
 Pavyzdžiui:
 ```js
-const pageLoadTime = /* kiek laiko užtruko paliesti puslapį */;
+const pageLoadTime = /* kiek laiko užtruko paleisti puslapį */;
 ```
 
 Vertė `pageLoadTime` nebuvo žinoma prieš paleidžiant puslapį, tad pavadinimas užrašytas įprastiniu būdu, bet tai vis dar konstanta, nes ji nesikeičia po paskyrimo.
 
-Kitais žodžiais, didžiosiomis raidėmis pavadintos konstantos yra naudojamos kaip kodiniai žodžiai išanksto sukoduotoms (ang "hard-coded") vertėms.  
+Kitais žodžiais, didžiosiomis raidėmis pavadintos konstantos yra naudojamos kaip kodiniai žodžiai išanksto sukoduotoms (ang. *“hard-coded”*) vertėms.  
 
-## Pavadinkite daiktus teisingai
+## Teisingai įvardykite dalykus
 
 Kalbant apie kintamuosius yra dar vienas labai svarbus punktas.
 
@@ -334,8 +316,8 @@ Kelios sektinos taisyklės:
 
 - Naudokite žmogui lengvai perskaitomus pavadinimus, kaip `userName` arba `shoppingCart`.
 - Laikykitės atokiau nuo sutrumpinimų arba trumpų pavadinimų kaip `a`, `b`, `c`, nebent tikrai žinote ką darote.
-- Pavadinimus kurkite kaip galima labiau apibūdinančius, bet glaustus. Pavyzdžiui blogi pavadinimai yra tokie kaip `data` ir `value`. Tokie pavadinimai nieko nesako. Tinka tik tokiu atveju jeigu kodo turinys yaptingai aiškiai parodo, į kuriuos "data" arba "value" kintamasis nurodo.
-- Susitarkite dėl terminų su komanda ir savo mintyse. Jeigu lankytojas puslapyje yra vadinamas "user" tai ir susiję kintamieji turi būti pavadinti `currentUser` arba `newUser` vietoje `currentVisitor` arba `newManInTown`.
+- Pavadinimus kurkite kaip galima labiau apibūdinančius, bet glaustus. Pavyzdžiui blogi pavadinimai yra tokie kaip `data` ir `value`. Tokie pavadinimai nieko nesako. Tinka tik tokiu atveju jeigu kodo turinys yaptingai aiškiai parodo, į kuriuos “data” arba “value” kintamasis nurodo.
+- Susitarkite dėl terminų su komanda ir savo mintyse. Jeigu lankytojas puslapyje yra vadinamas “user” tai ir susiję kintamieji turi būti pavadinti `currentUser` arba `newUser` vietoje `currentVisitor` arba `newManInTown`.
 
 Skamba paprastai? Iš tikrųjų taip ir yra, bet praktikoje sukurti apibūdinančius ir tuo pačiu glaustus kintamųjų pavadinimus nėra lengva. Pabandykite.
 
@@ -348,7 +330,7 @@ Tokie programuotojai šiek tiek sutaupo kintamųjų deklaracijoms, bet praranda 
 
 Papildomas kintamasis yra gėris, ne blogis.
 
-Modernios JavaScript minifikatoriai (kitaip - kodo sutrumpintojai, ang. minifiers) ir naršyklės pakankamai gerai optimizuoja kodą, kad nekiltų veiklos problemų. Naudodami skirtingus kintamuosius, skirtingoms vertėms netgi galite padėti sistemai optimizuoti jūsų kodą.
+Modernios JavaScript minifikatoriai (kitaip - kodo sutrumpintojai, ang. *“minifiers”*) ir naršyklės pakankamai gerai optimizuoja kodą, kad nekiltų veiklos problemų. Naudodami skirtingus kintamuosius, skirtingoms vertėms netgi galite padėti sistemai optimizuoti jūsų kodą.
 ```
 
 ## Santrauka
