@@ -6,7 +6,7 @@ importance: 4
 
 Ši funkcija grąžina `true`, jei parametras `age` yra didesnis nei `18`.
 
-Priešingu atveju klausiama `confirm' ir grąžinamas rezultatas.
+Priešingu atveju klausiama `confirm` ir grąžinamas rezultatas.
 
 ```js
 function checkAge(age) {
