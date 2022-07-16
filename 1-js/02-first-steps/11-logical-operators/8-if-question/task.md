@@ -4,7 +4,7 @@ importance: 5
 
 # Klausimas apie "if"
 
-Kurie iš šių `alert`s bus įvykdyti?
+Kurie iš šių `alert` bus įvykdyti?
 
 Koks bus išraiškų rezultatas viduje `if(...)`?
 

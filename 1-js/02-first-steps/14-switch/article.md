@@ -1,4 +1,4 @@
-# Teiginys "switch"
+# Teiginys “switch”
 
 Teiginys `switch` gali pakeisti daugybinius `if` patikrinimus.
 
@@ -47,11 +47,7 @@ switch (a) {
     break;
 */!*
   case 5:
-<<<<<<< HEAD:1-js/02-first-steps/13-switch/article.md
     alert( 'Per didelis' );
-=======
-    alert( 'Too big' );
->>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834:1-js/02-first-steps/14-switch/article.md
     break;
   default:
     alert( "Tokios vertės nežinau" );
@@ -143,7 +139,7 @@ switch (a) {
 
 Dabar abu `3` ir `5` parodo tą pačią žinutę.
 
-Gebėjimas "sugrupuoti" bylas yra šalutinis efektas to kaip `switch/case` veikia be `break`. Čia `case 3` vykdymas prasideda nuo eilės su `(*)` ir eina per bylą `case 5`, nes nėra `break`.
+Gebėjimas “sugrupuoti” bylas yra šalutinis efektas to kaip `switch/case` veikia be `break`. Čia `case 3` vykdymas prasideda nuo eilės su `(*)` ir eina per bylą `case 5`, nes nėra `break`.
 
 ## Tipas yra svarbu
 

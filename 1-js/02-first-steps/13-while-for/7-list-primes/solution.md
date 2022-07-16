@@ -10,7 +10,7 @@ Kiekvienam i intervale {
 }
 ```
 
-Kodas naudojant etiketę:
+Kodas naudojant žymą:
 
 ```js run
 let n = 10;
@@ -26,4 +26,4 @@ for (let i = 2; i <= n; i++) { // kiekvienam i...
 }
 ```
 
-Yra daug vietos, kur galima jį optimizuoti. Pavyzdžiui, galėtume ieškoti daliklių nuo `2` iki `i` šaknies. Bet kokiu atveju, jeigu norime būti efektyvūs dideliems intervalams, reikia pakeisti priėjimo būdus ir pasitikėti pažengusia matematika ir sudėtingais algoritmais kaip [Quadratic sieve](https://en.wikipedia.org/wiki/Quadratic_sieve), [General number field sieve](https://en.wikipedia.org/wiki/General_number_field_sieve) etc.
+Yra daug vietos, kur galima jį optimizuoti. Pavyzdžiui, galėtume ieškoti daliklių nuo `2` iki `i` šaknies. Bet kokiu atveju, jeigu norime būti efektyvūs dideliems intervalams, reikia pakeisti priėjimo būdus ir pasitikėti pažengusia matematika ir sudėtingais algoritmais kaip [kvadratinis sietas](https://en.wikipedia.org/wiki/Quadratic_sieve) arba [skaitmeninio lauko sietas](https://en.wikipedia.org/wiki/General_number_field_sieve).

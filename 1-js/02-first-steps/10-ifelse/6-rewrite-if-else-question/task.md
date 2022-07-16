@@ -6,7 +6,7 @@ importance: 5
 
 Perrašykite `if..else` naudodami daugybinius ternarinius operatorius `'?'`.
 
-Dėl skaitomo rekomenduoja išskirti kodą į kelias eiles.
+Kad būtų lengviau skaityti, rekomenduojama kodą padalyti į kelias eilutes.
 
 ```js
 let message;

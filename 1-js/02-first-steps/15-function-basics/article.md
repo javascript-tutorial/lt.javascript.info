@@ -20,7 +20,7 @@ function showMessage() {
 }
 ```
 
-Pirmiausia įrašomas raktažodis `funkcija`, po jo nurodomas funkcijos pavadinimas, po to skliausteliuose pateikiamas parametrų sąrašas, atskirtas kableliais (aukščiau pateiktame pavyzdyje jis yra tuščias), ir, galiausiai, funkcijos kodas, dar vadinamas «funkcijos turiniu», riestiniuose skliaustuose.
+Pirmiausia įrašomas raktažodis `funkcija`, po jo nurodomas funkcijos pavadinimas, po to skliausteliuose pateikiamas parametrų sąrašas, atskirtas kableliais (aukščiau pateiktame pavyzdyje jis yra tuščias), ir, galiausiai, funkcijos kodas, dar vadinamas “funkcijos turiniu”, riestiniuose skliaustuose.
 
 ```js
 function name(parameter1, parameter2, ... parameterN) {
@@ -154,7 +154,7 @@ showMessage('Ana', "Kaip sekasi?"); // Ana: Kaip sekasi? (**)
 
 Kai funkcija iškviečiama eilutėse `(*)` ir `(**)`, perduotos vertės perkeliamos į lokalinius kintamuosius `from` ir `text`. Tada jie naudojami funkcijos turinyje.
 
-Štai dar vienas pavyzdys: turime kintamąjį `from` ir perduodame jį funkcijai. Atkreipkite dėmesį: funkcija pakeičia reikšmę `from`, tačiau šis pokytis nėra matomas iš išorės. Funkcija visada gauna tik vertės kopiją:
+Štai dar vienas pavyzdys: turime kintamąjį `from` ir perduodame jį funkcijai. Atkreipkite dėmesį: funkcija pakeičia vertę `from`, tačiau šis pokytis nėra matomas iš išorės. Funkcija visada gauna tik vertės kopiją:
 
 ```js run
 function showMessage(from, text) {
@@ -176,22 +176,7 @@ alert( from ); // Ana
 
 ## Numatytieji parametrai
 
-Jei parametras nenurodytas, jo reikšmė tampa `undefined`.
-When a value is passed as a function parameter, it's also called an *argument*.
-
-In other words, to put these terms straight:
-
-- A parameter is the variable listed inside the parentheses in the function declaration (it's a declaration time term)
-- An argument is the value that is passed to the function when it is called (it's a call time term).
-
-We declare functions listing their parameters, then call them passing arguments.
-
-In the example above, one might say: "the function `showMessage` is declared with two parameters, then called with two arguments: `from` and `"Hello"`".
-
-
-## Default values
-
-If a function is called, but an argument is not provided, then the corresponding value becomes `undefined`.
+Jei parametras nenurodytas, jo vertė tampa `undefined`.
 
 Pavyzdžiui, aukščiau pateiktą funkciją `showMessage(from, text)` galima iškviesti su vienu argumentu:
 
@@ -225,62 +210,52 @@ function showMessage(from, text = anotherFunction()) {
 ```smart header="Numatytųjų parametrų apskaičiavimas"
 JavaScript kalba numatytieji parametrai apskaičiuojami kiekvieną kartą, kai funkcija iškviečiama be atitinkamo parametro.
 
-In the example above, `anotherFunction()` isn't called at all, if the `text` parameter is provided.
-
-On the other hand, it's independently called every time when `text` is missing.
+Aukščiau pateiktame pavyzdyje `anotherFunction()` bus iškviečiama kiekvieną kartą, kai `showMessage()` bus iškviesta be `text` parametro.
 ```
 
-### Alternative default parameters
+### Alternatyvūs numatytieji parametrai
 
-Sometimes it makes sense to assign default values for parameters not in the function declaration, but at a later stage.
+Kartais tikslinga parametrams priskirti numatytąsias vertes ne funkcijos deklaravimo metu, o vėliau.
 
-We can check if the parameter is passed during the function execution, by comparing it with `undefined`:
+Mes galime patikrinti, ar parametras perduotas funkcijos vykdymo metu, palyginę jį su `undefined`:
 
 ```js run
 function showMessage(text) {
   // ...
 
 *!*
-  if (text === undefined) {
+  if (text === undefined) { // jei trūksta parametro
     text = 'tekstas nepridėtas';
-  if (text === undefined) { // if the parameter is missing
-    text = 'empty message';
   }
 */!*
 
   alert(text);
 }
 
-showMessage(); // empty message
+showMessage(); // tekstas nepridėtas
 ```
 
 ...Arba naudodami operatorių `||`:
 
 ```js
-function showMessage(from, text) {
-  // jei text vertę yra false, nustatyti text parametro numatytąją vertę
-  text = text || 'tekstas nepridėtas';
-...Or we could use the `||` operator:
-
-```js
 function showMessage(text) {
-  // if text is undefined or otherwise falsy, set it to 'empty'
-  text = text || 'empty';
+  // jei text yra undefined arba falsy, priskirti vertę `tuščia`
+  text = text || 'tuščia';
   ...
 }
 ```
 
-Modern JavaScript engines support the [nullish coalescing operator](info:nullish-coalescing-operator) `??`, it's better when most falsy values, such as `0`, should be considered "normal":
+Šiuolaikiniai JavaScript varikliai palaiko [nulinio susiliejimo operatorių](info:nullish-coalescing-operator) `??`, jis tinka geriau, jei dauguma neteisingų verčių, pvz., `0`, yra laikomos "normaliomis":
 
 ```js run
 function showCount(count) {
-  // if count is undefined or null, show "unknown"
-  alert(count ?? "unknown");
+  // jei count yra undefined arba null, rodyti "nežinoma"
+  alert(count ?? "nežinoma");
 }
 
 showCount(0); // 0
-showCount(null); // unknown
-showCount(); // unknown
+showCount(null); // nežinoma
+showCount(); // nežinoma
 ```
 
 ## Grąžintina vertė
@@ -488,7 +463,7 @@ Antrąjį variantą lengviau suprasti, ar ne? Vietoj kodo dalies matome veiksmo 
 
 Todėl galima kurti funkcijas, net jei neplanuojame jų pakartotinai naudoti. Tokios funkcijos struktūrizuoja kodą ir daro jį aiškesnį.
 
-## Iš viso
+## Santrauka
 
 Funkcijos deklaravimas atrodo taip:
 

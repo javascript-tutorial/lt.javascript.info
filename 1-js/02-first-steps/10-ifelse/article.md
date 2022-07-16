@@ -1,14 +1,10 @@
-<<<<<<< HEAD
-# Sąlyginiai operatoriai: if, '?'
-=======
-# Conditional branching: if, '?'
->>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834
+# Sąlyginis šakojimasis: if, '?'
 
 Kartais mums tenka atlikti skirtingus veiksmus atitinkančius skirtingas sąlygas.
 
-Kad tai padarytume mes naudojame teiginį `if` ir sąlyginį operatorių `?`, arba dar kitaip vadinamą "klaustuko" operatorių.
+Kad tai padarytume mes naudojame teiginį `if` ir sąlyginį operatorių `?`, arba dar kitaip vadinamą “klaustuko” operatorių.
 
-## Teiginys "if"
+## Teiginys “if”
 
 Teiginys `if(...)` įvertina sąlygas esančias tarp skliaustelių ir jeigu rezultatas yra `true` tada įvykdo kodų rinkinį.
 
@@ -41,8 +37,8 @@ Teiginys `if (…)` įvertina išraišką esančią skliaustuose ir paverčia re
 
 Prisiminkime konversijos taisykles iš skyriaus <info:type-conversions>:
 
-- Skaičius `0`, tuščia eilutė `""`, `null`, `undefined` ir `NaN` visi tampa `false`. Nes jos yra vadinamosios "falsy" (neteisingosio) vertės.
-- Kitos vertės tampa `true`, tad jos vadinamos "truthy" (teisingosios).
+- Skaičius `0`, tuščia eilutė `""`, `null`, `undefined` ir `NaN` visi tampa `false`. Nes jos yra vadinamosios “falsy” (neteisingosio) vertės.
+- Kitos vertės tampa `true`, tad jos vadinamos “truthy” (teisingosios).
 
 Taigi kodas tokiu atveju niekada nebūtų įvykdytas:
 
@@ -72,11 +68,7 @@ if (cond) {
 
 ## Išlyga "else"
 
-<<<<<<< HEAD
-Teiginys `if` gali turėti išlygos "else" rinkinį. Jis įvykdomas kai sąlyga yra false.
-=======
-The `if` statement may contain an optional "else" block. It executes when the condition is falsy.
->>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834
+Į `if` teiginį gali būti įterptas neprivalomas “else” blokas. Jis vykdomas, kai sąlyga yra “falsy”.
 
 Pavyzdžiui:
 ```js run
@@ -132,9 +124,9 @@ if (age > 18) {
 alert(accessAllowed);
 ```
 
-Taip vadinamas "sąlyginis" arba "klaustuko" operatorius mums leidžia tai padaryti daug trumpesniu ir paprastesniu būdu.
+Taip vadinamas “sąlyginis” arba “klaustuko” operatorius mums leidžia tai padaryti daug trumpesniu ir paprastesniu būdu.
 
-Operatorių atstovauja klaustukas `?`. Kartais jis vadinamas "ternariniu", nes operatorius turi tris operandus. Iš tikrųjų jis vienas ir vienintelis, kuris JavaScript turi tiek operandų.
+Operatorių atstovauja klaustukas `?`. Kartais jis vadinamas “ternariniu”, nes operatorius turi tris operandus. Iš tikrųjų jis vienas ir vienintelis, kuris JavaScript turi tiek operandų.
 
 Sintaksė yra tokia:
 ```js

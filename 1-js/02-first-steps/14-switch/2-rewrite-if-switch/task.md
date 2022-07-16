@@ -2,7 +2,7 @@ importance: 4
 
 ---
 
-# Perrašykite "if" į "switch"
+# Perrašykite “if” į “switch”
 
 Perrašykite kodą esantį žemiau naudodami vieną `switch` teiginį:
 

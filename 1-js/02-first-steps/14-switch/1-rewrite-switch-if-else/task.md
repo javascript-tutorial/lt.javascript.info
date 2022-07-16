@@ -2,7 +2,7 @@ importance: 5
 
 ---
 
-# Perrašykite "switch" į "if"
+# Perrašykite “switch” į “if”
 
 Perrašykite kodą naudodami `if..else`, kuris atitiktų sekantį `switch`:
 

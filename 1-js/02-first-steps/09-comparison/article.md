@@ -1,37 +1,24 @@
 # Palyginimai
 
-<<<<<<< HEAD:1-js/02-first-steps/08-comparison/article.md
-Iš matematikos mes žinome daug palyginimo operatorių:
+Mes žinome daugybę palyginimo operatorių iš matematikos.
+
+JavaScript kalboje jie užrašomi taip:
 
 - Daugiau/mažiau negu: <code>a &gt; b</code>, <code>a &lt; b</code>.
 - Daugiau/mažiau arba lygu negu: <code>a &gt;= b</code>, <code>a &lt;= b</code>.
-- Lygu: `a == b` (atkreipkite dėmesį į dvigubos lygybės ženklą `=`. Vienas ženklas `a = b` reikštų priskyrimą).
-- Nelygus. Matematikoje toks ženklas yra <code>&ne;</code>, bet JavaScript jis rašomas kaip asigmentas su šauktuku prieš jį: <code>a != b</code>.
-=======
-We know many comparison operators from maths.
+- Lygu: `a == b`, atkreipkite dėmesį, kad dvigubas lygybės ženklas `==` reiškia lygybės patikrinimą, o viengubas `a = b` reiškia priskyrimą.
+- Nelygus: Matematikoje toks ženklas yra <code>&ne;</code>, bet JavaScript jis rašomas kaip priskyrimas su šauktuku prieš jį <code>a != b</code>.
 
-In JavaScript they are written like this:
+Šiame straipsnyje daugiau sužinosime apie įvairių tipų palyginimus, kaip JavaScript juos atlieka, įskaitant svarbius ypatumus.
 
-- Greater/less than: <code>a &gt; b</code>, <code>a &lt; b</code>.
-- Greater/less than or equals: <code>a &gt;= b</code>, <code>a &lt;= b</code>.
-- Equals: `a == b`, please note the double equality sign `==` means the equality test, while a single one `a = b` means an assignment.
-- Not equals: In maths the notation is <code>&ne;</code>, but in JavaScript it's written as <code>a != b</code>.
+Pabaigoje jūs rasite gerą patarimą, kaip išvengti JavaScript palyginimo “keistenybių”.
 
-In this article we'll learn more about different types of comparisons, how JavaScript makes them, including important peculiarities.
+## Boolean yra rezultatas
 
-At the end you'll find a good recipe to avoid "JavaScript quirks"-related issues.
->>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834:1-js/02-first-steps/09-comparison/article.md
+Visi palyginimo operatoriai grąžina loginę (Boolean) vertę:
 
-## Loginė vertė yra rezultatas
-
-<<<<<<< HEAD:1-js/02-first-steps/08-comparison/article.md
-Kaip ir visi kiti operatoriai, palyginimas grąžina vertę. Šiuo atveju ta vertė yra loginė.
-=======
-All comparison operators return a boolean value:
->>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834:1-js/02-first-steps/09-comparison/article.md
-
-- `true` -- reiškia "taip", "teisingai" arba "tiesa".
-- `false` -- reiškia "ne", "neteisingai" arba "netiesa".
+- `true` -- reiškia “taip”, “teisingai” arba “tiesa”.
+- `false` -- reiškia “ne”, “neteisingai” arba “netiesa”.
 
 Pavyzdžiui:
 
@@ -50,7 +37,7 @@ alert( result ); // true
 
 ## Eilutės palyginimas
 
-Kad patikrintų ar viena eilutė yra didesnė už kitą, JavaScript naudoja taip vadinamą "žodyno" arba "leksikografinį" eiliškumą
+Kad patikrintų ar viena eilutė yra didesnė už kitą, JavaScript naudoja taip vadinamą “žodyną” arba “leksikografinį” eiliškumą
 
 Kitais žodžiais, eilutės yra lyginamos paraidžiui.
 
@@ -70,13 +57,9 @@ Algoritmas eilučių palyginimui yra labai paprastas:
 4. Pakartoti iki vienos iš eilučių pabaigos.
 5. Jeigu abi eilutės baigiasi tuo pačiu metu, jos yra vienodos. Kitu atveju ilgesnė eilutė yra didesnė.
 
-<<<<<<< HEAD:1-js/02-first-steps/08-comparison/article.md
-Pavyzdyje aukščiau, palyginimas `'Z' > 'A'` gauna atsakymą pirmame žingsnyje, kai tuo tarpu `"Glow"` ir `"Glee"` yra lyginami ženklas po ženklo:
-=======
-In the first example above, the comparison `'Z' > 'A'` gets to a result at the first step.
+Pirmajame pavyzdyje palyginimas `'Z' > 'A'` duoda rezultatą pirmajame žingsnyje.
 
-The second comparison `'Glow'` and `'Glee'` needs more steps as strings are compared character-by-character:
->>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834:1-js/02-first-steps/09-comparison/article.md
+Antrojo palyginimo `'Glow'` ir `'Glee'` žingsnių reikia daugiau, nes eilutės lyginamos paraidžiui:
 
 1. `G` tas pats kaip `G`.
 2. `l` tas pats kaip `l`.
@@ -157,7 +140,7 @@ Pabandykime:
 alert( 0 === false ); // false, nes tipai yra skirtingi
 ```
 
-Taip pat yra ir "griežtos nelygybės" operatorius `!==` analogiškas `!=`.
+Taip pat yra ir “griežtos nelygybės” operatorius `!==` analogiškas `!=`.
 
 Griežtos lygybės operatorius yra ilgesnis, bet jis padeda kodui atrodyti aiškesniu ir palieka mažiau vietos klaidoms. 
 
@@ -217,22 +200,12 @@ Gauname tokius rezultatas, nes:
 - Palyginimai `(1)` ir `(2)` grąžina `false`, nes `undefined` paverčiamas į `NaN`, o `NaN` yra ypatinga skaitinė vertė, kuri visoms vertėms grąžina `false`.
 - Lygybės patikrinimas `(3)` grąžina `false`, nes `undefined` yra lygus tik `null`, `undefined` ir jokiai kitai vertei.
 
-<<<<<<< HEAD:1-js/02-first-steps/08-comparison/article.md
 ### Išvenkite problemų
 
-Kodėl mes peržiūrėjome tokius pavyzdžius? Ar turėtume tokias keistenybes visada prisiminti? Nebūtinai. Tiesą sakant tokie triukai taps pažįstamais su laiku, bet yra būdas kaip išvengti su jais susijusių problemų:
+Kodėl aptarėme šiuos pavyzdžius? Ar turėtume nuolat prisiminti šiuos ypatumus? Na, ne visai. Tiesą sakant, laikui bėgant šie subtilūs dalykai palaipsniui taps įprasti, tačiau yra patikimas būdas išvengti su jais susijusių problemų:
 
-Kiekvieną palyginimą susijusį su `undefined/null` vertinkite atsargiai, išskyrus su griežta lygybe `===`.
-
-Nenaudokite palyginimų `>= > < <=` su kintamuoju, kuris gali būti `null/undefined`, nebent tikrai žinote ką darote. Jeigu kintamasis gali turėti tokias vertybes, patikrinkite jas atskirai.
-=======
-### Avoid problems
-
-Why did we go over these examples? Should we remember these peculiarities all the time? Well, not really. Actually, these tricky things will gradually become familiar over time, but there's a solid way to avoid problems with them:
-
-- Treat any comparison with `undefined/null` except the strict equality `===` with exceptional care.
-- Don't use comparisons `>= > < <=` with a variable which may be `null/undefined`, unless you're really sure of what you're doing. If a variable can have these values, check for them separately.
->>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834:1-js/02-first-steps/09-comparison/article.md
+- Bet kokį palyginimą su `undefined/null`, išskyrus griežtos lygybės `===`, atlikite itin atsargiai.
+- Nenaudokite palyginimų `>= > > < <=` su kintamuoju, kuris gali būti `null/undefined`, nebent tikrai žinote, ką darote. Jei kintamasis gali turėti šias vertes, tikrinkite jas atskirai.
 
 ## Santrauka
 

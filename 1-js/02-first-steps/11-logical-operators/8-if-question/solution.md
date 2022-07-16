@@ -1,6 +1,6 @@
 Atsakymas: pirma ir antra bus įvykdytos.
 
-Details:
+Išsamiau:
 
 ```js run
 // Paleidžiama.

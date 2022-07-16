@@ -10,7 +10,7 @@ while (i) {
 
 Kiekviena ciklo iteracija sumažina `i` per `1`. Patikrinimas `while(i)` sustabdo ciklą kai `i = 0`.
 
-Dėl to žingsniai iš paskutinio ciklo suformuoja tokią seką ("atskleistas ciklas"):
+Dėl to žingsniai iš paskutinio ciklo suformuoja tokią seką (“atskleistas ciklas”):
 
 ```js
 let i = 3;
