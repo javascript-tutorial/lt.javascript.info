@@ -2,17 +2,17 @@ importance: 5
 
 ---
 
-# Fix the addition
+# Ištaisykite sudėtį
 
-Here's a code that asks the user for two numbers and shows their sum.
+Čia pateikiamas kodas, kuris paprašo naudotojo pateikti du skaičius ir parodo jų sumą.
 
-It works incorrectly. The output in the example below is `12` (for default prompt values).
+Jis veikia neteisingai. Toliau pateiktame pavyzdyje išvestis yra `12` (numatytosioms `prompt` vertėms).
 
-Why? Fix it. The result should be `3`.
+Kodėl taip yra? Ištaisykite tai. Rezultatas turėtų būti `3`.
 
 ```js run
-let a = prompt("First number?", 1);
-let b = prompt("Second number?", 2);
+let a = prompt("Pirmasis skaičius?", 1);
+let b = prompt("Antrasis skaičius?", 2);
 
 alert(a + b); // 12
 ```

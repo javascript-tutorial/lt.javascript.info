@@ -1,32 +1,32 @@
-The reason is that prompt returns user input as a string.
+Taip yra todėl, kad `prompt` grąžina naudotojo įvestį kaip eilutę.
 
-So variables have values `"1"` and `"2"` respectively.
+Taigi kintamieji atitinkamai turi vertes `"1"` ir `"2"`.
 
 ```js run
-let a = "1"; // prompt("First number?", 1);
-let b = "2"; // prompt("Second number?", 2);
+let a = "1"; // prompt("Pirmasis skaičius?", 1);
+let b = "2"; // prompt("Antrasis skaičius?", 2);
 
 alert(a + b); // 12
 ```
 
-What we should do is to convert strings to numbers before `+`. For example, using `Number()` or prepending them with `+`.
+Prieš `+` turėtume konvertuoti eilutes į skaičius. Pavyzdžiui, naudodami `Number()` arba prieš tai pridėdami `+` prie jų.
 
-For example, right before `prompt`:
+Pavyzdžiui, prieš pat `prompt`:
 
 ```js run
-let a = +prompt("First number?", 1);
-let b = +prompt("Second number?", 2);
+let a = +prompt("Pirmasis skaičius?", 1);
+let b = +prompt("Antrasis skaičius?", 2);
 
 alert(a + b); // 3
 ```
 
-Or in the `alert`:
+Arba viduje `alert`:
 
 ```js run
-let a = prompt("First number?", 1);
-let b = prompt("Second number?", 2);
+let a = prompt("Pirmasis skaičius?", 1);
+let b = prompt("Antrasis skaičius?", 2);
 
 alert(+a + +b); // 3
 ```
 
-Using both unary and binary `+` in the latest code. Looks funny, doesn't it?
+Pastarajame variante naudojamas ir unarinis, ir binarinis `+`. Atrodo linksmai, ar ne?

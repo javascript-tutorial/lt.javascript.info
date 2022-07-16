@@ -22,4 +22,4 @@ undefined + 1 = NaN // (6)
 4. Atimtis visada paverčia į numerius, tad `"  -9  "` tampa numeriu `-9` (ignoruoja tarpus aplink).
 5. `null` tampa `0` po skaičių konversijos.
 6. `undefined` tampa `NaN` po skaičių konversijos.
-7. Tarpų ženklai yra nukerpami nuo eilutės pradžios ir pabaigos kai eilutė paverčiama į skaičių. Čia visa eilutė susideda iš tarpo ženklų kaip `\t`, `\n` ir "įprastinių" tarpų esančių tarp jų. Tad panašiai kaip ir tuščia eilutė, ji tampa `0`.
+7. Tarpų ženklai yra nukerpami nuo eilutės pradžios ir pabaigos kai eilutė paverčiama į skaičių. Čia visa eilutė susideda iš tarpo ženklų kaip `\t`, `\n` ir “įprastinių” tarpų esančių tarp jų. Tad panašiai kaip ir tuščia eilutė, ji tampa `0`.
