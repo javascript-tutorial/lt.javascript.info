@@ -55,7 +55,7 @@ Atidarykite Nuostatas (ang. “*preferences*”) ir eikite į "Pažangi" (ang. �
 
 Dabar `key:Cmd+Opt+C` įjungs konsolę. Taip pat turėkite omeny, kad naujas pasirinkimas “Programuoti” (ang. *"develop"*) atsirado viršutiniame meniu. Jame yra daug komandų ir nustatymų.
 
-## Reziumė
+## Santrauka
 
 - Programuotojo įrankiai leidžia mums pamatyti klaidas, paleisti komandas, analizuoti kintamuosiuos ir daugiau.
 - Juos paleisti galime su `key:F12` dauguma naršklių per Windows. Chrome, jeigu naudojame Mac, reikalauja `key:Cmd+Opt+J`, Safari: `key:Cmd+Opt+C` (iš pradžių reikia aktyvuoti).
