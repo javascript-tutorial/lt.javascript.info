@@ -6,12 +6,12 @@ function ask(question, yes, no) {
 }
 
 ask(
-  "Do you agree?",
+  "Ar jus sutinkate?",
 *!*
-  () => alert("You agreed."),
-  () => alert("You canceled the execution.")
+  () => alert("Jus sutikote."),
+  () => alert("Jus atšaukėte vykdymą.")
 */!*
 );
 ```
 
-Looks short and clean, right?
+Atrodo trumpai ir švariai, ar ne?
