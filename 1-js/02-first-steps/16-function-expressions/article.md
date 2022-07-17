@@ -1,96 +1,95 @@
-# Function expressions
+# Function Expression
 
-In JavaScript, a function is not a "magical language structure", but a special kind of value.
+JavaScript kalboje funkcija yra ne “stebuklinga kalbos struktūra”, o specialios rūšies vertė.
 
-The syntax that we used before is called a *Function Declaration*:
+Sintaksė, kurią naudojome anksčiau, vadinama *Function Declaration* (liet. *“funkcijos deklaravimas”*):
 
 ```js
 function sayHi() {
-  alert( "Hello" );
+  alert( "Labas" );
 }
 ```
 
-There is another syntax for creating a function that is called a *Function Expression*.
+Egzistuoja ir kita funkcijos kūrimo sintaksė, vadinama *Function Expression* (liet. *“Funkcinė išraiška”*).
 
-It allows us to create a new function in the middle of any expression.
+Ji leidžia sukurti naują funkciją bet kurios išraiškos viduryje.
 
-For example:
+Pavyzdžiui:
 
 ```js
 let sayHi = function() {
-  alert( "Hello" );
+  alert( "Labas" );
 };
 ```
 
-Here we can see a variable `sayHi` getting a value, the new function, created as `function() { alert("Hello"); }`.
+Čia mes galime pamatyti kintamąjį `sayHi`, kuris gauna vertę, naują funkciją, sukurtą kaip `function() { alert("Labas"); }`.
 
-As the function creation happens in the context of the assignment expression (to the right side of `=`), this is a *Function Expression*.
+Kadangi funkcija kuriama priskyrimo išraiškos kontekste (dešinėje `=` pusėje), tai yra *Function Expression*.
 
-Please note, there's no name after the `function` keyword. Omitting a name is allowed for Function Expressions.
+Atkreipkite dėmesį, kad po raktažodžio `function` nėra pavadinimo. Jei naudojame `Function Expressions`, galime jo praleisti.
 
-Here we immediately assign it to the variable, so the meaning of these code samples is the same: "create a function and put it into the variable `sayHi`".
+Čia mes iš karto priskiriame ją kintamajam, todėl šių kodo pavyzdžių prasmė yra ta pati: “sukurti funkciją ir įdėti ją į kintamąjį `sayHi`”.
 
-In more advanced situations, that we'll come across later, a function may be created and immediately called or scheduled for a later execution, not stored anywhere, thus remaining anonymous.
+Sudėtingesniais atvejais, su kuriais susidursime vėliau, funkcija gali būti sukurta ir iš karto iškviesta arba suplanuota vėlesniam vykdymui, niekur nesaugoma, todėl lieka anoniminė.
 
-## Function is a value
+## Funkcija yra vertė
 
-Let's reiterate: no matter how the function is created, a function is a value. Both examples above store a function in the `sayHi` variable.
+Dar kartą pakartokime: nesvarbu, kaip sukurta funkcija, funkcija yra vertė. Abiejuose pavyzdžiuose funkcija saugoma kintamajame `sayHi`.
 
-We can even print out that value using `alert`:
+Naudodami `alert` galime netgi išvesti šią vertę:
 
 ```js run
 function sayHi() {
-  alert( "Hello" );
+  alert( "Labas" );
 }
 
 *!*
-alert( sayHi ); // shows the function code
+alert( sayHi ); // rodo funkcijos kodą
 */!*
 ```
 
-Please note that the last line does not run the function, because there are no parentheses after `sayHi`. There are programming languages where any mention of a function name causes its execution, but JavaScript is not like that.
+Atkreipkite dėmesį, kad paskutinėje eilutėje funkcija nėra paleidžiama, nes po `sayHi` nėra skliaustų. Yra programavimo kalbų, kuriose bet koks funkcijos pavadinimo paminėjimas sukelia jos vykdymą, tačiau JavaScript nėra tokia kalba.
 
-In JavaScript, a function is a value, so we can deal with it as a value. The code above shows its string representation, which is the source code.
+JavaScript kalboje funkcija yra vertė, todėl su ja galime dirbti kaip su verte. Aukščiau esančiame kode funkcija vaizduojama kaip eilutė
 
-Surely, a function is a special value, in the sense that we can call it like `sayHi()`.
+Be abejo, funkcija yra ypatinga vertė ta prasme, kad ją galime iškviesti kaip `sayHi()`.
 
-But it's still a value. So we can work with it like with other kinds of values.
+Tačiau tai vis tiek yra vertė. Taigi su ja galime dirbti kaip ir su kitomis vertėmis.
 
-We can copy a function to another variable:
+Mes galime nukopijuoti funkciją į kitą kintamąjį:
 
 ```js run no-beautify
-function sayHi() {   // (1) create
-  alert( "Hello" );
+function sayHi() {   // (1) sukurti
+  alert( "Labas" );
 }
 
-let func = sayHi;    // (2) copy
+let func = sayHi;    // (2) nukopijuoti
 
-func(); // Hello     // (3) run the copy (it works)!
-sayHi(); // Hello    //     this still works too (why wouldn't it)
+func(); // Labas     // (3) paleisti kopiją (veikia)!
+sayHi(); // Labas    //     tai vis dar veikia (kodėl gi ne)
 ```
 
-Here's what happens above in detail:
+Išsamiai apžvelkime viską, kas čia įvyko:
 
-1. The Function Declaration `(1)` creates the function and puts it into the variable named `sayHi`.
-2. Line `(2)` copies it into the variable `func`. Please note again: there are no parentheses after `sayHi`. If there were, then `func = sayHi()` would write  *the result of the call* `sayHi()` into `func`, not *the function* `sayHi` itself.
-3. Now the function can be called as both `sayHi()` and `func()`.
+1. Function Declaration `(1)` sukuria funkciją ir įrašo ją į kintamąjį pavadinimu `sayHi`.
+2. Eilutėje `(2)` nukopijavome jos vertę į kintamąjį `func`. Dar kartą atkreipkite dėmesį: po `sayHi` nėra skliaustų. Jeigu taip būtų, tada `func = sayHi()` į `func` įrašytų *iškvietimo rezultatą* `sayHi()`, o ne *pačią funkciją* `sayHi`.
+3. Dabar funkciją galima iškviesti ir kaip `sayHi()`, ir kaip `func()`.
 
-We could also have used a Function Expression to declare `sayHi`, in the first line:
+Pirmoje eilutėje mes taip pat galėtume naudoti Function Expression, kad sukurtume `sayHi`:
 
 ```js
-let sayHi = function() { // (1) create
-  alert( "Hello" );
+let sayHi = function() { // (1) sukurti
+  alert( "Labas" );
 };
 
 let func = sayHi;
 // ...
 ```
 
-Everything would work the same.
+Viskas veiktų taip pat.
 
-
-````smart header="Why is there a semicolon at the end?"
-You might wonder, why does Function Expression have a semicolon `;` at the end, but Function Declaration does not:
+````smart header="Kodėl pabaigoje dedamas kabliataškis?"
+Jums gali kilti klausimas, kodėl Function Expression pabaigoje turi kabliataškį `;`, o Function Declaration -- ne:
 
 ```js
 function sayHi() {
@@ -102,27 +101,27 @@ let sayHi = function() {
 }*!*;*/!*
 ```
 
-The answer is simple: a Function Expression is created here as `function(…) {…}` inside the assignment statement: `let sayHi = …;`. The semicolon `;` is recommended at the end of the statement, it's not a part of the function syntax.
+Atsakymas yra paprastas: Function Expression čia sukurtas kaip `function(…) {…}` priskyrimo teiginyje: `let sayHi = …;`. Kabliataškį `;` rekomenduojama rašyti teiginio pabaigoje, jis nėra funkcijos sintaksės dalis.
 
-The semicolon would be there for a simpler assignment, such as `let sayHi = 5;`, and it's also there for a function assignment.
+Kabliataškis būtų naudojamas paprastesniam priskyrimui, pavyzdžiui, `let sayHi = 5;`, taip pat ir funkcijos priskyrimui.
 ````
 
-## Callback functions
+## Callback funkcijos
 
-Let's look at more examples of passing functions as values and using function expressions.
+Apžvelkime daugiau pavyzdžių, kaip perduoti funkcijas kaip vertes ir naudoti funkcinių išraiškų.
 
-We'll write a function `ask(question, yes, no)` with three parameters:
+Mes parašysime funkciją `ask(question, yes, no)` su trimis parametrais:
 
 `question`
-: Text of the question
+: Klausimo tekstas
 
 `yes`
-: Function to run if the answer is "Yes"
+: Funkcija, paleidžiama, jei atsakymas yra “Yes”
 
 `no`
-: Function to run if the answer is "No"
+: Funkcija, paleidžiama, jei atsakymas yra “No”
 
-The function should ask the `question` and, depending on the user's answer, call `yes()` or `no()`:
+Funkcija turėtų užduoti klausimą `question` ir, priklausomai nuo naudotojo atsakymo, iškviesti `yes()` arba `no()`:
 
 ```js run
 *!*
@@ -133,24 +132,24 @@ function ask(question, yes, no) {
 */!*
 
 function showOk() {
-  alert( "You agreed." );
+  alert( "Jus sutikote." );
 }
 
 function showCancel() {
-  alert( "You canceled the execution." );
+  alert( "Jus atšaukėte vykdymą." );
 }
 
-// usage: functions showOk, showCancel are passed as arguments to ask
-ask("Do you agree?", showOk, showCancel);
+// naudojimas: funkcijos showOk, showCancel perduodamos kaip argumentai
+ask("Ar sutinkate?", showOk, showCancel);
 ```
 
-In practice, such functions are quite useful. The major difference between a real-life `ask` and the example above is that real-life functions use more complex ways to interact with the user than a simple `confirm`. In the browser, such function usually draws a nice-looking question window. But that's another story.
+Praktikoje tokios funkcijos yra gana naudingos. Pagrindinis skirtumas tarp “realaus” `ask` ir aukščiau pateikto pavyzdžio yra tas, kad realios funkcijos naudoja sudėtingesnius sąveikos su naudotoju būdus nei paprastas `confirm`. Naršyklėje tokios funkcijos paprastai atvaizduoja gražiai atrodantį klausimo langą. Bet tai jau kita istorija.
 
-**The arguments `showOk` and `showCancel` of `ask` are called *callback functions* or just *callbacks*.**
+**Funkcijos `ask` argumentai vadinamos *callback-funkcijomis* arba *callback'ais*.**
 
-The idea is that we pass a function and expect it to be "called back" later if necessary. In our case, `showOk` becomes the callback for "yes" answer, and `showCancel` for "no" answer.
+Idėja yra ta, kad mes perduodame funkciją ir tikimės, kad prireikus vėliau ji bus “iškviesta atgal” (ang. *“call back”* -- grįžtamasis iškvietimas). 
 
-We can use Function Expressions to write the same function much shorter:
+Norėdami užrašyti tą pačią funkciją daug trumpiau, galime naudoti `Function Expression`:
 
 ```js run no-beautify
 function ask(question, yes, no) {
@@ -160,33 +159,34 @@ function ask(question, yes, no) {
 
 *!*
 ask(
-  "Do you agree?",
-  function() { alert("You agreed."); },
-  function() { alert("You canceled the execution."); }
+  "Ar sutinkate?",
+  function() { alert("Jus sutikote."); },
+  function() { alert("Jus atšaukėte vykdymą."); }
 );
 */!*
 ```
 
-Here, functions are declared right inside the `ask(...)` call. They have no name, and so are called *anonymous*. Such functions are not accessible outside of `ask` (because they are not assigned to variables), but that's just what we want here.
+Šiuo atveju funkcijos deklaruojamos pačiame `ask(...)` iškvietime. Jie neturi pavadinimo, todėl vadinami *anoniminiais*.
+Tokios funkcijos nepasiekiamos už `ask` ribų (nes jos nėra priskirtos kintamiesiems), tačiau čia norime būtent to.
 
-Such code appears in our scripts very naturally, it's in the spirit of JavaScript.
+Toks mūsų skripte esantis kodas atrodo labai natūraliai ir atitinka JavaScript dvasią.
 
-```smart header="A function is a value representing an \"action\""
-Regular values like strings or numbers represent the *data*.
+```smart header="Funkcija yra vertė, vaizduojanti \"veiksmą\""
+Įprastos vertės, pavyzdžiui, eilutės arba skaičiai, yra *duomenys*.
 
-A function can be perceived as an *action*.
+Funkcijas, kita vertus, galima traktuoti kaip *veiksmus*.
 
-We can pass it between variables and run when we want.
+Mes galime perduoti jas tarp kintamųjų ir paleisti, kuomet norime.
 ```
 
 
-## Function Expression vs Function Declaration
+## Function Expression palyginus su Function Declaration
 
-Let's formulate the key differences between Function Declarations and Expressions.
+Apžvelkime pagrindinius Function Expression ir Function  Declaration skirtumus.
 
-First, the syntax: how to differentiate between them in the code.
+Pirma, sintaksė: kaip juos atskirti kode.
 
-- *Function Declaration:* a function, declared as a separate statement, in the main code flow.
+- *Function Declaration:* funkcija, deklaruojama kaip atskiras teiginys pagrindiniame kodo sraute.
 
     ```js
     // Function Declaration
@@ -194,7 +194,7 @@ First, the syntax: how to differentiate between them in the code.
       return a + b;
     }
     ```
-- *Function Expression:* a function, created inside an expression or inside another syntax construct. Here, the function is created at the right side of the "assignment expression" `=`:
+- *Function Expression:* funkcija, sukurta išraiškos viduje arba kitoje sintaksės konstrukcijoje. Šiuo atveju funkcija sukuriama dešinėje “priskyrimo išraiškos” `=` pusėje:
 
     ```js
     // Function Expression
@@ -203,178 +203,178 @@ First, the syntax: how to differentiate between them in the code.
     };
     ```
 
-The more subtle difference is *when* a function is created by the JavaScript engine.
+Subtilesnis skirtumas yra tas, *kada* funkciją sukuria JavaScript variklis.
 
-**A Function Expression is created when the execution reaches it and is usable only from that moment.**
+**Function Expression sukuriama, kai ją pasiekia vykdymas, ir gali būti naudojama tik nuo to momento.**
 
-Once the execution flow passes to the right side of the assignment `let sum = function…` -- here we go, the function is created and can be used (assigned, called, etc. ) from now on.
+Kai vykdymo srautas pereina į dešinę priskyrimo `let sum = function…` pusę, funkcija yra sukurta ir nuo šiol gali būti naudojama (priskiriama, iškviečiama ir t.t.).
 
-Function Declarations are different.
+Su Function Declaration yra kitaip.
 
-**A Function Declaration can be called earlier than it is defined.**
+**Function Declaration gali būti iškviesta anksčiau, nei ji yra apibrėžta.**
 
-For example, a global Function Declaration is visible in the whole script, no matter where it is.
+Pavyzdžiui, globalus Function Declaration yra matomas visame skripte, nesvarbu, kur jis būtų
 
-That's due to internal algorithms. When JavaScript prepares to run the script, it first looks for global Function Declarations in it and creates the functions. We can think of it as an "initialization stage".
+Taip yra dėl vidinių algoritmų. Kai JavaScript ruošiasi paleisti skriptą, pirmiausia jame ieško globalių `Function Declaration` ir sukuria funkcijas. Galime tai laikyti “inicializavimo etapu”.
 
-And after all Function Declarations are processed, the code is executed. So it has access to these functions.
+Po to, kai visos `Function Declaration` yra apdorotos, kodas yra vykdomas. Taigi jis turi prieigą prie šių funkcijų.
 
-For example, this works:
+Pavyzdžiui, tai veikia:
 
 ```js run refresh untrusted
 *!*
-sayHi("John"); // Hello, John
+sayHi("Jonas"); // Sveiki, Jonas
 */!*
 
 function sayHi(name) {
-  alert( `Hello, ${name}` );
+  alert( `Sveiki, ${name}` );
 }
 ```
 
-The Function Declaration `sayHi` is created when JavaScript is preparing to start the script and is visible everywhere in it.
+Function Declaration `sayHi` sukuriama, kai JavaScript ruošiasi paleisti skriptą, ir yra matoma visur jame.
 
-...If it were a Function Expression, then it wouldn't work:
+...Jeigu tai būtų Function Expression, toliau pateiktas kodas neveiktų:
 
 ```js run refresh untrusted
 *!*
-sayHi("John"); // error!
+sayHi("Jonas"); // klaida!
 */!*
 
-let sayHi = function(name) {  // (*) no magic any more
-  alert( `Hello, ${name}` );
+let sayHi = function(name) {  // (*) nebėra jokios magijos
+  alert( `Sveiki, ${name}` );
 };
 ```
 
-Function Expressions are created when the execution reaches them. That would happen only in the line `(*)`. Too late.
+Funkcijos, deklaruotos naudojant Function Expression, sukuriamos, kai jas pasiekia vykdymas. Tai atsitiks tik žvaigždute `(*)` pažymėtoje eilutėje. Per vėlai.
 
-Another special feature of Function Declarations is their block scope.
+Kita ypatinga Function Declaration savybė yra jų bloko diapazonas (ang. *“block scope”*).
 
-**In strict mode, when a Function Declaration is within a code block, it's visible everywhere inside that block. But not outside of it.**
+**Griežtuoju režimu (strict mode), kai funkcijos deklaravimas yra kodo bloke, jis yra matomas visuose to bloko dalyse. Bet ne už jo ribų.**
 
-For instance, let's imagine that we need to declare a function `welcome()` depending on the `age` variable that we get during runtime. And then we plan to use it some time later.
+Pavyzdžiui, įsivaizduokime, kad mums reikia deklaruoti funkciją `welcome()`, priklausančią nuo `age` kintamojo, kurį gauname paleidimo metu. O tada užplanuosime kada nors ateityje šia funkcija panaudoti.
 
-If we use Function Declaration, it won't work as intended:
+Jeigu naudosime Function Declaration, kodas neveiks taip, kaip numatyta:
 
 ```js run
-let age = prompt("What is your age?", 18);
+let age = prompt("Kiek jums metų?", 18);
 
-// conditionally declare a function
+// priklausomai nuo sąlygos, deklaruojame funkciją
 if (age < 18) {
 
   function welcome() {
-    alert("Hello!");
+    alert("Labas!");
   }
 
 } else {
 
   function welcome() {
-    alert("Greetings!");
+    alert("Laba diena!");
   }
 
 }
 
-// ...use it later
+// ...naudoti ją vėliau
 *!*
 welcome(); // Error: welcome is not defined
 */!*
 ```
 
-That's because a Function Declaration is only visible inside the code block in which it resides.
+Taip yra todėl, kad Function Declaration yra matomas tik tame kodo bloke, kuriame jis yra.
 
-Here's another example:
+Štai dar vienas pavyzdys:
 
 ```js run
-let age = 16; // take 16 as an example
+let age = 16; // kaip pavyzdį priskirsime 16
 
 if (age < 18) {
 *!*
-  welcome();               // \   (runs)
+  welcome();               // \   (bus vykdoma)
 */!*
                            //  |
   function welcome() {     //  |  
-    alert("Hello!");       //  |  Function Declaration is available
-  }                        //  |  everywhere in the block where it's declared
+    alert("Labas!");       //  |  Function Declaration yra prieinamas
+  }                        //  |  visame kodo bloke, kuriame jis deklaruotas.
                            //  |
 *!*
-  welcome();               // /   (runs)
+  welcome();               // /   (bus vykdoma)
 */!*
 
 } else {
 
   function welcome() {    
-    alert("Greetings!");
+    alert("Laba diena!");
   }
 }
 
-// Here we're out of curly braces,
-// so we can not see Function Declarations made inside of them.
+// figūriniai skliaustai čia uždaromi,
+// todėl mes negalime matyti juose esančių Function Declaration.
 
 *!*
 welcome(); // Error: welcome is not defined
 */!*
 ```
 
-What can we do to make `welcome` visible outside of `if`?
+Ką galime padaryti, kad `welcome` būtų matomas už `if` ribų?
 
-The correct approach would be to use a Function Expression and assign `welcome` to the variable that is declared outside of `if` and has the proper visibility.
+Teisingiausia būtų naudoti Function Expression ir priskirti `welcome` kintamajam, kuris yra deklaruotas už `if` ribų ir turi tinkamą matomumą.
 
-This code works as intended:
+Šis kodas veikia kaip numatyta:
 
 ```js run
-let age = prompt("What is your age?", 18);
+let age = prompt("Kiek jums metų?", 18);
 
 let welcome;
 
 if (age < 18) {
 
   welcome = function() {
-    alert("Hello!");
+    alert("Labas!");
   };
 
 } else {
 
   welcome = function() {
-    alert("Greetings!");
+    alert("Laba diena!");
   };
 
 }
 
 *!*
-welcome(); // ok now
+welcome(); // dabar viskas gerai
 */!*
 ```
 
-Or we could simplify it even further using a question mark operator `?`:
+Arba mes galime dar labiau supaprastinti išraiška, naudodami klausimo ženklo operatorių `?`:
 
 ```js run
-let age = prompt("What is your age?", 18);
+let age = prompt("Kiek jums metų?", 18);
 
 let welcome = (age < 18) ?
-  function() { alert("Hello!"); } :
-  function() { alert("Greetings!"); };
+  function() { alert("Labas!"); } :
+  function() { alert("Laba diena!"); };
 
 *!*
-welcome(); // ok now
+welcome(); // dabar viskas gerai
 */!*
 ```
 
 
-```smart header="When to choose Function Declaration versus Function Expression?"
-As a rule of thumb, when we need to declare a function, the first to consider is Function Declaration syntax. It gives more freedom in how to organize our code, because we can call such functions before they are declared.
+```smart header="Kada rinktis Function Declaration, o kada - Function Expression?"
+Paprastai, kai reikia deklaruoti funkciją, pirmiausia reikia atkreipti dėmesį į Function Declaration sintaksę. Ši sintaksė suteikia daugiau laisvės organizuojant kodą, nes tokias funkcijas galime iškviesti prieš jas deklaruodami.
 
-That's also better for readability, as it's easier to look up `function f(…) {…}` in the code than `let f = function(…) {…};`. Function Declarations are more "eye-catching".
+Function Declaration taip pat geriau skaitomumo požiūriu, nes kode lengviau rasti `function f(...) {...}` nei `let f = function(...) {...};`. Function Declaration labiau “traukia akį”.
 
-...But if a Function Declaration does not suit us for some reason, or we need a conditional declaration (we've just seen an example), then Function Expression should be used.
+...Tačiau jei Function Declaration dėl kokių nors priežasčių mums netinka arba mums reikia sąlyginės deklaracijos (ką tik matėme pavyzdį), reikėtų naudoti Function Expression.
 ```
 
-## Summary
+## Santrauka
 
-- Functions are values. They can be assigned, copied or declared in any place of the code.
-- If the function is declared as a separate statement in the main code flow, that's called a "Function Declaration".
-- If the function is created as a part of an expression, it's called a "Function Expression".
-- Function Declarations are processed before the code block is executed. They are visible everywhere in the block.
-- Function Expressions are created when the execution flow reaches them.
+- Funkcijos yra vertės. Jas galima priskirti, nukopijuoti arba deklaruoti bet kurioje kodo vietoje.
+- Jeigu funkcija deklaruojama kaip atskiras teiginys pagrindiniame kodo sraute, tai vadinama “Function Declaration”.
+- Jeigu funkcija sukurta kaip išraiškos dalis, ji vadinama "Function Expression".
+- Function Declarations apdorojamos prieš vykdant kodo bloką. Jos matomos visur bloke.
+- Function Expressions sukuriamos, kai vykdymo srautas jas pasiekia.
 
-In most cases when we need to declare a function, a Function Declaration is preferable, because it is visible prior to the declaration itself. That gives us more flexibility in code organization, and is usually more readable.
+Dažniausiai, kai reikia deklaruoti funkciją, geriau naudoti Function Declaration, nes ji matoma prieš pačią deklaraciją. Tai suteikia daugiau lankstumo organizuojant kodą ir pagerina jo skaitomumą.
 
-So we should use a Function Expression only when a Function Declaration is not fit for the task. We've seen a couple of examples of that in this chapter, and will see more in the future.
+Todėl Function Expression turėtume naudoti tik tada, kai Function Declaration netinka užduočiai atlikti. Šiame skyriuje jau matėme keletą tokių pavyzdžių, o ateityje jų bus dar daugiau.
