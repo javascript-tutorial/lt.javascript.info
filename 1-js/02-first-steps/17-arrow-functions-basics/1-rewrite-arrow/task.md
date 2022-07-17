@@ -1,7 +1,7 @@
 
-# Rewrite with arrow functions
+# Perrašykite naudodami rodyklių funkcijas
 
-Replace Function Expressions with arrow functions in the code below:
+Žemiau pateiktame kode Function Expressions pakeiskite rodyklių funkcijomis:
 
 ```js run
 function ask(question, yes, no) {
@@ -10,8 +10,8 @@ function ask(question, yes, no) {
 }
 
 ask(
-  "Do you agree?",
-  function() { alert("You agreed."); },
-  function() { alert("You canceled the execution."); }
+  "Ar jus sutinkate?",
+  function() { alert("Jus sutikote."); },
+  function() { alert("Jus atšaukėte vykdymą."); }
 );
 ```

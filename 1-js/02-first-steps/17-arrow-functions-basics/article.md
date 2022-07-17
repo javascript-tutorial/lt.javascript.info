@@ -1,16 +1,16 @@
-# Arrow functions, the basics
+# Rodyklių funkcijos, pagrindai
 
-There's another very simple and concise syntax for creating functions, that's often better than Function Expressions.
+Yra dar viena labai paprasta ir glausta funkcijų kūrimo sintaksė, kuri dažnai yra geresnė už Function Expressions.
 
-It's called "arrow functions", because it looks like this:
+Ji vadinama “rodyklių funkcijomis” (ang. *“arrow functions”*), nes atrodo taip:
 
 ```js
 let func = (arg1, arg2, ..., argN) => expression;
 ```
 
-This creates a function `func` that accepts arguments `arg1..argN`, then evaluates the `expression` on the right side with their use and returns its result.
+Čia sukuriama funkcija `func`, kuri priima argumentus `arg1..argN`, tada įvertina dešinėje pusėje esantį `expression` su jų panaudojimu ir grąžina rezultatą.
 
-In other words, it's the shorter version of:
+Kitaip tariant, tai yra trumpesnė versija:
 
 ```js
 let func = function(arg1, arg2, ..., argN) {
@@ -18,12 +18,12 @@ let func = function(arg1, arg2, ..., argN) {
 };
 ```
 
-Let's see a concrete example:
+Išnagrinėkime konkretų pavyzdį:
 
 ```js run
 let sum = (a, b) => a + b;
 
-/* This arrow function is a shorter form of:
+/* Ši rodyklės funkcija yra trumpesnė forma:
 
 let sum = function(a, b) {
   return a + b;
@@ -33,79 +33,79 @@ let sum = function(a, b) {
 alert( sum(1, 2) ); // 3
 ```
 
-As you can see, `(a, b) => a + b` means a function that accepts two arguments named `a` and `b`. Upon the execution, it evaluates the expression `a + b` and returns the result.
+Kaip jūs matote, `(a, b) => a + b` reiškia funkciją, kuri priima du argumentus, pavadintus `a` ir `b`. Vykdymo metu ji įvertina išraišką `a + b` ir grąžina rezultatą.
 
-- If we have only one argument, then parentheses around parameters can be omitted, making that even shorter.
+- Jeigu mes turime tik vieną argumentą, skliaustelius aplink parametrus galima praleisti ir taip dar labiau sutrumpinti užrašą
 
-    For example:
+    Pavyzdžiui:
 
     ```js run
     *!*
     let double = n => n * 2;
-    // roughly the same as: let double = function(n) { return n * 2 }
+    // maždaug tas pats kaip: let double = function(n) { return n * 2 }
     */!*
 
     alert( double(3) ); // 6
     ```
 
-- If there are no arguments, parentheses will be empty (but they should be present):
+- Jeigu argumentų nėra, skliaustai bus tušti (tačiau jie turėtų būti):
 
     ```js run
-    let sayHi = () => alert("Hello!");
+    let sayHi = () => alert("Labas!");
 
     sayHi();
     ```
 
-Arrow functions can be used in the same way as Function Expressions.
+Rodyklės funkcijas galima naudoti taip pat, kaip ir Function Expressions.
 
-For instance, to dynamically create a function:
+Pavyzdžiui, norėdami dinamiškai sukurti funkciją:
 
 ```js run
-let age = prompt("What is your age?", 18);
+let age = prompt("Koks jūsų amžius?", 18);
 
 let welcome = (age < 18) ?
-  () => alert('Hello') :
-  () => alert("Greetings!");
+  () => alert('Labas!') :
+  () => alert("Laba diena!");
 
 welcome();
 ```
 
-Arrow functions may appear unfamiliar and not very readable at first, but that quickly changes as the eyes get used to the structure.
+Iš pradžių rodyklių funkcijos gali atrodyti nepažįstamos ir nelabai skaitomos, tačiau tai greitai pasikeičia, kai akys pripranta prie struktūros.
 
-They are very convenient for simple one-line actions, when we're just too lazy to write many words.
+Jie labai patogūs atliekant paprastus vienos eilutės veiksmus, kai tiesiog tingime rašyti daug žodžių.
 
-## Multiline arrow functions
+## Kelių eilučių rodyklių funkcijos
 
-The examples above took arguments from the left of `=>` and evaluated the right-side expression with them.
+Aukščiau pateiktuose pavyzdžiuose buvo paimti argumentai iš `=>` kairės pusės ir su jais įvertinta dešiniosios pusės išraiška.
 
-Sometimes we need something a little bit more complex, like multiple expressions or statements. It is also possible, but we should enclose them in curly braces. Then use a normal `return` within them.
+Kartais mums reikia šiek tiek sudėtingesnių dalykų, pavyzdžiui, kelių išraiškų ar teiginių. Tai taip pat įmanoma, tačiau jas turėtume uždaryti figūriniais skliaustais. Tada juose reikia naudoti įprastą `return`.
 
-Like this:
+Štai taip:
 
 ```js run
-let sum = (a, b) => {  // the curly brace opens a multiline function
+let sum = (a, b) => {  // figūrinis skliaustelis atveria kelių eilučių funkciją
   let result = a + b;
 *!*
-  return result; // if we use curly braces, then we need an explicit "return"
+  return result; // jei naudojame figūrinius skliaustus, reikia aiškiai nurodyti "return".
 */!*
 };
 
 alert( sum(1, 2) ); // 3
 ```
 
-```smart header="More to come"
-Here we praised arrow functions for brevity. But that's not all!
+```smart header="Toliau mes išmoksime daugiau"
+Čia mes pateikėme pagrindinę rodyklių funkcijų paskirtį -- trumpumas. Bet tai dar ne viskas!
 
-Arrow functions have other interesting features.
+Rodyklių funkcijos turi ir kitų įdomių savybių.
 
-To study them in-depth, we first need to get to know some other aspects of JavaScript, so we'll return to arrow functions later in the chapter <info:arrow-functions>.
+Norėdami jas nuodugniai išnagrinėti, pirmiausia turime susipažinti su kitais JavaScript aspektais, todėl prie rodyklių funkcijų grįšime vėliau, skyriuje <info:arrow-functions>.
 
-For now, we can already use arrow functions for one-line actions and callbacks.
+O dabar mes jau galime naudoti rodyklių funkcijas vienos eilutės veiksmams ir callback'ams.
 ```
 
-## Summary
+## Santrauka
 
-Arrow functions are handy for one-liners. They come in two flavors:
+Rodyklių funkcijos yra patogios, kai reikia parašyti vieną eilutę. Jos būna dviejų rūšių:
 
-1. Without curly braces: `(...args) => expression` -- the right side is an expression: the function evaluates it and returns the result.
-2. With curly braces: `(...args) => { body }` -- brackets allow us to write multiple statements inside the function, but we need an explicit `return` to return something.
+1. Be figūrinių skliaustų: `(...args) => expression` -- dešinioji išraiškos pusė: funkcija ją apskaičiuoja ir grąžina rezultatą. Skliaustelius galima praleisti, jei yra tik vienas argumentas: `n => n * 2`.
+2. Su figūriniais skliaustais: `(...args) => { body }` -- figūriniai skliaustai leidžia įrašyti kelis teiginius funkcijos viduje, tačiau mums reikia aiškaus `return`, kad ką nors grąžintume.
