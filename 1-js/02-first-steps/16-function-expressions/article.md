@@ -1,4 +1,4 @@
-# Function Expression
+# Function Expressions
 
 JavaScript kalboje funkcija yra ne “stebuklinga kalbos struktūra”, o specialios rūšies vertė.
 
