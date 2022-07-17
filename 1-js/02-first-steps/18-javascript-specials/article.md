@@ -1,51 +1,51 @@
-# JavaScript specials
+# JavaScript ypatumai
 
-This chapter briefly recaps the features of JavaScript that we've learned by now, paying special attention to subtle moments.
+Šiame skyriuje trumpai apžvelgiamos iki šiol išmoktos JavaScript savybės, ypatingą dėmesį skiriant subtiliems momentams.
 
-## Code structure
+## Kodo struktūra
 
-Statements are delimited with a semicolon:
+Teiginiai atskiriami kabliataškiu:
 
 ```js run no-beautify
-alert('Hello'); alert('World');
+alert('Labas'); alert('Pasauli');
 ```
 
-Usually, a line-break is also treated as a delimiter, so that would also work:
+Paprastai eilutės laužimas taip pat laikomas skiriamuoju ženklu, todėl jis taip pat tiktų:
 
 ```js run no-beautify
 alert('Hello')
 alert('World')
 ```
 
-That's called "automatic semicolon insertion". Sometimes it doesn't work, for instance:
+Tai vadinama “automatiniu kabliataškio įterpimu”. Kartais tai neveikia, pavyzdžiui:
 
 ```js run
-alert("There will be an error after this message")
+alert("Po šio pranešimo pasirodys klaida")
 
 [1, 2].forEach(alert)
 ```
 
-Most codestyle guides agree that we should put a semicolon after each statement.
+Dauguma kodų stiliaus vadovų sutinka, kad po kiekvieno teiginio turėtume dėti kabliataškį.
 
-Semicolons are not required after code blocks `{...}` and syntax constructs with them like loops:
+Po kodo blokų `{...}` ir sintaksės konstrukcijų su jais, pvz., ciklų, kabliataškiai nereikalingi:
 
 ```js
 function f() {
-  // no semicolon needed after function declaration
+  // po funkcijos deklaravimo nereikia kabliataškio
 }
 
 for(;;) {
-  // no semicolon needed after the loop
+  // po ciklo nereikia kabliataškio
 }
 ```
 
-...But even if we can put an "extra" semicolon somewhere, that's not an error. It will be ignored.
+...Tačiau net jei kur nors galime įterpti papildomą kabliataškį, tai nėra klaida. Tai bus ignoruojama.
 
-More in: <info:structure>.
+Išsamiau: <info:structure>.
 
-## Strict mode
+## Griežtas režimas
 
-To fully enable all features of modern JavaScript, we should start scripts with `"use strict"`.
+Kad būtų įjungtos visos šiuolaikinės JavaScript ypatybės, skriptus turėtume pradėti nuo `"use strict"`.
 
 ```js
 'use strict';
@@ -53,132 +53,132 @@ To fully enable all features of modern JavaScript, we should start scripts with 
 ...
 ```
 
-The directive must be at the top of a script or at the beginning of a function body.
+Ši direktyva turi būti skripto viršuje arba funkcijos kūno pradžioje.
 
-Without `"use strict"`, everything still works, but some features behave in the old-fashion, "compatible" way. We'd generally prefer the modern behavior.
+Be `"use strict"` viskas veikia, tačiau kai kurios funkcijos veikia senamadiškai, “suderinamumo” būdu. Apskritai mums labiau tiktų šiuolaikinis elgesys.
 
-Some modern features of the language (like classes that we'll study in the future) enable strict mode implicitly.
+Kai kurios šiuolaikinės kalbos savybės (pvz., klasės, kurias nagrinėsime ateityje) įgalina griežtąjį režimą netiesiogiai.
 
-More in: <info:strict-mode>.
+Išsamiau: <info:strict-mode>.
 
-## Variables
+## Kintamieji
 
-Can be declared using:
+Galima deklaruoti naudojant:
 
 - `let`
-- `const` (constant, can't be changed)
-- `var` (old-style, will see later)
+- `const` (konstanta, negali būti pakeista)
+- `var` (pasenęs būdas, daugiau informacijos vėliau)
 
-A variable name can include:
-- Letters and digits, but the first character may not be a digit.
-- Characters `$` and `_` are normal, on par with letters.
-- Non-Latin alphabets and hieroglyphs are also allowed, but commonly not used.
+Kintamojo pavadinimas gali apimti:
+- Raidės ir skaitmenys, tačiau pirmasis simbolis negali būti skaitmuo.
+- Greta raidžių naudojami simboliai `$` ir `_`.
+- Leidžiami ir nelotyniški simboliai bei hieroglifai, tačiau paprastai jie nenaudojami.
 
-Variables are dynamically typed. They can store any value:
+Kintamieji yra dinamiškai tipizuojami. Juose galima saugoti bet kokią vertę:
 
 ```js
 let x = 5;
-x = "John";
+x = "Jonas";
 ```
 
-There are 8 data types:
+Yra 8 duomenų tipai:
 
-- `number` for both floating-point and integer numbers,
-- `bigint` for integer numbers of arbitrary length,
-- `string` for strings,
-- `boolean` for logical values: `true/false`,
-- `null` -- a type with a single value `null`, meaning "empty" or "does not exist",
-- `undefined` -- a type with a single value `undefined`, meaning "not assigned",
-- `object` and `symbol` -- for complex data structures and unique identifiers, we haven't learnt them yet.
+- `number` sveikiesiems ir realiesiems skaičiams,
+- `bigint` darbui su savavališkai ilgais sveikaisiais skaičiais,
+- `string` eilutėms,
+- `boolean` loginėms vertėms: `true/false`,
+- `null` -- tipas su vienintele verte `null`, reiškiančia “tuščias” arba “neegzistuoja”,
+- `undefined` -- tipas su vienintele verte `undefined`, reiškiančia "nepriskirtas",
+- `object` ir `symbol` -- sudėtingoms duomenų struktūroms ir unikaliems identifikatoriams, jų dar nesimokome.
 
-The `typeof` operator returns the type for a value, with two exceptions:
+Operatorius `typeof` grąžina vertės tipą, išskyrus dvi išimtis:
 ```js
-typeof null == "object" // error in the language
-typeof function(){} == "function" // functions are treated specially
+typeof null == "object" // kalbos klaida
+typeof function(){} == "function" // funkcijos traktuojamos ypatingai
 ```
 
-More in: <info:variables> and <info:types>.
+Išsamiau: <info:variables> ir <info:types>.
 
-## Interaction
+## Interakcija su lankytoju
 
-We're using a browser as a working environment, so basic UI functions will be:
+Kaip darbo aplinką naudojame naršyklę, todėl pagrindinės vartotojo sąsajos funkcijos bus:
 
 [`prompt(question, [default])`](mdn:api/Window/prompt)
-: Ask a `question`, and return either what the visitor entered or `null` if they clicked "cancel".
+: Užduoti klausimą `question` ir grąžinti lankytojo įvestus duomenis arba `null`, jei lankytojas paspaudė “atšaukti”.
 
 [`confirm(question)`](mdn:api/Window/confirm)
-: Ask a `question` and suggest to choose between Ok and Cancel. The choice is returned as `true/false`.
+: Užduoti klausimą `question` ir pasiūlyti pasirinkti tarp “OK” ir “Atšaukti”. Pasirinkimas grąžinamas kaip `true/false`.
 
 [`alert(message)`](mdn:api/Window/alert)
-: Output a `message`.
+: Išvesti pranešimą `message`.
 
-All these functions are *modal*, they pause the code execution and prevent the visitor from interacting with the page until they answer.
+Visos šios funkcijos yra *modalinės*, jos sustabdo kodo vykdymą ir neleidžia lankytojui sąveikauti su puslapiu, kol jis neatsakys.
 
-For instance:
+Pavyzdžiui:
 
 ```js run
-let userName = prompt("Your name?", "Alice");
-let isTeaWanted = confirm("Do you want some tea?");
+let userName = prompt("Jūsų vardas?", "Alisa");
+let isTeaWanted = confirm("Ar norite arbatos?");
 
-alert( "Visitor: " + userName ); // Alice
-alert( "Tea wanted: " + isTeaWanted ); // true
+alert( "Lankytojas: " + userName ); // Alisa
+alert( "Norėjo arbatos: " + isTeaWanted ); // true
 ```
 
-More in: <info:alert-prompt-confirm>.
+Išsamiau: <info:alert-prompt-confirm>.
 
-## Operators
+## Operatoriai
 
-JavaScript supports the following operators:
+JavaScript palaiko šiuos operatorius:
 
-Arithmetical
-: Regular: `* + - /`, also `%` for the remainder and `**` for power of a number.
+Aritmetikos
+: Įprasti: `* + - /`, taip pat `%` skirtas dalybos likučiui gauti ir `**` skirtas pakėlimui laipsniu.
 
-    The binary plus `+` concatenates strings. And if any of the operands is a string, the other one is converted to string too:
+    Binarinis pliusas `+` sujungia eilutes. Jei kuris nors iš operandų yra eilutė, kitas operandas taip pat paverčiamas eilute:
 
     ```js run
-    alert( '1' + 2 ); // '12', string
-    alert( 1 + '2' ); // '12', string
+    alert( '1' + 2 ); // '12', eilutė
+    alert( 1 + '2' ); // '12', eilutė
     ```
 
-Assignments
-: There is a simple assignment: `a = b` and combined ones like `a *= 2`.
+Priskyrimo operatoriai
+: Yra paprastas priskyrimas: `a = b` ir kombinuotas, pavyzdžiui, `a *= 2`.
 
-Bitwise
-: Bitwise operators work with 32-bit integers at the lowest, bit-level: see the [docs](mdn:/JavaScript/Guide/Expressions_and_Operators#Bitwise) when they are needed.
+Bitų operacijos
+: Bitų operatoriai su 32 bitų sveikaisiais skaičiais dirba žemiausiu, bitų lygiu. Daugiau apie jų galite perskaityti [MDN](mdn:/JavaScript/Guide/Expressions_and_Operators#Bitwise).
 
-Conditional
-: The only operator with three parameters: `cond ? resultA : resultB`. If `cond` is truthy, returns `resultA`, otherwise `resultB`.
+Sąlyginiai operatoriai
+: Vienintelis operatorius, turintis tris parametrus: `cond ? resultA : resultB`. Jeigu `cond` yra truthy, grąžina `resultA`, priešingu atveju `resultB`.
 
-Logical operators
-: Logical AND `&&` and OR `||` perform short-circuit evaluation and then return the value where it stopped (not necessary `true`/`false`). Logical NOT `!` converts the operand to boolean type and returns the inverse value.
+Loginiai operatoriai
+: Loginiai IR `&&` ir ARBA `||` atlieka trumpąjį apdorojimą ir grąžina vertę, kurioje jie sustojo (nebūtinai `true`/`false`). Loginis NE `!` konvertuoja operandą į loginį tipą ir grąžina atvirkštinę vertę.
 
-Nullish coalescing operator
-: The `??` operator provides a way to choose a defined value from a list of variables. The result of `a ?? b` is `a` unless it's `null/undefined`, then `b`.
+Nulinio susiliejimo operatorius.
+: Operatorius `??` suteikia galimybę pasirinkti apibrėžtą vertę iš kintamųjų sąrašo. Rezultatas `a ?? b` yra `a`, išskyrus atvejus, kai `a` yra `null/undefined`, tada `b`.
 
-Comparisons
-: Equality check `==` for values of different types converts them to a number (except `null` and `undefined` that equal each other and nothing else), so these are equal:
+Palyginimas
+: Įvairių tipų verčių lygybės patikrinimas `==` paverčia jas skaičiumi (išskyrus `null` ir `undefined`, kurios lygios viena kitai ir niekam kitam), todėl toliau pateikti pavyzdžiai yra lygūs:
 
     ```js run
     alert( 0 == false ); // true
     alert( 0 == '' ); // true
     ```
 
-    Other comparisons convert to a number as well.
+    Kiti palyginimai taip pat konvertuojami į skaičių.
 
-    The strict equality operator `===` doesn't do the conversion: different types always mean different values for it.
+    Griežtosios lygybės operatorius `===` neatlieka konvertavimo: skirtingi tipai jam visada reiškia skirtingas vertes.
 
-    Values `null` and `undefined` are special: they equal `==` each other and don't equal anything else.
+    Vertės `null` ir `undefined` yra ypatingos: jos lygios `==` viena kitai ir nėra lygios niekam kitam.
 
-    Greater/less comparisons compare strings character-by-character, other types are converted to a number.
+    Daugiau/mažiau palyginimo operatoriai palygina eilutes simbolis po simbolio, kiti tipai konvertuojami į skaičius.
 
-Other operators
-: There are few others, like a comma operator.
+Kiti operatoriai
+: Yra keletas kitų operatorių, pavyzdžiui, kablelio operatorius.
 
-More in: <info:operators>, <info:comparison>, <info:logical-operators>, <info:nullish-coalescing-operator>.
+Išsamiau: <info:operators>, <info:comparison>, <info:logical-operators>, <info:nullish-coalescing-operator>.
 
-## Loops
+## Ciklai
 
-- We covered 3 types of loops:
+- Mes apžvelgėme 3 tipų ciklus:
 
     ```js
     // 1
@@ -197,43 +197,43 @@ More in: <info:operators>, <info:comparison>, <info:logical-operators>, <info:nu
     }
     ```
 
-- The variable declared in `for(let...)` loop is visible only inside the loop. But we can also omit `let` and reuse an existing variable.
-- Directives `break/continue` allow to exit the whole loop/current iteration. Use labels to break nested loops.
+- Kintamasis, deklaruotas `for(let...)` cikle, yra matomas tik ciklo viduje. Tačiau taip pat galime praleisti `let` ir pakartotinai panaudoti egzistuojantį kintamąjį.
+- Direktyvos `break/continue` leidžia išeiti iš viso ciklo/dabartinės iteracijos. Naudokite žymas norėdami išeiti iš įdėtų ciklų.
 
-Details in: <info:while-for>.
+Išsamiau: <info:while-for>.
 
-Later we'll study more types of loops to deal with objects.
+Vėliau mes nagrinėsime daugiau ciklų, skirtų darbui su objektais.
 
-## The "switch" construct
+## “switch” konstrukcija
 
-The "switch" construct can replace multiple `if` checks. It uses `===` (strict equality) for comparisons.
+Konstrukcija “switch” gali pakeisti kelis `if` patikrinimus. Palyginimui naudojama `===` (griežta lygybė).
 
-For instance:
+Pavyzdžiui:
 
 ```js run
-let age = prompt('Your age?', 18);
+let age = prompt('Jūsų amžius?', 18);
 
 switch (age) {
   case 18:
-    alert("Won't work"); // the result of prompt is a string, not a number
+    alert("neveikia"); // prompt rezultatas yra eilutė, o ne skaičius
     break;
 
   case "18":
-    alert("This works!");
+    alert("Tai veikia!");
     break;
 
   default:
-    alert("Any value not equal to one above");
+    alert("Bet kuri vertė, nelygi vienai iš aukščiau nurodytų verčių");
 }
 ```
 
-Details in: <info:switch>.
+Išsamiau: <info:switch>.
 
-## Functions
+## Funkcijos
 
-We covered three ways to create a function in JavaScript:
+Mes apžvelgėme tris būdus, kaip galima sukurti funkciją JavaScript:
 
-1. Function Declaration: the function in the main code flow
+1. Funkcijos deklaravimas: funkcija pagrindiniame kodo sraute
 
     ```js
     function sum(a, b) {
@@ -243,7 +243,7 @@ We covered three ways to create a function in JavaScript:
     }
     ```
 
-2. Function Expression: the function in the context of an expression
+2. Function Expression: funkcija išraiškos kontekste
 
     ```js
     let sum = function(a, b) {
@@ -253,32 +253,32 @@ We covered three ways to create a function in JavaScript:
     };
     ```
 
-3. Arrow functions:
+3. Rodyklės funkcijos (ang. *“arrow functions”*):
 
     ```js
-    // expression at the right side
+    // išraiška dešinėje pusėje
     let sum = (a, b) => a + b;
 
-    // or multi-line syntax with { ... }, need return here:
+    // kelių eilučių kodas figūriniuose skliaustuose { ... }, čia reikalingas return:
     let sum = (a, b) => {
       // ...
       return a + b;
     }
 
-    // without arguments
+    // be argumentų
     let sayHi = () => alert("Hello");
 
-    // with a single argument
+    // su vienu argumentu
     let double = n => n * 2;
     ```
 
 
-- Functions may have local variables: those declared inside its body or its parameter list. Such variables are only visible inside the function.
-- Parameters can have default values: `function sum(a = 1, b = 2) {...}`.
-- Functions always return something. If there's no `return` statement, then the result is `undefined`.
+- Funkcijos gali turėti lokalinius kintamuosius: tuos, kurie yra deklaruoti jų viduje arba jų parametrų sąraše. Tokie kintamieji matomi tik funkcijos viduje.
+- Parametrai gali turėti numatytąsias vertes: `function sum(a = 1, b = 2) {...}`.
+- Funkcijos visada ką nors grąžina. Jei nėra teiginio `return`, rezultatas yra `undefined`.
 
-Details: see <info:function-basics>, <info:arrow-functions-basics>.
+Išsamiau: <info:function-basics>, <info:arrow-functions-basics>.
 
-## More to come
+## Toliau mes išmoksime daugiau
 
-That was a brief list of JavaScript features. As of now we've studied only basics. Further in the tutorial you'll find more specials and advanced features of JavaScript.
+Tai buvo trumpas JavaScript funkcijų sąrašas. Kol kas susipažinome tik su pagrindais. Toliau vadovėlyje jūs rasite daugiau specialiųjų ir išplėstinių JavaScript funkcijų.
