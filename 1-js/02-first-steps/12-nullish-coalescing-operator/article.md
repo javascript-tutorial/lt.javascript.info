@@ -1,94 +1,94 @@
-# Nullish coalescing operator '??'
+# Nulinio susiliejimo operatorius '??'
 
 [recent browser="new"]
 
-The nullish coalescing operator is written as two question marks `??`.
+Nulinio susiliejimo operatorius užrašomas dviem klausiamaisiais ženklais `??`.
 
-As it treats `null` and `undefined` similarly, we'll use a special term here, in this article. We'll say that an expression is "defined" when it's neither `null` nor `undefined`.
+Kadangi jis apdoroja `null` ir `undefined` vienodai, šiame straipsnyje įvesime specialų terminą. Trumpai sakysime, kad vertė yra “apibrėžta”, jei ji nėra lygi nei `null`, nei `undefined`.
 
-The result of `a ?? b` is:
-- if `a` is defined, then `a`,
-- if `a` isn't defined, then `b`.
+Rezultatas `a ?? b` yra:
+- jei `a` yra apibrėžta, tada `a`,
+- jei `a` yra neapibrėžta, tada `b`.
 
-In other words, `??` returns the first argument if it's not `null/undefined`. Otherwise, the second one.
+Kitaip tariant, `??` grąžina pirmąjį argumentą, jei jis nėra `null/undefined`. Priešingu atveju - antrąjį.
 
-The nullish coalescing operator isn't anything completely new. It's just a nice syntax to get the first "defined" value of the two.
+Nulinio susiliejimo operatorius nėra visiškai naujas. Tai tik graži sintaksė, leidžianti gauti pirmąją “apibrėžtą” vertę iš dviejų.
 
-We can rewrite `result = a ?? b` using the operators that we already know, like this:
+Mes galime perrašyti `result = a ?? b`, naudodami jau mums žinomus operatorius, pavyzdžiui, taip:
 
 ```js
 result = (a !== null && a !== undefined) ? a : b;
 ```
 
-Now it should be absolutely clear what `??` does. Let's see where it helps.
+Dabar turėtų būti visiškai aišku, ką daro `??`. Pažiūrėkime, kur jis padeda.
 
-The common use case for `??` is to provide a default value for a potentially undefined variable.
+Paprastai operatorius `??` reikalingas norint nustatyti numatytoją vertę potencialiai neapibrėžtam kintamajam.
 
-For example, here we show `user` if defined, otherwise `Anonymous`:
+Pavyzdžiui, čia mes atvaizduojame `user`, jei jo vertė nėra `null/undefined`, priešingu atveju - Anonimas:
 
 ```js run
 let user;
 
-alert(user ?? "Anonymous"); // Anonymous (user not defined)
+alert(user ?? "Anonimas"); // Anonimas (user yra neapibrėžtas)
 ```
 
-Here's the example with `user` assigned to a name:
+O štai pavyzdys, kai `user` priskirta vertė:
 
 ```js run
-let user = "John";
+let user = "Jonas";
 
-alert(user ?? "Anonymous"); // John (user defined)
+alert(user ?? "Anonimas"); // Jonas (user yra apibrėžtas)
 ```
 
-We can also use a sequence of `??` to select the first value from a list that isn't `null/undefined`.
+Mes taip pat galime naudoti `??` seką, norėdami iš sąrašo išrinkti pirmąją vertę, kuri nėra `null/undefined`.
 
-Let's say we have a user's data in variables `firstName`, `lastName` or `nickName`. All of them may be not defined, if the user decided not to enter a value.
+Tarkime, kad turime naudotojo duomenis kintamuosiuose `firstName`, `lastName` arba `nickName`. Visi jie gali būti neapibrėžti, jei naudotojas nusprendė neįvesti vertės.
 
-We'd like to display the user name using one of these variables, or show "Anonymous" if all of them aren't defined.
+Mes norėtume, kad naudotojo vardas būtų atvaizduojamas naudojant vieną iš šių kintamųjų arba rodomas "Anonimas", jei visi jie neapibrėžti.
 
-Let's use the `??` operator for that:
-
-```js run
-let firstName = null;
-let lastName = null;
-let nickName = "Supercoder";
-
-// shows the first defined value:
-*!*
-alert(firstName ?? lastName ?? nickName ?? "Anonymous"); // Supercoder
-*/!*
-```
-
-## Comparison with ||
-
-The OR `||` operator can be used in the same way as `??`, as it was described in the [previous chapter](info:logical-operators#or-finds-the-first-truthy-value).
-
-For example, in the code above we could replace `??` with `||` and still get the same result:
+Panaudokime operatorių `??`:
 
 ```js run
 let firstName = null;
 let lastName = null;
 let nickName = "Supercoder";
 
-// shows the first truthy value:
+// parodo pirmąją apibrėžtą vertę:
 *!*
-alert(firstName || lastName || nickName || "Anonymous"); // Supercoder
+alert(firstName ?? lastName ?? nickName ?? "Anonimas"); // Supercoder
 */!*
 ```
 
-Historically, the OR `||` operator was there first. It exists since the beginning of JavaScript, so developers were using it for such purposes for a long time.
+## Palyginimas su ||
 
-On the other hand, the nullish coalescing operator `??` was added to JavaScript only recently, and the reason for that was that people weren't quite happy with `||`.
+Operatorius ARBA `||` gali būti naudojamas taip pat kaip ir `??`, kaip aprašyta [ankstesniame skyriuje](info:logical-operators#or-finds-the-first-truthy-value).
 
-The important difference between them is that:
-- `||` returns the first *truthy* value.
-- `??` returns the first *defined* value.
+Pavyzdžiui, aukščiau pateiktame kode galėtume pakeisti `??` į `||` ir vis tiek gautume tą patį rezultatą:
 
-In other words, `||` doesn't distinguish between `false`, `0`, an empty string `""` and `null/undefined`. They are all the same -- falsy values. If any of these is the first argument of `||`, then we'll get the second argument as the result.
+```js run
+let firstName = null;
+let lastName = null;
+let nickName = "Supercoder";
 
-In practice though, we may want to use default value only when the variable is `null/undefined`. That is, when the value is really unknown/not set.
+// parodo pirmąją truthy vertę:
+*!*
+alert(firstName || lastName || nickName || "Anonimas"); // Supercoder
+*/!*
+```
 
-For example, consider this:
+Istoriškai ARBA `||` operatorius buvo pirmasis. Jis egzistuoja nuo pat JavaScript atsiradimo pradžios, todėl programišiai jau seniai jį naudojo tokiems tikslams.
+
+Kita vertus, nulinio susiliejimo operatorius `??` į JavaScript buvo pridėtas visai neseniai, o priežastis buvo ta, kad žmonės nebuvo patenkinti `||`.
+
+Svarbus skirtumas tarp jų yra tas, kad:
+- `||` grąžina pirmąją *truthy* vertę.
+- `??` grąžina pirmąją *apibrėžtą* vertę
+
+Kitaip tariant, `||` neskiria `false`, `0`, tuščios eilutės `""` ir `null/undefined`. Jos visos yra vienodos -- falsy vertės. Jei bet kuri iš jų yra pirmasis `||` argumentas, kaip rezultatą gausime antrąjį argumentą.
+
+Tačiau praktikoje numatytąją vertę galime norėti naudoti tik tada, kai kintamasis yra `null/undefined`. T. y. kai vertė iš tikrųjų nežinoma/nenustatyta.
+
+Pavyzdžiui, panagrinėkite štai ką:
 
 ```js run
 let height = 0;
@@ -97,73 +97,73 @@ alert(height || 100); // 100
 alert(height ?? 100); // 0
 ```
 
-- The `height || 100` checks `height` for being a falsy value, and it's `0`, falsy indeed.
-    - so the result of `||` is the second argument, `100`.
-- The `height ?? 100` checks `height` for being `null/undefined`, and it's not,
-    - so the result is `height` "as is", that is `0`.
+- Naudojant `height || 100` patikrinama, ar `height` nėra falsy vertė, ir ji yra `0`, taigi tikrai falsy.
+    - taigi `||` rezultatas yra antrasis argumentas, `100`.
+- Naudojant `height ?? 100` patikrinama, ar `height` nėra `null/undefined`, bet taip nėra,
+    - taigi rezultatas yra pats kintamasis `height`, t. y. `0`
 
-In practice, the zero height is often a valid value, that shouldn't be replaced with the default. So `??` does just the right thing.
+Praktikoje nulinis aukštis dažnai yra tinkama vertė, kurios nereikėtų keisti numatytąja. Taigi `??` daro teisingą dalyką.
 
-## Precedence
+## Pirmenybė
 
-The precedence of the `??` operator is the same as `||`. They both equal `4` in the [MDN table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table).
+Operatoriaus `??` pirmenybė yra tokia pati kaip ir `||`. Abu jie [MDN lentelėje](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table) yra lygūs `4`.
 
-That means that, just like `||`, the nullish coalescing operator `??` is evaluated before `=` and `?`, but after most other operations, such as `+`, `*`.
+Tai reiškia, kad, kaip ir `||`, nulinio susiliejimo operatorius `??` vertinamas prieš `=` ir `?`, bet po daugumos kitų operacijų, tokių kaip `+`, `*`.
 
-So if we'd like to choose a value with `??` in an expression with other operators, consider adding parentheses:
+Taigi, jei norime pasirinkti vertę su `??` išraiškoje su kitais operatoriais, pridėkite skliaustelius:
 
 ```js run
 let height = null;
 let width = null;
 
-// important: use parentheses
+// svarbu: naudokite skliaustelius
 let area = (height ?? 100) * (width ?? 50);
 
 alert(area); // 5000
 ```
 
-Otherwise, if we omit parentheses, then as `*` has the higher precedence than `??`, it would execute first, leading to incorrect results.
+Priešingu atveju, jei praleisime skliaustelius, kadangi `*` turi didesnę pirmenybę nei `??`, jis bus vykdomas pirmas, todėl rezultatai bus neteisingi.
 
 ```js
-// without parentheses
+// be skliaustelių
 let area = height ?? 100 * width ?? 50;
 
-// ...works the same as this (probably not what we want):
+// ...veikia taip pat, kaip ir čia (tikriausiai ne tai, ko norime):
 let area = height ?? (100 * width) ?? 50;
 ```
 
-### Using ?? with && or ||
+### Naudojimas ?? kartu su && arba ||
 
-Due to safety reasons, JavaScript forbids using `??` together with `&&` and `||` operators, unless the precedence is explicitly specified with parentheses.
+Dėl saugumo priežasčių JavaScript draudžia naudoti `??` kartu su `&&` ir `||` operatoriais, nebent pirmenybė būtų aiškiai nurodyta skliaustuose.
 
-The code below triggers a syntax error:
+Toliau pateiktas kodas sukelia sintaksės klaidą:
 
 ```js run
-let x = 1 && 2 ?? 3; // Syntax error
+let x = 1 && 2 ?? 3; // Sintaksės klaida
 ```
 
-The limitation is surely debatable, it was added to the language specification with the purpose to avoid programming mistakes, when people start to switch from `||` to `??`.
+Šis apribojimas tikrai yra ginčytinas, jis buvo pridėtas į kalbos specifikaciją siekiant išvengti programavimo klaidų, kai žmonės pradeda pereiti nuo `||` prie `??`.
 
-Use explicit parentheses to work around it:
+Norėdami tai apeiti, naudokite aiškius skliaustelius:
 
 ```js run
 *!*
-let x = (1 && 2) ?? 3; // Works
+let x = (1 && 2) ?? 3; // Veikia
 */!*
 
 alert(x); // 2
 ```
 
-## Summary
+## Santrauka
 
-- The nullish coalescing operator `??` provides a short way to choose the first "defined" value from a list.
+- Nulinio susiliejimo operatorius `??` yra trumpas būdas pasirinkti pirmąją “apibrėžtą” vertę iš sąrašo.
 
-    It's used to assign default values to variables:
+    Jis naudojamas kintamiesiems priskirti numatytąsias vertes:
 
     ```js
-    // set height=100, if height is null or undefined
+    // nustatyti height=100, jei height lygus null arba undefined
     height = height ?? 100;
     ```
 
-- The operator `??` has a very low precedence, only a bit higher than `?` and `=`, so consider adding parentheses when using it in an expression.
-- It's forbidden to use it with `||` or `&&` without explicit parentheses.
+- Operatoriaus `??` pirmenybė yra labai maža, tik šiek tiek didesnė nei `?` ir `=`, todėl, naudodami jį išraiškoje, pridėkite skliaustelius.
+- Draudžiama naudoti `??` su `||` arba `&&` be aiškių skliaustelių.
