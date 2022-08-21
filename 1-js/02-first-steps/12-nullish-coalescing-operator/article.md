@@ -106,7 +106,7 @@ Praktikoje nulinis aukštis dažnai yra tinkama vertė, kurios nereikėtų keist
 
 ## Pirmenybė
 
-Operatoriaus `??` pirmenybė yra tokia pati kaip ir `||`. Abu jie [MDN lentelėje](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table) yra lygūs `4`.
+Operatoriaus `??` pirmenybė yra tokia pati kaip ir `||`. Abu jie [MDN lentelėje](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table) yra lygūs `3`.
 
 Tai reiškia, kad, kaip ir `||`, nulinio susiliejimo operatorius `??` vertinamas prieš `=` ir `?`, bet po daugumos kitų operacijų, tokių kaip `+`, `*`.
 
