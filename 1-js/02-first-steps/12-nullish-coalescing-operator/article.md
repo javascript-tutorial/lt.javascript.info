@@ -24,7 +24,7 @@ Dabar turėtų būti visiškai aišku, ką daro `??`. Pažiūrėkime, kur jis pa
 
 Paprastai operatorius `??` reikalingas norint nustatyti numatytoją vertę potencialiai neapibrėžtam kintamajam.
 
-Pavyzdžiui, čia mes atvaizduojame `user`, jei jo vertė nėra `null/undefined`, priešingu atveju - Anonimas:
+Pavyzdžiui, čia mes atvaizduojame `user`, jei jo vertė nėra `null/undefined`, priešingu atveju - `Anonimas`:
 
 ```js run
 let user;
