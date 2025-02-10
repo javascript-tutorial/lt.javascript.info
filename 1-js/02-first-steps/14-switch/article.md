@@ -139,7 +139,11 @@ switch (a) {
 
 Dabar abu `3` ir `5` parodo tą pačią žinutę.
 
+<<<<<<< HEAD
 Gebėjimas “sugrupuoti” bylas yra šalutinis efektas to kaip `switch/case` veikia be `break`. Čia `case 3` vykdymas prasideda nuo eilės su `(*)` ir eina per bylą `case 5`, nes nėra `break`.
+=======
+The ability to "group" cases is a side effect of how `switch/case` works without `break`. Here the execution of `case 3` starts from the line `(*)` and goes through `case 5`, because there's no `break`.
+>>>>>>> 6236eb8c3cdde729dab761a1d0967a88a1a6197e
 
 ## Tipas yra svarbu
 
