@@ -6,8 +6,13 @@ Pavyzdžiui `alert` automatiškai paverčia bet kokią jiems duotą vertę į ei
 
 Yra tokių konkrečių atvejų kai mums reikia vertę pakeisti į atitinkamą tipą.
 
+<<<<<<< HEAD
 ```smart header="Dar nekalbant apie objektus"
 Šiame skyriuje kol kas dar nekalbėsime apie objektus. Dabar kalbėsime tik apie primityvus.
+=======
+```smart header="Not talking about objects yet"
+In this chapter, we won't cover objects. For now, we'll just be talking about primitives.
+>>>>>>> 1dce5b72b16288dad31b7b3febed4f38b7a5cd8a
 
 Vėliau, kai susipažinsime su objektais, skyriuje <info:object-toprimitive> pamatysime, kaip objektai tinka.
 ```
@@ -34,7 +39,11 @@ Eilutės konversijos dažniausiai yra labai akivaizdžios. `false` tampa `"false
 
 ## Skaičių konversijos
 
+<<<<<<< HEAD
 Skaičių konversijos įvyksta automatiškai matematinėse funkcijose ir formulėse. 
+=======
+Numeric conversion in mathematical functions and expressions happens automatically.
+>>>>>>> 1dce5b72b16288dad31b7b3febed4f38b7a5cd8a
 
 Pavyzdžiui, kai dalyba `/` taikoma ne skaičiams:
 
@@ -69,8 +78,13 @@ Skaičių konversijos taisyklės:
 |-------|-------------|
 |`undefined`|`NaN`|
 |`null`|`0`|
+<<<<<<< HEAD
 |<code>true&nbsp;ir&nbsp;false</code> | `1` ir `0` |
 | `string` | Tarpai pradžioje ir pabaigoje panaikinami. Jeigu likusi eilutė yra tuščia, rezultatas yra `0`. Kitu atveju, skaičius "perskaitomas" iš eilutės. Klaida grąžina `NaN`. |
+=======
+|<code>true&nbsp;and&nbsp;false</code> | `1` and `0` |
+| `string` | Whitespaces (includes spaces, tabs `\t`, newlines `\n` etc.) from the start and end are removed. If the remaining string is empty, the result is `0`. Otherwise, the number is "read" from the string. An error gives `NaN`. |
+>>>>>>> 1dce5b72b16288dad31b7b3febed4f38b7a5cd8a
 
 Pavyzdžiai:
 
@@ -130,7 +144,11 @@ Konversija laikosi taisyklių:
 |`undefined`|`NaN`|
 |`null`|`0`|
 |<code>true&nbsp;/&nbsp;false</code> | `1 / 0` |
+<<<<<<< HEAD
 | `string` | Eilutė skaitoma taip kaip yra, tarpai iš abiejų pusių ignoruojami. Tuščia eilutė tampa `0`. Klaida grąžina `NaN`. |
+=======
+| `string` | The string is read "as is", whitespaces (includes spaces, tabs `\t`, newlines `\n` etc.) from both sides are ignored. An empty string becomes `0`. An error gives `NaN`. |
+>>>>>>> 1dce5b72b16288dad31b7b3febed4f38b7a5cd8a
 
 **`Loginės Konversijos`** -- Nutinka loginėse operacijose. Gali būti atliekama su `Boolean(value)`.
 
