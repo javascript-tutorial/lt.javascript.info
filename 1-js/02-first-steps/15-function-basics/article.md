@@ -24,7 +24,7 @@ Pirmiausia įrašomas raktažodis `funkcija`, po jo nurodomas funkcijos pavadini
 
 ```js
 function name(parameter1, parameter2, ... parameterN) {
-  ...body...
+ // body
 }
 ```
 
@@ -178,7 +178,23 @@ alert( from ); // Ana
 
 Jei parametras nenurodytas, jo vertė tampa `undefined`.
 
+<<<<<<< HEAD
 Pavyzdžiui, aukščiau pateiktą funkciją `showMessage(from, text)` galima iškviesti su vienu argumentu:
+=======
+- A parameter is the variable listed inside the parentheses in the function declaration (it's a declaration time term).
+- An argument is the value that is passed to the function when it is called (it's a call time term).
+
+We declare functions listing their parameters, then call them passing arguments.
+
+In the example above, one might say: "the function `showMessage` is declared with two parameters, then called with two arguments: `from` and `"Hello"`".
+
+
+## Default values
+
+If a function is called, but an argument is not provided, then the corresponding value becomes `undefined`.
+
+For instance, the aforementioned function `showMessage(from, text)` can be called with a single argument:
+>>>>>>> 035c5267ba80fa7b55878f7213cbde449b4092d9
 
 ```js
 showMessage("Ana");
@@ -196,7 +212,17 @@ function showMessage(from, *!*text = "tekstas nepridėtas"*/!*) {
 showMessage("Ana"); // Ana: tekstas nepridėtas
 ```
 
+<<<<<<< HEAD
 Dabar, jei `text` parametras nenurodytas, jo vertė bus `"tekstas nepridėtas"`.
+=======
+Now if the `text` parameter is not passed, it will get the value `"no text given"`.
+
+The default value also jumps in if the parameter exists, but strictly equals `undefined`, like this:
+
+```js
+showMessage("Ann", undefined); // Ann: no text given
+```
+>>>>>>> 035c5267ba80fa7b55878f7213cbde449b4092d9
 
 Šiuo atveju `"tekstas nepridėtas"` yra eilutė, tačiau vietoj jos gali būti sudėtingesnė išraiška, kuri apskaičiuojama ir priskiriama, kai nėra parametro. Pavyzdžiui:
 
@@ -213,9 +239,47 @@ JavaScript kalba numatytieji parametrai apskaičiuojami kiekvieną kartą, kai f
 Aukščiau pateiktame pavyzdyje `anotherFunction()` bus iškviečiama kiekvieną kartą, kai `showMessage()` bus iškviesta be `text` parametro.
 ```
 
+<<<<<<< HEAD
 ### Alternatyvūs numatytieji parametrai
 
 Kartais tikslinga parametrams priskirti numatytąsias vertes ne funkcijos deklaravimo metu, o vėliau.
+=======
+````smart header="Default parameters in old JavaScript code"
+Several years ago, JavaScript didn't support the syntax for default parameters. So people used other ways to specify them.
+
+Nowadays, we can come across them in old scripts.
+
+For example, an explicit check for `undefined`:
+
+```js
+function showMessage(from, text) {
+*!*
+  if (text === undefined) {
+    text = 'no text given';
+  }
+*/!*
+
+  alert( from + ": " + text );
+}
+```
+
+...Or using the `||` operator:
+
+```js
+function showMessage(from, text) {
+  // If the value of text is falsy, assign the default value
+  // this assumes that text == "" is the same as no text at all
+  text = text || 'no text given';
+  ...
+}
+```
+````
+
+
+### Alternative default parameters
+
+Sometimes it makes sense to assign default values for parameters at a later stage after the function declaration.
+>>>>>>> 035c5267ba80fa7b55878f7213cbde449b4092d9
 
 Mes galime patikrinti, ar parametras perduotas funkcijos vykdymo metu, palyginę jį su `undefined`:
 
@@ -411,7 +475,11 @@ Du nepriklausomi veiksmai paprastai reiškia dvi funkcijas, net jei jos turi bū
 ```smart header="Ypač trumpi funkcijų pavadinimai"
 Labai dažnai naudojami funkcijų pavadinimai kartais būna itin trumpi.
 
+<<<<<<< HEAD
 Pavyzdžiui, [jQuery](http://jquery.com) framework'e yra funkcija, pavadinta `$`. [Lodash](http://lodash.com/) bibliotekoje pagrindinę funkciją žymi vardas `_`.
+=======
+For example, the [jQuery](https://jquery.com/) framework defines a function with `$`. The [Lodash](https://lodash.com/) library has its core function named `_`.
+>>>>>>> 035c5267ba80fa7b55878f7213cbde449b4092d9
 
 Tai yra išimtys. Apskritai funkcijų pavadinimai turėtų būti vidutiniškai trumpi ir apibūdinti funkcijų veiksmus.
 ```
@@ -479,7 +547,11 @@ function name(kableliais, atskirti, parametrai) {
 
 Kad kodas būtų švaresnis ir aiškesnis, rekomenduojama naudoti lokalinius kintamuosius ir funkcijų parametrus, o ne išorinius kintamuosius.
 
+<<<<<<< HEAD
 Funkcija, kuri gauna parametrus, dirba su jais ir grąžina rezultatą, yra daug aiškesnė nei funkcija, kuri iškviečiama be parametrų, bet keičia išorinius kintamuosius, o tai gali turėti šalutinį poveikį.
+=======
+It is always easier to understand a function which gets parameters, works with them and returns a result than a function which gets no parameters, but modifies outer variables as a side effect.
+>>>>>>> 035c5267ba80fa7b55878f7213cbde449b4092d9
 
 Funkcijos pavadinimo pasirinkimas:
 
