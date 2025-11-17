@@ -12,13 +12,24 @@ const birthday = '18.04.1982';
 const age = someCode(birthday);
 ```
 
+<<<<<<< HEAD
 Mes turime konstantą `birthday` data ir amžius `age` yra paskaičiuojame pagal `birthday` tam tikro kodo pagalba (jis čia nepateiktas dėl glaustumo ir dėl to, kad tai nėra svarbu užduočiai).
+=======
+Here we have a constant `birthday` for the date, and also the `age` constant.
+
+The `age` is calculated from `birthday` using `someCode()`, which means a function call that we didn't explain yet (we will soon!), but the details don't matter here, the point is that `age` is calculated somehow based on the `birthday`.
+>>>>>>> 5e893cffce8e2346d4e50926d5148c70af172533
 
 Ar būtų gerai naudoti didžiąsias raides `birthday`? O kaip dėl `age`? O galbūt netgi abiems?
 
 ```js
+<<<<<<< HEAD
 const BIRTHDAY = '18.04.1982'; // perrašyti didžiosiomis raidėmis?
 
 const AGE = someCode(BIRTHDAY); // perrašyti didžiosiomis raidėmis?
-```
+=======
+const BIRTHDAY = '18.04.1982'; // make birthday uppercase?
 
+const AGE = someCode(BIRTHDAY); // make age uppercase?
+>>>>>>> 5e893cffce8e2346d4e50926d5148c70af172533
+```

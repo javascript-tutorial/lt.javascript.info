@@ -68,9 +68,26 @@ Daugiau apie darbą su skaičiais bus skyriuje <info:number>.
 
 ## BigInt [#bigint-type]
 
+<<<<<<< HEAD
 JavaScript tipo “number” sudėtyje negali būti skaičių, didesnių už <code>(2<sup>53</sup>-1)</code> (t. y. `9007199254740991`), arba mažesnių nei <code>-(2<sup>53</sup>-1)</code> neigiamiems skaičiams. Šį techninį apribojimą lemia jų vidinė išvaizda.
 
 Tačiau kartais mums reikia tikrai milžiniškų skaičių, pavyzdžiui, kriptografijoje arba naudojant laiko žymą (“timestamp”) su mikrosekundėmis.
+=======
+In JavaScript, the "number" type cannot safely represent integer values larger than <code>(2<sup>53</sup>-1)</code> (that's `9007199254740991`), or less than <code>-(2<sup>53</sup>-1)</code> for negatives.
+
+To be really precise, the "number" type can store larger integers (up to <code>1.7976931348623157 * 10<sup>308</sup></code>), but outside of the safe integer range <code>±(2<sup>53</sup>-1)</code> there'll be a precision error, because not all digits fit into the fixed 64-bit storage. So an "approximate" value may be stored.
+
+For example, these two numbers (right above the safe range) are the same:
+
+```js
+console.log(9007199254740991 + 1); // 9007199254740992
+console.log(9007199254740991 + 2); // 9007199254740992
+```
+
+So to say, all odd integers greater than <code>(2<sup>53</sup>-1)</code> can't be stored at all in the "number" type.
+
+For most purposes <code>±(2<sup>53</sup>-1)</code> range is quite enough, but sometimes we need the entire range of really big integers, e.g. for cryptography or microsecond-precision timestamps.
+>>>>>>> 5e893cffce8e2346d4e50926d5148c70af172533
 
 Neseniai į kalbą buvo pridėtas `BigInt` tipas, kuriuo galima išreikšti bet kokio ilgio sveikuosius skaičius. 
 
@@ -83,12 +100,15 @@ const bigInt = 1234567890123456789012345678901234567890n;
 
 Kadangi `BigInt` skaičiai reikalingi retai, čia jų neaprašysime, bet skirsime jiems atskirą skyrių <info:bigint>. Jį skaitykite, kai prireiks tokių didelių skaičių.
 
+<<<<<<< HEAD
 ```smart header="Suderinamumo problemos"
 Šiuo metu `BigInt` yra palaikomas Firefox/Chrome/Edge/Safari, bet ne IE.
 ```
 
 Jūs galite patikrinti [*MDN* BigInt suderinamumo lentelė](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#Browser_compatibility) norėdami sužinoti, kurios naršyklės versijos yra palaikomos.
 
+=======
+>>>>>>> 5e893cffce8e2346d4e50926d5148c70af172533
 ## String
 
 Eilutė (ang. *“String”*) JavaScript turi būti apsupta kabutėmis.
@@ -212,7 +232,11 @@ Tipas `symbol` yra naudojamas unikaliems objektų identifikatoriams sukurti. Tur
 
 ## Operatorius typeof [#type-typeof]
 
+<<<<<<< HEAD
 Operatorius `typeof` grąžina argumento tipą. Jis naudingas kai mes norime išskirtinai apdoroti skirtingų tipų vertes arba norime greitai patikrinti tipą. 
+=======
+The `typeof` operator returns the type of the operand. It's useful when we want to process values of different types differently or just want to do a quick check.
+>>>>>>> 5e893cffce8e2346d4e50926d5148c70af172533
 
 Iškvietimas `typeof x` grąžina eilutę su tipo pavadinimu:
 
@@ -262,6 +286,7 @@ Kai kurie žmonės mėgsta `typeof(x)`, nors `typeof x` sintaksė yra daug dažn
 
 JavaScript turi 8 pagrindinius duomenų tipus.
 
+<<<<<<< HEAD
 - `number` skirtas bet kokio tipo skaičiams: sveikiems ir slankiojančio kablelio skaičiams.
 - `bigint` skirtas bet kokio ilgio sveikiesiems skaičiams.
 - `string` skirtas eilutėms. Eilutė gali turėti vieną ar daugiau ženklų, nėra atskiro vieno-ženklo tipo.
@@ -270,6 +295,18 @@ JavaScript turi 8 pagrindinius duomenų tipus.
 - `undefined` nepriskirtoms vertėms -- atskiras tipas turintis vieną vertę `undefined`.
 - `object` skirtas sudėtingesnėms duomenų struktūroms.
 - `symbol` skirtas unikaliems identifikatoriams.
+=======
+- Seven primitive data types:
+    - `number` for numbers of any kind: integer or floating-point, integers are limited by <code>±(2<sup>53</sup>-1)</code>.
+    - `bigint` for integer numbers of arbitrary length.
+    - `string` for strings. A string may have zero or more characters, there's no separate single-character type.
+    - `boolean` for `true`/`false`.
+    - `null` for unknown values -- a standalone type that has a single value `null`.
+    - `undefined` for unassigned values -- a standalone type that has a single value `undefined`.
+    - `symbol` for unique identifiers.
+- And one non-primitive data type:
+    - `object` for more complex data structures.
+>>>>>>> 5e893cffce8e2346d4e50926d5148c70af172533
 
 Operatorius `typeof` leidžia matyti, kuris tipas yra saugomas kintamajame. 
 

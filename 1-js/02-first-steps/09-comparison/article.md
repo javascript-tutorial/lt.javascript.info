@@ -209,8 +209,16 @@ Kodėl aptarėme šiuos pavyzdžius? Ar turėtume nuolat prisiminti šiuos ypatu
 
 ## Santrauka
 
+<<<<<<< HEAD
 - Palyginimų operatoriai grąžina loginę vertę.
 - Eilutės yra tikrinamos paraidžiui "žodynėlio" eiliškumo principu.
 - Kai lyginamos skirtingų tipų vertės, jos yra paverčiamos į skaičius (išskyrus tik griežtą lygybės patikrinimą).
 - Vertės `null` ir `undefined` yra lygios `==` viena kitai, bet nelygios jokiai kitai vertei.
 - Būkite atsargūs kai naudojate tokius palyginimus kaip `>` arba `<` su kintamaisiai, kurie laikas nuo laiko gali būti `null/undefined`. Gera mintis yra patikrinti `null/undefined` atskirai.
+=======
+- Comparison operators return a boolean value.
+- Strings are compared letter-by-letter in the "dictionary" order.
+- When values of different types are compared, they get converted to numbers (with the exclusion of a strict equality check).
+- The values `null` and `undefined` are equal `==` to themselves and each other, but do not equal any other value.
+- Be careful when using comparisons like `>` or `<` with variables that can occasionally be `null/undefined`. Checking for `null/undefined` separately is a good idea.
+>>>>>>> 5e893cffce8e2346d4e50926d5148c70af172533

@@ -50,8 +50,14 @@ Rezultatas `a % b` yra dalybos iš `a` ir `b` [likutis](https://en.wikipedia.org
 Pavyzdžiui:
 
 ```js run
+<<<<<<< HEAD
 alert( 5 % 2 ); // 1, likutis, gautas padalijus 5 iš 2
 alert( 8 % 3 ); // 2, likutis, gautas padalijus 8 iš 3
+=======
+alert( 5 % 2 ); // 1, the remainder of 5 divided by 2
+alert( 8 % 3 ); // 2, the remainder of 8 divided by 3
+alert( 8 % 4 ); // 0, the remainder of 8 divided by 4
+>>>>>>> 5e893cffce8e2346d4e50926d5148c70af172533
 ```
 
 ### Kėlimas laipsniu **
@@ -68,7 +74,11 @@ alert( 2 ** 3 ); // 2³ = 8
 alert( 2 ** 4 ); // 2⁴ = 16
 ```
 
+<<<<<<< HEAD
 Kaip ir matematikoje, kėlimo laipsniu operatorius tinka ir ne sveikiesiems skaičiams. 
+=======
+Just like in maths, the exponentiation operator is defined for non-integer numbers as well.
+>>>>>>> 5e893cffce8e2346d4e50926d5148c70af172533
 
 Pavyzdžiui, norėdami gauti skaičiaus kvadratinę šaknį, turime ji pakelti iki ½ laipsnio:
 
@@ -80,7 +90,11 @@ alert( 8 ** (1/3) ); // 2 (kubinė šaknis iš a yra lygiavertė a pekėlimui ik
 
 ## Eilučių sudėtis naudojant binarinį +
 
+<<<<<<< HEAD
 Apžvelkime ypatingas JavaScript operatorių savybes, kurios išeina už mokyklinės aritmetikos ribų.
+=======
+Let's meet the features of JavaScript operators that are beyond school arithmetics.
+>>>>>>> 5e893cffce8e2346d4e50926d5148c70af172533
 
 Dažniausiai operatorius pliusas `+` sumuoja skaičius.
 
@@ -194,6 +208,7 @@ JavaScript turi daug operatorių. Kiekvienas operatorius turi atitinkamą pirmen
 | Pirmenybė | Pavadinimas | Ženklas |
 |------------|------|------|
 | ... | ... | ... |
+<<<<<<< HEAD
 | 15 | unarinis pliusas | `+` |
 | 15 | unarinis minusas | `-` |
 | 14 | kėlimas laipsniu | `**` |
@@ -201,11 +216,24 @@ JavaScript turi daug operatorių. Kiekvienas operatorius turi atitinkamą pirmen
 | 13 | dalyba | `/` |
 | 12 | sudėtis | `+` |
 | 12 | atimtis | `-` |
+=======
+| 14 | unary plus | `+` |
+| 14 | unary negation | `-` |
+| 13 | exponentiation | `**` |
+| 12 | multiplication | `*` |
+| 12 | division | `/` |
+| 11 | addition | `+` |
+| 11 | subtraction | `-` |
+>>>>>>> 5e893cffce8e2346d4e50926d5148c70af172533
 | ... | ... | ... |
 | 2 | priskyrimas | `=` |
 | ... | ... | ... |
 
+<<<<<<< HEAD
 Kaip matome, “unarinio pliuso” prioritetas yra `15`, t. y. aukštesnis už “sudėties” (binarinio pliuso) prioritetą `12`. Todėl išraiškoje `"+apples + +oranges"` unarinis pliusas veikia pirmiau už sudėtinį pliusą.
+=======
+As we can see, the "unary plus" has a priority of `14` which is higher than the `11` of "addition" (binary plus). That's why, in the expression `"+apples + +oranges"`, unary pluses work before the addition.
+>>>>>>> 5e893cffce8e2346d4e50926d5148c70af172533
 
 ## Priskyrimas
 
@@ -303,9 +331,13 @@ Tokie operatoriai turi tokią pačią pirmenybę kaip ir įprasti priskyrimai, t
 ```js run
 let n = 2;
 
-n *= 3 + 5;
+n *= 3 + 5; // right part evaluated first, same as n *= 8
 
+<<<<<<< HEAD
 alert( n ); // 16  (pirmiausiai bus vykdoma dešinioji pusė, išraiška yra identiška n *= 8)
+=======
+alert( n ); // 16
+>>>>>>> 5e893cffce8e2346d4e50926d5148c70af172533
 ```
 
 ## Padidėjimas/sumažėjimas
@@ -437,7 +469,11 @@ Operatorių sąrašas:
 - RIGHT SHIFT ( `>>` )
 - ZERO-FILL RIGHT SHIFT ( `>>>` )
 
+<<<<<<< HEAD
 Šie operatoriai naudojami labai retai, kai reikia atlikti veiksmus su skaičiais pačiu žemiausiu (bitų) lygiu. Šių operatorių artimiausiu metu mums neprireiks, nes interneto svetainių kūrimui jie mažai reikalingi, tačiau kai kuriose specialiose srityse, pavyzdžiui, kriptografijoje, jie yra naudingi. MDN galite perskaityti [skyrių apie juos](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Bitwise), kai to tikrai prireiks.
+=======
+These operators are used very rarely, when we need to fiddle with numbers on the very lowest (bitwise) level. We won't need these operators any time soon, as web development has little use of them, but in some special areas, such as cryptography, they are useful. You can read the [Bitwise Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#bitwise_operators) chapter on MDN when a need arises.
+>>>>>>> 5e893cffce8e2346d4e50926d5148c70af172533
 
 ## Kablelis
 
