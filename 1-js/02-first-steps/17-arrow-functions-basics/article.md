@@ -48,7 +48,11 @@ Kaip jūs matote, `(a, b) => a + b` reiškia funkciją, kuri priima du argumentu
     alert( double(3) ); // 6
     ```
 
+<<<<<<< HEAD
 - Jeigu argumentų nėra, skliaustai bus tušti (tačiau jie turėtų būti):
+=======
+- If there are no arguments, parentheses are empty, but they must be present:
+>>>>>>> d78b01e9833009fab534462e05c03cffc51bf0e3
 
     ```js run
     let sayHi = () => alert("Labas!");
@@ -64,8 +68,13 @@ Pavyzdžiui, norėdami dinamiškai sukurti funkciją:
 let age = prompt("Koks jūsų amžius?", 18);
 
 let welcome = (age < 18) ?
+<<<<<<< HEAD
   () => alert('Labas!') :
   () => alert("Laba diena!");
+=======
+  () => alert('Hello!') :
+  () => alert("Greetings!");
+>>>>>>> d78b01e9833009fab534462e05c03cffc51bf0e3
 
 welcome();
 ```
@@ -76,9 +85,15 @@ Jie labai patogūs atliekant paprastus vienos eilutės veiksmus, kai tiesiog tin
 
 ## Kelių eilučių rodyklių funkcijos
 
+<<<<<<< HEAD
 Aukščiau pateiktuose pavyzdžiuose buvo paimti argumentai iš `=>` kairės pusės ir su jais įvertinta dešiniosios pusės išraiška.
 
 Kartais mums reikia šiek tiek sudėtingesnių dalykų, pavyzdžiui, kelių išraiškų ar teiginių. Tai taip pat įmanoma, tačiau jas turėtume uždaryti figūriniais skliaustais. Tada juose reikia naudoti įprastą `return`.
+=======
+The arrow functions that we've seen so far were very simple. They took arguments from the left of `=>`, evaluated and returned the right-side expression with them.
+
+Sometimes we need a more complex function, with multiple expressions and statements. In that case, we can enclose them in curly braces. The major difference is that curly braces require a `return` within them to return a value (just like a regular function does).
+>>>>>>> d78b01e9833009fab534462e05c03cffc51bf0e3
 
 Štai taip:
 
@@ -105,7 +120,14 @@ O dabar mes jau galime naudoti rodyklių funkcijas vienos eilutės veiksmams ir 
 
 ## Santrauka
 
+<<<<<<< HEAD
 Rodyklių funkcijos yra patogios, kai reikia parašyti vieną eilutę. Jos būna dviejų rūšių:
 
 1. Be figūrinių skliaustų: `(...args) => expression` -- dešinioji išraiškos pusė: funkcija ją apskaičiuoja ir grąžina rezultatą. Skliaustelius galima praleisti, jei yra tik vienas argumentas: `n => n * 2`.
 2. Su figūriniais skliaustais: `(...args) => { body }` -- figūriniai skliaustai leidžia įrašyti kelis teiginius funkcijos viduje, tačiau mums reikia aiškaus `return`, kad ką nors grąžintume.
+=======
+Arrow functions are handy for simple actions, especially for one-liners. They come in two flavors:
+
+1. Without curly braces: `(...args) => expression` -- the right side is an expression: the function evaluates it and returns the result. Parentheses can be omitted, if there's only a single argument, e.g. `n => n*2`.
+2. With curly braces: `(...args) => { body }` -- brackets allow us to write multiple statements inside the function, but we need an explicit `return` to return something.
+>>>>>>> d78b01e9833009fab534462e05c03cffc51bf0e3
