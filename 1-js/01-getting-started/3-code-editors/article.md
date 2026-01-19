@@ -14,7 +14,12 @@ Jeigu dar neišsirinkote IDE, pamąstykite apie šiuos:
 - [Visual Studio Code](https://code.visualstudio.com/) (daugiaplatformis, nemokamas).
 - [WebStorm](http://www.jetbrains.com/webstorm/) (daugiaplatformis, mokamas).
 
+<<<<<<< HEAD
 Windows taip pat yra “Visual Studio”, tačiau nereiktų jo maišyt su “Visual Studio Code”. “Visual Studio” yra mokamas ir tik Windows skirtas redaktorius, kuris puikiai derinasi su .NET platforma. Jis taip pat tinka ir JavaScript. yra ir nemokama versija [Visual Studio Community](https://www.visualstudio.com/vs/community/).
+=======
+- [Visual Studio Code](https://code.visualstudio.com/) (cross-platform, free).
+- [WebStorm](https://www.jetbrains.com/webstorm/) (cross-platform, paid).
+>>>>>>> d78b01e9833009fab534462e05c03cffc51bf0e3
 
 Dauguma IDE yra mokami, tačiau turi bandomąjį periodą. Jų kaina dažniausiai pakenčiama, atsižvelgiant į programuotojų atlyginimus, tad tiesiog išsirink tokį, kuris atrodo patogiausiai.
 
@@ -30,14 +35,33 @@ Praktikoj, lengvasvoriai redaktoriai turi daug papildymų (ang. *plugins*), įsk
 
 Šie pasirinkimai verti dėmesio:
 
+<<<<<<< HEAD
 - [Sublime Text](http://www.sublimetext.com) (daugiaplatformis, laikinai nemokamas).
 - [Notepad++](https://notepad-plus-plus.org/) (Windows, nemokamas).
 - [Vim](http://www.vim.org/) ir [Emacs](https://www.gnu.org/software/emacs/) yra labai puikūs, jeigu moki jais naudotis.
 
 ## Nesiginčykime
+=======
+There are many options, for instance:
+
+- [Sublime Text](https://www.sublimetext.com/) (cross-platform, shareware).
+- [Notepad++](https://notepad-plus-plus.org/) (Windows, free).
+- [Vim](https://www.vim.org/) and [Emacs](https://www.gnu.org/software/emacs/) are also cool if you know how to use them.
+>>>>>>> d78b01e9833009fab534462e05c03cffc51bf0e3
 
 Redaktoriai, kurie buvo paminėti šioje pamokoje yra tie, kuriuos aš ir mano draugai, kuriuos laikau kietais programuotojais, naudojame ilgą laiką ir kurie tenkina mūsų poreikius.
 
 Mūsų dideliame pasaulyje yra kitų puikių redaktorių. Tiesiog pasirink tokį, kuris tau labiausiai patinka.
 
+<<<<<<< HEAD
 Redaktoriaus pasirinkimas, kaip ir bet kokio kito įrankio, yra individualus ir priklauso nuo projektų bei kitų, dažnai subjektyvių kriterijų.
+=======
+There are other great editors in our big world. Please choose the one you like the most.
+
+The choice of an editor, like any other tool, is individual and depends on your projects, habits, and personal preferences.
+
+The author's personal opinion:
+
+- I'd use [Visual Studio Code](https://code.visualstudio.com/) if I develop mostly frontend.
+- Otherwise, if it's mostly another language/platform and partially frontend, then consider other editors, such as XCode (Mac), Visual Studio (Windows) or Jetbrains family (Webstorm, PHPStorm, RubyMine etc, depending on the language).
+>>>>>>> d78b01e9833009fab534462e05c03cffc51bf0e3
