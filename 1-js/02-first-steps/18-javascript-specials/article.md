@@ -55,7 +55,11 @@ Kad būtų įjungtos visos šiuolaikinės JavaScript ypatybės, skriptus turėtu
 
 Ši direktyva turi būti skripto viršuje arba funkcijos kūno pradžioje.
 
+<<<<<<< HEAD
 Be `"use strict"` viskas veikia, tačiau kai kurios funkcijos veikia senamadiškai, “suderinamumo” būdu. Apskritai mums labiau tiktų šiuolaikinis elgesys.
+=======
+Without `"use strict"`, everything still works, but some features behave in the old-fashioned, "compatible" way. We'd generally prefer the modern behavior.
+>>>>>>> 725653fd99b19d42195e837ac3bb23c1784f8f6e
 
 Kai kurios šiuolaikinės kalbos savybės (pvz., klasės, kurias nagrinėsime ateityje) įgalina griežtąjį režimą netiesiogiai.
 
@@ -103,6 +107,7 @@ Išsamiau: <info:variables> ir <info:types>.
 
 Kaip darbo aplinką naudojame naršyklę, todėl pagrindinės vartotojo sąsajos funkcijos bus:
 
+<<<<<<< HEAD
 [`prompt(question, [default])`](mdn:api/Window/prompt)
 : Užduoti klausimą `question` ir grąžinti lankytojo įvestus duomenis arba `null`, jei lankytojas paspaudė “atšaukti”.
 
@@ -111,6 +116,16 @@ Kaip darbo aplinką naudojame naršyklę, todėl pagrindinės vartotojo sąsajos
 
 [`alert(message)`](mdn:api/Window/alert)
 : Išvesti pranešimą `message`.
+=======
+[`prompt(question, [default])`](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt)
+: Ask a `question`, and return either what the visitor entered or `null` if they clicked "cancel".
+
+[`confirm(question)`](https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm)
+: Ask a `question` and suggest to choose between Ok and Cancel. The choice is returned as `true/false`.
+
+[`alert(message)`](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert)
+: Output a `message`.
+>>>>>>> 725653fd99b19d42195e837ac3bb23c1784f8f6e
 
 Visos šios funkcijos yra *modalinės*, jos sustabdo kodo vykdymą ir neleidžia lankytojui sąveikauti su puslapiu, kol jis neatsakys.
 
@@ -143,8 +158,13 @@ Aritmetikos
 Priskyrimo operatoriai
 : Yra paprastas priskyrimas: `a = b` ir kombinuotas, pavyzdžiui, `a *= 2`.
 
+<<<<<<< HEAD
 Bitų operacijos
 : Bitų operatoriai su 32 bitų sveikaisiais skaičiais dirba žemiausiu, bitų lygiu. Daugiau apie jų galite perskaityti [MDN](mdn:/JavaScript/Guide/Expressions_and_Operators#Bitwise).
+=======
+Bitwise
+: Bitwise operators work with 32-bit integers at the lowest, bit-level: see the [docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#bitwise_operators) when they are needed.
+>>>>>>> 725653fd99b19d42195e837ac3bb23c1784f8f6e
 
 Sąlyginiai operatoriai
 : Vienintelis operatorius, turintis tris parametrus: `cond ? resultA : resultB`. Jeigu `cond` yra truthy, grąžina `resultA`, priešingu atveju `resultB`.
@@ -256,7 +276,11 @@ Mes apžvelgėme tris būdus, kaip galima sukurti funkciją JavaScript:
 3. Rodyklės funkcijos (ang. *“arrow functions”*):
 
     ```js
+<<<<<<< HEAD
     // išraiška dešinėje pusėje
+=======
+    // expression on the right side
+>>>>>>> 725653fd99b19d42195e837ac3bb23c1784f8f6e
     let sum = (a, b) => a + b;
 
     // kelių eilučių kodas figūriniuose skliaustuose { ... }, čia reikalingas return:

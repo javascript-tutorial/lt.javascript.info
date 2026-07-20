@@ -6,7 +6,24 @@ Pavyzdžiui, įvairių prekių išbraukimas viena paskui kitą iš sąrašo, arb
 
 *Ciklai* (ang. “*Loops*”) yra būdas pakartoti daug kartų tą patį kodą.
 
+<<<<<<< HEAD
 ## Ciklas “while”
+=======
+```smart header="The for..of and for..in loops"
+A small announcement for advanced readers.
+
+This article covers only basic loops: `while`, `do..while` and `for(..;..;..)`.
+
+If you came to this article searching for other types of loops, here are the pointers:
+
+- See [for..in](info:object#forin) to loop over object properties.
+- See [for..of](info:array#loops) and [iterables](info:iterable) for looping over arrays and iterable objects.
+
+Otherwise, please read on.
+```
+
+## The "while" loop
+>>>>>>> 725653fd99b19d42195e837ac3bb23c1784f8f6e
 
 Ciklas `while` turi sekančią sintaksę:
 
@@ -162,11 +179,14 @@ for (i = 0; i < 3; i++) { // naudojamas jau egzituojantis kintamasis
 
 alert(i); // 3, matomas, nes buvo deklaruotas už ciklo ribų
 ```
-
 ````
 
+<<<<<<< HEAD
 
 ### Dalių praleidimas
+=======
+### Skipping parts
+>>>>>>> 725653fd99b19d42195e837ac3bb23c1784f8f6e
 
 Bet kuri `for` dalis gali būti praleista.
 
@@ -268,7 +288,11 @@ for (let i = 0; i < 10; i++) {
 
 Iš techninės perspektyvos tai yra visiškai identiškas kodas aukščiau esančiam pavyzdžiui. Žinoma, mes galime tiesiog apgobti `if` rinkinį vietoje to, kad naudotume `continue`.
 
+<<<<<<< HEAD
 Bet to pašalinis efektas yra papildomas matrioškinis lygis (šaukimas `alert` viduje riestinių skliaustų). O jeigu kodas `if` viduje yra ilgesnis nei kelios eilės, tai apsunkina skaitomumą. 
+=======
+But as a side effect, this created one more level of nesting (the `alert` call inside the curly braces). If the code inside of `if` is longer than a few lines, that may decrease the overall readability.
+>>>>>>> 725653fd99b19d42195e837ac3bb23c1784f8f6e
 ````
 
 ````warn header="Jokių `break/continue` dešinėje '?' pusėje"
@@ -285,7 +309,6 @@ if (i > 5) {
 ```
 
 ...ir perrašytume jį naudodami klaustuką:
-
 
 ```js no-beautify
 (i > 5) ? alert(i) : *!*continue*/!*; // continue nėra leidžiamas
@@ -320,7 +343,12 @@ Mums reikia tokio būdo, kuris sustabdytų procesą, jeigu lankytojas atšaukia 
 
 Įprastinis `break` sekantis po `input` sustabdytų tik vidinį ciklą. To neužtenka -- į pagalba ateina žymos!
 
+<<<<<<< HEAD
 *Žyma* -- tai yra toks identifikatorius su dvitaškiu prieš ciklą:
+=======
+A *label* is an identifier with a colon before a loop:
+
+>>>>>>> 725653fd99b19d42195e837ac3bb23c1784f8f6e
 ```js
 žymosPavadinimas: for (...) {
   ...
@@ -342,7 +370,12 @@ Teiginys `break <žymosPavadinimas>` cikle žemiau nutraukia procesą iki žymos
     // daryti kažką su verte...
   }
 }
+<<<<<<< HEAD
 alert('Baigta!');
+=======
+
+alert('Done!');
+>>>>>>> 725653fd99b19d42195e837ac3bb23c1784f8f6e
 ```
 
 Kodas viršuje `break išorinis` suranda viršuje žymą su pavadinimu `išorinis` ir nutraukia tą ciklą.
@@ -361,14 +394,24 @@ Direktyvą `continue` taip pat galima naudoti su žyma. Šiuo atveju valdymas bu
 ````warn header="Žymos neleidžia \"peršokti\" bet kur"
 Žymos negali leisti peršokti į bet kurią arbitrišką kodo vietą.
 
+<<<<<<< HEAD
 Pavyzdžiui tai nėra įmanoma:
+=======
+For example, it is impossible to do this:
+
+>>>>>>> 725653fd99b19d42195e837ac3bb23c1784f8f6e
 ```js
 break žyma; // neperšoka į žymą žemiau (neveikia)
 
 žyma: for (...)
 ```
 
+<<<<<<< HEAD
 Direktyva `break` turi būti kodo bloko viduje. Techniškai tinka bet koks pažymėtas kodo blokas, pavyzdžiui:
+=======
+A `break` directive must be inside a code block. Technically, any labelled code block will do, e.g.:
+
+>>>>>>> 725653fd99b19d42195e837ac3bb23c1784f8f6e
 ```js
 label: {
   // ...

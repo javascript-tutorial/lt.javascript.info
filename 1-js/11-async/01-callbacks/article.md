@@ -75,7 +75,13 @@ function loadScript(src, *!*callback*/!*) {
 }
 ```
 
+<<<<<<< HEAD
 Jeigu mes norime iškviesti naujas funkcijas iš skripto, mes turėtume tai aprašyti *callback'e*:
+=======
+The `onload` event is described in the article <info:onload-onerror#loading-a-script>, it basically executes a function after the script is loaded and executed.
+
+Now if we want to call new functions from the script, we should write that in the callback:
+>>>>>>> 725653fd99b19d42195e837ac3bb23c1784f8f6e
 
 ```js
 loadScript('/my/script.js', function() {
@@ -100,7 +106,11 @@ function loadScript(src, callback) {
 *!*
 loadScript('https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js', script => {
   alert(`Cool, the script ${script.src} is loaded`);
+<<<<<<< HEAD
   alert( _ ); // funkcija deklaruota užkrautame skripte
+=======
+  alert( _ ); // _ is a function declared in the loaded script
+>>>>>>> 725653fd99b19d42195e837ac3bb23c1784f8f6e
 });
 */!*
 ```
