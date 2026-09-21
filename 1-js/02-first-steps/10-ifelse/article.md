@@ -68,7 +68,11 @@ if (cond) {
 
 ## Išlyga "else"
 
+<<<<<<< HEAD
 Į `if` teiginį gali būti įterptas neprivalomas “else” blokas. Jis vykdomas, kai sąlyga yra “falsy”.
+=======
+The `if` statement may contain an optional `else` block. It executes when the condition is falsy.
+>>>>>>> 20208769e528337949e946f526534d61d38bac47
 
 Pavyzdžiui:
 ```js run
@@ -180,10 +184,17 @@ alert( message );
 
 Iš praždių gali būti sunku suprasti kas vyksta. Bet geriau įsižiūrėjus matome, kad tai tik įprastinė testų seka:
 
+<<<<<<< HEAD
 1. Pirmas klaustukas patikrina ar `age < 3`.
 2. Jeigu true -- grąžina `'Labas, kūdikėli!'`. Kitu atveju, pereina prie išraiškos po dvitaškio '":"' ir tikrina `age < 18`.
 3. Jeigu šitas yra true -- grąžina `'Labas!'`. Kitu atveju, pereina prie išraiškos po dvitaškio '":"' ir tikrina `age < 100`.
 4. Jeigu tai true -- grąžina `'Sveiki!'`. Kitu atveju, pereina prie išraiškos po paskutinio dvitaškio '":"', grąžina `'Koks neįprastas amžius!'`.
+=======
+1. The first question mark checks whether `age < 3`.
+2. If true -- it returns `'Hi, baby!'`. Otherwise, it continues to the expression after the colon ":", checking `age < 18`.
+3. If that's true -- it returns `'Hello!'`. Otherwise, it continues to the expression after the next colon ":", checking `age < 100`.
+4. If that's true -- it returns `'Greetings!'`. Otherwise, it continues to the expression after the last colon ":", returning `'What an unusual age!'`.
+>>>>>>> 20208769e528337949e946f526534d61d38bac47
 
 Štai kaip tai atrodytų, jeigu naudotume `if..else`:
 
