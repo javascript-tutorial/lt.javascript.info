@@ -82,14 +82,20 @@ let sayHi = function() { // (1) sukurti
   alert( "Labas" );
 };
 
-let func = sayHi;
+let func = sayHi;  //(2)
 // ...
 ```
 
 Viskas veiktų taip pat.
 
+<<<<<<< HEAD
 ````smart header="Kodėl pabaigoje dedamas kabliataškis?"
 Jums gali kilti klausimas, kodėl Function Expression pabaigoje turi kabliataškį `;`, o Function Declaration -- ne:
+=======
+
+````smart header="Why is there a semicolon at the end?"
+You might wonder, why do Function Expressions have a semicolon `;` at the end, but Function Declarations do not:
+>>>>>>> 20208769e528337949e946f526534d61d38bac47
 
 ```js
 function sayHi() {
@@ -143,13 +149,21 @@ function showCancel() {
 ask("Ar sutinkate?", showOk, showCancel);
 ```
 
+<<<<<<< HEAD
 Praktikoje tokios funkcijos yra gana naudingos. Pagrindinis skirtumas tarp “realaus” `ask` ir aukščiau pateikto pavyzdžio yra tas, kad realios funkcijos naudoja sudėtingesnius sąveikos su naudotoju būdus nei paprastas `confirm`. Naršyklėje tokios funkcijos paprastai atvaizduoja gražiai atrodantį klausimo langą. Bet tai jau kita istorija.
+=======
+In practice, such functions are quite useful. The major difference between a real-life `ask` and the example above is that real-life functions use more complex ways to interact with the user than a simple `confirm`. In the browser, such functions usually draw a nice-looking question window. But that's another story.
+>>>>>>> 20208769e528337949e946f526534d61d38bac47
 
 **Funkcijos `ask` argumentai vadinamos *callback-funkcijomis* arba *callback'ais*.**
 
 Idėja yra ta, kad mes perduodame funkciją ir tikimės, kad prireikus vėliau ji bus “iškviesta atgal” (ang. *“call back”* -- grįžtamasis iškvietimas). 
 
+<<<<<<< HEAD
 Norėdami užrašyti tą pačią funkciją daug trumpiau, galime naudoti `Function Expression`:
+=======
+We can use Function Expressions to write an equivalent, shorter function:
+>>>>>>> 20208769e528337949e946f526534d61d38bac47
 
 ```js run no-beautify
 function ask(question, yes, no) {
@@ -186,7 +200,11 @@ Apžvelkime pagrindinius Function Expression ir Function  Declaration skirtumus.
 
 Pirma, sintaksė: kaip juos atskirti kode.
 
+<<<<<<< HEAD
 - *Function Declaration:* funkcija, deklaruojama kaip atskiras teiginys pagrindiniame kodo sraute.
+=======
+- *Function Declaration:* a function, declared as a separate statement, in the main code flow:
+>>>>>>> 20208769e528337949e946f526534d61d38bac47
 
     ```js
     // Function Declaration
@@ -194,7 +212,11 @@ Pirma, sintaksė: kaip juos atskirti kode.
       return a + b;
     }
     ```
+<<<<<<< HEAD
 - *Function Expression:* funkcija, sukurta išraiškos viduje arba kitoje sintaksės konstrukcijoje. Šiuo atveju funkcija sukuriama dešinėje “priskyrimo išraiškos” `=` pusėje:
+=======
+- *Function Expression:* a function, created inside an expression or inside another syntax construct. Here, the function is created on the right side of the "assignment expression" `=`:
+>>>>>>> 20208769e528337949e946f526534d61d38bac47
 
     ```js
     // Function Expression
@@ -291,9 +313,15 @@ if (age < 18) {
   welcome();               // \   (bus vykdoma)
 */!*
                            //  |
+<<<<<<< HEAD
   function welcome() {     //  |  
     alert("Labas!");       //  |  Function Declaration yra prieinamas
   }                        //  |  visame kodo bloke, kuriame jis deklaruotas.
+=======
+  function welcome() {     //  |
+    alert("Hello!");       //  |  Function Declaration is available
+  }                        //  |  everywhere in the block where it's declared
+>>>>>>> 20208769e528337949e946f526534d61d38bac47
                            //  |
 *!*
   welcome();               // /   (bus vykdoma)
@@ -301,8 +329,13 @@ if (age < 18) {
 
 } else {
 
+<<<<<<< HEAD
   function welcome() {    
     alert("Laba diena!");
+=======
+  function welcome() {
+    alert("Greetings!");
+>>>>>>> 20208769e528337949e946f526534d61d38bac47
   }
 }
 
@@ -359,8 +392,13 @@ welcome(); // dabar viskas gerai
 ```
 
 
+<<<<<<< HEAD
 ```smart header="Kada rinktis Function Declaration, o kada - Function Expression?"
 Paprastai, kai reikia deklaruoti funkciją, pirmiausia reikia atkreipti dėmesį į Function Declaration sintaksę. Ši sintaksė suteikia daugiau laisvės organizuojant kodą, nes tokias funkcijas galime iškviesti prieš jas deklaruodami.
+=======
+```smart header="When to choose Function Declaration versus Function Expression?"
+As a rule of thumb, when we need to declare a function, the first thing to consider is Function Declaration syntax. It gives more freedom in how to organize our code, because we can call such functions before they are declared.
+>>>>>>> 20208769e528337949e946f526534d61d38bac47
 
 Function Declaration taip pat geriau skaitomumo požiūriu, nes kode lengviau rasti `function f(...) {...}` nei `let f = function(...) {...};`. Function Declaration labiau “traukia akį”.
 
