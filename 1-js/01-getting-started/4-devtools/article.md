@@ -22,7 +22,7 @@ Programuotojų įrankiai standartiškai atidarys konsolės langą.
 
 Turėtų atrodyt panašiai į tai:
 
-![chrome](chrome.png)
+![chrome](chrome.webp)
 
 Konkretus vaizdas priklauso nuo Chrome versijos, kurią naudojate. Kartais atsiranda pakeitimų, bet visgi vaizdas turėtų būti panašus.
 
@@ -49,7 +49,11 @@ Jų išvaizda gana panaši. Kai išmoksti vieną (gali pradėti nuo Chrome), gal
 
 Safari (Mac naršyklė, neveikia Windows/Linux) yra šiek tiek unikali. Iš pradžių mums reikia įjungti “Programuotojo Meniu” (ang. *“developer menu”*).
 
+<<<<<<< HEAD
 Atidarykite Nuostatas (ang. “*preferences*”) ir eikite į "Pažangi" (ang. “advanced”). Apačioj bus langelis (ang. *“checkbox”*):
+=======
+Open Settings and go to the "Advanced" pane. There's a checkbox at the bottom:
+>>>>>>> 20208769e528337949e946f526534d61d38bac47
 
 ![safari](safari.png)
 
